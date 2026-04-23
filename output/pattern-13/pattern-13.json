@@ -1,0 +1,2322 @@
+{
+  "document": "pattern-13.pdf",
+  "title": "Column Schedule",
+  "columns": [
+    {
+      "column_no": "SW1",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW2",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW3",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW4",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW5",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW6",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW7",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW8",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW9",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW10",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW11",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW12",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW13",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW14",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW15",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW16",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW17",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW18",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M35",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW19",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M35",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW20",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M35",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW21",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M35",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW22",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW23",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW24",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW25",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW26",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW27",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW28",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW29",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW30",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "8-T15"
+        ],
+        "spacing": [
+          "75 C/C",
+          "150 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW31",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "8-T15"
+        ],
+        "spacing": [
+          "75 C/C",
+          "150 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW32",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW33",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW34",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW35",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW36",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW37",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW38",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW39",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW40",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW41",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW42",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW43",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1250
+      },
+      "reinforcement": [
+        "3-10T",
+        "6-32T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M25",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW44",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1250
+      },
+      "reinforcement": [
+        "3-10T",
+        "6-32T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M25",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW45",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW46",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW47",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW48",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW49",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "14-20T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW50",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "14-20T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW51",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "8-T15"
+        ],
+        "spacing": [
+          "75 C/C",
+          "150 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW52",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "8-T15"
+        ],
+        "spacing": [
+          "75 C/C",
+          "150 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW53",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "8-T15"
+        ],
+        "spacing": [
+          "75 C/C",
+          "150 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW54",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "8-T15"
+        ],
+        "spacing": [
+          "75 C/C",
+          "150 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW55",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW56",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW57",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW58",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "26",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW59",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW60",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW61",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW62",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "14-20T",
+        "6-16T"
+      ],
+      "stirrups": {
+        "dia": [
+          "8-T15"
+        ],
+        "spacing": [
+          "75 C/C",
+          "150 C/C"
+        ]
+      },
+      "mix": "M35",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW63",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "14-20T",
+        "6-16T"
+      ],
+      "stirrups": {
+        "dia": [
+          "8-T15"
+        ],
+        "spacing": [
+          "75 C/C",
+          "150 C/C"
+        ]
+      },
+      "mix": "M35",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW64",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "14-20T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW65",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "14-20T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW66",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "14-20T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW67",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "14-20T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW68",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW69",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW70",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW71",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW72",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW73",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW74",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW75",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "6-20T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW76",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "6-20T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW77",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW78",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW79",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW80",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW81",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW82",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW83",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW84",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW85",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW86",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M25",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW87",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M25",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW88",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW89",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "12-10T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW90",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "12-10T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW91",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "12-10T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW92",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW93",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW94",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW95",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW96",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW97",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW98",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW99",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW100",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW101",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW102",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW103",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW104",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW105",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW106",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "75 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW107",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW108",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW109",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW110",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW111",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW112",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW113",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW114",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW115",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW116",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW117",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW118",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW119",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW120",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW121",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW122",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW123",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW124",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "10-12T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M40",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW125",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "10-12T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M40",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW126",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW127",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW128",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "8-16T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M35",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW129",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "8-16T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M35",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW130",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW131",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW132",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW133",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "COL_60",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "COL_62",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "COL_64",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "COL_65",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "COL_66",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "8-16T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "COL_67",
+      "column_name": "NINTH_TO_TENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    }
+  ]
+}

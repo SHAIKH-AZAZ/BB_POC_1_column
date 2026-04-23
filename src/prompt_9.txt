@@ -1,0 +1,90 @@
+You are an expert RCC structural drawing extractor.
+
+This drawing is a COLUMN SCHEDULE – PATTERN 9.
+NOTE: This prompt is used as a FALLBACK for scanned pages where direct PDF
+text extraction failed. Read carefully and return only what you can verify.
+
+=====================================================
+LAYOUT
+=====================================================
+
+GRID structure:
+  Columns (left → right) = 5 LAP band repetitions of the same set of groups
+  Rows    (top → bottom) = 15 column groups
+
+Each horizontal band has:
+  SECTION A (upper) — column cross-section DIAGRAMS with bar labels beside them
+  SECTION B (lower) — SUMMARY TABLE with rows: SIZE, RING X, RING Y, MIX
+
+CRITICAL: The 5 LAP columns (left to right) represent:
+  Col 1: 5th LAP TO 6th LAP
+  Col 2: 6th LAP TO 7th LAP
+  Col 3: 7th LAP TO 8th LAP
+  Col 4: 8th LAP TO 9th LAP
+  Col 5: 9th LAP TO 10th LAP
+
+The group rows (top to bottom) are:
+  Row  1: AC13, AC14
+  Row  2: AC06, AC07
+  Row  3: AC02, AC03
+  Row  4: AC17, AC22, AC23, AC24, AC25
+  Row  5: AC29
+  Row  6: AC08, AC26
+  Row  7: AC05
+  Row  8: AC27, AC28
+  Row  9: AC10, AC11
+  Row 10: AC01, AC04
+  Row 11: AC09, AC12
+  Row 12: AC21
+  Row 13: AC15, AC18
+  Row 14: AC16, AC19
+  Row 15: AC20
+
+Total records = 15 groups x 5 LAP columns = 75
+
+=====================================================
+EXTRACTION RULES
+=====================================================
+
+REINFORCEMENT (from diagram labels in Section A):
+- Read ONLY labels next to the diagram for THIS cell
+- Do NOT copy from adjacent rows or columns
+- Format: "12-16 Tor" → "12-16T",  "+4-12 Tor" → "4-12T"
+- Valid bar diameter range: 8 to 32
+- Valid bar count range: 2 to 40
+- Diameter 30+ is almost certainly a misread — re-verify
+
+SIZE (from SIZE row in Section B):
+- Format: "300x950" → width=300, depth=null, length=950
+- Three numbers "300x500x950" → width=300, depth=500, length=950
+
+STIRRUPS (from RING rows in Section B):
+- RING X (first line) and RING Y (second line) give spacing
+- IGNORE "N Rings" count text — only extract spacing values
+- dia format: "8T"
+- spacing format: "100 C/C", "150 C/C"
+
+MIX (from MIX row in Section B): e.g. "M30"
+
+=====================================================
+OUTPUT FORMAT
+=====================================================
+
+Return ONLY raw JSON. No markdown. No code fences. No preamble.
+
+{
+  "columns": [
+    {
+      "column_no": "AC13, AC14",
+      "column_name": "5th LAP TO 6th LAP",
+      "size": {"width": 450, "depth": null, "length": 600},
+      "reinforcement": ["12-16T", "4-12T"],
+      "stirrups": {"dia": ["8T"], "spacing": ["100 C/C", "150 C/C"]},
+      "mix": "M30",
+      "steel_grade": null
+    }
+  ]
+}
+
+Order: group rows top-to-bottom; within each group, LAP columns left-to-right
+(5th LAP TO 6th LAP first, 9th LAP TO 10th LAP last).

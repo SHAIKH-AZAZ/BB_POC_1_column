@@ -1,0 +1,148 @@
+You are an expert structural RCC column schedule extractor.
+Extract the column schedule from the drawing.
+Return STRICT JSON in this exact format:
+
+{
+  "columns": [
+    {
+      "column_no": "",
+      "column_name": "",
+      "size": {
+        "width": null,
+        "length": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      },
+      "mix": null,
+      "steel_grade": null
+    }
+  ]
+}
+
+===========================
+DRAWING STRUCTURE — PATTERN 14
+===========================
+
+This drawing has these columns:
+  FOOTING MARK  → column_no   (CP1, CP2, CP3, CP4, CP5, CP6, CP7, CP8)
+  BASEMENT FLOOR COLUMN section contains:
+    COL. SIZE   → size
+    VER. STEEL  → reinforcement
+    COL. RING   → stirrups
+    MIX.        → mix
+
+  column_name = "BASEMENT FLOOR COLUMN" for all rows
+
+===========================
+DRAWING FORMAT
+===========================
+
+Examples:
+
+CP1:
+  COL. SIZE  = 600X600   → width=600, length=600
+  VER. STEEL = • 12-20 TOR
+  COL. RING  = 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS
+  MIX        = M25
+
+CP2:
+  COL. SIZE  = 600X600   → width=600, length=600
+  VER. STEEL = • 4-25 TOR + • 8-20 TOR
+  COL. RING  = 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS
+  MIX        = M25
+
+CP3:
+  COL. SIZE  = 600X600   → width=600, length=600
+  VER. STEEL = • 12-20 TOR
+  COL. RING  = 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS
+  MIX        = M25
+
+CP4:
+  COL. SIZE  = 900X900   → width=900, length=900
+  VER. STEEL = • 16-25 TOR
+  COL. RING  = 10 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS + 2 LINKS
+  MIX        = M25
+
+CP5:
+  COL. SIZE  = 600X600   → width=600, length=600
+  VER. STEEL = • 6-20 TOR + • 6-16 TOR
+  COL. RING  = 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS
+  MIX        = M25
+
+CP6:
+  COL. SIZE  = 600X600   → width=600, length=600
+  VER. STEEL = • 4-20 TOR + • 8-16 TOR
+  COL. RING  = 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS
+  MIX        = M25
+
+CP7:
+  COL. SIZE  = 600X600   → width=600, length=600
+  VER. STEEL = • 4-20 TOR + • 8-16 TOR
+  COL. RING  = 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS
+  MIX        = M25
+
+CP8:
+  COL. SIZE  = 350X600   → width=350, length=600
+  VER. STEEL = • 12-16 TOR
+  COL. RING  = 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS + 1 LINK
+  MIX        = M25
+
+  Make sure that values might change according to the pdfs.
+
+===========================
+SIZE EXTRACTION
+===========================
+
+COL. SIZE is "WIDTHxlength". Map first number → width, second → length. length = null.
+
+===========================
+VER. STEEL → reinforcement
+===========================
+
+The VER. STEEL cell has bar groups. The bullet symbol • or ○ is just a marker — ignore it.
+Each bar group separated by + is a SEPARATE list item.
+
+FORMAT: COUNT-DIAT (replace TOR with T, remove spaces)
+
+Examples from this drawing:
+  "• 12-20 TOR"              → ["12-20T"]
+  "• 4-25 TOR + • 8-20 TOR"  → ["4-25T", "8-20T"]
+  "• 12-20 TOR"              → ["12-20T"]
+  "• 16-25 TOR"              → ["16-25T"]
+  "• 6-20 TOR + • 6-16 TOR"  → ["6-20T", "6-16T"]
+  "• 4-20 TOR + • 8-16 TOR"  → ["4-20T", "8-16T"]
+  "• 12-16 TOR"              → ["12-16T"]
+
+CRITICAL: You MUST extract the reinforcement. It is NOT empty. Read VER. STEEL column carefully.
+
+===========================
+COL. RING → stirrups
+===========================
+
+dia FORMAT: "DIAMETER-TENDCOUNT"
+  - DIAMETER = number before TOR (e.g. 8, 10)
+  - ENDCOUNT = number after TOR before first @ (e.g. 8)
+  - Format: "8-T8", "10-T8"
+  - If no number before first @: "T8" or "T10"
+
+spacing FORMAT: all spacing values comma-separated ascending with C/C
+  e.g. "100 C/C, 150 C/C"
+
+Examples:
+  "8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS"       → dia="8-T8",  spacing="100 C/C, 150 C/C"
+  "10 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS+2LINKS" → dia="10-T8", spacing="100 C/C, 150 C/C"
+  "8 TOR @ 100 C/C"                                    → dia="T8",    spacing="100 C/C"
+
+SETS and LINKS are notes — ignore completely.
+
+===========================
+IMPORTANT RULES
+===========================
+
+- reinforcement is NEVER empty in this drawing — always extract from VER. STEEL
+- Do NOT return [] for reinforcement — read the VER. STEEL column
+- Return ONLY valid raw JSON — no markdown, no explanation
