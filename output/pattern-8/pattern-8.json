@@ -5,17 +5,17 @@
       "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
-        "depth": null,
+        "depth": 600,
         "length": null
       },
       "reinforcement": [
         "12-20T"
       ],
       "stirrups": {
-        "dia": "8-T8",
-        "spacing": "100 C/C, 150 C/C"
+        "dia": "",
+        "spacing": "100 C/C"
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -23,7 +23,7 @@
       "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
-        "depth": null,
+        "depth": 600,
         "length": null
       },
       "reinforcement": [
@@ -31,10 +31,10 @@
         "8-20T"
       ],
       "stirrups": {
-        "dia": "8-T8",
-        "spacing": "100 C/C, 150 C/C"
+        "dia": "",
+        "spacing": "100 C/C"
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -42,35 +42,35 @@
       "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
-        "depth": null,
+        "depth": 600,
         "length": null
       },
       "reinforcement": [
         "12-20T"
       ],
       "stirrups": {
-        "dia": "8-T8",
-        "spacing": "100 C/C, 150 C/C"
+        "dia": "",
+        "spacing": "100 C/C"
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     },
     {
       "column_no": "CP4",
       "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
-        "width": 600,
-        "depth": null,
+        "width": 900,
+        "depth": 900,
         "length": null
       },
       "reinforcement": [
         "16-25T"
       ],
       "stirrups": {
-        "dia": "10-T8",
-        "spacing": "100 C/C, 150 C/C"
+        "dia": "",
+        "spacing": "100 C/C"
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -78,7 +78,7 @@
       "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
-        "depth": null,
+        "depth": 600,
         "length": null
       },
       "reinforcement": [
@@ -86,10 +86,10 @@
         "6-16T"
       ],
       "stirrups": {
-        "dia": "8-T8",
-        "spacing": "100 C/C, 150 C/C"
+        "dia": "",
+        "spacing": "100 C/C"
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -97,7 +97,7 @@
       "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
-        "depth": null,
+        "depth": 600,
         "length": null
       },
       "reinforcement": [
@@ -105,10 +105,10 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": "8-T8",
-        "spacing": "100 C/C, 150 C/C"
+        "dia": "",
+        "spacing": "100 C/C"
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -116,7 +116,7 @@
       "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
-        "depth": null,
+        "depth": 600,
         "length": null
       },
       "reinforcement": [
@@ -124,10 +124,10 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": "8-T8",
-        "spacing": "100 C/C, 150 C/C"
+        "dia": "",
+        "spacing": "100 C/C"
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -135,17 +135,17 @@
       "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 350,
-        "depth": null,
+        "depth": 600,
         "length": null
       },
       "reinforcement": [
         "12-16T"
       ],
       "stirrups": {
-        "dia": "8-T8",
-        "spacing": "100 C/C, 150 C/C"
+        "dia": "",
+        "spacing": "100 C/C"
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     }
   ]

@@ -6,14 +6,14 @@
       "size": {
         "width": 600,
         "depth": null,
-        "length": 600
+        "length": null
       },
       "reinforcement": [
         "16-T16"
       ],
       "stirrups": {
         "dia": "T8",
-        "spacing": "100 C/C, 200 C/C"
+        "spacing": ""
       },
       "mix": null,
       "steel_grade": null
@@ -24,14 +24,14 @@
       "size": {
         "width": 450,
         "depth": null,
-        "length": 600
+        "length": null
       },
       "reinforcement": [
         "14-T16"
       ],
       "stirrups": {
         "dia": "T8",
-        "spacing": "100 C/C, 200 C/C"
+        "spacing": ""
       },
       "mix": null,
       "steel_grade": null

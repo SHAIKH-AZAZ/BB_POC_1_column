@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
-from vision_extractor import extract_from_image
+from vision_extractor import extract_from_image, extract_with_tools
 
 
 # ==============================
@@ -74,7 +74,7 @@ def process_pdf(pdf_path):
 
         print(f"🧠 Extracting → {img_path}")
 
-        result = extract_from_image(img_path, prompt)
+        result = extract_with_tools(img_path, prompt)
 
         try:
             parsed = json.loads(result)

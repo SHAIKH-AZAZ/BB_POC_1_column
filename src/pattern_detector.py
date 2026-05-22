@@ -1,4 +1,5 @@
 import json
+
 from pdf_to_images import convert_pdf_to_images
 from vision_extractor import extract_from_image
 
@@ -22,20 +23,39 @@ Return ONLY a single integer (1-14). No explanation. No extra text.
 PATTERN DEFINITIONS — READ ALL BEFORE DECIDING
 =====================================================================
 
---- PATTERN 1: FLOOR-WISE ROWS + TYPE-GROUPED COLUMN HEADERS ---
+--- PATTERN 1: TEXT-ONLY COLUMN SCHEDULE MATRIX — COLUMN MARKS × FLOOR LEVELS ---
 
 Visual structure:
-- Table has HORIZONTAL ROWS for each floor level
-  (e.g. "ABOVE TERRACE LEVEL", "4TH FLOOR LEVEL", "3RD FLOOR LEVEL", etc.)
-- Table has many COLUMN HEADERS at the top grouping columns by TYPE
-  (e.g. TYPE-1, TYPE-2 ... or C1,C7,C13 / C2,C6 etc.)
-- Under each TYPE group header: SIZE row and REINF (reinforcement) row
-- STIRRUPS row at the bottom
+- Full-width RCC column schedule table.
+- Top header contains "Column Nos." or many column mark headers such as:
+  C1, C2, C3, C7, C40, C41, C10,C48, C35,C38, etc.
+- TYPE labels such as TYPE-1, TYPE-2, TYPE-3 may appear above or near the header,
+  but they are OPTIONAL and should not be required.
+- Left-most side contains vertical or horizontal level/span labels such as:
+  TERRACE LEVEL, FLOOR LEVEL, PLINTH LEVEL, GROUND LEVEL, BASEMENT LEVEL,
+  or similar floor/level names.
+- For each floor/level band, the table repeats sub-rows labelled:
+  SIZE / REINF.
+  or SIZE / STEEL
+  or SIZE / BAR
+- Each data cell contains ONLY text/numeric values:
+  sizes like 700 x 700, 750 x 750, 850 x 1100
+  reinforcement like 20-T25, 4-T20+16-T16, 8-T25+4-T20
+- Cells do NOT contain column cross-section drawings, bar-dot diagrams,
+  elevation drawings, or rebar sketches.
 
 Key identifiers:
-✓ Floor level names in LEFT-MOST COLUMN as row labels
-✓ Column type groups spanning multiple sub-columns at the TOP
-✓ Both SIZE and REINF. sub-rows within each floor row
+✓ "Column Nos." or many C-number column headers across the top
+✓ Repeated SIZE and REINF./STEEL sub-rows in the body
+✓ Floor/level/span labels on the left side
+✓ Text-only cells with size and reinforcement values
+✓ No cross-section drawings inside cells
+
+Reject if:
+- Each cell contains a drawn rectangle/cross-section with rebar dots → NOT Pattern 1
+- SIZE includes inline type codes like "400 x 1500 (TYPE-10)" inside cells → likely Pattern 10
+- Header is only "COLUMN MARK | SIZES" with no reinforcement → Pattern 7
+- Table is only three floor-span columns like FOOTING TO GROUND / GROUND TO FIRST / FIRST TO ROOF → Pattern 2
 
 → RETURN 1
 

@@ -6,7 +6,7 @@
       "size": {
         "width": 200,
         "depth": null,
-        "length": 200
+        "length": null
       },
       "reinforcement": [
         "4-T16"
@@ -24,7 +24,7 @@
       "size": {
         "width": 230,
         "depth": null,
-        "length": 230
+        "length": null
       },
       "reinforcement": [
         "4-T16"
@@ -58,7 +58,7 @@
       "size": {
         "width": 200,
         "depth": null,
-        "length": 600
+        "length": null
       },
       "reinforcement": [
         "4-T25",
@@ -77,7 +77,7 @@
       "size": {
         "width": 200,
         "depth": null,
-        "length": 600
+        "length": null
       },
       "reinforcement": [
         "4-T25",
@@ -112,7 +112,7 @@
       "size": {
         "width": 200,
         "depth": null,
-        "length": 800
+        "length": null
       },
       "reinforcement": [
         "4-T25",
@@ -131,7 +131,7 @@
       "size": {
         "width": 200,
         "depth": null,
-        "length": 800
+        "length": null
       },
       "reinforcement": [
         "8-T25",
@@ -166,7 +166,7 @@
       "size": {
         "width": 230,
         "depth": null,
-        "length": 230
+        "length": null
       },
       "reinforcement": [
         "4-T16",
@@ -185,7 +185,7 @@
       "size": {
         "width": 300,
         "depth": null,
-        "length": 300
+        "length": null
       },
       "reinforcement": [
         "4-T16",
@@ -220,7 +220,7 @@
       "size": {
         "width": 200,
         "depth": null,
-        "length": 600
+        "length": null
       },
       "reinforcement": [
         "4-T25",
@@ -239,7 +239,7 @@
       "size": {
         "width": 200,
         "depth": null,
-        "length": 600
+        "length": null
       },
       "reinforcement": [
         "4-T25",
@@ -274,7 +274,7 @@
       "size": {
         "width": 200,
         "depth": null,
-        "length": 1100
+        "length": null
       },
       "reinforcement": [
         "4-T25",
@@ -293,7 +293,7 @@
       "size": {
         "width": 300,
         "depth": null,
-        "length": 1100
+        "length": null
       },
       "reinforcement": [
         "8-T25",

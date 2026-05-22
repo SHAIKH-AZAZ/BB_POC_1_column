@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
-from vision_extractor import extract_from_image
+from vision_extractor import extract_from_image, extract_with_tools
 
 
 # ==============================
@@ -29,7 +29,7 @@ def extract_column_groups(image_path, prompt):
 
     mode_prompt = prompt + "\n\nExtract ONLY COLUMN MARKED row."
 
-    result = extract_from_image(image_path, mode_prompt)
+    result = extract_with_tools(image_path, mode_prompt)
 
     try:
         parsed = json.loads(result)
@@ -50,7 +50,7 @@ def extract_floor(image_path, prompt, floor_name, total_positions):
         + f"Total column positions: {total_positions}\n"
     )
 
-    result = extract_from_image(image_path, mode_prompt)
+    result = extract_with_tools(image_path, mode_prompt)
 
     try:
         parsed = json.loads(result)

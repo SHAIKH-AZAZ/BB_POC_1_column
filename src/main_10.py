@@ -32,7 +32,7 @@ import fitz  # PyMuPDF
 
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
-from vision_extractor import extract_from_image
+from vision_extractor import extract_from_image, extract_with_tools
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -245,7 +245,7 @@ def _vision_detect_labels(pdf_path: str) -> dict:
         print("  ⚠️  PDF→image conversion failed.")
         return {"col_headers": [], "floor_ranges": []}
 
-    raw = extract_from_image(imgs[0], _VISION_PROMPT)
+    raw = extract_with_tools(imgs[0], _VISION_PROMPT)
 
     try:
         text = raw.strip()

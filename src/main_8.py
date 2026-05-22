@@ -6,7 +6,7 @@ from PIL import Image
 
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
-from vision_extractor import extract_from_image
+from vision_extractor import extract_from_image, extract_with_tools
 
 
 # ================================
@@ -214,7 +214,7 @@ def extract_with_fallback(image_path, prompt):
     """
 
     # ---- First Attempt (Full Image) ----
-    result = extract_from_image(image_path, prompt)
+    result = extract_with_tools(image_path, prompt)
 
     # Debug: print raw model output
     print(f"\n[DEBUG] Raw model output (first 500 chars):\n{result[:500]}\n")
@@ -234,7 +234,7 @@ def extract_with_fallback(image_path, prompt):
     print("⚠ Full image extraction failed. Trying cropped bottom region...")
 
     cropped_path = crop_bottom_region(image_path)
-    result = extract_from_image(cropped_path, prompt)
+    result = extract_with_tools(cropped_path, prompt)
 
     try:
         parsed = json.loads(result)

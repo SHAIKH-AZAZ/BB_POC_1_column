@@ -6,7 +6,7 @@
       "size": {
         "width": 300,
         "depth": null,
-        "length": 750
+        "length": null
       },
       "reinforcement": [
         "14-20T"
@@ -15,7 +15,7 @@
         "dia": "8T",
         "spacing": "100 C/C, 150 C/C"
       },
-      "mix": "M-35",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -24,7 +24,7 @@
       "size": {
         "width": 450,
         "depth": null,
-        "length": 600
+        "length": null
       },
       "reinforcement": [
         "14-20T"
@@ -33,7 +33,7 @@
         "dia": "8T",
         "spacing": "100 C/C, 150 C/C"
       },
-      "mix": "M-35",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -42,7 +42,7 @@
       "size": {
         "width": 300,
         "depth": null,
-        "length": 600
+        "length": null
       },
       "reinforcement": [
         "12-20T"
@@ -51,7 +51,7 @@
         "dia": "8T",
         "spacing": "100 C/C, 150 C/C"
       },
-      "mix": "M-35",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -60,7 +60,7 @@
       "size": {
         "width": 350,
         "depth": null,
-        "length": 750
+        "length": null
       },
       "reinforcement": [
         "14-20T"
@@ -69,7 +69,7 @@
         "dia": "8T",
         "spacing": "100 C/C, 150 C/C"
       },
-      "mix": "M-35",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -78,7 +78,7 @@
       "size": {
         "width": 450,
         "depth": null,
-        "length": 450
+        "length": null
       },
       "reinforcement": [
         "4-20T",
@@ -88,7 +88,7 @@
         "dia": "8T",
         "spacing": "100 C/C, 150 C/C"
       },
-      "mix": "M-35",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -97,7 +97,7 @@
       "size": {
         "width": 300,
         "depth": null,
-        "length": 600
+        "length": null
       },
       "reinforcement": [
         "12-16T"
@@ -106,7 +106,7 @@
         "dia": "8T",
         "spacing": "100 C/C, 150 C/C"
       },
-      "mix": "M-35",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -115,7 +115,7 @@
       "size": {
         "width": 300,
         "depth": null,
-        "length": 750
+        "length": null
       },
       "reinforcement": [
         "14-20T"
@@ -124,7 +124,7 @@
         "dia": "8T",
         "spacing": "100 C/C"
       },
-      "mix": "M-35",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -133,7 +133,7 @@
       "size": {
         "width": 450,
         "depth": null,
-        "length": 600
+        "length": null
       },
       "reinforcement": [
         "14-20T"
@@ -142,7 +142,7 @@
         "dia": "8T",
         "spacing": "100 C/C"
       },
-      "mix": "M-35",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -151,7 +151,7 @@
       "size": {
         "width": 300,
         "depth": null,
-        "length": 600
+        "length": null
       },
       "reinforcement": [
         "12-20T"
@@ -160,7 +160,7 @@
         "dia": "8T",
         "spacing": "100 C/C"
       },
-      "mix": "M-35",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -169,7 +169,7 @@
       "size": {
         "width": 350,
         "depth": null,
-        "length": 750
+        "length": null
       },
       "reinforcement": [
         "14-20T"
@@ -178,7 +178,7 @@
         "dia": "8T",
         "spacing": "100 C/C"
       },
-      "mix": "M-35",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -187,7 +187,7 @@
       "size": {
         "width": 450,
         "depth": null,
-        "length": 450
+        "length": null
       },
       "reinforcement": [
         "4-20T",
@@ -197,7 +197,7 @@
         "dia": "8T",
         "spacing": "100 C/C"
       },
-      "mix": "M-35",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -206,7 +206,7 @@
       "size": {
         "width": 300,
         "depth": null,
-        "length": 600
+        "length": null
       },
       "reinforcement": [
         "12-16T"
@@ -215,7 +215,7 @@
         "dia": "8T",
         "spacing": "100 C/C"
       },
-      "mix": "M-35",
+      "mix": null,
       "steel_grade": null
     }
   ]

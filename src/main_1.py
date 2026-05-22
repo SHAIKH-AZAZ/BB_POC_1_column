@@ -1,171 +1,16 @@
-# import os
-# import json
-# import cv2
-# from tqdm import tqdm
-
-# from config import INPUT_DIR, OUTPUT_DIR
-# from pdf_to_images import convert_pdf_to_images
-# from vision_extractor import extract_from_image
-
-
-# # -------------------------------
-# # LOAD PROMPT
-# # -------------------------------
-
-# def load_prompt():
-#     with open(
-#         os.path.join(os.path.dirname(__file__), "prompt_1.txt"),
-#         "r",
-#         encoding="utf-8"
-#     ) as f:
-#         return f.read()
-
-
-# # -------------------------------
-# # VERTICAL SPLIT
-# # -------------------------------
-
-# def split_vertical(image, output_folder):
-
-#     height, width = image.shape[:2]
-#     slice_width = width // 4
-
-#     paths = []
-
-#     for i in range(4):
-#         left = i * slice_width
-#         right = (i + 1) * slice_width if i < 3 else width
-
-#         crop = image[:, left:right]
-
-#         path = os.path.join(output_folder, f"vertical_{i+1}.png")
-#         cv2.imwrite(path, crop)
-
-#         paths.append(path)
-
-#     return paths
-
-
-# # -------------------------------
-# # SIZE PARSER
-# # -------------------------------
-
-# def parse_size(size_text):
-#     try:
-#         parts = size_text.lower().replace(" ", "").split("x")
-#         width = int(parts[0])
-#         length = int(parts[1])
-#         return width, length
-#     except:
-#         return None, None
-
-
-# # -------------------------------
-# # PROCESS PDF
-# # -------------------------------
-
-# def process_pdf(pdf_path):
-
-#     file_name = os.path.splitext(os.path.basename(pdf_path))[0]
-#     output_folder = os.path.join(OUTPUT_DIR, file_name)
-#     os.makedirs(output_folder, exist_ok=True)
-
-#     image_paths = convert_pdf_to_images(
-#         pdf_path,
-#         output_folder,
-#         dpi=950
-#     )
-
-#     prompt = load_prompt()
-#     final_columns = []
-
-#     for img_path in image_paths:
-
-#         full_img = cv2.imread(img_path)
-#         vertical_slices = split_vertical(full_img, output_folder)
-
-#         for slice_path in tqdm(vertical_slices):
-
-#             result = extract_from_image(slice_path, prompt)
-
-#             try:
-#                 parsed = json.loads(result)
-#                 column_blocks = parsed.get("columns", [])
-
-#                 for block in column_blocks:
-
-#                     column_no = block.get("column_no")
-
-#                     stirrups = {
-#                         "dia": ["T8"],        # if global, can improve later
-#                         "spacing": ["200C/C"]
-#                     }
-
-#                     for lvl in block.get("levels", []):
-
-#                         width, length = parse_size(lvl.get("size"))
-
-#                         final_columns.append({
-#                             "column_no": column_no,
-#                             "column_name": lvl.get("column_name"),
-#                             "size": {
-#                                 "width": width,
-#                                 "depth": None,
-#                                 "length": length
-#                             },
-#                             "reinforcement": lvl.get("reinforcement", []),
-#                             "stirrups": stirrups,
-#                             "mix": None,
-#                             "steel_grade": None
-#                         })
-
-#             except:
-#                 continue
-
-#     final_output = {"columns": final_columns}
-
-#     output_file = os.path.join(output_folder, f"{file_name}.json")
-
-#     with open(output_file, "w") as f:
-#         json.dump(final_output, f, indent=2)
-
-#     print(f"✅ Output saved to {output_file}")
-
-
-# # -------------------------------
-# # MAIN
-# # -------------------------------
-
-# def main():
-
-#     os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-#     pdf_files = [
-#         f for f in os.listdir(INPUT_DIR)
-#         if f.lower().endswith(".pdf")
-#     ]
-
-#     for pdf in pdf_files:
-#         process_pdf(os.path.join(INPUT_DIR, pdf))
-
-
-# if __name__ == "__main__":
-#     main()
-
-
 import os
 import json
-import cv2
+import re
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
-from vision_extractor import extract_from_image
+from vision_extractor import extract_from_image, extract_with_tools
 
 
-# -------------------------------
+# ==============================
 # LOAD PROMPT
-# -------------------------------
+# ==============================
 
 def load_prompt():
     with open(
@@ -176,48 +21,77 @@ def load_prompt():
         return f.read()
 
 
-# -------------------------------
-# VERTICAL SPLIT
-# -------------------------------
+# ==============================
+# CLEAN SIZE
+# ==============================
 
-def split_vertical(image, output_folder):
-
-    height, width = image.shape[:2]
-    slice_width = width // 4
-
-    paths = []
-
-    for i in range(4):
-        left = i * slice_width
-        right = (i + 1) * slice_width if i < 3 else width
-
-        crop = image[:, left:right]
-
-        path = os.path.join(output_folder, f"vertical_{i+1}.png")
-        cv2.imwrite(path, crop)
-
-        paths.append(path)
-
-    return paths
+def clean_size(size):
+    if not size:
+        return {"width": None, "depth": None, "length": None}
+    return {
+        "width":  size.get("width"),
+        "depth":  size.get("depth"),
+        "length": None,
+    }
 
 
-# -------------------------------
-# SIZE PARSER
-# -------------------------------
+# ==============================
+# CLEAN REINFORCEMENT
+# ==============================
 
-def parse_size(size_text):
-    try:
-        parts = size_text.lower().replace(" ", "").split("x")
-        width = int(parts[0])
-        length = int(parts[1])
-        return width, length
-    except:
-        return None, None
+def clean_reinforcement(values):
+    if not values:
+        return []
+    cleaned = []
+    for v in values:
+        v = str(v).strip().upper()
+        for part in v.split("+"):
+            part = part.strip()
+            if part and part not in cleaned:
+                cleaned.append(part)
+    return cleaned
 
 
-# -------------------------------
+# ==============================
+# CLEAN STIRRUPS
+# ==============================
+
+def clean_stirrups(stirrups):
+    if not stirrups:
+        return {"dia": [], "spacing": []}
+
+    # extract_with_tools already builds stirrups as {"dia": [...], "spacing": [...]}
+    if isinstance(stirrups, dict):
+        dia     = stirrups.get("dia", [])
+        spacing = stirrups.get("spacing", [])
+        if isinstance(dia, str):
+            dia = [dia] if dia else []
+        if isinstance(spacing, str):
+            spacing = [spacing] if spacing else []
+        return {
+            "dia":     sorted(set(d for d in dia if d)),
+            "spacing": sorted(set(s for s in spacing if s)),
+        }
+
+    # Fallback: raw string
+    text    = str(stirrups).upper()
+    dia     = []
+    spacing = []
+
+    dm = re.search(r"T\d+", text)
+    if dm:
+        dia = [dm.group()]
+
+    for s in re.findall(r"\d+\s*C/?C", text):
+        s = re.sub(r"C/?C", "C/C", s.strip())
+        spacing.append(s)
+
+    return {"dia": dia, "spacing": sorted(set(spacing))}
+
+
+# ==============================
 # PROCESS PDF
-# -------------------------------
+# ==============================
 
 def process_pdf(pdf_path):
 
@@ -225,113 +99,52 @@ def process_pdf(pdf_path):
     output_folder = os.path.join(OUTPUT_DIR, file_name)
     os.makedirs(output_folder, exist_ok=True)
 
-    image_paths = convert_pdf_to_images(
-        pdf_path,
-        output_folder,
-        dpi=950
-    )
+    print(f"\n Converting {file_name}.pdf to images...")
+    image_paths = convert_pdf_to_images(pdf_path, output_folder)
 
     prompt = load_prompt()
+    all_columns = []
 
+    for img_path in tqdm(image_paths):
+        print(f"  Extracting -> {img_path}")
+        result = extract_with_tools(img_path, prompt)
+
+        try:
+            parsed = json.loads(result)
+            if "columns" in parsed:
+                all_columns.extend(parsed["columns"])
+        except Exception as e:
+            print(f"  JSON parse failed: {e}")
+
+    # Clean up each flat column record
     final_columns = []
-    master_levels = []
-    levels_detected = False
-
-    for img_path in image_paths:
-
-        full_img = cv2.imread(img_path)
-        vertical_slices = split_vertical(full_img, output_folder)
-
-        for slice_index, slice_path in enumerate(tqdm(vertical_slices)):
-
-            result = extract_from_image(slice_path, prompt)
-
-            try:
-                parsed = json.loads(result)
-                column_blocks = parsed.get("columns", [])
-
-                for block in column_blocks:
-
-                    column_no = block.get("column_no")
-
-                    stirrups = {
-                        "dia": ["T8"],
-                        "spacing": ["200C/C"]
-                    }
-
-                    levels = block.get("levels", [])
-
-                    # ---------------------------------------
-                    # STEP 1: Extract master levels only once
-                    # ---------------------------------------
-                    if not levels_detected and slice_index == 0:
-                        for lvl in levels:
-                            name = lvl.get("column_name")
-                            if name and name.strip():
-                                master_levels.append(name.strip())
-
-                        levels_detected = True
-
-                        # Save detected levels to file
-                        levels_file = os.path.join(output_folder, "detected_levels.json")
-                        with open(levels_file, "w") as f:
-                            json.dump({"levels": master_levels}, f, indent=2)
-
-                        print("✅ Master Levels Stored")
-
-                    # ---------------------------------------
-                    # STEP 2: Attach correct level name
-                    # ---------------------------------------
-                    for i, lvl in enumerate(levels):
-
-                        width, length = parse_size(lvl.get("size"))
-
-                        # Use master levels if available
-                        if master_levels:
-                            level_name = master_levels[i % len(master_levels)]
-                        else:
-                            level_name = lvl.get("column_name")
-
-                        final_columns.append({
-                            "column_no": column_no,
-                            "column_name": level_name,
-                            "size": {
-                                "width": width,
-                                "depth": None,
-                                "length": length
-                            },
-                            "reinforcement": lvl.get("reinforcement", []),
-                            "stirrups": stirrups,
-                            "mix": None,
-                            "steel_grade": None
-                        })
-
-            except Exception as e:
-                print("⚠ Error parsing slice:", e)
-                continue
-
-    final_output = {"columns": final_columns}
+    for col in all_columns:
+        col["size"]          = clean_size(col.get("size"))
+        col["reinforcement"] = clean_reinforcement(col.get("reinforcement"))
+        col["stirrups"]      = clean_stirrups(col.get("stirrups"))
+        col.setdefault("mix", None)
+        col.setdefault("steel_grade", None)
+        final_columns.append(col)
 
     output_file = os.path.join(output_folder, f"{file_name}.json")
-
     with open(output_file, "w") as f:
-        json.dump(final_output, f, indent=2)
+        json.dump({"columns": final_columns}, f, indent=2)
 
-    print(f"\n✅ Output saved to {output_file}")
+    print(f"Output saved to {output_file}")
 
 
-# -------------------------------
+# ==============================
 # MAIN
-# -------------------------------
+# ==============================
 
 def main():
-
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    pdf_files = [
-        f for f in os.listdir(INPUT_DIR)
-        if f.lower().endswith(".pdf")
-    ]
+    pdf_files = [f for f in os.listdir(INPUT_DIR) if f.lower().endswith(".pdf")]
+
+    if not pdf_files:
+        print("No PDF files found in input folder.")
+        return
 
     for pdf in pdf_files:
         process_pdf(os.path.join(INPUT_DIR, pdf))

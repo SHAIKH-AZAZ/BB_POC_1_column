@@ -42,7 +42,7 @@ import fitz  # PyMuPDF  (pip install pymupdf)
 
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
-from vision_extractor import extract_from_image
+from vision_extractor import extract_from_image, extract_with_tools
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -739,7 +739,7 @@ def process_pdf(pdf_path: str):
             if image_paths is None:
                 image_paths = convert_pdf_to_images(pdf_path, output_folder, dpi=300)
             if page_no < len(image_paths):
-                raw = extract_from_image(image_paths[page_no], vision_prompt)
+                raw = extract_with_tools(image_paths[page_no], vision_prompt)
                 try:
                     parsed = _parse_model_output(raw)
                     vision = _post_process_vision(parsed.get("columns", []))
