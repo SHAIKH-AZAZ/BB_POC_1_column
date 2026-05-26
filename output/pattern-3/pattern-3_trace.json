@@ -1,0 +1,1227 @@
+{
+  "project": "column",
+  "pdf_stem": "pattern-3",
+  "pages": {
+    "page_1.png__p01_l001_BASEMENT_FLOOR_LVL_To_BASEMENT_SLAB_LVL": {
+      "project": "column",
+      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-3\\page_1.png",
+      "generated_at": "2026-05-26T18:48:44.464852+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1920,
+          "y2": 1080
+        },
+        "column_headers": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C6",
+          "C7"
+        ],
+        "storey_levels": [
+          "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL."
+        ],
+        "expected_count": 6,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "data_cell",
+            "target": "C1 size",
+            "x1": 350,
+            "y1": 150,
+            "x2": 400,
+            "y2": 300,
+            "reason": "read size 300 x 750"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "target": "C1 reinforcement",
+            "x1": 350,
+            "y1": 300,
+            "x2": 400,
+            "y2": 400,
+            "reason": "read reinforcement 14-20T"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "data_cell",
+            "target": "C1 stirrups",
+            "x1": 350,
+            "y1": 400,
+            "x2": 400,
+            "y2": 500,
+            "reason": "read stirrups 8T@100c/c 8T@150c/c"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "target": "C1 mix",
+            "x1": 350,
+            "y1": 500,
+            "x2": 400,
+            "y2": 550,
+            "reason": "read mix M-35"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "data_cell",
+            "target": "C2 size",
+            "x1": 450,
+            "y1": 150,
+            "x2": 500,
+            "y2": 300,
+            "reason": "read size 450 x 600"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "data_cell",
+            "target": "C2 reinforcement",
+            "x1": 450,
+            "y1": 300,
+            "x2": 500,
+            "y2": 400,
+            "reason": "read reinforcement 14-20T"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "data_cell",
+            "target": "C2 stirrups",
+            "x1": 450,
+            "y1": 400,
+            "x2": 500,
+            "y2": 500,
+            "reason": "read stirrups 8T@100c/c 8T@150c/c"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "target": "C2 mix",
+            "x1": 450,
+            "y1": 500,
+            "x2": 500,
+            "y2": 550,
+            "reason": "read mix M-35"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "data_cell",
+            "target": "C3 size",
+            "x1": 550,
+            "y1": 150,
+            "x2": 600,
+            "y2": 300,
+            "reason": "read size 300 x 600"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "data_cell",
+            "target": "C3 reinforcement",
+            "x1": 550,
+            "y1": 300,
+            "x2": 600,
+            "y2": 400,
+            "reason": "read reinforcement 12-20T"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "data_cell",
+            "target": "C3 stirrups",
+            "x1": 550,
+            "y1": 400,
+            "x2": 600,
+            "y2": 500,
+            "reason": "read stirrups 8T@100c/c 8T@150c/c"
+          },
+          {
+            "region_id": "r12",
+            "purpose": "data_cell",
+            "target": "C3 mix",
+            "x1": 550,
+            "y1": 500,
+            "x2": 600,
+            "y2": 550,
+            "reason": "read mix M-35"
+          },
+          {
+            "region_id": "r13",
+            "purpose": "data_cell",
+            "target": "C4 size",
+            "x1": 650,
+            "y1": 150,
+            "x2": 700,
+            "y2": 300,
+            "reason": "read size 350 x 750"
+          },
+          {
+            "region_id": "r14",
+            "purpose": "data_cell",
+            "target": "C4 reinforcement",
+            "x1": 650,
+            "y1": 300,
+            "x2": 700,
+            "y2": 400,
+            "reason": "read reinforcement 14-20T"
+          },
+          {
+            "region_id": "r15",
+            "purpose": "data_cell",
+            "target": "C4 stirrups",
+            "x1": 650,
+            "y1": 400,
+            "x2": 700,
+            "y2": 500,
+            "reason": "read stirrups 8T@100c/c 8T@150c/c"
+          },
+          {
+            "region_id": "r16",
+            "purpose": "data_cell",
+            "target": "C4 mix",
+            "x1": 650,
+            "y1": 500,
+            "x2": 700,
+            "y2": 550,
+            "reason": "read mix M-35"
+          },
+          {
+            "region_id": "r17",
+            "purpose": "data_cell",
+            "target": "C6 size",
+            "x1": 750,
+            "y1": 150,
+            "x2": 800,
+            "y2": 300,
+            "reason": "read size 450 x 450"
+          },
+          {
+            "region_id": "r18",
+            "purpose": "data_cell",
+            "target": "C6 reinforcement",
+            "x1": 750,
+            "y1": 300,
+            "x2": 800,
+            "y2": 400,
+            "reason": "read reinforcement 4-20T 8-16T"
+          },
+          {
+            "region_id": "r19",
+            "purpose": "data_cell",
+            "target": "C6 stirrups",
+            "x1": 750,
+            "y1": 400,
+            "x2": 800,
+            "y2": 500,
+            "reason": "read stirrups 8T@100c/c 8T@150c/c"
+          },
+          {
+            "region_id": "r20",
+            "purpose": "data_cell",
+            "target": "C6 mix",
+            "x1": 750,
+            "y1": 500,
+            "x2": 800,
+            "y2": 550,
+            "reason": "read mix M-35"
+          },
+          {
+            "region_id": "r21",
+            "purpose": "data_cell",
+            "target": "C7 size",
+            "x1": 850,
+            "y1": 150,
+            "x2": 900,
+            "y2": 300,
+            "reason": "read size 300 x 600"
+          },
+          {
+            "region_id": "r22",
+            "purpose": "data_cell",
+            "target": "C7 reinforcement",
+            "x1": 850,
+            "y1": 300,
+            "x2": 900,
+            "y2": 400,
+            "reason": "read reinforcement 12-16T"
+          },
+          {
+            "region_id": "r23",
+            "purpose": "data_cell",
+            "target": "C7 stirrups",
+            "x1": 850,
+            "y1": 400,
+            "x2": 900,
+            "y2": 500,
+            "reason": "read stirrups 8T@100c/c 8T@150c/c"
+          },
+          {
+            "region_id": "r24",
+            "purpose": "data_cell",
+            "target": "C7 mix",
+            "x1": 850,
+            "y1": 500,
+            "x2": 900,
+            "y2": 550,
+            "reason": "read mix M-35"
+          }
+        ],
+        "normalization_rules": [
+          "Remove duplicates in stirrups",
+          "Keep stirrup diameter exactly as written (e.g. 8T)",
+          "Remove words ALL, REST, nos from stirrups",
+          "Return stirrup spacing as '100 C/C' not '100c/c'"
+        ],
+        "extraction_order": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C6",
+          "C7"
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "C1",
+          "column_name": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C, 150 C/C"
+            ]
+          },
+          "mix": "M-35",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C2",
+          "column_name": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C, 150 C/C"
+            ]
+          },
+          "mix": "M-35",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C3",
+          "column_name": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "12-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C, 150 C/C"
+            ]
+          },
+          "mix": "M-35",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C4",
+          "column_name": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C, 150 C/C"
+            ]
+          },
+          "mix": "M-35",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C6",
+          "column_name": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 450
+          },
+          "reinforcement": [
+            "4-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C, 150 C/C"
+            ]
+          },
+          "mix": "M-35",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C7",
+          "column_name": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "12-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C, 150 C/C"
+            ]
+          },
+          "mix": "M-35",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "C1",
+            "column_name": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "14-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C, 150 C/C"
+              ]
+            },
+            "mix": "M-35",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r1",
+            "r2",
+            "r3",
+            "r4"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C2",
+            "column_name": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+            "size": {
+              "width": 450,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "14-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C, 150 C/C"
+              ]
+            },
+            "mix": "M-35",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r5",
+            "r6",
+            "r7",
+            "r8"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C3",
+            "column_name": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "12-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C, 150 C/C"
+              ]
+            },
+            "mix": "M-35",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r9",
+            "r10",
+            "r11",
+            "r12"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C4",
+            "column_name": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+            "size": {
+              "width": 350,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "14-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C, 150 C/C"
+              ]
+            },
+            "mix": "M-35",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r13",
+            "r14",
+            "r15",
+            "r16"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C6",
+            "column_name": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+            "size": {
+              "width": 450,
+              "depth": null,
+              "length": 450
+            },
+            "reinforcement": [
+              "4-20T",
+              "8-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C, 150 C/C"
+              ]
+            },
+            "mix": "M-35",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r17",
+            "r18",
+            "r19",
+            "r20"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C7",
+            "column_name": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "12-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C, 150 C/C"
+              ]
+            },
+            "mix": "M-35",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r21",
+            "r22",
+            "r23",
+            "r24"
+          ]
+        }
+      ],
+      "expected_count": 6,
+      "actual_count": 6,
+      "warnings": []
+    },
+    "page_1.png__p01_l002_FOUNDATION_LVL_To_BASEMENT_FLOOR_LVL": {
+      "project": "column",
+      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-3\\page_1.png",
+      "generated_at": "2026-05-26T18:48:57.571375+00:00",
+      "think": {
+        "image_quality": "high",
+        "table_bounds": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1920,
+          "y2": 1080
+        },
+        "column_headers": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C6",
+          "C7"
+        ],
+        "storey_levels": [
+          "FOUNDATION LVL. To BASEMENT FLOOR LVL."
+        ],
+        "expected_count": 6,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "data_cell",
+            "target": "C1 FOUNDATION LVL. To BASEMENT FLOOR LVL. size",
+            "x1": 350,
+            "y1": 540,
+            "x2": 400,
+            "y2": 600,
+            "reason": "read size 300 x 750"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "target": "C1 FOUNDATION LVL. To BASEMENT FLOOR LVL. reinforcement",
+            "x1": 350,
+            "y1": 600,
+            "x2": 400,
+            "y2": 650,
+            "reason": "read reinforcement 14-20T"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "data_cell",
+            "target": "C1 FOUNDATION LVL. To BASEMENT FLOOR LVL. stirrups",
+            "x1": 350,
+            "y1": 650,
+            "x2": 400,
+            "y2": 700,
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "target": "C1 FOUNDATION LVL. To BASEMENT FLOOR LVL. mix",
+            "x1": 350,
+            "y1": 700,
+            "x2": 400,
+            "y2": 720,
+            "reason": "read mix M-35"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "data_cell",
+            "target": "C2 FOUNDATION LVL. To BASEMENT FLOOR LVL. size",
+            "x1": 450,
+            "y1": 540,
+            "x2": 500,
+            "y2": 600,
+            "reason": "read size 450 x 600"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "data_cell",
+            "target": "C2 FOUNDATION LVL. To BASEMENT FLOOR LVL. reinforcement",
+            "x1": 450,
+            "y1": 600,
+            "x2": 500,
+            "y2": 650,
+            "reason": "read reinforcement 14-20T"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "data_cell",
+            "target": "C2 FOUNDATION LVL. To BASEMENT FLOOR LVL. stirrups",
+            "x1": 450,
+            "y1": 650,
+            "x2": 500,
+            "y2": 700,
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "target": "C2 FOUNDATION LVL. To BASEMENT FLOOR LVL. mix",
+            "x1": 450,
+            "y1": 700,
+            "x2": 500,
+            "y2": 720,
+            "reason": "read mix M-35"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "data_cell",
+            "target": "C3 FOUNDATION LVL. To BASEMENT FLOOR LVL. size",
+            "x1": 550,
+            "y1": 540,
+            "x2": 600,
+            "y2": 600,
+            "reason": "read size 300 x 600"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "data_cell",
+            "target": "C3 FOUNDATION LVL. To BASEMENT FLOOR LVL. reinforcement",
+            "x1": 550,
+            "y1": 600,
+            "x2": 600,
+            "y2": 650,
+            "reason": "read reinforcement 14-20T"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "data_cell",
+            "target": "C3 FOUNDATION LVL. To BASEMENT FLOOR LVL. stirrups",
+            "x1": 550,
+            "y1": 650,
+            "x2": 600,
+            "y2": 700,
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r12",
+            "purpose": "data_cell",
+            "target": "C3 FOUNDATION LVL. To BASEMENT FLOOR LVL. mix",
+            "x1": 550,
+            "y1": 700,
+            "x2": 600,
+            "y2": 720,
+            "reason": "read mix M-35"
+          },
+          {
+            "region_id": "r13",
+            "purpose": "data_cell",
+            "target": "C4 FOUNDATION LVL. To BASEMENT FLOOR LVL. size",
+            "x1": 650,
+            "y1": 540,
+            "x2": 700,
+            "y2": 600,
+            "reason": "read size 350 x 750"
+          },
+          {
+            "region_id": "r14",
+            "purpose": "data_cell",
+            "target": "C4 FOUNDATION LVL. To BASEMENT FLOOR LVL. reinforcement",
+            "x1": 650,
+            "y1": 600,
+            "x2": 700,
+            "y2": 650,
+            "reason": "read reinforcement 12-20T"
+          },
+          {
+            "region_id": "r15",
+            "purpose": "data_cell",
+            "target": "C4 FOUNDATION LVL. To BASEMENT FLOOR LVL. stirrups",
+            "x1": 650,
+            "y1": 650,
+            "x2": 700,
+            "y2": 700,
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r16",
+            "purpose": "data_cell",
+            "target": "C4 FOUNDATION LVL. To BASEMENT FLOOR LVL. mix",
+            "x1": 650,
+            "y1": 700,
+            "x2": 700,
+            "y2": 720,
+            "reason": "read mix M-35"
+          },
+          {
+            "region_id": "r17",
+            "purpose": "data_cell",
+            "target": "C6 FOUNDATION LVL. To BASEMENT FLOOR LVL. size",
+            "x1": 750,
+            "y1": 540,
+            "x2": 800,
+            "y2": 600,
+            "reason": "read size 450 x 450"
+          },
+          {
+            "region_id": "r18",
+            "purpose": "data_cell",
+            "target": "C6 FOUNDATION LVL. To BASEMENT FLOOR LVL. reinforcement",
+            "x1": 750,
+            "y1": 600,
+            "x2": 800,
+            "y2": 650,
+            "reason": "read reinforcement 4-20T, 8-16T"
+          },
+          {
+            "region_id": "r19",
+            "purpose": "data_cell",
+            "target": "C6 FOUNDATION LVL. To BASEMENT FLOOR LVL. stirrups",
+            "x1": 750,
+            "y1": 650,
+            "x2": 800,
+            "y2": 700,
+            "reason": "read stirrups 8T@100c/c, 8T@150c/c"
+          },
+          {
+            "region_id": "r20",
+            "purpose": "data_cell",
+            "target": "C6 FOUNDATION LVL. To BASEMENT FLOOR LVL. mix",
+            "x1": 750,
+            "y1": 700,
+            "x2": 800,
+            "y2": 720,
+            "reason": "read mix M-35"
+          },
+          {
+            "region_id": "r21",
+            "purpose": "data_cell",
+            "target": "C7 FOUNDATION LVL. To BASEMENT FLOOR LVL. size",
+            "x1": 850,
+            "y1": 540,
+            "x2": 900,
+            "y2": 600,
+            "reason": "read size 300 x 600"
+          },
+          {
+            "region_id": "r22",
+            "purpose": "data_cell",
+            "target": "C7 FOUNDATION LVL. To BASEMENT FLOOR LVL. reinforcement",
+            "x1": 850,
+            "y1": 600,
+            "x2": 900,
+            "y2": 650,
+            "reason": "read reinforcement 12-16T"
+          },
+          {
+            "region_id": "r23",
+            "purpose": "data_cell",
+            "target": "C7 FOUNDATION LVL. To BASEMENT FLOOR LVL. stirrups",
+            "x1": 850,
+            "y1": 650,
+            "x2": 900,
+            "y2": 700,
+            "reason": "read stirrups 8T@100c/c, 8T@150c/c"
+          },
+          {
+            "region_id": "r24",
+            "purpose": "data_cell",
+            "target": "C7 FOUNDATION LVL. To BASEMENT FLOOR LVL. mix",
+            "x1": 850,
+            "y1": 700,
+            "x2": 900,
+            "y2": 720,
+            "reason": "read mix M-35"
+          }
+        ],
+        "normalization_rules": [
+          "Remove duplicates in stirrups",
+          "Keep stirrup diameter exactly as written (e.g. 8T)",
+          "Remove words ALL, REST, nos from stirrups",
+          "Do not convert 8T to T8",
+          "Use exact column_no from oval text",
+          "Use exact level text from left side",
+          "Return null for missing values",
+          "Return empty list for missing reinforcement"
+        ],
+        "extraction_order": [
+          "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C6",
+          "C7"
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "C1",
+          "column_name": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M-35",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C2",
+          "column_name": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M-35",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C3",
+          "column_name": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M-35",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C4",
+          "column_name": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "12-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M-35",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C6",
+          "column_name": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 450
+          },
+          "reinforcement": [
+            "4-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C, 150 C/C"
+            ]
+          },
+          "mix": "M-35",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C7",
+          "column_name": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "12-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C, 150 C/C"
+            ]
+          },
+          "mix": "M-35",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "C1",
+            "column_name": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "14-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M-35",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r1",
+            "r2",
+            "r3",
+            "r4"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C2",
+            "column_name": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+            "size": {
+              "width": 450,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "14-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M-35",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r5",
+            "r6",
+            "r7",
+            "r8"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C3",
+            "column_name": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "14-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M-35",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r9",
+            "r10",
+            "r11",
+            "r12"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C4",
+            "column_name": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+            "size": {
+              "width": 350,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "12-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M-35",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r13",
+            "r14",
+            "r15",
+            "r16"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C6",
+            "column_name": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+            "size": {
+              "width": 450,
+              "depth": null,
+              "length": 450
+            },
+            "reinforcement": [
+              "4-20T",
+              "8-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C, 150 C/C"
+              ]
+            },
+            "mix": "M-35",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r17",
+            "r18",
+            "r19",
+            "r20"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C7",
+            "column_name": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "12-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C, 150 C/C"
+              ]
+            },
+            "mix": "M-35",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r21",
+            "r22",
+            "r23",
+            "r24"
+          ]
+        }
+      ],
+      "expected_count": 6,
+      "actual_count": 6,
+      "warnings": []
+    }
+  },
+  "summary": {
+    "page_count": 2,
+    "record_count": 12,
+    "warning_count": 0,
+    "warnings": []
+  }
+}

@@ -76,6 +76,7 @@ import argparse
 import base64
 import json
 from extraction_guard import reshape_columns_to_levels
+from pattern_batching import atomic_write_json, safe_filename
 import os
 import re
 import sys
@@ -872,9 +873,43 @@ def extract_column_schedule(pdf_path:    str,
 
     result = {"document": Path(pdf_path).name, "title": "Column Schedule", "columns": []}
     seen: set = set()
+    batch_folder_name = "level_batches"
+    batch_folder = os.path.join(os.path.dirname(output_path), batch_folder_name)
+    os.makedirs(batch_folder, exist_ok=True)
+    manifest = {
+        "pattern": 13,
+        "mode": "level_batches",
+        "levels": floor_labels,
+        "batches": [
+            {
+                "id": f"l{r + 1:03d}",
+                "level": floor_labels[r],
+                "status": "pending",
+                "file": os.path.join(
+                    batch_folder_name,
+                    f"l{r + 1:03d}_{safe_filename(floor_labels[r])}.json",
+                ),
+                "error": None,
+            }
+            for r in range(n_rows)
+        ],
+    }
+    manifest_path = os.path.join(os.path.dirname(output_path), "level_manifest.json")
+    atomic_write_json(manifest_path, manifest)
+
+    def _set_batch_status(batch_id, status, error=None):
+        for batch in manifest["batches"]:
+            if batch["id"] == batch_id:
+                batch["status"] = status
+                batch["error"] = error
+                return
+
     done = 0
 
     for r in range(n_rows):
+        batch_id = f"l{r + 1:03d}"
+        _set_batch_status(batch_id, "running")
+        atomic_write_json(manifest_path, manifest)
         y0, y1 = row_bounds[r]
         flabel  = floor_labels[r]
         row_raw = []
@@ -915,13 +950,23 @@ def extract_column_schedule(pdf_path:    str,
 
         # BROADCAST: one JSON entry per label in each cell's group
         floor_key = _to_key(flabel)
+        row_entries = []
         for c, raw in enumerate(row_raw):
             group = col_groups[c] if col_groups[c] else [f"COL_{c+1}"]
             for clabel in group:
                 key = (floor_key, clabel)
                 if key in seen: continue
                 seen.add(key)
-                result["columns"].append(_build_entry(clabel, flabel, raw, _to_key))
+                row_entries.append(_build_entry(clabel, flabel, raw, _to_key))
+
+        result["columns"].extend(row_entries)
+        batch_path = os.path.join(
+            batch_folder,
+            f"{batch_id}_{safe_filename(flabel)}.json",
+        )
+        atomic_write_json(batch_path, {"level": flabel, "columns": row_entries})
+        _set_batch_status(batch_id, "done")
+        atomic_write_json(manifest_path, manifest)
 
     # ── Save ──────────────────────────────────────────────────────────────────
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -940,6 +985,20 @@ def extract_column_schedule(pdf_path:    str,
 def _build_output_path(pdf_path: str, output_dir: str) -> str:
     stem = Path(pdf_path).stem
     return os.path.join(output_dir, stem, f"{stem}.json")
+
+
+def process_pdf(pdf_path: str, dpi: int = 300, upscale: int = 2, debug: bool = False) -> dict:
+    """auto_runner entry point. Wraps extract_column_schedule with the
+    standard output path: <OUTPUT_DIR>/<pdf_stem>/<pdf_stem>.json."""
+    output_path = _build_output_path(pdf_path, OUTPUT_DIR)
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    return extract_column_schedule(
+        pdf_path=pdf_path,
+        output_path=output_path,
+        dpi=dpi,
+        upscale=upscale,
+        debug=debug,
+    )
 
 
 if __name__ == "__main__":

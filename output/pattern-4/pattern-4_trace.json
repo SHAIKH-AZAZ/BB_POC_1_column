@@ -1,0 +1,274 @@
+{
+  "project": "column",
+  "pdf_stem": "pattern-4",
+  "pages": {
+    "page_1.png__p01_page": {
+      "project": "column",
+      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-4\\page_1.png",
+      "generated_at": "2026-05-26T18:49:25.262413+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 30,
+          "y1": 30,
+          "x2": 800,
+          "y2": 300
+        },
+        "column_headers": [
+          "COLUMN ID",
+          "SIZE OF COLUMN a",
+          "SIZE OF COLUMN b",
+          "NOS.",
+          "GRID REFERENCE",
+          "TOP OF COLUMN"
+        ],
+        "storey_levels": [
+          "row1",
+          "row2",
+          "row3"
+        ],
+        "expected_count": 3,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "column_header",
+            "x1": 30,
+            "y1": 30,
+            "x2": 150,
+            "y2": 70,
+            "reason": "Read COLUMN ID header"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "column_header",
+            "x1": 150,
+            "y1": 30,
+            "x2": 350,
+            "y2": 70,
+            "reason": "Read SIZE OF COLUMN a header"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "column_header",
+            "x1": 350,
+            "y1": 30,
+            "x2": 450,
+            "y2": 70,
+            "reason": "Read SIZE OF COLUMN b header"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "row_label",
+            "x1": 30,
+            "y1": 70,
+            "x2": 150,
+            "y2": 110,
+            "reason": "Read first row COLUMN ID C1"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "row_label",
+            "x1": 30,
+            "y1": 110,
+            "x2": 150,
+            "y2": 150,
+            "reason": "Read second row COLUMN ID C2"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "row_label",
+            "x1": 30,
+            "y1": 150,
+            "x2": 150,
+            "y2": 190,
+            "reason": "Read third row COLUMN ID C3"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "data_cell",
+            "x1": 150,
+            "y1": 70,
+            "x2": 250,
+            "y2": 110,
+            "reason": "Read first row SIZE OF COLUMN a"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "x1": 250,
+            "y1": 70,
+            "x2": 350,
+            "y2": 110,
+            "reason": "Read first row SIZE OF COLUMN b"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "data_cell",
+            "x1": 150,
+            "y1": 110,
+            "x2": 250,
+            "y2": 150,
+            "reason": "Read second row SIZE OF COLUMN a"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "data_cell",
+            "x1": 250,
+            "y1": 110,
+            "x2": 350,
+            "y2": 150,
+            "reason": "Read second row SIZE OF COLUMN b"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "data_cell",
+            "x1": 150,
+            "y1": 150,
+            "x2": 250,
+            "y2": 190,
+            "reason": "Read third row SIZE OF COLUMN a"
+          },
+          {
+            "region_id": "r12",
+            "purpose": "data_cell",
+            "x1": 250,
+            "y1": 150,
+            "x2": 350,
+            "y2": 190,
+            "reason": "Read third row SIZE OF COLUMN b"
+          }
+        ],
+        "normalization_rules": [
+          "Normalize all sizes to numbers",
+          "Ignore NOS., GRID REFERENCE, TOP OF COLUMN columns",
+          "Return empty reinforcement and stirrups"
+        ],
+        "extraction_order": [
+          "row1",
+          "row2",
+          "row3"
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "C1",
+          "column_name": "row1",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C2",
+          "column_name": "row2",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 450
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C3",
+          "column_name": "row3",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "C1",
+            "column_name": "row1",
+            "size": {
+              "width": 600,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C2",
+            "column_name": "row2",
+            "size": {
+              "width": 600,
+              "depth": null,
+              "length": 450
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C3",
+            "column_name": "row3",
+            "size": {
+              "width": 600,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        }
+      ],
+      "expected_count": 3,
+      "actual_count": 3,
+      "warnings": []
+    }
+  },
+  "summary": {
+    "page_count": 1,
+    "record_count": 3,
+    "warning_count": 0,
+    "warnings": []
+  }
+}

@@ -7,6 +7,7 @@ from PIL import Image
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
+from pattern_batching import extract_pages_with_checkpoints
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -208,14 +209,14 @@ def has_columns(parsed):
 # ================================
 # Try Extraction (Full → Fallback Crop)
 # ================================
-def extract_with_fallback(image_path, prompt):
+def extract_with_fallback(image_path, prompt, trace_key=None):
     """
     First attempts extraction on full image.
     If that fails, crops the bottom 30% and retries.
     """
 
     # ---- First Attempt (Full Image) ----
-    result = extract_with_tools(image_path, prompt)
+    result = extract_with_tools(image_path, prompt, trace_key=trace_key)
 
     # Debug: print raw model output
     print(f"\n[DEBUG] Raw model output (first 500 chars):\n{result[:500]}\n")
@@ -235,7 +236,8 @@ def extract_with_fallback(image_path, prompt):
     print("⚠ Full image extraction failed. Trying cropped bottom region...")
 
     cropped_path = crop_bottom_region(image_path)
-    result = extract_with_tools(cropped_path, prompt)
+    cropped_trace_key = f"{trace_key}__bottom_crop" if trace_key else None
+    result = extract_with_tools(cropped_path, prompt, trace_key=cropped_trace_key)
 
     try:
         parsed = json.loads(result)
@@ -318,19 +320,22 @@ def process_pdf(pdf_path):
 
     prompt = load_prompt()
 
+    columns = extract_pages_with_checkpoints(
+        image_paths,
+        prompt,
+        pattern_number=8,
+        output_folder=file_output_folder,
+        extractor=lambda job, prompt_text: extract_with_fallback(
+            job["img_path"],
+            prompt_text,
+            trace_key=job["trace_key"],
+        ),
+    )
+
     final_columns = []
-
-    for img_path in tqdm(image_paths, desc=f"Processing {file_name}"):
-
-        parsed = extract_with_fallback(img_path, prompt)
-
-        columns = parsed.get("columns", [])
-        if not isinstance(columns, list):
-            continue
-
-        for col in columns:
-            cleaned = clean_column(col)
-            final_columns.append(cleaned)
+    for col in columns:
+        cleaned = clean_column(col)
+        final_columns.append(cleaned)
 
     # ── Final output ───────────────────────────────────────────────────────────
     output_data = reshape_columns_to_levels(final_columns)

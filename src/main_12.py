@@ -30,6 +30,7 @@ DEPENDENCIES
 
 import json
 from extraction_guard import reshape_columns_to_levels
+from pattern_batching import atomic_write_json
 import os
 import re
 import sys
@@ -730,10 +731,44 @@ def process_pdf(pdf_path: str) -> None:
     client      = _get_client()
     image_paths = render_pdf(pdf_path, out_dir, dpi=300)
 
+    batch_folder_name = "page_batches"
+    batch_folder = os.path.join(out_dir, batch_folder_name)
+    os.makedirs(batch_folder, exist_ok=True)
+    manifest = {
+        "pattern": 12,
+        "mode": "page_batches",
+        "batches": [
+            {
+                "id": f"p{idx + 1:02d}",
+                "page": idx + 1,
+                "status": "pending",
+                "file": os.path.join(batch_folder_name, f"p{idx + 1:02d}.json"),
+                "error": None,
+            }
+            for idx in range(len(image_paths))
+        ],
+    }
+    manifest_path = os.path.join(out_dir, "page_manifest.json")
+    atomic_write_json(manifest_path, manifest)
+
+    def _set_batch_status(batch_id, status, error=None):
+        for batch in manifest["batches"]:
+            if batch["id"] == batch_id:
+                batch["status"] = status
+                batch["error"] = error
+                return
+
     raw_cols = []
-    for img_path in image_paths:
+    for page_index, img_path in enumerate(image_paths):
+        batch_id = f"p{page_index + 1:02d}"
+        _set_batch_status(batch_id, "running")
+        atomic_write_json(manifest_path, manifest)
         print(f"\n  ── Page: {os.path.basename(img_path)} ──")
-        raw_cols.extend(process_page(img_path, client))
+        page_cols = process_page(img_path, client)
+        raw_cols.extend(page_cols)
+        atomic_write_json(os.path.join(batch_folder, f"{batch_id}.json"), {"columns": page_cols})
+        _set_batch_status(batch_id, "done")
+        atomic_write_json(manifest_path, manifest)
 
     # ── Expand combined marks ("C1,C18" → C1 + C18 with identical data) ──────
     expanded = []

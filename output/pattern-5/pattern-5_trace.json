@@ -1,0 +1,494 @@
+{
+  "project": "column",
+  "pdf_stem": "pattern-5",
+  "pages": {
+    "page_1.png__p01_page": {
+      "project": "column",
+      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-5\\page_1.png",
+      "generated_at": "2026-05-26T18:50:43.639822+00:00",
+      "think": {
+        "image_quality": "clear",
+        "table_bounds": {
+          "x1": 100,
+          "y1": 100,
+          "x2": 1900,
+          "y2": 1200
+        },
+        "column_headers": [
+          "COLUMN ID",
+          "LENGTH (a)",
+          "BREADTH (b)",
+          "CROSS SECTION OF COLUMN (SECTION 1-1)",
+          "LATERAL TIES"
+        ],
+        "storey_levels": [
+          "01",
+          "02"
+        ],
+        "expected_count": 10,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "column_no",
+            "x1": 150,
+            "y1": 200,
+            "x2": 300,
+            "y2": 250,
+            "reason": "Read COLUMN ID for row 1"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "column_no",
+            "x1": 150,
+            "y1": 350,
+            "x2": 300,
+            "y2": 400,
+            "reason": "Read COLUMN ID for row 2"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "size",
+            "x1": 350,
+            "y1": 200,
+            "x2": 450,
+            "y2": 250,
+            "reason": "Read LENGTH (a) for row 1"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "size",
+            "x1": 460,
+            "y1": 200,
+            "x2": 560,
+            "y2": 250,
+            "reason": "Read BREADTH (b) for row 1"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "size",
+            "x1": 350,
+            "y1": 350,
+            "x2": 450,
+            "y2": 400,
+            "reason": "Read LENGTH (a) for row 2"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "size",
+            "x1": 460,
+            "y1": 350,
+            "x2": 560,
+            "y2": 400,
+            "reason": "Read BREADTH (b) for row 2"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "reinforcement",
+            "x1": 700,
+            "y1": 200,
+            "x2": 850,
+            "y2": 250,
+            "reason": "Read reinforcement for row 1"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "reinforcement",
+            "x1": 700,
+            "y1": 350,
+            "x2": 850,
+            "y2": 400,
+            "reason": "Read reinforcement for row 2"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "stirrups",
+            "x1": 1100,
+            "y1": 180,
+            "x2": 1800,
+            "y2": 280,
+            "reason": "Read stirrups for row 1"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "stirrups",
+            "x1": 1100,
+            "y1": 330,
+            "x2": 1800,
+            "y2": 430,
+            "reason": "Read stirrups for row 2"
+          }
+        ],
+        "normalization_rules": [
+          "For B x L sizes, width = LENGTH (a), length = BREADTH (b), depth = null",
+          "Reinforcement as list of strings exactly as written",
+          "Stirrups as list of strings exactly as written, multiple zones combined"
+        ],
+        "extraction_order": [
+          "COLUMN ID",
+          "SIZE",
+          "REINFORCEMENT",
+          "STIRRUPS"
+        ]
+      },
+      "zoom_regions": [
+        {
+          "region_id": "r1",
+          "purpose": "ambiguous_text",
+          "x1": 150.0,
+          "y1": 200.0,
+          "x2": 300.0,
+          "y2": 250.0,
+          "reason": "Read COLUMN ID for row 1"
+        },
+        {
+          "region_id": "r2",
+          "purpose": "ambiguous_text",
+          "x1": 150.0,
+          "y1": 350.0,
+          "x2": 300.0,
+          "y2": 400.0,
+          "reason": "Read COLUMN ID for row 2"
+        },
+        {
+          "region_id": "r3",
+          "purpose": "ambiguous_text",
+          "x1": 350.0,
+          "y1": 200.0,
+          "x2": 450.0,
+          "y2": 250.0,
+          "reason": "Read LENGTH (a) for row 1"
+        },
+        {
+          "region_id": "r4",
+          "purpose": "ambiguous_text",
+          "x1": 460.0,
+          "y1": 200.0,
+          "x2": 560.0,
+          "y2": 250.0,
+          "reason": "Read BREADTH (b) for row 1"
+        },
+        {
+          "region_id": "r5",
+          "purpose": "ambiguous_text",
+          "x1": 350.0,
+          "y1": 350.0,
+          "x2": 450.0,
+          "y2": 400.0,
+          "reason": "Read LENGTH (a) for row 2"
+        },
+        {
+          "region_id": "r6",
+          "purpose": "ambiguous_text",
+          "x1": 460.0,
+          "y1": 350.0,
+          "x2": 560.0,
+          "y2": 400.0,
+          "reason": "Read BREADTH (b) for row 2"
+        },
+        {
+          "region_id": "r7",
+          "purpose": "ambiguous_text",
+          "x1": 700.0,
+          "y1": 200.0,
+          "x2": 850.0,
+          "y2": 250.0,
+          "reason": "Read reinforcement for row 1"
+        },
+        {
+          "region_id": "r8",
+          "purpose": "ambiguous_text",
+          "x1": 700.0,
+          "y1": 350.0,
+          "x2": 850.0,
+          "y2": 400.0,
+          "reason": "Read reinforcement for row 2"
+        },
+        {
+          "region_id": "r9",
+          "purpose": "ambiguous_text",
+          "x1": 1100.0,
+          "y1": 180.0,
+          "x2": 1800.0,
+          "y2": 280.0,
+          "reason": "Read stirrups for row 1"
+        },
+        {
+          "region_id": "r10",
+          "purpose": "ambiguous_text",
+          "x1": 1100.0,
+          "y1": 330.0,
+          "x2": 1800.0,
+          "y2": 430.0,
+          "reason": "Read stirrups for row 2"
+        }
+      ],
+      "confirmed_reads": [
+        {
+          "region_id": "r1",
+          "text": "C1 & C3",
+          "confidence": "high",
+          "applies_to": "COLUMN ID row 1"
+        },
+        {
+          "region_id": "r2",
+          "text": "C2",
+          "confidence": "high",
+          "applies_to": "COLUMN ID row 2"
+        },
+        {
+          "region_id": "r3",
+          "text": "600",
+          "confidence": "high",
+          "applies_to": "LENGTH (a) row 1"
+        },
+        {
+          "region_id": "r4",
+          "text": "600",
+          "confidence": "high",
+          "applies_to": "BREADTH (b) row 1"
+        },
+        {
+          "region_id": "r5",
+          "text": "450",
+          "confidence": "high",
+          "applies_to": "LENGTH (a) row 2"
+        },
+        {
+          "region_id": "r6",
+          "text": "600",
+          "confidence": "high",
+          "applies_to": "BREADTH (b) row 2"
+        },
+        {
+          "region_id": "r7",
+          "text": "16-T16",
+          "confidence": "high",
+          "applies_to": "REINFORCEMENT row 1"
+        },
+        {
+          "region_id": "r8",
+          "text": "14-T16",
+          "confidence": "high",
+          "applies_to": "REINFORCEMENT row 2"
+        },
+        {
+          "region_id": "r9",
+          "text": "T8 AT 100 C/C\nT8 AT 200 C/C\nT8 AT 100 C/C",
+          "confidence": "high",
+          "applies_to": "STIRRUPS row 1"
+        },
+        {
+          "region_id": "r10",
+          "text": "T8 AT 100 C/C\nT8 AT 200 C/C\nT8 AT 100 C/C",
+          "confidence": "high",
+          "applies_to": "STIRRUPS row 2"
+        }
+      ],
+      "records": [
+        {
+          "column_no": "C1 & C3",
+          "column_name": "01",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "16-T16"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C2",
+          "column_name": "01",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "14-T16"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C1 & C3",
+          "column_name": "02",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "16-T16"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C2",
+          "column_name": "02",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "14-T16"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "C1 & C3",
+            "column_name": "01",
+            "size": {
+              "width": 600,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "16-T16"
+            ],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r1",
+            "r3",
+            "r4",
+            "r7",
+            "r9"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C2",
+            "column_name": "01",
+            "size": {
+              "width": 450,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "14-T16"
+            ],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r2",
+            "r5",
+            "r6",
+            "r8",
+            "r10"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C1 & C3",
+            "column_name": "02",
+            "size": {
+              "width": 600,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "16-T16"
+            ],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r1",
+            "r3",
+            "r4",
+            "r7",
+            "r9"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C2",
+            "column_name": "02",
+            "size": {
+              "width": 450,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "14-T16"
+            ],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r2",
+            "r5",
+            "r6",
+            "r8",
+            "r10"
+          ]
+        }
+      ],
+      "expected_count": 10,
+      "actual_count": 4,
+      "warnings": [
+        "zoom_region purpose 'column_no' is not recognized",
+        "zoom_region purpose 'size' is not recognized",
+        "zoom_region purpose 'reinforcement' is not recognized",
+        "zoom_region purpose 'stirrups' is not recognized",
+        "expected 10 record(s), collected 4"
+      ]
+    }
+  },
+  "summary": {
+    "page_count": 1,
+    "record_count": 4,
+    "warning_count": 5,
+    "warnings": [
+      "zoom_region purpose 'column_no' is not recognized",
+      "zoom_region purpose 'size' is not recognized",
+      "zoom_region purpose 'reinforcement' is not recognized",
+      "zoom_region purpose 'stirrups' is not recognized",
+      "expected 10 record(s), collected 4"
+    ]
+  }
+}

@@ -418,19 +418,25 @@ def clean_json_string(text):
 
 
 def _format_size(size):
-    """Convert {"width": 700, "depth": 700} → "700 x 700" string."""
+    """Return the common B x L size object used by Pattern 1."""
+    empty = {"width": None, "depth": None, "length": None}
     if not size:
-        return None
-    try:
-        w = size.get("width")
-        d = size.get("depth")
-        if w is not None and d is not None:
-            return f"{int(w)} x {int(d)}"
-        if w is not None:
-            return str(int(w))
-    except (TypeError, ValueError):
-        pass
-    return None
+        return dict(empty)
+    if not isinstance(size, dict):
+        nums = [int(n) for n in re.findall(r"\d+", str(size))]
+        if len(nums) >= 2:
+            return {"width": nums[0], "depth": None, "length": nums[1]}
+        if len(nums) == 1:
+            return {"width": nums[0], "depth": None, "length": None}
+        return dict(empty)
+    length = size.get("length")
+    if length is None:
+        length = size.get("depth")
+    return {
+        "width": _as_int(size.get("width")),
+        "depth": None,
+        "length": _as_int(length),
+    }
 
 
 def reshape_columns_to_levels(flat_records):
@@ -502,19 +508,25 @@ def reshape_columns_to_levels(flat_records):
 
 
 def _format_size(size):
-    """Convert {"width": 700, "depth": 700} → "700 x 700" string."""
+    """Return the common B x L size object used by Pattern 1."""
+    empty = {"width": None, "depth": None, "length": None}
     if not size:
-        return None
-    try:
-        w = size.get("width")
-        d = size.get("depth")
-        if w is not None and d is not None:
-            return f"{int(w)} x {int(d)}"
-        if w is not None:
-            return str(int(w))
-    except (TypeError, ValueError):
-        pass
-    return None
+        return dict(empty)
+    if not isinstance(size, dict):
+        nums = [int(n) for n in re.findall(r"\d+", str(size))]
+        if len(nums) >= 2:
+            return {"width": nums[0], "depth": None, "length": nums[1]}
+        if len(nums) == 1:
+            return {"width": nums[0], "depth": None, "length": None}
+        return dict(empty)
+    length = size.get("length")
+    if length is None:
+        length = size.get("depth")
+    return {
+        "width": _as_int(size.get("width")),
+        "depth": None,
+        "length": _as_int(length),
+    }
 
 
 def reshape_columns_to_levels(flat_records):

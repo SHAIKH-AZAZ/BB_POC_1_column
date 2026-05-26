@@ -1,0 +1,546 @@
+{
+  "project": "column",
+  "pdf_stem": "pattern-7",
+  "pages": {
+    "page_1.png__p01_page": {
+      "project": "column",
+      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-7\\page_1.png",
+      "generated_at": "2026-05-26T18:58:58.177289+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 0,
+          "y1": 1400,
+          "x2": 1200,
+          "y2": 1800
+        },
+        "column_headers": [
+          "COLUMN MARK",
+          "SIZES"
+        ],
+        "storey_levels": [
+          "Row 1",
+          "Row 2",
+          "Row 3",
+          "Row 4",
+          "Row 5",
+          "Row 6",
+          "Row 7",
+          "Row 8",
+          "Row 9",
+          "Row 10"
+        ],
+        "expected_count": 10,
+        "zoom_plan": [
+          {
+            "region_id": "r39",
+            "purpose": "row_label",
+            "x1": 10,
+            "y1": 1430,
+            "x2": 600,
+            "y2": 1490,
+            "reason": "First row column marks second table"
+          },
+          {
+            "region_id": "r40",
+            "purpose": "data_cell",
+            "x1": 610,
+            "y1": 1430,
+            "x2": 800,
+            "y2": 1490,
+            "reason": "First row size second table"
+          },
+          {
+            "region_id": "r41",
+            "purpose": "row_label",
+            "x1": 10,
+            "y1": 1500,
+            "x2": 600,
+            "y2": 1560,
+            "reason": "Second row column marks second table"
+          },
+          {
+            "region_id": "r42",
+            "purpose": "data_cell",
+            "x1": 610,
+            "y1": 1500,
+            "x2": 800,
+            "y2": 1560,
+            "reason": "Second row size second table"
+          },
+          {
+            "region_id": "r43",
+            "purpose": "row_label",
+            "x1": 10,
+            "y1": 1570,
+            "x2": 600,
+            "y2": 1630,
+            "reason": "Third row column marks second table"
+          },
+          {
+            "region_id": "r44",
+            "purpose": "data_cell",
+            "x1": 610,
+            "y1": 1570,
+            "x2": 800,
+            "y2": 1630,
+            "reason": "Third row size second table"
+          },
+          {
+            "region_id": "r45",
+            "purpose": "row_label",
+            "x1": 10,
+            "y1": 1640,
+            "x2": 600,
+            "y2": 1700,
+            "reason": "Fourth row column marks second table"
+          },
+          {
+            "region_id": "r46",
+            "purpose": "data_cell",
+            "x1": 610,
+            "y1": 1640,
+            "x2": 800,
+            "y2": 1700,
+            "reason": "Fourth row size second table"
+          },
+          {
+            "region_id": "r47",
+            "purpose": "row_label",
+            "x1": 10,
+            "y1": 1710,
+            "x2": 600,
+            "y2": 1770,
+            "reason": "Fifth row column marks second table"
+          },
+          {
+            "region_id": "r48",
+            "purpose": "data_cell",
+            "x1": 610,
+            "y1": 1710,
+            "x2": 800,
+            "y2": 1770,
+            "reason": "Fifth row size second table"
+          }
+        ],
+        "normalization_rules": [
+          "Expand ranges in column marks",
+          "Extract width and length from sizes",
+          "Use null for depth",
+          "If size is 'AS PER SHAPE' use null for all size values"
+        ],
+        "extraction_order": [
+          "Row 1",
+          "Row 2",
+          "Row 3",
+          "Row 4",
+          "Row 5"
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "TC-C1,TC-C4,TC-C5,TC-C6,TC-C7,TC-C14,TC-C16,TC-C17,TC-C18,TC-C20,TC-C21,TC-C22,TC-C23,TC-C28,TC-C31,TC-C32,TC-C33,TC-C36",
+          "column_name": "Row 1",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 1200
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "TC-C8,TC-C9,TC-C10,TC-C11,TC-C12,TC-C24,TC-C25,TC-C26,TC-C27,TC-C29,TC-C30",
+          "column_name": "Row 2",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 1000
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "TC-C2,TC-C3",
+          "column_name": "Row 3",
+          "size": {
+            "width": 530,
+            "depth": null,
+            "length": 1000
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "TC-C13",
+          "column_name": "Row 4",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 1500
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "TC-C15,TC-C19",
+          "column_name": "Row 5",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 1420
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "TC-C34,TC-C35",
+          "column_name": "Row 6",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 900
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "TC-SW1",
+          "column_name": "Row 7",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "PC1,PC2,PC3,PC4,PC5,PC6,PC7,PC8,PC11,PC12,PC13,PC17,PC18,PC19,PC20,PC21,PC22,PC23,PC24,PC25,PC26,PC27,PC28,PC29,PC30,PC31,PC32,PC33,PC34,PC35,PC36,PC37,PC38,PC39,PC40,PC41,PC42,PC43,PC44,PC45",
+          "column_name": "Row 1",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "PC9,PC10,PC15",
+          "column_name": "Row 2",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "PC14",
+          "column_name": "Row 3",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 900
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "PC16",
+          "column_name": "Row 4",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 935
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "TC-C1,TC-C4,TC-C5,TC-C6,TC-C7,TC-C14,TC-C16,TC-C17,TC-C18,TC-C20,TC-C21,TC-C22,TC-C23,TC-C28,TC-C31,TC-C32,TC-C33,TC-C36",
+            "column_name": "Row 1",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 1200
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TC-C8,TC-C9,TC-C10,TC-C11,TC-C12,TC-C24,TC-C25,TC-C26,TC-C27,TC-C29,TC-C30",
+            "column_name": "Row 2",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 1000
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TC-C2,TC-C3",
+            "column_name": "Row 3",
+            "size": {
+              "width": 530,
+              "depth": null,
+              "length": 1000
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TC-C13",
+            "column_name": "Row 4",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 1500
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TC-C15,TC-C19",
+            "column_name": "Row 5",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 1420
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TC-C34,TC-C35",
+            "column_name": "Row 6",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 900
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TC-SW1",
+            "column_name": "Row 7",
+            "size": {
+              "width": null,
+              "depth": null,
+              "length": null
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "PC1,PC2,PC3,PC4,PC5,PC6,PC7,PC8,PC11,PC12,PC13,PC17,PC18,PC19,PC20,PC21,PC22,PC23,PC24,PC25,PC26,PC27,PC28,PC29,PC30,PC31,PC32,PC33,PC34,PC35,PC36,PC37,PC38,PC39,PC40,PC41,PC42,PC43,PC44,PC45",
+            "column_name": "Row 1",
+            "size": {
+              "width": 350,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "PC9,PC10,PC15",
+            "column_name": "Row 2",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "PC14",
+            "column_name": "Row 3",
+            "size": {
+              "width": 350,
+              "depth": null,
+              "length": 900
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "PC16",
+            "column_name": "Row 4",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 935
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        }
+      ],
+      "expected_count": 10,
+      "actual_count": 11,
+      "warnings": [
+        "expected 10 record(s), collected 11"
+      ]
+    }
+  },
+  "summary": {
+    "page_count": 1,
+    "record_count": 11,
+    "warning_count": 1,
+    "warnings": [
+      "expected 10 record(s), collected 11"
+    ]
+  }
+}

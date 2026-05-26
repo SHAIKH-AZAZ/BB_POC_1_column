@@ -1,0 +1,52 @@
+{
+  "columns": [
+    {
+      "column_no": "C1",
+      "column_name": "row1",
+      "size": {
+        "width": 600,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "C2",
+      "column_name": "row2",
+      "size": {
+        "width": 600,
+        "depth": null,
+        "length": 450
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "C3",
+      "column_name": "row3",
+      "size": {
+        "width": 600,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    }
+  ]
+}

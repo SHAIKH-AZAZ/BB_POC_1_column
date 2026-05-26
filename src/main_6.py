@@ -5,6 +5,7 @@ from tqdm import tqdm
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
+from pattern_batching import extract_levels_with_checkpoints
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -51,32 +52,23 @@ def process_pdf(pdf_path):
     )
 
     prompt = load_prompt()
+    raw_columns = extract_levels_with_checkpoints(
+        image_paths,
+        prompt,
+        pattern_number=6,
+        output_folder=output_folder,
+        prompt_context=(
+            "Read only visible horizontal band/row level labels. "
+            "Keep each label exactly as printed and preserve top-to-bottom order."
+        ),
+    )
+
     final_columns = []
-
-    for img_path in tqdm(image_paths):
-
-        result = extract_with_tools(img_path, prompt)
-
-        try:
-            parsed = json.loads(result)
-            columns = parsed.get("columns", [])
-
-            if not isinstance(columns, list):
-                continue
-
-            for col in columns:
-
-                # Ensure size depth always null
-                if "size" in col and isinstance(col["size"], dict):
-                    col["size"]["depth"] = None
-
-                # Deduplicate stirrups
-                col["stirrups"] = clean_stirrups(col.get("stirrups"))
-
-                final_columns.append(col)
-
-        except Exception:
-            continue
+    for col in raw_columns:
+        if "size" in col and isinstance(col["size"], dict):
+            col["size"]["depth"] = None
+        col["stirrups"] = clean_stirrups(col.get("stirrups"))
+        final_columns.append(col)
 
     final_output = reshape_columns_to_levels(final_columns)
 

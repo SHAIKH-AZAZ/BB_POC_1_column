@@ -1,40 +1,99 @@
 {
+  "levels": [
+    {
+      "level": "UNKNOWN",
+      "columns": [
+        {
+          "column_no": "C1,C3",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "16-T16"
+          ]
+        },
+        {
+          "column_no": "C2",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "14-T16"
+          ]
+        },
+        {
+          "column_no": "C1,C3",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "16-T16"
+          ]
+        },
+        {
+          "column_no": "C2",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "14-T16"
+          ]
+        }
+      ]
+    }
+  ],
   "columns": [
     {
       "column_no": "C1,C3",
-      "column_name": "",
       "size": {
         "width": 600,
         "depth": null,
-        "length": null
+        "length": 600
       },
       "reinforcement": [
         "16-T16"
-      ],
-      "stirrups": {
-        "dia": "T8",
-        "spacing": ""
-      },
-      "mix": null,
-      "steel_grade": null
+      ]
     },
     {
       "column_no": "C2",
-      "column_name": "",
       "size": {
         "width": 450,
         "depth": null,
-        "length": null
+        "length": 600
       },
       "reinforcement": [
         "14-T16"
-      ],
-      "stirrups": {
-        "dia": "T8",
-        "spacing": ""
+      ]
+    },
+    {
+      "column_no": "C1,C3",
+      "size": {
+        "width": 600,
+        "depth": null,
+        "length": 600
       },
-      "mix": null,
-      "steel_grade": null
+      "reinforcement": [
+        "16-T16"
+      ]
+    },
+    {
+      "column_no": "C2",
+      "size": {
+        "width": 450,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "14-T16"
+      ]
     }
   ]
 }

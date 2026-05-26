@@ -81,16 +81,27 @@
     {
       "column_no": "C16,C17,C33",
       "size": {
-        "width": 4,
+        "width": 432,
         "depth": null,
-        "length": 125
+        "length": 116
       },
       "reinforcement": [
-        "16-T20"
+        "T25"
       ]
     },
     {
       "column_no": "C18",
+      "size": {
+        "width": 4,
+        "depth": null,
+        "length": 116
+      },
+      "reinforcement": [
+        "T20"
+      ]
+    },
+    {
+      "column_no": "C19",
       "size": {
         "width": 26,
         "depth": null,
@@ -101,7 +112,7 @@
       ]
     },
     {
-      "column_no": "C19",
+      "column_no": "C20",
       "size": {
         "width": 124,
         "depth": null,
@@ -113,7 +124,7 @@
       ]
     },
     {
-      "column_no": "C20",
+      "column_no": "C21",
       "size": {
         "width": 4,
         "depth": null,
@@ -124,30 +135,29 @@
       ]
     },
     {
-      "column_no": "C21",
+      "column_no": "C23,C44",
       "size": {
         "width": 102,
         "depth": null,
-        "length": null
+        "length": 125
       },
       "reinforcement": [
         "T25"
       ]
     },
     {
-      "column_no": "C23,C44",
+      "column_no": "C24",
       "size": {
         "width": 16,
         "depth": null,
         "length": 120
       },
       "reinforcement": [
-        "4-T25",
-        "12-T20"
+        "T20"
       ]
     },
     {
-      "column_no": "C24",
+      "column_no": "C25",
       "size": {
         "width": 4,
         "depth": null,
@@ -158,25 +168,15 @@
       ]
     },
     {
-      "column_no": "C25",
+      "column_no": "C26,C27",
       "size": {
         "width": 16,
         "depth": null,
-        "length": null
+        "length": 120
       },
       "reinforcement": [
-        "T16"
-      ]
-    },
-    {
-      "column_no": "C26,C27",
-      "size": {
-        "width": 20,
-        "depth": null,
-        "length": null
-      },
-      "reinforcement": [
-        "T25"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -184,29 +184,29 @@
       "size": {
         "width": 20,
         "depth": null,
-        "length": null
-      },
-      "reinforcement": [
-        "T20"
-      ]
-    },
-    {
-      "column_no": "C29",
-      "size": {
-        "width": 102,
-        "depth": null,
-        "length": null
+        "length": 125
       },
       "reinforcement": [
         "T25"
       ]
     },
     {
+      "column_no": "C29",
+      "size": {
+        "width": 4,
+        "depth": null,
+        "length": 120
+      },
+      "reinforcement": [
+        "T20"
+      ]
+    },
+    {
       "column_no": "C30",
       "size": {
-        "width": 20,
+        "width": 102,
         "depth": null,
-        "length": null
+        "length": 120
       },
       "reinforcement": [
         "T20"
@@ -217,7 +217,7 @@
       "size": {
         "width": 16,
         "depth": null,
-        "length": null
+        "length": 120
       },
       "reinforcement": [
         "T20"
@@ -239,58 +239,54 @@
       "size": {
         "width": 4,
         "depth": null,
-        "length": 125
+        "length": 120
       },
       "reinforcement": [
-        "16-T20"
+        "T20"
       ]
     },
     {
       "column_no": "C36,C53",
       "size": {
-        "width": 300,
+        "width": 4,
         "depth": null,
-        "length": 450
+        "length": 120
       },
       "reinforcement": [
-        "4-T25",
-        "12-T20"
+        "T20"
       ]
     },
     {
       "column_no": "C39",
       "size": {
-        "width": 300,
+        "width": 4,
         "depth": null,
-        "length": 650
+        "length": 120
       },
       "reinforcement": [
-        "4-T25",
-        "12-T20"
+        "T20"
       ]
     },
     {
       "column_no": "C40",
       "size": {
-        "width": 300,
+        "width": 4,
         "depth": null,
-        "length": 750
+        "length": 120
       },
       "reinforcement": [
-        "4-T25",
-        "12-T20"
+        "T20"
       ]
     },
     {
       "column_no": "C41",
       "size": {
-        "width": 750,
+        "width": 4,
         "depth": null,
-        "length": 300
+        "length": 120
       },
       "reinforcement": [
-        "4-T25",
-        "12-T20"
+        "T20"
       ]
     }
   ]

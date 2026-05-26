@@ -1,152 +1,310 @@
 {
+  "levels": [
+    {
+      "level": "CP1",
+      "columns": [
+        {
+          "column_no": "CP1",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "12-20T"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": "100 C/C"
+          },
+          "mix": "M25"
+        }
+      ]
+    },
+    {
+      "level": "CP2",
+      "columns": [
+        {
+          "column_no": "CP2",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "4-25T",
+            "8-20T"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": "100 C/C"
+          },
+          "mix": "M25"
+        }
+      ]
+    },
+    {
+      "level": "CP3",
+      "columns": [
+        {
+          "column_no": "CP3",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "12-20T"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": "100 C/C"
+          },
+          "mix": "M25"
+        }
+      ]
+    },
+    {
+      "level": "CP4",
+      "columns": [
+        {
+          "column_no": "CP4",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "16-25T"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": "100 C/C"
+          },
+          "mix": "M25"
+        }
+      ]
+    },
+    {
+      "level": "CP5",
+      "columns": [
+        {
+          "column_no": "CP5",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "6-20T",
+            "6-16T"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": "100 C/C"
+          },
+          "mix": "M25"
+        }
+      ]
+    },
+    {
+      "level": "CP6",
+      "columns": [
+        {
+          "column_no": "CP6",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "4-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": "100 C/C"
+          },
+          "mix": "M25"
+        }
+      ]
+    },
+    {
+      "level": "CP7",
+      "columns": [
+        {
+          "column_no": "CP7",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "4-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": "100 C/C"
+          },
+          "mix": "M25"
+        }
+      ]
+    },
+    {
+      "level": "CP8",
+      "columns": [
+        {
+          "column_no": "CP8",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "12-16T"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": "100 C/C"
+          },
+          "mix": "M25"
+        }
+      ]
+    }
+  ],
   "columns": [
     {
       "column_no": "CP1",
-      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
-        "depth": 600,
-        "length": null
+        "depth": null,
+        "length": 600
       },
       "reinforcement": [
         "12-20T"
       ],
       "stirrups": {
-        "dia": "",
+        "dia": [],
         "spacing": "100 C/C"
       },
-      "mix": null,
-      "steel_grade": null
+      "mix": "M25"
     },
     {
       "column_no": "CP2",
-      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
-        "depth": 600,
-        "length": null
+        "depth": null,
+        "length": 600
       },
       "reinforcement": [
         "4-25T",
         "8-20T"
       ],
       "stirrups": {
-        "dia": "",
+        "dia": [],
         "spacing": "100 C/C"
       },
-      "mix": null,
-      "steel_grade": null
+      "mix": "M25"
     },
     {
       "column_no": "CP3",
-      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
-        "depth": 600,
-        "length": null
+        "depth": null,
+        "length": 600
       },
       "reinforcement": [
         "12-20T"
       ],
       "stirrups": {
-        "dia": "",
+        "dia": [],
         "spacing": "100 C/C"
       },
-      "mix": null,
-      "steel_grade": null
+      "mix": "M25"
     },
     {
       "column_no": "CP4",
-      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
-        "width": 900,
-        "depth": 900,
-        "length": null
+        "width": 600,
+        "depth": null,
+        "length": 600
       },
       "reinforcement": [
         "16-25T"
       ],
       "stirrups": {
-        "dia": "",
+        "dia": [],
         "spacing": "100 C/C"
       },
-      "mix": null,
-      "steel_grade": null
+      "mix": "M25"
     },
     {
       "column_no": "CP5",
-      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
-        "depth": 600,
-        "length": null
+        "depth": null,
+        "length": 600
       },
       "reinforcement": [
         "6-20T",
         "6-16T"
       ],
       "stirrups": {
-        "dia": "",
+        "dia": [],
         "spacing": "100 C/C"
       },
-      "mix": null,
-      "steel_grade": null
+      "mix": "M25"
     },
     {
       "column_no": "CP6",
-      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
-        "depth": 600,
-        "length": null
+        "depth": null,
+        "length": 600
       },
       "reinforcement": [
         "4-20T",
         "8-16T"
       ],
       "stirrups": {
-        "dia": "",
+        "dia": [],
         "spacing": "100 C/C"
       },
-      "mix": null,
-      "steel_grade": null
+      "mix": "M25"
     },
     {
       "column_no": "CP7",
-      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
-        "depth": 600,
-        "length": null
+        "depth": null,
+        "length": 600
       },
       "reinforcement": [
         "4-20T",
         "8-16T"
       ],
       "stirrups": {
-        "dia": "",
+        "dia": [],
         "spacing": "100 C/C"
       },
-      "mix": null,
-      "steel_grade": null
+      "mix": "M25"
     },
     {
       "column_no": "CP8",
-      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 350,
-        "depth": 600,
-        "length": null
+        "depth": null,
+        "length": 600
       },
       "reinforcement": [
         "12-16T"
       ],
       "stirrups": {
-        "dia": "",
+        "dia": [],
         "spacing": "100 C/C"
       },
-      "mix": null,
-      "steel_grade": null
+      "mix": "M25"
     }
   ]
 }

@@ -5,6 +5,7 @@ from tqdm import tqdm
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
+from pattern_batching import extract_pages_with_checkpoints
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -68,22 +69,12 @@ def process_pdf(pdf_path):
 
     prompt = load_prompt()
 
-    all_columns = []
-
-    for img_path in tqdm(image_paths):
-
-        print(f"🔎 Extracting → {img_path}")
-
-        result = extract_with_tools(img_path, prompt)
-
-        try:
-            parsed = json.loads(result)
-
-            if "columns" in parsed:
-                all_columns.extend(parsed["columns"])
-
-        except Exception:
-            print("⚠ JSON parse failed")
+    all_columns = extract_pages_with_checkpoints(
+        image_paths,
+        prompt,
+        pattern_number=4,
+        output_folder=output_folder,
+    )
 
     # ==========================
     # FINAL CLEANUP

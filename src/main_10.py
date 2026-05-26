@@ -33,6 +33,7 @@ import fitz  # PyMuPDF
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
+from pattern_batching import atomic_write_json, upper_levels
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -218,9 +219,14 @@ Read two things:
    List them LEFT to RIGHT as they appear.
 
 2. FLOOR RANGE LABELS — labels on the LEFT side of the table, one per row.
-   Format: "FLOOR_A TO FLOOR_B", e.g. "BASE TO LG", "LG TO GF", "GF TO P01",
-   "P01 TO P02", "P05 TO P06", "P06 TO ECO-DECK".
-   List them strictly from TOP to BOTTOM as they appear (eg: "P06 TO ECO-DECK" is at top and "BASE TO LG" is at bottom).
+   Each bounded row cell carries a range like "FLOOR_A TO FLOOR_B".
+   USE THE UPPER (FIRST) LEVEL ONLY as the storey reference:
+       "P06 TO ECO-DECK"  -> "P06"
+       "P05 TO P06"       -> "P05"
+       "GF TO P01"        -> "GF"
+       "BASE TO LG"       -> "BASE"
+   If a row cell shows only a single name (e.g. "GF"), keep that name as-is.
+   List them strictly from TOP to BOTTOM as they appear.
 
 Rules:
   • Only report labels that are CLEARLY VISIBLE — do not guess.
@@ -230,7 +236,7 @@ Rules:
 Return ONLY raw JSON, no markdown, no code fences:
 {
   "col_headers":  ["GC39", "PC174", "GC38"],
-  "floor_ranges": ["BASE TO LG", "LG TO GF", "GF TO P01"]
+  "floor_ranges": ["P06", "P05", "P04", "P03", "P02", "P01", "GF", "LG", "BASE"]
 }
 """
 
@@ -246,10 +252,14 @@ def _vision_detect_labels(pdf_path: str) -> dict:
         print("  ⚠️  PDF→image conversion failed.")
         return {"col_headers": [], "floor_ranges": []}
 
-    raw = extract_with_tools(imgs[0], _VISION_PROMPT)
+    # Label discovery is single-shot JSON, not tool-protocol extraction.
+    # extract_with_tools enforces add_column tool calls and only returns
+    # {"columns": [...]} — it would discard col_headers/floor_ranges even
+    # when the model produced them in the `think` step.
+    raw = extract_from_image(imgs[0], _VISION_PROMPT)
 
     try:
-        text = raw.strip()
+        text = (raw or "").strip()
         if "```" in text:
             parts = text.split("```")
             block = parts[1] if len(parts) >= 3 else parts[0]
@@ -259,12 +269,29 @@ def _vision_detect_labels(pdf_path: str) -> dict:
         brace = text.find("{")
         if brace > 0:
             text = text[brace:]
-        result       = json.loads(text)
-        col_headers  = [str(h).strip().upper() for h in result.get("col_headers",  [])]
-        floor_ranges = [str(f).strip().upper() for f in result.get("floor_ranges", [])]
+        result = json.loads(text)
+        col_headers = [
+            str(h).strip().upper()
+            for h in (result.get("col_headers") or result.get("column_headers") or [])
+        ]
+        raw_floors = [
+            str(f).strip().upper()
+            for f in (
+                result.get("floor_ranges")
+                or result.get("storey_levels")
+                or result.get("level_ranges")
+                or []
+            )
+        ]
+        # Defensive: apply Pattern-1's upper-level rule even if the model
+        # returned full "X TO Y" ranges. Idempotent for single-name labels.
+        floor_ranges = upper_levels(raw_floors)
+        if raw_floors != floor_ranges:
+            print(f"  Normalised level ranges via upper-level rule: {raw_floors} -> {floor_ranges}")
+        print(f"  Detected {len(col_headers)} column header(s), {len(floor_ranges)} floor range(s).")
         return {"col_headers": col_headers, "floor_ranges": floor_ranges}
     except Exception as e:
-        print(f"  ⚠️  Vision parse failed: {e}\n  Raw: {raw[:300]}")
+        print(f"  ⚠️  Vision parse failed: {e}\n  Raw: {(raw or '')[:300]}")
         return {"col_headers": [], "floor_ranges": []}
 
 
@@ -543,6 +570,14 @@ def _report(records: list, layout: dict):
     if not any(set(col_names) - found.get(r, set()) for r in row_names):
         print("   ✅  All cells extracted.")
 
+
+def _update_manifest_status(manifest, batch_id, status, error=None):
+    for batch in manifest["batches"]:
+        if batch["id"] == batch_id:
+            batch["status"] = status
+            batch["error"] = error
+            return
+
 # def draw_debug_cells(page, layout, page_no, output_folder):
 
 #     import fitz
@@ -605,21 +640,47 @@ def process_pdf(pdf_path: str):
     print(f"  Columns ({len(layout['col_names'])}): {layout['col_names']}")
     print(f"  Rows    ({len(layout['row_names'])}): {layout['row_names']}")
 
+    batch_folder_name = "page_batches"
+    batch_folder = os.path.join(output_folder, batch_folder_name)
+    os.makedirs(batch_folder, exist_ok=True)
+    manifest = {
+        "pattern": 10,
+        "mode": "page_batches",
+        "batches": [
+            {
+                "id": f"p{page_no + 1:02d}",
+                "page": page_no + 1,
+                "status": "pending",
+                "file": os.path.join(batch_folder_name, f"p{page_no + 1:02d}.json"),
+                "error": None,
+            }
+            for page_no in range(len(doc))
+        ],
+    }
+    manifest_path = os.path.join(output_folder, "page_manifest.json")
+    atomic_write_json(manifest_path, manifest)
+
     all_records: list = []
     for page_no in tqdm(range(len(doc)), desc=f"Processing {file_name}"):
+        batch_id = f"p{page_no + 1:02d}"
+        _update_manifest_status(manifest, batch_id, "running")
+        atomic_write_json(manifest_path, manifest)
         page    = doc[page_no]
         # draw_debug_cells(page, layout, page_no, output_folder)
         records = extract_from_pdf_page_10(page, layout)
         status  = f"✅ {len(records)} records" if records else "⚠️  no records"
         tqdm.write(f"  Page {page_no + 1}: {status}")
         all_records.extend(records)
+        atomic_write_json(os.path.join(batch_folder, f"{batch_id}.json"), {"columns": records})
+        _update_manifest_status(manifest, batch_id, "done")
+        atomic_write_json(manifest_path, manifest)
 
     final = _sort_records(_merge_pages(all_records), layout)
     _report(final, layout)
 
     output_file = os.path.join(output_folder, f"{file_name}.json")
     with open(output_file, "w", encoding="utf-8") as f:
-        json.dump({"columns": final}, f, indent=2, ensure_ascii=False)
+        json.dump(reshape_columns_to_levels(final), f, indent=2, ensure_ascii=False)
     print(f"✅ Saved → {output_file}")
 
 

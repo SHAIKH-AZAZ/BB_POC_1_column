@@ -6,6 +6,7 @@ from tqdm import tqdm
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
+from pattern_batching import extract_pages_with_checkpoints
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -69,32 +70,27 @@ def process_pdf(pdf_path):
     )
 
     prompt = load_prompt()
+    rows = extract_pages_with_checkpoints(
+        image_paths,
+        prompt,
+        pattern_number=7,
+        output_folder=output_folder,
+    )
+
     final_columns = []
 
-    for img_path in tqdm(image_paths):
+    for row in rows:
 
-        print(f"🧠 Extracting → {img_path}")
+        column_no = row.get("column_no", "").strip()
+        size = clean_size(row.get("size"))
 
-        result = extract_with_tools(img_path, prompt)
-
-        try:
-            parsed = json.loads(result)
-            rows = parsed.get("columns", [])
-        except:
+        if not column_no:
             continue
 
-        for row in rows:
-
-            column_no = row.get("column_no", "").strip()
-            size = clean_size(row.get("size"))
-
-            if not column_no:
-                continue
-
-            final_columns.append({
-                "column_no": column_no,
-                "size": size
-            })
+        final_columns.append({
+            "column_no": column_no,
+            "size": size
+        })
 
     final_output = reshape_columns_to_levels(final_columns)
 

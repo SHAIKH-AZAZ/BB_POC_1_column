@@ -7,6 +7,7 @@ from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
+from pattern_batching import env_enabled, extract_levels_with_checkpoints
 from vision_extractor import extract_from_image, extract_with_tools
 
 # ==============================
@@ -131,28 +132,6 @@ def clean_size(size):
 
 
 # ==============================
-# FORMAT SIZE STRING
-# ==============================
-
-
-def format_size(size):
-    """Convert pattern-2 B x L size dict to 'B x L' string."""
-
-    if not size:
-        return None
-
-    width = size.get("width")
-    length = size.get("length")
-
-    if width is not None and length is not None:
-        return f"{int(width)} x {int(length)}"
-    if width is not None:
-        return str(int(width))
-
-    return None
-
-
-# ==============================
 # RESHAPE TO LEVEL-CENTRIC JSON
 # ==============================
 
@@ -166,7 +145,8 @@ def reshape_to_levels(flat_records):
 
         col_entry = {
             "column_no": record.get("column_no", ""),
-            "size": format_size(record.get("size")),
+            "size": record.get("size")
+            or {"width": None, "depth": None, "length": None},
             "reinforcement": record.get("reinforcement") or [],
         }
 
@@ -338,21 +318,17 @@ def process_pdf(pdf_path):
 
     prompt = load_prompt()
 
-    all_columns = []
-
-    for img_path in tqdm(image_paths):
-        print(f"🔎 Extracting → {img_path}")
-
-        result = extract_with_tools(img_path, prompt)
-
-        try:
-            parsed = json.loads(result)
-
-            if "columns" in parsed:
-                all_columns.extend(parsed["columns"])
-
-        except:
-            print("⚠ JSON parse failed")
+    all_columns = extract_levels_with_checkpoints(
+        image_paths,
+        prompt,
+        pattern_number=2,
+        output_folder=output_folder,
+        prompt_context=(
+            "Pattern 2 levels are horizontal section titles such as "
+            "'GROUND FLOOR TO FIRST FLOOR', 'FOOTING TO GROUND FLOOR', "
+            "and 'FIRST FLOOR TO ROOF LEVEL'. Keep full visible range names."
+        ),
+    )
 
     # ==========================
     # FINAL CLEANUP
@@ -378,7 +354,7 @@ def process_pdf(pdf_path):
 
     final_columns = enforce_all_levels(final_columns)
 
-    if file_name == "pattern-2":
+    if env_enabled("PATTERN2_SIZE_LOOKUP", default=False):
         final_columns = reconcile_pattern_2_sizes(final_columns)
 
     final_output = reshape_to_levels(final_columns)

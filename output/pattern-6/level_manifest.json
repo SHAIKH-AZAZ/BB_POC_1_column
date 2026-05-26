@@ -1,0 +1,65 @@
+{
+  "pattern": 6,
+  "mode": "level_batches",
+  "pages": [
+    {
+      "page": 1,
+      "levels": [
+        "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
+        "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
+        "COLUMN FROM FIRST FLOOR LVL. TO SECOND FLOOR LVL.",
+        "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
+        "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL."
+      ]
+    }
+  ],
+  "levels": [
+    "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
+    "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
+    "COLUMN FROM FIRST FLOOR LVL. TO SECOND FLOOR LVL.",
+    "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
+    "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL."
+  ],
+  "batches": [
+    {
+      "id": "p01_l001",
+      "page": 1,
+      "level": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
+      "status": "done",
+      "file": "level_batches\\p01_l001_COLUMN_FROM_THIRD_FLOOR_LVL_TO_FOURTH_FLOOR_LVL.json",
+      "error": null
+    },
+    {
+      "id": "p01_l002",
+      "page": 1,
+      "level": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
+      "status": "done",
+      "file": "level_batches\\p01_l002_COLUMN_FROM_SECOND_FLOOR_LVL_TO_THIRD_FLOOR_LVL.json",
+      "error": null
+    },
+    {
+      "id": "p01_l003",
+      "page": 1,
+      "level": "COLUMN FROM FIRST FLOOR LVL. TO SECOND FLOOR LVL.",
+      "status": "done",
+      "file": "level_batches\\p01_l003_COLUMN_FROM_FIRST_FLOOR_LVL_TO_SECOND_FLOOR_LVL.json",
+      "error": null
+    },
+    {
+      "id": "p01_l004",
+      "page": 1,
+      "level": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
+      "status": "done",
+      "file": "level_batches\\p01_l004_COLUMN_FROM_GROUND_FLOOR_LVL_TO_FIRST_FLOOR_LVL.json",
+      "error": null
+    },
+    {
+      "id": "p01_l005",
+      "page": 1,
+      "level": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+      "status": "done",
+      "file": "level_batches\\p01_l005_COLUMN_FROM_FOUNDATION_LVL_TO_GROUND_FLOOR_LVL.json",
+      "error": null
+    }
+  ]
+}

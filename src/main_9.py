@@ -43,6 +43,7 @@ import fitz  # PyMuPDF  (pip install pymupdf)
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
+from pattern_batching import atomic_write_json, trace_key_for
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -689,6 +690,14 @@ def _report(records: list, layout: dict):
             print(f"   ⚠️  {grp} missing: {sorted(missing)}")
 
 
+def _update_manifest_status(manifest, batch_id, status, error=None):
+    for batch in manifest["batches"]:
+        if batch["id"] == batch_id:
+            batch["status"] = status
+            batch["error"] = error
+            return
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Main pipeline
 # ─────────────────────────────────────────────────────────────────────────────
@@ -724,8 +733,30 @@ def process_pdf(pdf_path: str):
     all_records  = []
     vision_prompt = None   # built lazily (only if a scanned page is encountered)
     image_paths   = None   # converted lazily
+    batch_folder_name = "page_batches"
+    batch_folder = os.path.join(output_folder, batch_folder_name)
+    os.makedirs(batch_folder, exist_ok=True)
+    manifest = {
+        "pattern": 9,
+        "mode": "page_batches",
+        "batches": [
+            {
+                "id": f"p{page_no + 1:02d}",
+                "page": page_no + 1,
+                "status": "pending",
+                "file": os.path.join(batch_folder_name, f"p{page_no + 1:02d}.json"),
+                "error": None,
+            }
+            for page_no in range(len(doc))
+        ],
+    }
+    manifest_path = os.path.join(output_folder, "page_manifest.json")
+    atomic_write_json(manifest_path, manifest)
 
     for page_no in tqdm(range(len(doc)), desc=f"Processing {file_name}"):
+        batch_id = f"p{page_no + 1:02d}"
+        _update_manifest_status(manifest, batch_id, "running")
+        atomic_write_json(manifest_path, manifest)
         page    = doc[page_no]
         records = extract_from_pdf_page(page, layout)
 
@@ -740,15 +771,30 @@ def process_pdf(pdf_path: str):
             if image_paths is None:
                 image_paths = convert_pdf_to_images(pdf_path, output_folder, dpi=300)
             if page_no < len(image_paths):
-                raw = extract_with_tools(image_paths[page_no], vision_prompt)
+                raw = extract_with_tools(
+                    image_paths[page_no],
+                    vision_prompt,
+                    trace_key=trace_key_for(
+                        image_paths[page_no],
+                        batch_id,
+                        "vision_fallback",
+                    ),
+                )
                 try:
                     parsed = _parse_model_output(raw)
                     vision = _post_process_vision(parsed.get("columns", []))
                     all_records.extend(vision)
+                    records = vision
                     print(f"     Vision: {len(vision)} records")
                 except Exception as e:
                     print(f"     ❌ Vision parse failed: {e}")
                     print(f"        Raw (first 400 chars): {raw[:400]}")
+                    records = []
+
+        page_file = os.path.join(batch_folder, f"{batch_id}.json")
+        atomic_write_json(page_file, {"columns": records})
+        _update_manifest_status(manifest, batch_id, "done")
+        atomic_write_json(manifest_path, manifest)
 
     # ── 3. Merge, sort, save ──────────────────────────────────────────────────
     final = _sort_records(_merge_pages(all_records), layout)
@@ -756,7 +802,7 @@ def process_pdf(pdf_path: str):
 
     output_file = os.path.join(output_folder, f"{file_name}.json")
     with open(output_file, "w", encoding="utf-8") as f:
-        json.dump({"columns": final}, f, indent=2, ensure_ascii=False)
+        json.dump(reshape_columns_to_levels(final), f, indent=2, ensure_ascii=False)
     print(f"✅ Saved → {output_file}")
 
 
