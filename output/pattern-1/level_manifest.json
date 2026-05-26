@@ -2,7 +2,7 @@
   "pattern": 1,
   "pdf": "pattern-1.pdf",
   "levels": [
-    "ABOVE TERRACE FLOOR",
+    "ABOVE TERRACE LEVEL",
     "TERRACE FLOOR LEVEL",
     "4TH FLOOR LEVEL",
     "3RD FLOOR LEVEL",
@@ -15,9 +15,9 @@
     {
       "id": "p01_l001",
       "page": 1,
-      "level": "ABOVE TERRACE FLOOR",
+      "level": "ABOVE TERRACE LEVEL",
       "status": "done",
-      "file": "level_batches\\p01_l001_ABOVE_TERRACE_FLOOR.json",
+      "file": "level_batches\\p01_l001_ABOVE_TERRACE_LEVEL.json",
       "error": null
     },
     {

@@ -31,10 +31,13 @@
     "C40",
     "C41"
   ],
-  "checked": 28,
+  "row_crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\row_l004_3RD_FLOOR_LEVEL.png",
+  "row_error": null,
+  "row_checked": true,
+  "cell_retries": 0,
   "corrected": [
     {
-      "column_no": "C1,C7,C8,C14,C07,C75",
+      "column_no": "C1,C7,C8,C14,C67,C75",
       "grid_col_index": 0,
       "before": {
         "size": {
@@ -59,8 +62,8 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T25+16-T20",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c001_3RD_FLOOR_LEVEL_C1_C7_C8_C14_C07_C75.png"
+      "raw_text": "700 x 700 4-T25+16-T20",
+      "source": "row"
     },
     {
       "column_no": "C2,C6,C79",
@@ -88,8 +91,8 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T20+16-T16",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c002_3RD_FLOOR_LEVEL_C2_C6_C79.png"
+      "raw_text": "700 x 700 4-T20+16-T16",
+      "source": "row"
     },
     {
       "column_no": "C3,C4,C5,C15,C22,C37,C54,C80,C81,C83,C84",
@@ -113,12 +116,12 @@
         },
         "reinforcement": [
           "4-T20",
-          "16-T16"
+          "16-T15"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T20+16-T16",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c003_3RD_FLOOR_LEVEL_C3_C4_C5_C15_C22_C37_C54_C80_C81_C83_C84.png"
+      "raw_text": "700 x 700 4-T20+16-T15",
+      "source": "row"
     },
     {
       "column_no": "C9,C13,C32,C51",
@@ -130,7 +133,7 @@
           "length": 700
         },
         "reinforcement": [
-          "20"
+          "20-T25"
         ]
       },
       "after": {
@@ -144,8 +147,8 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T32",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c004_3RD_FLOOR_LEVEL_C9_C13_C32_C51.png"
+      "raw_text": "700 x 700 20-T32",
+      "source": "row"
     },
     {
       "column_no": "C10,C48",
@@ -157,7 +160,7 @@
           "length": 700
         },
         "reinforcement": [
-          "20"
+          "20-T25"
         ]
       },
       "after": {
@@ -172,8 +175,8 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T32+16-T25",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c005_3RD_FLOOR_LEVEL_C10_C48.png"
+      "raw_text": "700 x 700 4-T32+16-T25",
+      "source": "row"
     },
     {
       "column_no": "C11",
@@ -185,7 +188,7 @@
           "length": 700
         },
         "reinforcement": [
-          "20"
+          "20-T25"
         ]
       },
       "after": {
@@ -199,8 +202,8 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T32",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c006_3RD_FLOOR_LEVEL_C11.png"
+      "raw_text": "700 x 700 20-T32",
+      "source": "row"
     },
     {
       "column_no": "C12",
@@ -212,7 +215,7 @@
           "length": 700
         },
         "reinforcement": [
-          "20"
+          "20-T25"
         ]
       },
       "after": {
@@ -227,20 +230,21 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T32+16-T25",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c007_3RD_FLOOR_LEVEL_C12.png"
+      "raw_text": "700 x 700 4-T32+16-T25",
+      "source": "row"
     },
     {
-      "column_no": "C16,C17,C18",
+      "column_no": "C16,C17,C33",
       "grid_col_index": 7,
       "before": {
         "size": {
-          "width": 900,
+          "width": 700,
           "depth": null,
-          "length": 300
+          "length": 700
         },
         "reinforcement": [
-          "26-T16"
+          "4-T32",
+          "16-T25"
         ]
       },
       "after": {
@@ -250,12 +254,38 @@
           "length": 700
         },
         "reinforcement": [
-          "20-T25"
+          "20-T125"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T25",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c008_3RD_FLOOR_LEVEL_C16_C17_C18.png"
+      "raw_text": "700 x 700 20-T125",
+      "source": "row"
+    },
+    {
+      "column_no": "C18",
+      "grid_col_index": 8,
+      "before": {
+        "size": {
+          "width": null,
+          "depth": null,
+          "length": null
+        },
+        "reinforcement": []
+      },
+      "after": {
+        "size": {
+          "width": 700,
+          "depth": null,
+          "length": 700
+        },
+        "reinforcement": [
+          "4-T25",
+          "16-T20"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "700 x 700 4-T25+16-T20",
+      "source": "row"
     },
     {
       "column_no": "C19",
@@ -267,8 +297,8 @@
           "length": 300
         },
         "reinforcement": [
-          "B-125",
-          "94-T20"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
@@ -278,12 +308,12 @@
           "length": 700
         },
         "reinforcement": [
-          "20-T32"
+          "26-T16"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T32",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c010_3RD_FLOOR_LEVEL_C19.png"
+      "raw_text": "700 x 700 26-T16",
+      "source": "row"
     },
     {
       "column_no": "C20",
@@ -292,10 +322,11 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
-          "15-T20"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
@@ -305,13 +336,12 @@
           "length": 700
         },
         "reinforcement": [
-          "4-T32",
-          "16-T25"
+          "126-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T32+16-T25",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c011_3RD_FLOOR_LEVEL_C20.png"
+      "raw_text": "700 x 700 126-T25",
+      "source": "row"
     },
     {
       "column_no": "C21",
@@ -320,26 +350,27 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
-        },
-        "reinforcement": [
-          "20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 950,
-          "depth": null,
           "length": 300
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
+          "12-T20"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 700,
+          "depth": null,
+          "length": 700
+        },
+        "reinforcement": [
+          "4-T20",
+          "12-T16"
         ]
       },
       "confidence": "high",
-      "raw_text": "950 x 300\n4-T25+16-T20",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c012_3RD_FLOOR_LEVEL_C21.png"
+      "raw_text": "700 x 700 4-T20+12-T16",
+      "source": "row"
     },
     {
       "column_no": "C23,C44",
@@ -348,26 +379,26 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
         "size": {
-          "width": 300,
+          "width": 700,
           "depth": null,
-          "length": 1250
+          "length": 700
         },
         "reinforcement": [
-          "26-T16"
+          "104-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "300 x 1250\n26-T16",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c013_3RD_FLOOR_LEVEL_C23_C44.png"
+      "raw_text": "700 x 700 104-T25",
+      "source": "row"
     },
     {
       "column_no": "C24",
@@ -376,25 +407,26 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
-          "20"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
         "size": {
-          "width": 500,
+          "width": 700,
           "depth": null,
-          "length": 6550
+          "length": 700
         },
         "reinforcement": [
-          "126-T25"
+          "16-T20"
         ]
       },
       "confidence": "high",
-      "raw_text": "500 x 6550\n126-T25",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c014_3RD_FLOOR_LEVEL_C24.png"
+      "raw_text": "700 x 700 16-T20",
+      "source": "row"
     },
     {
       "column_no": "C25",
@@ -403,26 +435,27 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
-          "20"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
         "size": {
-          "width": 750,
+          "width": 700,
           "depth": null,
-          "length": 300
+          "length": 700
         },
         "reinforcement": [
-          "4-T20",
-          "12-T16"
+          "4-T25",
+          "16-T20"
         ]
       },
       "confidence": "high",
-      "raw_text": "750 x 300\n4-T20+12-T16",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c015_3RD_FLOOR_LEVEL_C25.png"
+      "raw_text": "700 x 700 4-T25+16-T20",
+      "source": "row"
     },
     {
       "column_no": "C26,C27",
@@ -431,26 +464,26 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
         "size": {
-          "width": 400,
+          "width": 700,
           "depth": null,
-          "length": 5600
+          "length": 700
         },
         "reinforcement": [
-          "104-T25"
+          "16-T16"
         ]
       },
       "confidence": "high",
-      "raw_text": "400 x 5600\n104-T25",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c016_3RD_FLOOR_LEVEL_C26_C27.png"
+      "raw_text": "700 x 700 16-T16",
+      "source": "row"
     },
     {
       "column_no": "C28",
@@ -459,25 +492,27 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
-          "20"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
         "size": {
-          "width": 300,
+          "width": 700,
           "depth": null,
-          "length": 750
+          "length": 700
         },
         "reinforcement": [
-          "16-T20"
+          "4-T32",
+          "16-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "300 x 750\n16-T20",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c017_3RD_FLOOR_LEVEL_C28.png"
+      "raw_text": "700 x 700 4-T32+16-T25",
+      "source": "row"
     },
     {
       "column_no": "C29",
@@ -486,26 +521,26 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
-        },
-        "reinforcement": [
-          "20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 300,
-          "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
           "4-T25",
           "12-T20"
         ]
       },
+      "after": {
+        "size": {
+          "width": 700,
+          "depth": null,
+          "length": 700
+        },
+        "reinforcement": [
+          "20-T20"
+        ]
+      },
       "confidence": "high",
-      "raw_text": "300 x 750\n4-T25+12-T20",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c018_3RD_FLOOR_LEVEL_C29.png"
+      "raw_text": "700 x 700 20-T20",
+      "source": "row"
     },
     {
       "column_no": "C30",
@@ -514,25 +549,26 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
-          "16-T20"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
         "size": {
-          "width": 750,
+          "width": 700,
           "depth": null,
-          "length": 300
+          "length": 700
         },
         "reinforcement": [
-          "16-T16"
+          "102-T20"
         ]
       },
       "confidence": "high",
-      "raw_text": "750 x 300\n16-T16",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c019_3RD_FLOOR_LEVEL_C30.png"
+      "raw_text": "700 x 700 102-T20",
+      "source": "row"
     },
     {
       "column_no": "C31",
@@ -541,10 +577,11 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
-          "20"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
@@ -554,13 +591,12 @@
           "length": 700
         },
         "reinforcement": [
-          "4-T32",
-          "16-T25"
+          "20-T20"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T32+16-T25",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c020_3RD_FLOOR_LEVEL_C31.png"
+      "raw_text": "700 x 700 20-T20",
+      "source": "row"
     },
     {
       "column_no": "C34",
@@ -569,25 +605,26 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
-          "20"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
         "size": {
-          "width": 950,
+          "width": 700,
           "depth": null,
-          "length": 300
+          "length": 700
         },
         "reinforcement": [
-          "20-T20"
+          "16-T20"
         ]
       },
       "confidence": "high",
-      "raw_text": "950 x 300\n20-T20",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c021_3RD_FLOOR_LEVEL_C34.png"
+      "raw_text": "700 x 700 16-T20",
+      "source": "row"
     },
     {
       "column_no": "C35,C38",
@@ -596,26 +633,26 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
         "size": {
-          "width": 300,
+          "width": 700,
           "depth": null,
-          "length": 5600
+          "length": 700
         },
         "reinforcement": [
-          "102-T20"
+          "174-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "300 x 5600\n102-T20",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c022_3RD_FLOOR_LEVEL_C35_C38.png"
+      "raw_text": "700 x 700 174-T25",
+      "source": "row"
     },
     {
       "column_no": "C36,C53",
@@ -624,10 +661,11 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
-          "20"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
@@ -637,12 +675,12 @@
           "length": 700
         },
         "reinforcement": [
-          "20-T20"
+          "20-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T20",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c023_3RD_FLOOR_LEVEL_C36_C53.png"
+      "raw_text": "700 x 700 20-T25",
+      "source": "row"
     },
     {
       "column_no": "C39",
@@ -651,25 +689,26 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
-          "20"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
         "size": {
-          "width": 750,
+          "width": 700,
           "depth": null,
-          "length": 300
+          "length": 700
         },
         "reinforcement": [
-          "16-T20"
+          "20-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "750 x 300\n16-T20",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c024_3RD_FLOOR_LEVEL_C39.png"
+      "raw_text": "700 x 700 20-T25",
+      "source": "row"
     },
     {
       "column_no": "C40",
@@ -678,109 +717,26 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
-        },
-        "reinforcement": [
-          "20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 700,
-          "depth": null,
-          "length": 8300
-        },
-        "reinforcement": [
-          "174-T25"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "700 x 8300\n174-T25",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c025_3RD_FLOOR_LEVEL_C40.png"
-    },
-    {
-      "column_no": "C41",
-      "grid_col_index": 25,
-      "before": {
-        "size": {
-          "width": 300,
-          "depth": null,
-          "length": 750
-        },
-        "reinforcement": [
-          "20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 300,
-          "depth": null,
-          "length": 950
-        },
-        "reinforcement": [
-          "20-T25"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "300 x 950\n20-T25",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c026_3RD_FLOOR_LEVEL_C41.png"
-    },
-    {
-      "column_no": "C3,C4,C5,C15,C22,C37,C54,C80,C81,C83,C84",
-      "grid_col_index": 2,
-      "before": {
-        "size": {
-          "width": 700,
-          "depth": null,
-          "length": 700
-        },
-        "reinforcement": [
-          "4-T32",
-          "16-T25"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 700,
-          "depth": null,
-          "length": 700
-        },
-        "reinforcement": [
-          "4-T20",
-          "16-T16"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "700 x 700\n4-T20+16-T16",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c003_3RD_FLOOR_LEVEL_C3_C4_C5_C15_C22_C37_C54_C80_C81_C83_C84.png"
-    },
-    {
-      "column_no": "C26,C27",
-      "grid_col_index": 15,
-      "before": {
-        "size": {
-          "width": 300,
-          "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
         "size": {
-          "width": 400,
+          "width": 700,
           "depth": null,
-          "length": 5600
+          "length": 700
         },
         "reinforcement": [
-          "104-T25"
+          "20-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "400 x 5600\n104-T25",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c016_3RD_FLOOR_LEVEL_C26_C27.png"
+      "raw_text": "700 x 700 20-T25",
+      "source": "row"
     },
     {
       "column_no": "C41",
@@ -789,25 +745,26 @@
         "size": {
           "width": 300,
           "depth": null,
-          "length": 750
+          "length": 300
         },
         "reinforcement": [
-          "20"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
         "size": {
-          "width": 300,
+          "width": 700,
           "depth": null,
-          "length": 950
+          "length": 700
         },
         "reinforcement": [
           "20-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "300 x 950\n20-T25",
-      "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l004_3RD_FLOOR_LEVEL\\l004_c026_3RD_FLOOR_LEVEL_C41.png"
+      "raw_text": "700 x 700 20-T25",
+      "source": "row"
     }
   ],
   "errors": []

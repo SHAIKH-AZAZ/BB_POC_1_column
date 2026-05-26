@@ -9,6 +9,7 @@ from tqdm import tqdm
 from config import INPUT_DIR, OUTPUT_DIR
 from pattern1_cell_verifier import (
     detect_pattern1_grid,
+    detect_levels_from_pattern1_label_crop,
     extract_pattern1_header_grid_map,
     verify_level_columns_with_crops,
 )
@@ -18,6 +19,10 @@ from vision_extractor import detect_levels_from_image, extract_with_tools
 MAX_LEVEL_WORKERS = 3
 VERIFY_PATTERN1_CELLS = (
     os.getenv("PATTERN1_VERIFY_CELLS", "1").strip().lower()
+    not in {"0", "false", "no", "off"}
+)
+USE_PATTERN1_LEVEL_CROP = (
+    os.getenv("PATTERN1_LEVEL_CROP", "1").strip().lower()
     not in {"0", "false", "no", "off"}
 )
 _COLUMN_ID_RE = re.compile(r"\b(?:C|CP|COL|COLUMN)\s*-?\s*\d+[A-Z]?\b", re.IGNORECASE)
@@ -369,22 +374,9 @@ def process_pdf(pdf_path):
     batch_jobs = []
 
     for page_index, img_path in enumerate(tqdm(image_paths)):
-        print(f"  Detecting levels -> {img_path}")
-        levels = detect_levels_from_image(
-            img_path,
-            pattern_number=1,
-            prompt_context=build_level_discovery_context(),
-        )
-
-        if not levels:
-            print("  No levels detected; falling back to whole-page extraction.")
-            levels = ["UNKNOWN"]
-
-        print(f"  Detected {len(levels)} level(s): {', '.join(levels)}")
-
         page_grid = None
         column_grid_map = None
-        if VERIFY_PATTERN1_CELLS:
+        if VERIFY_PATTERN1_CELLS or USE_PATTERN1_LEVEL_CROP:
             try:
                 page_grid = detect_pattern1_grid(img_path)
                 print(
@@ -392,14 +384,51 @@ def process_pdf(pdf_path):
                     f"{page_grid.level_count} level row(s), "
                     f"{page_grid.data_col_count} data column(s)"
                 )
-                if page_grid.level_count != len(levels):
-                    print(
-                        "  Cell verification disabled for this page: "
-                        f"detected {len(levels)} level name(s) but grid has "
-                        f"{page_grid.level_count} level row(s)."
-                    )
-                    page_grid = None
-                else:
+            except Exception as exc:
+                print(f"  Pattern 1 grid detection unavailable: {exc}")
+                page_grid = None
+
+        print(f"  Detecting levels -> {img_path}")
+        levels = []
+        if USE_PATTERN1_LEVEL_CROP and page_grid is not None:
+            try:
+                level_crop_dir = os.path.join(
+                    cell_crop_folder,
+                    f"page_{page_index + 1:02d}_level_labels",
+                )
+                levels, level_crop_path = detect_levels_from_pattern1_label_crop(
+                    img_path,
+                    page_grid,
+                    level_crop_dir,
+                )
+                print(f"  Level labels read from crop -> {level_crop_path}")
+            except Exception as exc:
+                print(f"  Level-label crop detection failed; falling back to full page: {exc}")
+
+        if not levels:
+            levels = detect_levels_from_image(
+                img_path,
+                pattern_number=1,
+                prompt_context=build_level_discovery_context(),
+            )
+
+        if not levels:
+            print("  No levels detected; falling back to whole-page extraction.")
+            levels = ["UNKNOWN"]
+
+        print(f"  Detected {len(levels)} level(s): {', '.join(levels)}")
+
+        if VERIFY_PATTERN1_CELLS and page_grid is not None:
+            if page_grid.level_count != len(levels):
+                print(
+                    "  Cell verification disabled for this page: "
+                    f"detected {len(levels)} level name(s) but grid has "
+                    f"{page_grid.level_count} level row(s)."
+                )
+                page_grid = None
+                column_grid_map = None
+            else:
+                try:
                     column_grid_map = extract_pattern1_header_grid_map(
                         pdf_path,
                         page_index,
@@ -407,10 +436,10 @@ def process_pdf(pdf_path):
                     )
                     header_count = len(column_grid_map.get("labels") or [])
                     print(f"  Header grid map detected: {header_count} column header(s)")
-            except Exception as exc:
-                print(f"  Cell verification disabled for this page: {exc}")
-                page_grid = None
-                column_grid_map = None
+                except Exception as exc:
+                    print(f"  Cell verification disabled for this page: {exc}")
+                    page_grid = None
+                    column_grid_map = None
 
         for level_index, level in enumerate(levels):
             batch_id = f"p{page_index + 1:02d}_l{level_index + 1:03d}"

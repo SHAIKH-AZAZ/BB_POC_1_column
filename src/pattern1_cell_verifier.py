@@ -92,6 +92,133 @@ def detect_pattern1_grid(image_path):
     return grid
 
 
+def crop_pattern1_level_column(
+    image_path,
+    grid,
+    output_dir,
+    label="level_column",
+    padding=6,
+    min_height=1200,
+):
+    os.makedirs(output_dir, exist_ok=True)
+
+    x1 = grid.v_lines[0]
+    x2 = grid.v_lines[grid.data_col_start_index]
+    y1 = grid.h_lines[grid.header_bottom_index]
+    y2 = grid.h_lines[grid.header_bottom_index + (grid.level_count * 2)]
+
+    with Image.open(image_path).convert("RGB") as img:
+        width, height = img.size
+        left = max(0, x1 + padding)
+        top = max(0, y1 + padding)
+        right = min(width, x2 - padding)
+        bottom = min(height, y2 - padding)
+
+        crop = img.crop((left, top, right, bottom))
+        if crop.height and crop.height < min_height:
+            scale = min_height / crop.height
+            crop = crop.resize(
+                (int(crop.width * scale), int(crop.height * scale)),
+                Image.LANCZOS,
+            )
+
+        path = os.path.join(output_dir, f"{_safe_name(label)}.png")
+        crop.save(path, "PNG")
+
+    return path
+
+
+def _parse_levels_response(raw):
+    data = json.loads(clean_json_string(raw))
+    if isinstance(data, dict):
+        levels = data.get("levels", [])
+    elif isinstance(data, list):
+        levels = data
+    else:
+        levels = []
+
+    cleaned = []
+    for level in levels:
+        value = str(level).strip()
+        if value and value not in cleaned:
+            cleaned.append(value)
+    return cleaned
+
+
+def _has_level_range(levels):
+    return any(re.search(r"\bTO\b", str(level), flags=re.IGNORECASE) for level in levels)
+
+
+def detect_levels_from_pattern1_label_crop(image_path, grid, output_dir):
+    crop_path = crop_pattern1_level_column(
+        image_path,
+        grid,
+        output_dir,
+        label="pattern1_level_column",
+    )
+
+    prompt = f"""
+You are reading ONLY the cropped level/floor label column from a Pattern 1 RCC column schedule.
+
+Return ONLY strict JSON in this exact shape:
+{{
+  "pattern": 1,
+  "levels": []
+}}
+
+Rules:
+- Read the bounded level/floor cells from top to bottom.
+- Ignore the narrow SIZE / REINF. labels.
+- Do not read column numbers, sizes, reinforcement, stirrups, notes, or any other details.
+- Do not invent, rename, reword, or assume level/floor names.
+- Copy LEVEL and FLOOR exactly as visible; they are not interchangeable words.
+- Treat text stacked across multiple lines inside one bounded cell as one label.
+- If a bounded cell is a range like "UPPER LEVEL / To / LOWER LEVEL", return only the upper visible level.
+- No item in levels[] may contain the word "To".
+- "TERRACE FLOOR LEVEL / To / 4TH FLOOR LEVEL" must return "TERRACE FLOOR LEVEL".
+- "GROUND FLOOR LEVEL / To / BASEMENT LEVEL" must return "GROUND FLOOR LEVEL".
+- "BASEMENT LEVEL / To / FOUNDATION LEVEL" must return "BASEMENT LEVEL".
+- Do not return "FOUNDATION LEVEL" when it appears only as the lower part of the basement-to-foundation range.
+- Do not add "1ST" unless it is visibly printed in that same bounded cell.
+- Expected visible level-cell count from the detected grid: {grid.level_count}.
+"""
+
+    levels = _parse_levels_response(extract_from_image(crop_path, prompt))
+    if _has_level_range(levels):
+        retry_prompt = f"""
+Your previous Pattern 1 level list was invalid because at least one item still contained "To":
+{json.dumps(levels, ensure_ascii=False)}
+
+Re-read the same cropped level/floor column and return ONLY strict JSON:
+{{
+  "pattern": 1,
+  "levels": []
+}}
+
+Correction rules:
+- Each levels[] item must be only the upper visible level from one bounded level cell.
+- No levels[] item may contain the word "To".
+- "GROUND FLOOR LEVEL / To / BASEMENT LEVEL" -> "GROUND FLOOR LEVEL".
+- "BASEMENT LEVEL / To / FOUNDATION LEVEL" -> "BASEMENT LEVEL".
+- Preserve visible top-to-bottom order.
+- Copy LEVEL and FLOOR exactly as visible.
+"""
+        levels = _parse_levels_response(extract_from_image(crop_path, retry_prompt))
+
+    if _has_level_range(levels):
+        raise RuntimeError(
+            "Pattern 1 label-crop level detection returned range labels after retry: "
+            + ", ".join(levels)
+        )
+    if len(levels) != grid.level_count:
+        raise RuntimeError(
+            f"Pattern 1 label-crop level count mismatch: model={len(levels)} "
+            f"grid={grid.level_count}"
+        )
+
+    return levels, crop_path
+
+
 def _column_ids(value):
     return re.findall(r"\bC\d+[A-Z]?\b", str(value or "").upper())
 
@@ -217,6 +344,41 @@ def crop_pattern1_cell(
     return path
 
 
+def crop_pattern1_level_row(
+    image_path,
+    grid,
+    level_index,
+    output_dir,
+    label,
+    padding=4,
+):
+    if level_index < 0 or level_index >= grid.level_count:
+        raise IndexError(f"Level index {level_index} outside grid level count {grid.level_count}")
+
+    os.makedirs(output_dir, exist_ok=True)
+
+    x1 = grid.v_lines[grid.data_col_start_index]
+    x2 = grid.v_lines[-1]
+    y1 = grid.h_lines[grid.header_bottom_index + (level_index * 2)]
+    y2 = grid.h_lines[grid.header_bottom_index + (level_index * 2) + 2]
+
+    with Image.open(image_path).convert("RGB") as img:
+        width, height = img.size
+        left = max(0, x1 + padding)
+        top = max(0, y1 + padding)
+        right = min(width, x2 - padding)
+        bottom = min(height, y2 - padding)
+
+        crop = img.crop((left, top, right, bottom))
+        path = os.path.join(
+            output_dir,
+            f"row_l{level_index + 1:03d}_{_safe_name(label)}.png",
+        )
+        crop.save(path, "PNG")
+
+    return path
+
+
 def _to_int(value):
     if value is None or value == "":
         return None
@@ -288,6 +450,32 @@ def _parse_verification(raw):
     }
 
 
+def _parse_row_verification(raw):
+    data = json.loads(clean_json_string(raw))
+    raw_columns = data.get("columns", []) if isinstance(data, dict) else []
+    columns = []
+    for index, col in enumerate(raw_columns):
+        if not isinstance(col, dict):
+            continue
+        column_no = str(col.get("column_no") or "").strip()
+        if not column_no:
+            continue
+        columns.append(
+            {
+                "column_no": column_no,
+                "grid_col_index": col.get("grid_col_index", index),
+                "size": _parse_size(col.get("size")),
+                "reinforcement": _normalize_reinforcement(col.get("reinforcement")),
+                "confidence": str(col.get("confidence") or "").strip().lower(),
+                "raw_text": str(col.get("raw_text") or "").strip(),
+            }
+        )
+    return {
+        "level": str(data.get("level") or "").strip() if isinstance(data, dict) else "",
+        "columns": columns,
+    }
+
+
 def verify_cell_crop(crop_path, level, column_no):
     prompt = f"""
 You are reading ONE cropped data cell from a Pattern 1 RCC column schedule.
@@ -319,8 +507,91 @@ Return ONLY strict JSON:
     return _parse_verification(raw)
 
 
+def verify_level_row_crop(row_crop_path, level, header_labels):
+    headers_json = json.dumps(header_labels, ensure_ascii=False)
+    prompt = f"""
+You are reading ONE cropped full data row from a Pattern 1 RCC column schedule.
+
+Context:
+- Target level/floor: {level}
+- Column headers are provided left-to-right:
+{headers_json}
+
+Task:
+- Read ONLY this cropped row strip.
+- The row strip contains the SIZE sub-row and REINF. sub-row for this one level.
+- Return one columns[] item for every provided header, in exactly the same order.
+- Use the provided column_no values exactly; do not invent, merge, split, or rename them.
+- This schedule uses B x L size order.
+- If a cell says "750 x 300", return width=750, depth=null, length=300.
+- Keep the first visible number as width/B and the second visible number as length/L.
+- Do not sort, rotate, or swap size dimensions.
+- Normalize reinforcement as quantity-Tdiameter, e.g. "16-T16".
+- If a specific cell is unreadable, return null size and [] reinforcement for only that column.
+- Do not borrow values from neighboring cells.
+
+Return ONLY strict JSON:
+{{
+  "level": "{level}",
+  "columns": [
+    {{
+      "column_no": "",
+      "grid_col_index": 0,
+      "size": {{"width": null, "depth": null, "length": null}},
+      "reinforcement": [],
+      "confidence": "high",
+      "raw_text": ""
+    }}
+  ]
+}}
+"""
+    raw = extract_from_image(row_crop_path, prompt)
+    return _parse_row_verification(raw)
+
+
 def _has_verified_size(size):
     return bool(size and (size.get("width") is not None or size.get("length") is not None))
+
+
+def _has_verified_values(verified):
+    return _has_verified_size(verified.get("size")) or bool(verified.get("reinforcement"))
+
+
+def verify_cell_with_retry(image_path, grid, level_index, level, column_no, grid_col_index, crop_dir):
+    attempts = []
+    for suffix, padding in (("cell", 6), ("wide", -18)):
+        crop_path = None
+        try:
+            crop_path = crop_pattern1_cell(
+                image_path,
+                grid,
+                level_index,
+                grid_col_index,
+                crop_dir,
+                f"{level}_{column_no}_{suffix}",
+                padding=padding,
+            )
+            verified = verify_cell_crop(crop_path, level, column_no)
+            attempts.append(
+                {
+                    "mode": suffix,
+                    "padding": padding,
+                    "crop": crop_path,
+                    "result": verified,
+                }
+            )
+            if _has_verified_values(verified):
+                return verified, attempts
+        except Exception as exc:
+            attempts.append(
+                {
+                    "mode": suffix,
+                    "padding": padding,
+                    "crop": crop_path,
+                    "error": str(exc),
+                }
+            )
+    return None, attempts
 
 
 def verify_level_columns_with_crops(
@@ -332,6 +603,7 @@ def verify_level_columns_with_crops(
     crop_dir,
     column_grid_map=None,
 ):
+    os.makedirs(crop_dir, exist_ok=True)
     corrected = []
     report = {
         "level": level,
@@ -339,42 +611,122 @@ def verify_level_columns_with_crops(
         "grid_level_count": grid.level_count,
         "grid_data_col_count": grid.data_col_count,
         "header_labels": (column_grid_map or {}).get("labels", []),
-        "checked": 0,
+        "row_crop": None,
+        "row_error": None,
+        "row_checked": False,
+        "cell_retries": 0,
         "corrected": [],
         "errors": [],
     }
+    header_labels = report["header_labels"]
 
+    row_by_group = {}
+    row_by_index = {}
+    if header_labels:
+        try:
+            row_crop_path = crop_pattern1_level_row(
+                image_path,
+                grid,
+                level_index,
+                crop_dir,
+                level,
+            )
+            row_verified = verify_level_row_crop(row_crop_path, level, header_labels)
+            report["row_crop"] = row_crop_path
+            report["row_checked"] = True
+            for index, item in enumerate(row_verified.get("columns") or []):
+                grid_index = _coerce_grid_index(item.get("grid_col_index"), index)
+                row_by_index[grid_index] = item
+                key = _column_group_key(item.get("column_no"))
+                if key:
+                    row_by_group[key] = item
+        except Exception as exc:
+            report["row_error"] = str(exc)
+
+    original_by_index = {}
     for col_index, col in enumerate(columns):
-        item = dict(col)
         grid_col_index = _resolve_grid_col_index(
-            item.get("column_no"),
+            col.get("column_no"),
             col_index,
             column_grid_map,
         )
         if grid_col_index >= grid.data_col_count:
             report["errors"].append(
                 {
-                    "column_no": item.get("column_no"),
+                    "column_no": col.get("column_no"),
                     "fallback_index": col_index,
                     "grid_col_index": grid_col_index,
                     "error": "column index outside detected grid",
                 }
             )
+        elif grid_col_index not in original_by_index:
+            original_by_index[grid_col_index] = dict(col)
+
+    if header_labels:
+        targets = []
+        for grid_col_index, header in enumerate(header_labels):
+            item = dict(
+                original_by_index.get(
+                    grid_col_index,
+                    {
+                        "column_no": header,
+                        "size": {"width": None, "depth": None, "length": None},
+                        "reinforcement": [],
+                    },
+                )
+            )
+            item["column_no"] = header
+            targets.append((grid_col_index, item))
+    else:
+        targets = [
+            (
+                _resolve_grid_col_index(
+                    col.get("column_no"),
+                    col_index,
+                    column_grid_map,
+                ),
+                dict(col),
+            )
+            for col_index, col in enumerate(columns)
+        ]
+
+    for grid_col_index, item in targets:
+        if grid_col_index >= grid.data_col_count:
             corrected.append(item)
             continue
 
-        label = f"{level}_{item.get('column_no', '')}"
         try:
-            crop_path = crop_pattern1_cell(
-                image_path,
-                grid,
-                level_index,
+            source = "row"
+            verified = _row_verified_for_column(
+                item.get("column_no"),
                 grid_col_index,
-                crop_dir,
-                label,
+                row_by_group,
+                row_by_index,
             )
-            verified = verify_cell_crop(crop_path, level, item.get("column_no", ""))
-            report["checked"] += 1
+
+            if not _has_verified_values(verified or {}):
+                verified, attempts = verify_cell_with_retry(
+                    image_path,
+                    grid,
+                    level_index,
+                    level,
+                    item.get("column_no", ""),
+                    grid_col_index,
+                    crop_dir,
+                )
+                report["cell_retries"] += 1
+                report.setdefault("retry_attempts", []).append(
+                    {
+                        "column_no": item.get("column_no"),
+                        "grid_col_index": grid_col_index,
+                        "attempts": attempts,
+                    }
+                )
+                source = "cell_retry"
+
+            if not verified or not _has_verified_values(verified):
+                corrected.append(item)
+                continue
 
             before = {
                 "size": item.get("size"),
@@ -402,7 +754,7 @@ def verify_level_columns_with_crops(
                         },
                         "confidence": verified.get("confidence"),
                         "raw_text": verified.get("raw_text"),
-                        "crop": crop_path,
+                        "source": source,
                     }
                 )
 
@@ -418,6 +770,20 @@ def verify_level_columns_with_crops(
         corrected.append(item)
 
     return corrected, report
+
+
+def _coerce_grid_index(value, fallback):
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return fallback
+
+
+def _row_verified_for_column(column_no, grid_col_index, row_by_group, row_by_index):
+    group_key = _column_group_key(column_no)
+    if group_key in row_by_group:
+        return row_by_group[group_key]
+    return row_by_index.get(grid_col_index)
 
 
 def _resolve_grid_col_index(column_no, fallback_index, column_grid_map):

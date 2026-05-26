@@ -2,7 +2,7 @@
   "level": "ABOVE TERRACE LEVEL",
   "columns": [
     {
-      "column_no": "C1,C7,C8,C14,C07,C75",
+      "column_no": "C1,C7,C8,C14,C67,C75",
       "size": {
         "width": 700,
         "depth": null,
@@ -77,11 +77,12 @@
         "length": 700
       },
       "reinforcement": [
-        "20-T25"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
-      "column_no": "C16,C17,C18",
+      "column_no": "C16,C17,C33",
       "size": {
         "width": 700,
         "depth": null,
@@ -92,162 +93,174 @@
       ]
     },
     {
-      "column_no": "C19",
+      "column_no": "C18",
       "size": {
-        "width": 950,
+        "width": 700,
         "depth": null,
-        "length": 300
+        "length": 700
       },
       "reinforcement": [
-        "25-T16"
+        "20-T20"
+      ]
+    },
+    {
+      "column_no": "C19",
+      "size": {
+        "width": 700,
+        "depth": null,
+        "length": 700
+      },
+      "reinforcement": [
+        "26-T16"
       ]
     },
     {
       "column_no": "C20",
       "size": {
-        "width": 300,
-        "depth": null,
-        "length": 600
-      },
-      "reinforcement": [
-        "8-T25",
-        "4-T20"
-      ]
-    },
-    {
-      "column_no": "C21",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 600
-      },
-      "reinforcement": [
-        "16-T15"
-      ]
-    },
-    {
-      "column_no": "C23,C44",
-      "size": {
-        "width": 1225,
-        "depth": null,
-        "length": 1225
-      },
-      "reinforcement": [
-        "16-T18"
-      ]
-    },
-    {
-      "column_no": "C24",
-      "size": {
-        "width": 750,
-        "depth": null,
-        "length": 300
-      },
-      "reinforcement": [
-        "8-T25",
-        "4-T20"
-      ]
-    },
-    {
-      "column_no": "C25",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 600
-      },
-      "reinforcement": [
-        "16-T15"
-      ]
-    },
-    {
-      "column_no": "C26,C27",
-      "size": {
-        "width": 750,
-        "depth": null,
-        "length": 750
-      },
-      "reinforcement": [
-        "8-T25",
-        "4-T20"
-      ]
-    },
-    {
-      "column_no": "C28",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 600
-      },
-      "reinforcement": [
-        "16-T15"
-      ]
-    },
-    {
-      "column_no": "C29",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 600
-      },
-      "reinforcement": [
-        "16-T15"
-      ]
-    },
-    {
-      "column_no": "C30",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 600
-      },
-      "reinforcement": [
-        "16-T15"
-      ]
-    },
-    {
-      "column_no": "C31",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 600
-      },
-      "reinforcement": [
-        "16-T15"
-      ]
-    },
-    {
-      "column_no": "C34",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 600
-      },
-      "reinforcement": [
-        "16-T15"
-      ]
-    },
-    {
-      "column_no": "C35,C38",
-      "size": {
         "width": 950,
         "depth": null,
         "length": 300
       },
       "reinforcement": [
+        "122-T25"
+      ]
+    },
+    {
+      "column_no": "C21",
+      "size": {
+        "width": 430,
+        "depth": null,
+        "length": 250
+      },
+      "reinforcement": [
+        "16-T16"
+      ]
+    },
+    {
+      "column_no": "C23,C44",
+      "size": {
+        "width": 750,
+        "depth": null,
+        "length": 350
+      },
+      "reinforcement": [
         "8-T25",
-        "4-T20"
+        "94-T20"
+      ]
+    },
+    {
+      "column_no": "C24",
+      "size": {
+        "width": 700,
+        "depth": null,
+        "length": 700
+      },
+      "reinforcement": [
+        "4-T25",
+        "12-T20"
+      ]
+    },
+    {
+      "column_no": "C25",
+      "size": {
+        "width": 700,
+        "depth": null,
+        "length": 700
+      },
+      "reinforcement": [
+        "16-T16"
+      ]
+    },
+    {
+      "column_no": "C26,C27",
+      "size": {
+        "width": 700,
+        "depth": null,
+        "length": 700
+      },
+      "reinforcement": [
+        "4-T25",
+        "12-T20"
+      ]
+    },
+    {
+      "column_no": "C28",
+      "size": {
+        "width": 700,
+        "depth": null,
+        "length": 700
+      },
+      "reinforcement": [
+        "20-T20"
+      ]
+    },
+    {
+      "column_no": "C29",
+      "size": {
+        "width": 700,
+        "depth": null,
+        "length": 700
+      },
+      "reinforcement": [
+        "20-T20"
+      ]
+    },
+    {
+      "column_no": "C30",
+      "size": {
+        "width": 700,
+        "depth": null,
+        "length": 700
+      },
+      "reinforcement": [
+        "102-T20"
+      ]
+    },
+    {
+      "column_no": "C31",
+      "size": {
+        "width": 700,
+        "depth": null,
+        "length": 700
+      },
+      "reinforcement": [
+        "4-T20",
+        "16-T16"
+      ]
+    },
+    {
+      "column_no": "C34",
+      "size": {
+        "width": 700,
+        "depth": null,
+        "length": 700
+      },
+      "reinforcement": [
+        "4-T20",
+        "12-T16"
+      ]
+    },
+    {
+      "column_no": "C35,C38",
+      "size": {
+        "width": 700,
+        "depth": null,
+        "length": 700
+      },
+      "reinforcement": [
+        "4-T25",
+        "16-T20"
       ]
     },
     {
       "column_no": "C36,C53",
       "size": {
-        "width": 750,
+        "width": 700,
         "depth": null,
-        "length": 750
+        "length": 700
       },
       "reinforcement": [
-        "8-T25",
-        "4-T20"
+        "20-T20"
       ]
     },
     {
@@ -255,43 +268,32 @@
       "size": {
         "width": 300,
         "depth": null,
-        "length": 600
+        "length": 300
       },
       "reinforcement": [
-        "16-T15"
+        "20-T20"
       ]
     },
     {
       "column_no": "C40",
       "size": {
-        "width": 300,
+        "width": 700,
         "depth": null,
-        "length": 600
+        "length": 700
       },
       "reinforcement": [
-        "16-T15"
+        "20-T20"
       ]
     },
     {
       "column_no": "C41",
       "size": {
-        "width": 300,
+        "width": 700,
         "depth": null,
-        "length": 600
+        "length": 700
       },
       "reinforcement": [
-        "16-T15"
-      ]
-    },
-    {
-      "column_no": "C41",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 600
-      },
-      "reinforcement": [
-        "16-T15"
+        "20-T20"
       ]
     }
   ]
