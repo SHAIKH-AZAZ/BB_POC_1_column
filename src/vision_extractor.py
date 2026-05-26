@@ -2,7 +2,7 @@
 vision_extractor.py - Column project
 
 Tool-augmented extraction with enforced sequence:
-think -> zoom_region -> confirm_read -> add_column.
+think -> (optional zoom_region -> confirm_read) -> add_column.
 """
 
 import base64
@@ -80,6 +80,21 @@ _REGION_PURPOSE_ENUM = [
     "global_note",
     "ambiguous_text",
 ]
+
+
+def _with_tool_protocol(prompt_text):
+    return (
+        "ENFORCED TOOL PROTOCOL:\n"
+        "You MUST use tools - do NOT return raw JSON text.\n"
+        "Step 1: call think() with your full extraction plan.\n"
+        "Step 2: call add_column() once for EVERY (column_group x storey_level) combination.\n"
+        "  - For B x L sizes, pass width=B, length=L, and depth=null.\n"
+        "  - For W x D sizes, pass width=W, depth=D, and length=null.\n"
+        "  - Work left-to-right across columns, then move to the next storey level.\n"
+        "  - Do NOT stop early. Every row in every column group must get its own add_column call.\n"
+        "Optional: call zoom_region() + confirm_read() for any cell that is blurry or ambiguous.\n\n"
+        f"{prompt_text}"
+    )
 
 
 COLUMN_TOOLS = [
@@ -160,8 +175,8 @@ COLUMN_TOOLS = [
         "function": {
             "name": "zoom_region",
             "description": (
-                "Crop and zoom a planned region. Must be called after think and before confirm_read. "
-                "Use for every important header, row label, ambiguous cell, and two-digit quantity."
+                "Crop and zoom a region for closer inspection. Optional - use only when a cell "
+                "is blurry, ambiguous, or has a two-digit quantity that needs confirmation."
             ),
             "parameters": {
                 "type": "object",
@@ -183,8 +198,7 @@ COLUMN_TOOLS = [
         "function": {
             "name": "confirm_read",
             "description": (
-                "Record exact text read from a zoomed region. Required before add_column can "
-                "reference that region_id in source_region_ids."
+                "Record exact text read from a zoomed region. Call after zoom_region."
             ),
             "parameters": {
                 "type": "object",
@@ -203,42 +217,68 @@ COLUMN_TOOLS = [
         "function": {
             "name": "add_column",
             "description": (
-                "Record one column schedule entry. Requires source_region_ids that have already "
-                "been zoomed and confirmed with confirm_read."
+                "Record ONE column schedule entry (one column-group x one storey-level). "
+                "Call this once per combination. Do not batch multiple levels or groups into one call. "
+                "zoom_region/confirm_read are optional - use them only for ambiguous or blurry cells."
             ),
             "parameters": {
                 "type": "object",
                 "properties": {
                     "column_no": {
                         "type": "string",
-                        "description": "Full multi-line header joined with commas, e.g. C1,C7,C8,C14,C67,C75.",
+                        "description": (
+                            "Full multi-line header joined with commas. "
+                            "Read EVERY line and EVERY digit carefully (C67 != C7, C14 != C4)."
+                        ),
                     },
                     "storey_level": {
                         "type": "string",
-                        "description": "Storey/floor label copied exactly from the table.",
+                        "description": (
+                            "Storey/floor label copied exactly from the table row "
+                            "(e.g. 'TERRACE FLOOR LEVEL To 4TH FLOOR LEVEL')."
+                        ),
                     },
-                    "width": {"type": ["number", "null"]},
-                    "depth": {"type": ["number", "null"]},
+                    "width": {
+                        "type": ["number", "null"],
+                        "description": "First size value. For B x L schedules, this is B/breadth.",
+                    },
+                    "depth": {
+                        "type": ["number", "null"],
+                        "description": "Depth value only when the drawing uses W x D or W x D x L. Use null for B x L.",
+                    },
+                    "length": {
+                        "type": ["number", "null"],
+                        "description": "Length value. For B x L schedules, this is the second value L.",
+                    },
                     "reinforcement": {
                         "type": "array",
                         "items": {"type": "string"},
-                        "description": "Bars as quantity-Tdiameter, splitting + into separate entries.",
+                        "description": (
+                            "Bars as quantity-Tdiameter. Split '+' notation: "
+                            "'4-T20+16-T16' becomes ['4-T20','16-T16']. "
+                            "Read 2-digit quantities carefully: 20-T20 not 2-T20."
+                        ),
                     },
-                    "ties_dia": {"type": ["string", "null"]},
-                    "ties_spacing": {"type": ["string", "null"]},
+                    "ties_dia": {
+                        "type": ["string", "null"],
+                        "description": "Stirrup/tie bar diameter, e.g. 'T8'. Read from STIRRUPS row.",
+                    },
+                    "ties_spacing": {
+                        "type": ["string", "null"],
+                        "description": "Stirrup spacing, e.g. '200 C/C'. Read from STIRRUPS row.",
+                    },
                     "mix": {"type": ["string", "null"]},
                     "steel_grade": {"type": ["string", "null"]},
                     "source_region_ids": {
                         "type": "array",
                         "items": {"type": "string"},
-                        "description": "Confirmed region IDs supporting this record.",
+                        "description": "Optional: zoom region IDs used for this record.",
                     },
                 },
                 "required": [
                     "column_no",
                     "storey_level",
                     "reinforcement",
-                    "source_region_ids",
                 ],
             },
         },
@@ -246,7 +286,7 @@ COLUMN_TOOLS = [
 ]
 
 
-def extract_with_tools(image_path, prompt_text, max_iterations=100):
+def extract_with_tools(image_path, prompt_text, max_iterations=300):
     """
     Tool extraction with enforced state. Returns JSON string: {"columns": [...]}.
     A trace is written beside the rendered image as <pdf-stem>_trace.json.
@@ -263,7 +303,7 @@ def extract_with_tools(image_path, prompt_text, max_iterations=100):
         {
             "role": "user",
             "content": [
-                {"type": "text", "text": prompt_text},
+                {"type": "text", "text": _with_tool_protocol(prompt_text)},
                 _image_content(base64_image),
             ],
         }
@@ -295,13 +335,24 @@ def extract_with_tools(image_path, prompt_text, max_iterations=100):
                 args = {}
 
             if fn_name == "think":
-                result_content = state.handle_think(args)
+                state.handle_think(args)
+                headers = args.get("column_headers") or []
+                levels = args.get("storey_levels") or []
+                expected = state.expected_count()
                 print("\n============================================================")
                 print("  [THINK] Structured extraction plan accepted")
-                print(f"  headers={len(args.get('column_headers', []) or [])} "
-                      f"levels={len(args.get('storey_levels', []) or [])} "
-                      f"expected={state.expected_count()}")
+                print(f"  headers={len(headers)} levels={len(levels)} expected={expected}")
                 print("============================================================\n")
+                result_content = (
+                    f"Plan accepted. {len(headers)} column groups x {len(levels)} storey levels "
+                    f"= {expected} expected add_column calls.\n"
+                    "NOW start calling add_column immediately - one call per (column_group, storey_level) combination.\n"
+                    f"Column groups in order: {', '.join(headers)}.\n"
+                    f"Storey levels in order: {', '.join(levels)}.\n"
+                    "Work through ALL column groups for LEVEL 1, then ALL for LEVEL 2, etc. "
+                    "Do NOT stop until every combination has been recorded. "
+                    "Use zoom_region only if a cell is genuinely unclear."
+                )
 
             elif fn_name == "zoom_region":
                 region, message = state.handle_zoom(args)
@@ -343,15 +394,18 @@ def extract_with_tools(image_path, prompt_text, max_iterations=100):
                     col = build_column_record(args)
                     collected_columns.append(col)
                     state.add_record(col, args)
+                    expected = state.expected_count() or "?"
+                    remaining = (state.expected_count() or 0) - len(collected_columns)
                     result_content = (
-                        f"Column '{col['column_no']}' @ '{col['column_name']}' recorded "
-                        f"({len(collected_columns)} total). Continue with the next planned record."
+                        f"Recorded {len(collected_columns)}/{expected}: "
+                        f"'{col['column_no']}' @ '{col['column_name']}'. "
+                        f"{remaining} more to go - keep calling add_column for remaining combinations."
                     )
                     print(f"  add_column: {col['column_no']} | {col['column_name']}")
 
             else:
                 state.warn(f"unknown tool ignored: {fn_name}")
-                result_content = f"Unknown tool '{fn_name}' ignored."
+                result_content = f"Unknown tool ignored: {fn_name}"
 
             tool_results.append(
                 {

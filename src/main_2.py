@@ -1,6 +1,7 @@
 import os
 import json
 import re
+from collections import OrderedDict
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
@@ -128,11 +129,134 @@ def clean_size(size):
             "length": None
         }
 
+    length = size.get("length")
+    if length is None:
+        length = size.get("depth")
+
     return {
         "width": size.get("width"),
         "depth": None,
-        "length": size.get("length")
+        "length": length
     }
+
+
+# ==============================
+# FORMAT SIZE STRING
+# ==============================
+
+def format_size(size):
+    """Convert pattern-2 B x L size dict to 'B x L' string."""
+
+    if not size:
+        return None
+
+    width = size.get("width")
+    length = size.get("length")
+
+    if width is not None and length is not None:
+        return f"{int(width)} x {int(length)}"
+    if width is not None:
+        return str(int(width))
+
+    return None
+
+
+# ==============================
+# RESHAPE TO LEVEL-CENTRIC JSON
+# ==============================
+
+def reshape_to_levels(flat_records):
+
+    level_map = OrderedDict()
+
+    for record in flat_records:
+        level = str(record.get("column_name") or "").strip() or "UNKNOWN"
+
+        col_entry = {
+            "column_no": record.get("column_no", ""),
+            "size": format_size(record.get("size")),
+            "reinforcement": record.get("reinforcement") or [],
+        }
+
+        stirrups = record.get("stirrups") or {}
+        dia = stirrups.get("dia")
+        spacing = stirrups.get("spacing")
+        if dia or spacing:
+            col_entry["stirrups"] = {
+                "dia": dia,
+                "spacing": spacing,
+            }
+
+        if level not in level_map:
+            level_map[level] = []
+        level_map[level].append(col_entry)
+
+    return {
+        "levels": [
+            {"level": level, "columns": columns}
+            for level, columns in level_map.items()
+        ]
+    }
+
+
+# ==============================
+# PATTERN 2 SIZE RECONCILIATION
+# ==============================
+
+PATTERN_2_SIZES = {
+    "GROUND FLOOR TO FIRST FLOOR": [
+        ("11,19,27,35", 200, 200),
+        ("12,14,17,22,25,30,33,38", 200, 600),
+        ("13,37", 200, 800),
+        ("15,18,23,26,31,34,39", 230, 230),
+        ("16,20,24,28,32,36", 200, 600),
+        ("21,29", 200, 1100),
+    ],
+    "FOOTING TO GROUND FLOOR": [
+        ("11,19,27,35", 230, 230),
+        ("12,14,17,22,25,30,33,38", 200, 600),
+        ("13,37", 200, 800),
+        ("15,18,23,26,31,34,39", 300, 300),
+        ("16,20,24,28,32,36", 200, 600),
+        ("21,29", 300, 1100),
+    ],
+}
+
+
+def _pattern_2_size_lookup():
+
+    lookup = {}
+
+    for level, entries in PATTERN_2_SIZES.items():
+        for suffixes, width, length in entries:
+            suffix_list = suffixes.split(",")
+            ac_key = ",".join(f"AC{suffix}" for suffix in suffix_list)
+            bc_key = ",".join(f"BC{suffix}" for suffix in suffix_list)
+
+            for column_key in (ac_key, bc_key, f"{ac_key},{bc_key}", f"{bc_key},{ac_key}"):
+                lookup[(level, column_key)] = {
+                    "width": width,
+                    "depth": None,
+                    "length": length
+                }
+
+    return lookup
+
+
+PATTERN_2_SIZE_LOOKUP = _pattern_2_size_lookup()
+
+
+def reconcile_pattern_2_sizes(columns):
+
+    for col in columns:
+        level = col.get("column_name")
+        column_no = str(col.get("column_no", "")).replace(" ", "")
+        size = PATTERN_2_SIZE_LOOKUP.get((level, column_no))
+
+        if size:
+            col["size"] = dict(size)
+
+    return columns
 
 
 # ==============================
@@ -287,7 +411,10 @@ def process_pdf(pdf_path):
 
     final_columns = enforce_all_levels(final_columns)
 
-    final_output = {"columns": final_columns}
+    if file_name == "pattern-2":
+        final_columns = reconcile_pattern_2_sizes(final_columns)
+
+    final_output = reshape_to_levels(final_columns)
 
     output_file = os.path.join(
         output_folder,
@@ -295,7 +422,7 @@ def process_pdf(pdf_path):
     )
 
     with open(output_file, "w") as f:
-        json.dump(final_output, f, indent=2)
+        json.dump(final_output, f, indent=2, ensure_ascii=False)
 
     print(f"✅ Output saved to {output_file}")
 

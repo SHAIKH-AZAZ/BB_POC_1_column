@@ -6,6 +6,7 @@ from PIL import Image
 
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
+from extraction_guard import reshape_columns_to_levels
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -332,7 +333,7 @@ def process_pdf(pdf_path):
             final_columns.append(cleaned)
 
     # ── Final output ───────────────────────────────────────────────────────────
-    output_data = {"columns": final_columns}
+    output_data = reshape_columns_to_levels(final_columns)
 
     output_file = os.path.join(file_output_folder, f"{file_name}.json")
 

@@ -29,6 +29,7 @@ DEPENDENCIES
 """
 
 import json
+from extraction_guard import reshape_columns_to_levels
 import os
 import re
 import sys
@@ -753,7 +754,7 @@ def process_pdf(pdf_path: str) -> None:
 
     out_file = os.path.join(out_dir, f"{stem}.json")
     with open(out_file, "w", encoding="utf-8") as f:
-        json.dump({"columns": final}, f, indent=2, ensure_ascii=False)
+        json.dump(reshape_columns_to_levels(final), f, indent=2, ensure_ascii=False)
 
     print(f"\n✅  {len(final)} entries  →  {out_file}")
     if final:

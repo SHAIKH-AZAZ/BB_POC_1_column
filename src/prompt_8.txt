@@ -9,7 +9,7 @@ Return STRICT JSON in this exact format:
       "column_name": "",
       "size": {
         "width": null,
-        "length": null,
+        "depth": null,
         "length": null
       },
       "reinforcement": [],
@@ -97,7 +97,7 @@ CP8:
 SIZE EXTRACTION
 ===========================
 
-COL. SIZE is "WIDTHxlength". Map first number → width, second → length. length = null.
+COL. SIZE is "WIDTHxLENGTH". Map first number → width, second → length. depth = null (always).
 
 ===========================
 VER. STEEL → reinforcement

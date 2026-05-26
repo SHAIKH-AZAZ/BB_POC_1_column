@@ -1,6 +1,7 @@
 import os
 import json
 import re
+from collections import OrderedDict
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
@@ -60,7 +61,6 @@ def clean_stirrups(stirrups):
     if not stirrups:
         return {"dia": [], "spacing": []}
 
-    # extract_with_tools already builds stirrups as {"dia": [...], "spacing": [...]}
     if isinstance(stirrups, dict):
         dia     = stirrups.get("dia", [])
         spacing = stirrups.get("spacing", [])
@@ -73,7 +73,6 @@ def clean_stirrups(stirrups):
             "spacing": sorted(set(s for s in spacing if s)),
         }
 
-    # Fallback: raw string
     text    = str(stirrups).upper()
     dia     = []
     spacing = []
@@ -87,6 +86,64 @@ def clean_stirrups(stirrups):
         spacing.append(s)
 
     return {"dia": dia, "spacing": sorted(set(spacing))}
+
+
+# ==============================
+# FORMAT SIZE STRING
+# ==============================
+
+def format_size(size):
+    """Convert size dict to 'W x D' string. Returns None if both values are absent."""
+    if not size:
+        return None
+    w = size.get("width")
+    d = size.get("depth")
+    if w is not None and d is not None:
+        return f"{int(w)} x {int(d)}"
+    if w is not None:
+        return str(int(w))
+    return None
+
+
+# ==============================
+# RESHAPE TO LEVEL-CENTRIC JSON
+# ==============================
+
+def reshape_to_levels(flat_records):
+    """
+    Output shape:
+    {
+      "levels": [
+        {
+          "level": "ABOVE TERRACE LEVEL",
+          "columns": [
+            {"column_no": "C1,C2", "size": "700 x 700", "reinforcement": ["8-T16"]}
+          ]
+        }
+      ]
+    }
+    """
+    level_map = OrderedDict()
+
+    for record in flat_records:
+        level = str(record.get("column_name") or "").strip() or "UNKNOWN"
+
+        col_entry = {
+            "column_no":     record.get("column_no", ""),
+            "size":          format_size(record.get("size")),
+            "reinforcement": record.get("reinforcement") or [],
+        }
+
+        if level not in level_map:
+            level_map[level] = []
+        level_map[level].append(col_entry)
+
+    return {
+        "levels": [
+            {"level": level, "columns": cols}
+            for level, cols in level_map.items()
+        ]
+    }
 
 
 # ==============================
@@ -126,11 +183,15 @@ def process_pdf(pdf_path):
         col.setdefault("steel_grade", None)
         final_columns.append(col)
 
+    output_data = reshape_to_levels(final_columns)
+
     output_file = os.path.join(output_folder, f"{file_name}.json")
     with open(output_file, "w") as f:
-        json.dump({"columns": final_columns}, f, indent=2)
+        json.dump(output_data, f, indent=2, ensure_ascii=False)
 
     print(f"Output saved to {output_file}")
+    print(f"  {len(output_data['levels'])} level(s), "
+          f"{sum(len(l['columns']) for l in output_data['levels'])} column entries total.")
 
 
 # ==============================

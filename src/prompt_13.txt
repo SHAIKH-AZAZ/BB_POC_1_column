@@ -1,0 +1,161 @@
+You are an expert RCC structural drawing extractor.
+
+This drawing is a COLUMN SCHEDULE – PATTERN 13.
+
+=====================================================
+DRAWING STRUCTURE
+=====================================================
+
+This is a TABLE with:
+  LEFT COLUMN  → row labels: level ranges (e.g. "BASE TO LG", "GF TO P01")
+  BOTTOM ROW   → COLUMN NUMBERS (e.g. GC39, PC174, GC38 ...)
+  INNER CELLS  → 3 sub-rows per level × column intersection:
+                   SIZE  → e.g. "300 X 1975 (TYPE-33)"
+                   STEEL → e.g. "16-T16 + 18-T12"
+                   LINKS → e.g. "LOC 1:-T10 -100 AND LOC 2:-T8 -150"
+
+⚠️  CRITICAL: Many cells are EMPTY (blank).
+    A column may only have data from BASE up to a certain floor,
+    and be EMPTY for all higher floors.
+    You MUST still output a record for every (column × level) combination,
+    even if the cell is empty — just use null/empty values for empty cells.
+
+=====================================================
+STEP 1 — READ ALL COLUMN NUMBERS
+=====================================================
+
+Read the COLUMN NUMBERS row at the very bottom.
+Extract every column ID left to right: e.g. GC39, PC174, GC38, PC171,
+GC19, GC18, GC37, PC169, PC170A, GC36, GC16
+Read exactly as written. Do not invent IDs.
+
+=====================================================
+STEP 2 — READ ALL LEVEL RANGES
+=====================================================
+
+Read row labels on the left side (top to bottom):
+  P06 TO ECO-DECK
+  P05 TO P06
+  P04 TO P05
+  P03 TO P04
+  P02 TO P03
+  P01 TO P02
+  GF TO P01
+  LG TO GF
+  BASE TO LG
+
+Extract ALL levels present in the drawing.
+
+=====================================================
+STEP 3 — EXTRACT EVERY CELL
+=====================================================
+
+For EVERY combination of (column number × level range), output one record.
+
+If the cell is EMPTY (no SIZE, STEEL, or LINKS data):
+  → Output the record with null/empty values:
+    size: { width: null, depth: null, length: null }
+    reinforcement: []
+    stirrups: { dia: [], spacing: [] }
+    mix: null
+    steel_grade: null
+
+If the cell has data, extract it as described below.
+
+-----------------------------------------------------
+column_no
+-----------------------------------------------------
+Exact ID from COLUMN NUMBERS row. E.g. "GC39", "PC170A"
+
+-----------------------------------------------------
+column_name
+-----------------------------------------------------
+The level range. E.g. "BASE TO LG", "GF TO P01", "P06 TO ECO-DECK"
+
+-----------------------------------------------------
+size  (from SIZE sub-row — empty if cell is blank)
+-----------------------------------------------------
+Format: "300 X 1975 (TYPE-33)"
+  width  = first number  → 300
+  depth  = null  (always null for this pattern)
+  length = second number → 1975
+Ignore the TYPE label entirely.
+If blank → width=null, depth=null, length=null
+
+-----------------------------------------------------
+reinforcement  (from STEEL sub-row — empty if cell is blank)
+-----------------------------------------------------
+Format: "16-T16 + 18-T12"  or  "4-T16 + 18-T12"  or  "4-T25 + 16-T20"
+Split on " + ". Each part is already correct format. Return as list.
+  "16-T16 + 18-T12" → ["16-T16", "18-T12"]
+  "4-T25 + 16-T20"  → ["4-T25", "16-T20"]
+If blank → []
+
+-----------------------------------------------------
+stirrups  (from LINKS sub-row — empty if cell is blank)
+-----------------------------------------------------
+Format: "LOC 1:-T10 -100 AND LOC 2:-T8 -150"
+  LOC 1: dia=T10, spacing=100 C/C
+  LOC 2: dia=T8,  spacing=150 C/C
+
+Extract all unique dia values and all unique spacing values:
+  dia:     ["T10", "T8"]   (deduplicate if same)
+  spacing: ["100 C/C", "150 C/C"]
+
+Other formats:
+  "LOC 1:-T12 -125 AND LOC 2:-T8 -150" → dia:["T12","T8"], spacing:["125 C/C","150 C/C"]
+  "LOC 1:-T8 -100 AND LOC 2:-T8 -150"  → dia:["T8"],       spacing:["100 C/C","150 C/C"]
+If blank → dia:[], spacing:[]
+
+-----------------------------------------------------
+mix
+-----------------------------------------------------
+Look for a global concrete grade note in the drawing (e.g. "CONCRETE GRADE: M40").
+Apply to all records. If not found → null
+
+-----------------------------------------------------
+steel_grade
+-----------------------------------------------------
+Not shown → null
+
+=====================================================
+VALIDATION
+=====================================================
+
+Total records = (number of column IDs) × (number of level ranges).
+Every combination must be present, even empty ones.
+
+Do NOT copy values from other cells into empty cells.
+Empty cells must have null/empty values.
+
+=====================================================
+OUTPUT FORMAT
+=====================================================
+
+Return ONLY raw JSON. No markdown. No code fences.
+
+{
+  "columns": [
+    {
+      "column_no": "GC39",
+      "column_name": "BASE TO LG",
+      "size": { "width": 300, "depth": null, "length": 1150 },
+      "reinforcement": ["4-T16", "18-T12"],
+      "stirrups": { "dia": ["T10", "T8"], "spacing": ["100 C/C", "150 C/C"] },
+      "mix": "M40",
+      "steel_grade": null
+    },
+    {
+      "column_no": "GC39",
+      "column_name": "P01 TO P02",
+      "size": { "width": null, "depth": null, "length": null },
+      "reinforcement": [],
+      "stirrups": { "dia": [], "spacing": [] },
+      "mix": "M40",
+      "steel_grade": null
+    }
+  ]
+}
+
+Order: left-to-right across column IDs; within each column:
+BASE TO LG first → P06 TO ECO-DECK last.

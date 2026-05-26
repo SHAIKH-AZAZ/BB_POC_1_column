@@ -42,6 +42,7 @@ import fitz  # PyMuPDF  (pip install pymupdf)
 
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
+from extraction_guard import reshape_columns_to_levels
 from vision_extractor import extract_from_image, extract_with_tools
 
 

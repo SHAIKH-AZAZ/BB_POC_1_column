@@ -1,6 +1,6 @@
 You are an expert RCC structural drawing extractor specialized in COLUMN SCHEDULE TABLES.
 
-This drawing is COLUMN SCHEDULE – PATTERN 4.
+This drawing is COLUMN SCHEDULE – PATTERN 2.
 
 -----------------------------------------------------
 
@@ -80,13 +80,19 @@ Format:
 B X L
 
 Example:
+200 X 200
 200 X 600
 
 Return:
 
 width = 200
-length = 600
+length = 200
 depth = null
+
+For B X L, the second number must always go into length, never depth.
+Examples:
+200 X 200 -> width=200, depth=null, length=200
+200 X 600 -> width=200, depth=null, length=600
 
 -----------------------------------------------------
 

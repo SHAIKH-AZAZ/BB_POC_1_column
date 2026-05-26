@@ -84,6 +84,22 @@ class ExtractionGuardTests(unittest.TestCase):
         self.assertEqual(record["column_name"], "GROUND FLOOR")
         self.assertEqual(record["stirrups"]["dia"], ["T8"])
 
+    def test_column_schema_builder_accepts_length(self):
+        record = build_column_record(
+            {
+                "column_no": "C1",
+                "storey_level": "GROUND FLOOR",
+                "width": 200,
+                "depth": None,
+                "length": 600,
+                "reinforcement": [],
+            }
+        )
+        self.assertEqual(
+            record["size"],
+            {"width": 200, "depth": None, "length": 600},
+        )
+
     def test_slab_schema_builder(self):
         record = build_slab_record(
             {

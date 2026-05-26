@@ -5,6 +5,7 @@ from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
+from extraction_guard import reshape_columns_to_levels
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -95,12 +96,12 @@ def process_pdf(pdf_path):
                 "size": size
             })
 
-    final_output = {"columns": final_columns}
+    final_output = reshape_columns_to_levels(final_columns)
 
     output_file = os.path.join(output_folder, f"{file_name}.json")
 
     with open(output_file, "w") as f:
-        json.dump(final_output, f, indent=2)
+        json.dump(final_output, f, indent=2, ensure_ascii=False)
 
     print(f"✅ Output saved to {output_file}")
 

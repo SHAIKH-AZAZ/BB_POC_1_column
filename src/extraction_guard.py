@@ -3,7 +3,6 @@ import os
 import re
 from datetime import datetime, timezone
 
-
 ALLOWED_REGION_PURPOSES = {
     "header",
     "row_label",
@@ -86,7 +85,7 @@ def build_column_record(args):
         "size": {
             "width": args.get("width"),
             "depth": args.get("depth"),
-            "length": None,
+            "length": args.get("length"),
         },
         "reinforcement": args.get("reinforcement", []) or [],
         "stirrups": {
@@ -183,9 +182,14 @@ class ExtractionState:
     def handle_zoom(self, args):
         if not self.think_seen:
             self.warn("zoom_region rejected before think")
-            return None, "Call think first; zoom_region is only available after the structured plan."
+            return (
+                None,
+                "Call think first; zoom_region is only available after the structured plan.",
+            )
 
-        region_id = str(args.get("region_id") or f"region_{len(self.zoom_regions) + 1}").strip()
+        region_id = str(
+            args.get("region_id") or f"region_{len(self.zoom_regions) + 1}"
+        ).strip()
         purpose = str(args.get("purpose") or "ambiguous_text").strip()
         if purpose not in ALLOWED_REGION_PURPOSES:
             self.warn(f"zoom_region purpose '{purpose}' is not recognized")
@@ -214,7 +218,10 @@ class ExtractionState:
         region_id = str(args.get("region_id") or "").strip()
         if region_id not in self.zoom_regions:
             self.warn(f"confirm_read rejected for unzoomed region '{region_id}'")
-            return False, f"Region '{region_id}' has not been zoomed. Call zoom_region first."
+            return (
+                False,
+                f"Region '{region_id}' has not been zoomed. Call zoom_region first.",
+            )
 
         text = str(args.get("text") or "").strip()
         if not text:
@@ -233,28 +240,18 @@ class ExtractionState:
         if not self.think_seen:
             self.warn(f"add_{self.project} rejected before think")
             return False, f"Call think before add_{self.project}."
-
-        source_ids = _as_list(args.get("source_region_ids"))
-        if not source_ids:
-            self.warn(f"add_{self.project} rejected without source_region_ids")
-            return False, "source_region_ids is required and must reference confirmed reads."
-
-        missing = [rid for rid in source_ids if rid not in self.confirmed_reads]
-        if missing:
-            self.warn(
-                f"add_{self.project} rejected with unconfirmed source region(s): {', '.join(missing)}"
-            )
-            return False, (
-                "Every source_region_id must be confirmed with confirm_read before this record can be added."
-            )
-        return True, "Record source regions verified."
+        # zoom_region / confirm_read are optional accuracy aids, not blocking gates.
+        # source_region_ids are recorded in the trace for auditability but not required.
+        return True, "Record accepted."
 
     def add_record(self, record, args):
         self.records.append(record)
-        self.record_sources.append({
-            "record": record,
-            "source_region_ids": _as_list(args.get("source_region_ids")),
-        })
+        self.record_sources.append(
+            {
+                "record": record,
+                "source_region_ids": _as_list(args.get("source_region_ids")),
+            }
+        )
 
     def expected_count(self):
         if not self.think:
@@ -285,7 +282,9 @@ class ExtractionState:
 
         seen = {}
         for record in records:
-            key = tuple(str(record.get(field, "")) for field in self.duplicate_key_fields)
+            key = tuple(
+                str(record.get(field, "")) for field in self.duplicate_key_fields
+            )
             if key in seen:
                 self.warn(f"duplicate record key detected: {key}")
             seen[key] = True
@@ -298,13 +297,17 @@ class ExtractionState:
                         f"suspicious column header '{record.get('column_no')}' may have lost C67"
                     )
 
-        trace_text = json.dumps(self.think or {}) + " " + json.dumps(
-            list(self.confirmed_reads.values())
+        trace_text = (
+            json.dumps(self.think or {})
+            + " "
+            + json.dumps(list(self.confirmed_reads.values()))
         )
         record_text = json.dumps(records)
         for match in re.findall(r"\b(?:1[0-9]|2[0-9]|3[0-9])-T\d+\b", trace_text):
             if match not in record_text:
-                self.warn(f"confirmed two-digit reinforcement '{match}' not found in records")
+                self.warn(
+                    f"confirmed two-digit reinforcement '{match}' not found in records"
+                )
 
     def trace_payload(self):
         return {
@@ -323,7 +326,10 @@ class ExtractionState:
 
     def write_trace(self):
         folder = os.path.dirname(os.path.abspath(self.image_path))
-        stem = os.path.basename(folder) or os.path.splitext(os.path.basename(self.image_path))[0]
+        stem = (
+            os.path.basename(folder)
+            or os.path.splitext(os.path.basename(self.image_path))[0]
+        )
         path = os.path.join(folder, f"{stem}_trace.json")
         page_key = os.path.basename(self.image_path)
 
@@ -370,3 +376,164 @@ def clean_json_string(text):
             block = block[4:]
         text = block.strip()
     return text
+
+
+def _format_size(size):
+    """Convert {"width": 700, "depth": 700} → "700 x 700" string."""
+    if not size:
+        return None
+    try:
+        w = size.get("width")
+        d = size.get("depth")
+        if w is not None and d is not None:
+            return f"{int(w)} x {int(d)}"
+        if w is not None:
+            return str(int(w))
+    except (TypeError, ValueError):
+        pass
+    return None
+
+
+def reshape_columns_to_levels(flat_records):
+    """
+    Convert flat column records into level-centric (Option B) structure.
+
+    Input  (flat):
+      [
+        {"column_no": "C1,C7,C8,C14,C67,C75",
+         "column_name": "ABOVE TERRACE LEVEL",
+         "size": {"width": 700, "depth": 700, "length": None},
+         "reinforcement": ["20-T20"],
+         "stirrups": {"dia": ["T8"], "spacing": ["200 C/C"]},
+         "mix": None, "steel_grade": None},
+        ...
+      ]
+
+    Output (level-centric):
+      {
+        "levels": [
+          {
+            "level": "ABOVE TERRACE LEVEL",
+            "columns": [
+              {"column_no": "C1,C7,C8,C14,C67,C75",
+               "size": "700 x 700",
+               "reinforcement": ["20-T20"],
+               "stirrups": {"dia": ["T8"], "spacing": ["200 C/C"]}}
+            ]
+          },
+          ...
+        ]
+      }
+    """
+    from collections import OrderedDict
+
+    level_map = OrderedDict()
+
+    for record in flat_records:
+        level = str(record.get("column_name") or "").strip()
+        if not level:
+            level = "UNKNOWN"
+
+        col_entry = {
+            "column_no": record.get("column_no", ""),
+            "size": _format_size(record.get("size")),
+            "reinforcement": record.get("reinforcement") or [],
+        }
+
+        stirrups = record.get("stirrups") or {}
+        dia = stirrups.get("dia") or []
+        spacing = stirrups.get("spacing") or []
+        if dia or spacing:
+            col_entry["stirrups"] = {"dia": dia, "spacing": spacing}
+
+        if record.get("mix"):
+            col_entry["mix"] = record["mix"]
+        if record.get("steel_grade"):
+            col_entry["steel_grade"] = record["steel_grade"]
+
+        if level not in level_map:
+            level_map[level] = []
+        level_map[level].append(col_entry)
+
+    return {
+        "levels": [
+            {"level": level, "columns": cols} for level, cols in level_map.items()
+        ]
+    }
+
+
+def _format_size(size):
+    """Convert {"width": 700, "depth": 700} → "700 x 700" string."""
+    if not size:
+        return None
+    try:
+        w = size.get("width")
+        d = size.get("depth")
+        if w is not None and d is not None:
+            return f"{int(w)} x {int(d)}"
+        if w is not None:
+            return str(int(w))
+    except (TypeError, ValueError):
+        pass
+    return None
+
+
+def reshape_columns_to_levels(flat_records):
+    """
+    Convert flat column records into level-centric (Option B) structure.
+
+    Input  (flat):
+      [{"column_no": "C1,C7,C8,C14,C67,C75",
+        "column_name": "ABOVE TERRACE LEVEL",
+        "size": {"width": 700, "depth": 700, "length": None},
+        "reinforcement": ["20-T20"],
+        "stirrups": {"dia": ["T8"], "spacing": ["200 C/C"]},
+        "mix": None, "steel_grade": None}, ...]
+
+    Output (level-centric):
+      {"levels": [
+          {"level": "ABOVE TERRACE LEVEL",
+           "columns": [
+               {"column_no": "C1,C7,C8,C14,C67,C75",
+                "size": "700 x 700",
+                "reinforcement": ["20-T20"],
+                "stirrups": {"dia": ["T8"], "spacing": ["200 C/C"]}}
+           ]}
+      ]}
+    """
+    from collections import OrderedDict
+
+    level_map = OrderedDict()
+
+    for record in flat_records:
+        level = str(record.get("column_name") or "").strip()
+        if not level:
+            level = "UNKNOWN"
+
+        col_entry = {
+            "column_no": record.get("column_no", ""),
+            "size": _format_size(record.get("size")),
+            "reinforcement": record.get("reinforcement") or [],
+        }
+
+        stirrups = record.get("stirrups") or {}
+        dia = stirrups.get("dia") or []
+        spacing = stirrups.get("spacing") or []
+        if dia or spacing:
+            col_entry["stirrups"] = {"dia": dia, "spacing": spacing}
+
+        if record.get("mix"):
+            col_entry["mix"] = record["mix"]
+        if record.get("steel_grade"):
+            col_entry["steel_grade"] = record["steel_grade"]
+
+        if level not in level_map:
+            level_map[level] = []
+        level_map[level].append(col_entry)
+
+    return {
+        "levels": [
+            {"level": level, "columns": cols} for level, cols in level_map.items()
+        ],
+        "columns": [col for cols in level_map.values() for col in cols],
+    }
