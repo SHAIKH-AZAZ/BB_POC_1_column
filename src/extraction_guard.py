@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import threading
 from datetime import datetime, timezone
 
 ALLOWED_REGION_PURPOSES = {
@@ -9,6 +10,18 @@ ALLOWED_REGION_PURPOSES = {
     "data_cell",
     "global_note",
     "ambiguous_text",
+}
+
+_TRACE_WRITE_LOCK = threading.Lock()
+_NON_COLUMN_LABELS = {
+    "COLUMN NO",
+    "COLUMN NOS",
+    "COLUMN NUMBER",
+    "COLUMN NUMBERS",
+    "SIZE",
+    "REINF",
+    "REINFORCEMENT",
+    "STIRRUPS",
 }
 
 
@@ -37,6 +50,10 @@ def _dedupe(values):
         if value and value not in out:
             out.append(value)
     return out
+
+
+def _label_key(value):
+    return re.sub(r"[^A-Z0-9]+", " ", str(value or "").upper()).strip()
 
 
 def _spacing(value):
@@ -136,11 +153,19 @@ def build_footing_record(args):
 
 
 class ExtractionState:
-    def __init__(self, project, image_path, output_key, duplicate_key_fields):
+    def __init__(
+        self,
+        project,
+        image_path,
+        output_key,
+        duplicate_key_fields,
+        trace_key=None,
+    ):
         self.project = project
         self.image_path = image_path
         self.output_key = output_key
         self.duplicate_key_fields = duplicate_key_fields
+        self.trace_key = trace_key
         self.think_seen = False
         self.think = None
         self.zoom_regions = {}
@@ -240,6 +265,17 @@ class ExtractionState:
         if not self.think_seen:
             self.warn(f"add_{self.project} rejected before think")
             return False, f"Call think before add_{self.project}."
+        if self.project == "column":
+            column_no = args.get("column_no")
+            if _label_key(column_no) in _NON_COLUMN_LABELS:
+                self.warn(f"add_column rejected non-column label '{column_no}'")
+                return (
+                    False,
+                    (
+                        f"'{column_no}' is a table label, not a column identifier. "
+                        "Call add_column only for actual column IDs such as C1 or C1,C7,C8."
+                    ),
+                )
         # zoom_region / confirm_read are optional accuracy aids, not blocking gates.
         # source_region_ids are recorded in the trace for auditability but not required.
         return True, "Record accepted."
@@ -331,39 +367,42 @@ class ExtractionState:
             or os.path.splitext(os.path.basename(self.image_path))[0]
         )
         path = os.path.join(folder, f"{stem}_trace.json")
-        page_key = os.path.basename(self.image_path)
+        page_key = self.trace_key or os.path.basename(self.image_path)
 
-        existing = {
-            "project": self.project,
-            "pdf_stem": stem,
-            "pages": {},
-            "summary": {},
-        }
-        if os.path.exists(path):
-            try:
-                with open(path, "r", encoding="utf-8") as f:
-                    loaded = json.load(f)
-                if isinstance(loaded, dict):
-                    existing.update(loaded)
-                    existing.setdefault("pages", {})
-            except (OSError, json.JSONDecodeError):
-                self.warn(f"could not read existing trace file: {path}")
+        with _TRACE_WRITE_LOCK:
+            existing = {
+                "project": self.project,
+                "pdf_stem": stem,
+                "pages": {},
+                "summary": {},
+            }
+            if os.path.exists(path):
+                try:
+                    with open(path, "r", encoding="utf-8") as f:
+                        loaded = json.load(f)
+                    if isinstance(loaded, dict):
+                        existing.update(loaded)
+                        existing.setdefault("pages", {})
+                except (OSError, json.JSONDecodeError):
+                    self.warn(f"could not read existing trace file: {path}")
 
-        existing["pages"][page_key] = self.trace_payload()
-        all_warnings = []
-        total_records = 0
-        for page in existing["pages"].values():
-            total_records += int(page.get("actual_count") or 0)
-            all_warnings.extend(page.get("warnings") or [])
-        existing["summary"] = {
-            "page_count": len(existing["pages"]),
-            "record_count": total_records,
-            "warning_count": len(all_warnings),
-            "warnings": _dedupe(all_warnings),
-        }
+            existing["pages"][page_key] = self.trace_payload()
+            all_warnings = []
+            total_records = 0
+            for page in existing["pages"].values():
+                total_records += int(page.get("actual_count") or 0)
+                all_warnings.extend(page.get("warnings") or [])
+            existing["summary"] = {
+                "page_count": len(existing["pages"]),
+                "record_count": total_records,
+                "warning_count": len(all_warnings),
+                "warnings": _dedupe(all_warnings),
+            }
 
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(existing, f, indent=2, ensure_ascii=False)
+            tmp_path = f"{path}.{page_key}.tmp"
+            with open(tmp_path, "w", encoding="utf-8") as f:
+                json.dump(existing, f, indent=2, ensure_ascii=False)
+            os.replace(tmp_path, path)
         return path
 
 

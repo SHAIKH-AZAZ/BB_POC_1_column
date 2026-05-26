@@ -9,7 +9,8 @@
         "length": 700
       },
       "reinforcement": [
-        "20-T125"
+        "4-T20",
+        "16-T16"
       ]
     },
     {
@@ -20,7 +21,8 @@
         "length": 700
       },
       "reinforcement": [
-        "20-T125"
+        "4-T20",
+        "16-T16"
       ]
     },
     {
@@ -31,18 +33,20 @@
         "length": 700
       },
       "reinforcement": [
-        "28-T32"
+        "4-T20",
+        "16-T16"
       ]
     },
     {
       "column_no": "C9,C13,C32,C51",
       "size": {
-        "width": 800,
+        "width": 700,
         "depth": null,
-        "length": 800
+        "length": 700
       },
       "reinforcement": [
-        "24-T32"
+        "4-T32",
+        "16-T25"
       ]
     },
     {
@@ -59,27 +63,27 @@
     {
       "column_no": "C11",
       "size": {
-        "width": 900,
+        "width": 800,
         "depth": null,
-        "length": 900
+        "length": 800
       },
       "reinforcement": [
-        "20-T32"
+        "24-T32"
       ]
     },
     {
       "column_no": "C12",
       "size": {
-        "width": 900,
+        "width": 800,
         "depth": null,
-        "length": 900
+        "length": 800
       },
       "reinforcement": [
         "20-T32"
       ]
     },
     {
-      "column_no": "C16,C17",
+      "column_no": "C16,C17,C18",
       "size": {
         "width": 900,
         "depth": null,
@@ -87,18 +91,7 @@
       },
       "reinforcement": [
         "4-T32",
-        "16-T125"
-      ]
-    },
-    {
-      "column_no": "C18",
-      "size": {
-        "width": 900,
-        "depth": null,
-        "length": 900
-      },
-      "reinforcement": [
-        "20-T125"
+        "16-T25"
       ]
     },
     {
@@ -109,7 +102,8 @@
         "length": 900
       },
       "reinforcement": [
-        "20-T125"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -120,7 +114,8 @@
         "length": 900
       },
       "reinforcement": [
-        "20-T125"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -131,7 +126,8 @@
         "length": 900
       },
       "reinforcement": [
-        "20-T125"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -142,8 +138,8 @@
         "length": 900
       },
       "reinforcement": [
-        "4-T32",
-        "16-T125"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -154,7 +150,8 @@
         "length": 900
       },
       "reinforcement": [
-        "26-T16"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -165,7 +162,8 @@
         "length": 900
       },
       "reinforcement": [
-        "130-T25"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -176,8 +174,8 @@
         "length": 900
       },
       "reinforcement": [
-        "4-T20",
-        "12-T16"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -188,7 +186,8 @@
         "length": 900
       },
       "reinforcement": [
-        "108-T25"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -200,7 +199,7 @@
       },
       "reinforcement": [
         "4-T25",
-        "12-T120"
+        "16-T20"
       ]
     },
     {
@@ -211,7 +210,8 @@
         "length": 900
       },
       "reinforcement": [
-        "16-T16"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -223,7 +223,7 @@
       },
       "reinforcement": [
         "4-T25",
-        "12-T120"
+        "16-T20"
       ]
     },
     {
@@ -234,7 +234,8 @@
         "length": 900
       },
       "reinforcement": [
-        "16-T16"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -245,8 +246,8 @@
         "length": 900
       },
       "reinforcement": [
-        "4-T32",
-        "16-T125"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -257,7 +258,8 @@
         "length": 900
       },
       "reinforcement": [
-        "20-T20"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -268,7 +270,8 @@
         "length": 900
       },
       "reinforcement": [
-        "20-T20"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -279,7 +282,8 @@
         "length": 900
       },
       "reinforcement": [
-        "20-T20"
+        "4-T25",
+        "16-T20"
       ]
     },
     {
@@ -290,7 +294,8 @@
         "length": 900
       },
       "reinforcement": [
-        "20-T20"
+        "4-T25",
+        "16-T20"
       ]
     }
   ]

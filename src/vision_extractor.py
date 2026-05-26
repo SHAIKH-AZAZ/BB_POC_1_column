@@ -8,6 +8,7 @@ think -> (optional zoom_region -> confirm_read) -> add_column.
 import base64
 import io
 import json
+import re
 import time
 
 from PIL import Image
@@ -88,6 +89,8 @@ def _with_tool_protocol(prompt_text):
         "You MUST use tools - do NOT return raw JSON text.\n"
         "Step 1: call think() with your full extraction plan.\n"
         "Step 2: call add_column() once for EVERY (column_group x storey_level) combination.\n"
+        "  - A valid column_group must contain actual column IDs such as C1 or C1,C7,C8.\n"
+        "  - Never call add_column for table labels like 'Column Nos.', 'SIZE', 'REINF.', or 'STIRRUPS'.\n"
         "  - For B x L sizes, pass width=B, length=L, and depth=null.\n"
         "  - For W x D sizes, pass width=W, depth=D, and length=null.\n"
         "  - Work left-to-right across columns, then move to the next storey level.\n"
@@ -120,7 +123,10 @@ COLUMN_TOOLS = [
                     "column_headers": {
                         "type": "array",
                         "items": {"type": "string"},
-                        "description": "All visible header groups left to right.",
+                        "description": (
+                            "Actual visible column identifier header groups left to right. "
+                            "Exclude table labels such as Column Nos., SIZE, REINF., and STIRRUPS."
+                        ),
                     },
                     "storey_levels": {
                         "type": "array",
@@ -228,7 +234,8 @@ COLUMN_TOOLS = [
                         "type": "string",
                         "description": (
                             "Full multi-line header joined with commas. "
-                            "Read EVERY line and EVERY digit carefully (C67 != C7, C14 != C4)."
+                            "Read EVERY line and EVERY digit carefully (C67 != C7, C14 != C4). "
+                            "Must be an actual column identifier group, never 'Column Nos.'."
                         ),
                     },
                     "storey_level": {
@@ -286,7 +293,7 @@ COLUMN_TOOLS = [
 ]
 
 
-def extract_with_tools(image_path, prompt_text, max_iterations=300):
+def extract_with_tools(image_path, prompt_text, max_iterations=300, trace_key=None):
     """
     Tool extraction with enforced state. Returns JSON string: {"columns": [...]}.
     A trace is written beside the rendered image as <pdf-stem>_trace.json.
@@ -297,6 +304,7 @@ def extract_with_tools(image_path, prompt_text, max_iterations=300):
         image_path=image_path,
         output_key="columns",
         duplicate_key_fields=["column_no", "column_name"],
+        trace_key=trace_key,
     )
 
     messages = [
@@ -478,6 +486,41 @@ def _parse_levels_response(raw):
     return cleaned
 
 
+def _has_level_range(levels):
+    return any(re.search(r"\bTO\b", str(level), flags=re.IGNORECASE) for level in levels)
+
+
+def _build_pattern1_level_retry_prompt(pattern_number, previous_levels, prompt_context):
+    previous_json = json.dumps(previous_levels, ensure_ascii=False)
+    return f"""
+You are correcting ONLY the visible Pattern 1 floor/level list from a column schedule image.
+
+Your previous level list was invalid because it included full range labels:
+{previous_json}
+
+Return ONLY strict JSON in this exact shape:
+{{
+  "pattern": {pattern_number},
+  "levels": []
+}}
+
+Correction rules:
+- Re-read the bounded left-side level/floor cells from top to bottom.
+- Each levels[] value must be the upper visible level of that bounded cell.
+- No levels[] value may contain the word "To".
+- Do not invent or rename level/floor names.
+- Copy LEVEL and FLOOR exactly as visible; they are not interchangeable words.
+- Treat stacked text in one bounded cell as one label.
+- "GROUND FLOOR LEVEL / To / BASEMENT LEVEL" must return "GROUND FLOOR LEVEL".
+- "BASEMENT LEVEL / To / FOUNDATION LEVEL" must return "BASEMENT LEVEL".
+- Do not return "FOUNDATION LEVEL" when it appears only as the lower part of the basement-to-foundation range.
+- Do not add "1ST" unless it is visibly printed in that same bounded cell.
+
+Additional pattern context:
+{prompt_context}
+"""
+
+
 def detect_levels_from_image(image_path, pattern_number, prompt_context=""):
     """Return visible floor/level names for one page using a focused vision prompt."""
 
@@ -496,11 +539,17 @@ Rules:
 - Read only the visible floor/level cells from the drawing.
 - Do not extract column numbers, sizes, reinforcement, stirrups, notes, or any other details.
 - Do not invent, rename, reword, or assume level/floor names.
+- Copy LEVEL and FLOOR exactly as visible; they are not interchangeable words.
 - Preserve the visible order from top to bottom.
 - For Pattern 1, read the left-side level/floor column.
+- For Pattern 1, treat each bounded level/floor cell as one label even when the text is stacked across multiple lines.
 - For Pattern 1, if a visible cell is a range written like "UPPER LEVEL To LOWER LEVEL", return only the upper visible level exactly as written.
+- Never return the lower part of a range as its own level unless it appears in another visible cell as the upper level or as a standalone label.
+- Do not add ordinal words such as "1ST" unless they are visibly present in that same level/floor cell.
 - Example: "1ST FLOOR LEVEL To GROUND FLOOR LEVEL" becomes "1ST FLOOR LEVEL".
 - Example: "GROUND FLOOR LEVEL To BASEMENT LEVEL" becomes "GROUND FLOOR LEVEL".
+- Example: "BASEMENT LEVEL To FOUNDATION LEVEL" becomes "BASEMENT LEVEL".
+- If the cell is stacked as three lines "BASEMENT LEVEL" / "To" / "FOUNDATION LEVEL", return only "BASEMENT LEVEL"; do not return "FOUNDATION LEVEL".
 - If a visible cell is not a range, keep it exactly as visible.
 
 Additional pattern context:
@@ -508,4 +557,24 @@ Additional pattern context:
 """
 
     raw = extract_from_image(image_path, prompt)
-    return _parse_levels_response(raw)
+    levels = _parse_levels_response(raw)
+
+    if pattern_number == 1 and _has_level_range(levels):
+        print("  Level detection returned range labels; retrying with upper-level correction prompt.")
+        retry_prompt = _build_pattern1_level_retry_prompt(
+            pattern_number,
+            levels,
+            prompt_context,
+        )
+        retry_raw = extract_from_image(image_path, retry_prompt)
+        retry_levels = _parse_levels_response(retry_raw)
+        if retry_levels:
+            levels = retry_levels
+
+    if pattern_number == 1 and _has_level_range(levels):
+        raise RuntimeError(
+            "Pattern 1 level detection returned range labels after retry: "
+            + ", ".join(levels)
+        )
+
+    return levels

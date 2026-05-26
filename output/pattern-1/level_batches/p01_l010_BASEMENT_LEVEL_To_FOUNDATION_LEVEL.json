@@ -2,7 +2,7 @@
   "level": "BASEMENT LEVEL To FOUNDATION LEVEL",
   "columns": [
     {
-      "column_no": "C1,C7,C8,C14 C07,C75",
+      "column_no": "C1,C7,C8,C14,C07,C75",
       "size": {
         "width": 700,
         "depth": null,
@@ -14,7 +14,7 @@
       ]
     },
     {
-      "column_no": "C2,C6 C79",
+      "column_no": "C2,C6,C79",
       "size": {
         "width": 700,
         "depth": null,
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "column_no": "C3,C4,C5,C15 C22,C37,C54 C80,C81 C83,C84",
+      "column_no": "C3,C4,C5,C15,C22,C37,C54,C80,C81,C83,C84",
       "size": {
         "width": 700,
         "depth": null,
@@ -38,26 +38,25 @@
       ]
     },
     {
-      "column_no": "C9,C13, C32,C51",
+      "column_no": "C9,C13,C32,C51",
       "size": {
-        "width": 700,
+        "width": 800,
         "depth": null,
-        "length": 700
+        "length": 800
       },
       "reinforcement": [
-        "4-T20",
-        "16-T16"
+        "28-T32"
       ]
     },
     {
       "column_no": "C10,C48",
       "size": {
-        "width": 700,
+        "width": 800,
         "depth": null,
-        "length": 700
+        "length": 800
       },
       "reinforcement": [
-        "4-T32"
+        "24-T32"
       ]
     },
     {
@@ -68,7 +67,7 @@
         "length": 800
       },
       "reinforcement": [
-        "24-T32"
+        "20-T32"
       ]
     },
     {
@@ -79,62 +78,55 @@
         "length": 800
       },
       "reinforcement": [
-        "24-T32"
+        "20-T32"
       ]
     },
     {
-      "column_no": "C16,C17 C33",
+      "column_no": "C16,C17,C18",
       "size": {
         "width": 900,
         "depth": null,
         "length": 900
       },
       "reinforcement": [
-        "28-T32"
-      ]
-    },
-    {
-      "column_no": "C18",
-      "size": {
-        "width": 900,
-        "depth": null,
-        "length": 900
-      },
-      "reinforcement": [
-        "32-T32"
+        "4-T32",
+        "16-T25"
       ]
     },
     {
       "column_no": "C19",
       "size": {
-        "width": 900,
+        "width": 300,
         "depth": null,
-        "length": 900
+        "length": 300
       },
       "reinforcement": [
-        "20-T32"
+        "4-T25",
+        "12-T20"
       ]
     },
     {
       "column_no": "C20",
       "size": {
-        "width": 900,
+        "width": 300,
         "depth": null,
-        "length": 900
+        "length": 300
       },
       "reinforcement": [
-        "28-T32"
+        "4-T25",
+        "12-T20"
       ]
     },
     {
       "column_no": "C21",
       "size": {
-        "width": 900,
+        "width": 300,
         "depth": null,
-        "length": 900
+        "length": 300
       },
       "reinforcement": [
-        "32-T32"
+        "4-T25",
+        "12-T20"
       ]
     },
     {
@@ -157,18 +149,19 @@
         "length": 900
       },
       "reinforcement": [
-        "26-T16"
+        "4-T32",
+        "16-T25"
       ]
     },
     {
       "column_no": "C25",
       "size": {
-        "width": 900,
+        "width": 300,
         "depth": null,
-        "length": 900
+        "length": 300
       },
       "reinforcement": [
-        "130-T25"
+        "16-T16"
       ]
     },
     {
@@ -179,16 +172,16 @@
         "length": 900
       },
       "reinforcement": [
-        "4-T20",
-        "12-T16"
+        "4-T25",
+        "12-T20"
       ]
     },
     {
       "column_no": "C28",
       "size": {
-        "width": 108,
+        "width": 300,
         "depth": null,
-        "length": 725
+        "length": 300
       },
       "reinforcement": [
         "4-T25",
@@ -198,144 +191,107 @@
     {
       "column_no": "C29",
       "size": {
-        "width": 16,
+        "width": 900,
         "depth": null,
-        "length": 725
+        "length": 900
       },
       "reinforcement": [
+        "4-T20",
         "16-T16"
       ]
     },
     {
       "column_no": "C30",
       "size": {
-        "width": 20,
+        "width": 900,
         "depth": null,
-        "length": 725
+        "length": 900
       },
       "reinforcement": [
-        "4-T25",
-        "16-T20"
+        "4-T20",
+        "16-T16"
       ]
     },
     {
       "column_no": "C31",
       "size": {
-        "width": 20,
+        "width": 300,
         "depth": null,
-        "length": 125
+        "length": 300
       },
       "reinforcement": [
-        "174-T32"
+        "16-T16"
       ]
     },
     {
       "column_no": "C34",
       "size": {
-        "width": 20,
+        "width": 900,
         "depth": null,
-        "length": 125
+        "length": 900
       },
       "reinforcement": [
-        "25-T125"
+        "4-T25",
+        "12-T20"
       ]
     },
     {
       "column_no": "C35,C38",
       "size": {
-        "width": 20,
+        "width": 900,
         "depth": null,
-        "length": 125
+        "length": 900
       },
       "reinforcement": [
         "4-T25",
-        "16-T20"
+        "12-T20"
       ]
     },
     {
       "column_no": "C36,C53",
       "size": {
-        "width": 20,
+        "width": 900,
         "depth": null,
-        "length": 125
+        "length": 900
       },
       "reinforcement": [
-        "174-T32"
+        "16-T16"
       ]
     },
     {
       "column_no": "C39",
       "size": {
-        "width": 20,
+        "width": 900,
         "depth": null,
-        "length": 125
+        "length": 900
       },
       "reinforcement": [
-        "25-T125"
+        "4-T25",
+        "12-T20"
       ]
     },
     {
       "column_no": "C40",
       "size": {
-        "width": 20,
+        "width": 900,
         "depth": null,
-        "length": 125
+        "length": 900
       },
       "reinforcement": [
-        "25-T125"
+        "4-T25",
+        "12-T20"
       ]
     },
     {
       "column_no": "C41",
       "size": {
-        "width": 20,
+        "width": 300,
         "depth": null,
-        "length": 125
+        "length": 300
       },
       "reinforcement": [
-        "25-T125"
-      ]
-    },
-    {
-      "column_no": "Column Nos.",
-      "size": {
-        "width": null,
-        "depth": null,
-        "length": null
-      },
-      "reinforcement": []
-    },
-    {
-      "column_no": "C41",
-      "size": {
-        "width": 20,
-        "depth": null,
-        "length": 125
-      },
-      "reinforcement": [
-        "25-T125"
-      ]
-    },
-    {
-      "column_no": "C40",
-      "size": {
-        "width": 20,
-        "depth": null,
-        "length": 125
-      },
-      "reinforcement": [
-        "25-T125"
-      ]
-    },
-    {
-      "column_no": "C39",
-      "size": {
-        "width": 20,
-        "depth": null,
-        "length": 125
-      },
-      "reinforcement": [
-        "25-T125"
+        "4-T25",
+        "12-T20"
       ]
     }
   ]

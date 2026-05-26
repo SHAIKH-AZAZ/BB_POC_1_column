@@ -2,12 +2,33 @@ import json
 import os
 import re
 from collections import OrderedDict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
+from pattern1_cell_verifier import (
+    detect_pattern1_grid,
+    extract_pattern1_header_grid_map,
+    verify_level_columns_with_crops,
+)
 from pdf_to_images import convert_pdf_to_images
 from vision_extractor import detect_levels_from_image, extract_with_tools
+
+MAX_LEVEL_WORKERS = 3
+VERIFY_PATTERN1_CELLS = (
+    os.getenv("PATTERN1_VERIFY_CELLS", "1").strip().lower()
+    not in {"0", "false", "no", "off"}
+)
+_COLUMN_ID_RE = re.compile(r"\b(?:C|CP|COL|COLUMN)\s*-?\s*\d+[A-Z]?\b", re.IGNORECASE)
+_NON_COLUMN_LABELS = {
+    "COLUMN NO",
+    "COLUMN NOS",
+    "COLUMN NUMBER",
+    "COLUMN NUMBERS",
+    "COLUMN MARK",
+    "COLUMN MARKS",
+}
 
 # ==============================
 # LOAD PROMPT
@@ -29,11 +50,30 @@ def build_level_batch_prompt(base_prompt, target_level, all_levels):
 LEVEL-FIRST BATCH EXTRACTION:
 - The visible floor/level list detected for this page is: {levels_json}
 - Extract ONLY this target floor/level batch: "{target_level}".
+- The target level has already been chosen from the visible level cell using the upper-level rule; do not reinterpret it as the lower level of a range.
 - In think.storey_levels, return exactly one item: "{target_level}".
 - Every add_column call in this batch must use storey_level exactly as "{target_level}".
 - Do not extract, copy, borrow, or infer values from any other floor/level.
 - If a column group has no visible values for "{target_level}", return null size and [] reinforcement for that column group.
-- Keep column headers/groups from the visible table, but limit all detail extraction to "{target_level}" only.
+- Keep only actual column identifier headers/groups from the visible table, such as C1 or C1,C7,C8.
+- Do not call add_column for table labels such as "Column Nos.", "SIZE", "REINF.", or "STIRRUPS".
+- Limit all detail extraction to "{target_level}" only.
+"""
+
+
+def build_level_discovery_context():
+    return """
+Pattern 1 context:
+- The level/floor labels are in the bounded level column beside the SIZE/REINF. rows.
+- A level cell can span the SIZE row and REINF. row, and its text may be stacked across multiple lines.
+- For a stacked range cell, read the whole bounded cell before deciding the level name.
+- Copy LEVEL and FLOOR exactly as visible; do not swap those words.
+- Use the upper level from each range cell:
+  "TERRACE FLOOR LEVEL / To / 4TH FLOOR LEVEL" -> "TERRACE FLOOR LEVEL"
+  "GROUND FLOOR LEVEL / To / BASEMENT LEVEL" -> "GROUND FLOOR LEVEL"
+  "BASEMENT LEVEL / To / FOUNDATION LEVEL" -> "BASEMENT LEVEL"
+- Do not return "FOUNDATION LEVEL" when it appears only as the lower line of "BASEMENT LEVEL / To / FOUNDATION LEVEL".
+- Do not return "1ST BASEMENT LEVEL" unless the ordinal "1ST" is visibly present in that same bounded cell.
 """
 
 
@@ -110,6 +150,18 @@ def clean_stirrups(stirrups):
         spacing.append(s)
 
     return {"dia": dia, "spacing": sorted(set(spacing))}
+
+
+def is_valid_column_no(value):
+    text = str(value or "").strip()
+    if not text:
+        return False
+
+    normalized = re.sub(r"[^A-Z0-9]+", " ", text.upper()).strip()
+    if normalized in _NON_COLUMN_LABELS:
+        return False
+
+    return bool(_COLUMN_ID_RE.search(text))
 
 
 # ==============================
@@ -219,20 +271,30 @@ def merge_done_level_batches(manifest, output_folder):
         batch_path = os.path.join(output_folder, batch["file"])
         try:
             with open(batch_path, "r", encoding="utf-8") as f:
-                levels.append(json.load(f))
+                level_data = json.load(f)
+                level_data["columns"] = [
+                    col
+                    for col in level_data.get("columns", [])
+                    if is_valid_column_no(col.get("column_no"))
+                ]
+                levels.append(level_data)
         except Exception as exc:
             print(f"  Could not merge level batch {batch_path}: {exc}")
 
     return {"levels": levels}
 
 
-def extract_level_columns(img_path, prompt, levels, level):
+def extract_level_columns(img_path, prompt, levels, level, trace_key=None):
     level_prompt = build_level_batch_prompt(prompt, level, levels)
-    result = extract_with_tools(img_path, level_prompt)
+    result = extract_with_tools(img_path, level_prompt, trace_key=trace_key)
     parsed = json.loads(result)
 
     level_columns = []
     for col in parsed.get("columns", []):
+        if not is_valid_column_no(col.get("column_no")):
+            print(f"  Skipping non-column header: {col.get('column_no')}")
+            continue
+
         col["column_name"] = level
         col["size"] = clean_size(col.get("size"))
         col["reinforcement"] = clean_reinforcement(col.get("reinforcement"))
@@ -242,6 +304,44 @@ def extract_level_columns(img_path, prompt, levels, level):
         level_columns.append(column_entry_from_record(col))
 
     return level_columns
+
+
+def run_level_job(job, prompt):
+    level_columns = extract_level_columns(
+        job["img_path"],
+        prompt,
+        job["levels"],
+        job["level"],
+        trace_key=job["trace_key"],
+    )
+
+    if VERIFY_PATTERN1_CELLS and job.get("grid") is not None:
+        print(f"  Verifying cell crops -> {job['level']}")
+        level_columns, verify_report = verify_level_columns_with_crops(
+            job["img_path"],
+            job["grid"],
+            job["level_index"],
+            job["level"],
+            level_columns,
+            job["cell_crop_dir"],
+            column_grid_map=job.get("column_grid_map"),
+        )
+        os.makedirs(job["cell_crop_dir"], exist_ok=True)
+        atomic_write_json(job["cell_verify_report_path"], verify_report)
+
+    atomic_write_json(
+        job["path"],
+        {
+            "level": job["level"],
+            "columns": level_columns,
+        },
+    )
+    return {
+        "id": job["id"],
+        "level": job["level"],
+        "status": "done",
+        "error": None,
+    }
 
 
 # ==============================
@@ -262,6 +362,9 @@ def process_pdf(pdf_path):
     batch_folder_name = "level_batches"
     batch_folder = os.path.join(output_folder, batch_folder_name)
     os.makedirs(batch_folder, exist_ok=True)
+    cell_crop_folder_name = "cell_crops"
+    cell_crop_folder = os.path.join(output_folder, cell_crop_folder_name)
+    os.makedirs(cell_crop_folder, exist_ok=True)
 
     batch_jobs = []
 
@@ -270,7 +373,7 @@ def process_pdf(pdf_path):
         levels = detect_levels_from_image(
             img_path,
             pattern_number=1,
-            prompt_context=prompt,
+            prompt_context=build_level_discovery_context(),
         )
 
         if not levels:
@@ -279,18 +382,62 @@ def process_pdf(pdf_path):
 
         print(f"  Detected {len(levels)} level(s): {', '.join(levels)}")
 
+        page_grid = None
+        column_grid_map = None
+        if VERIFY_PATTERN1_CELLS:
+            try:
+                page_grid = detect_pattern1_grid(img_path)
+                print(
+                    "  Pattern 1 grid detected: "
+                    f"{page_grid.level_count} level row(s), "
+                    f"{page_grid.data_col_count} data column(s)"
+                )
+                if page_grid.level_count != len(levels):
+                    print(
+                        "  Cell verification disabled for this page: "
+                        f"detected {len(levels)} level name(s) but grid has "
+                        f"{page_grid.level_count} level row(s)."
+                    )
+                    page_grid = None
+                else:
+                    column_grid_map = extract_pattern1_header_grid_map(
+                        pdf_path,
+                        page_index,
+                        page_grid,
+                    )
+                    header_count = len(column_grid_map.get("labels") or [])
+                    print(f"  Header grid map detected: {header_count} column header(s)")
+            except Exception as exc:
+                print(f"  Cell verification disabled for this page: {exc}")
+                page_grid = None
+                column_grid_map = None
+
         for level_index, level in enumerate(levels):
             batch_id = f"p{page_index + 1:02d}_l{level_index + 1:03d}"
             batch_file = f"{batch_id}_{safe_filename(level)}.json"
+            cell_batch_folder_name = os.path.join(
+                cell_crop_folder_name,
+                f"{batch_id}_{safe_filename(level)}",
+            )
+            cell_batch_folder = os.path.join(output_folder, cell_batch_folder_name)
             batch_jobs.append(
                 {
                     "id": batch_id,
                     "page": page_index + 1,
                     "img_path": img_path,
                     "level": level,
+                    "level_index": level_index,
                     "levels": levels,
+                    "grid": page_grid,
+                    "column_grid_map": column_grid_map,
+                    "cell_crop_dir": cell_batch_folder,
+                    "cell_verify_report_path": os.path.join(
+                        cell_batch_folder,
+                        "verification_report.json",
+                    ),
                     "path": os.path.join(batch_folder, batch_file),
                     "relative_file": os.path.join(batch_folder_name, batch_file),
+                    "trace_key": f"{os.path.basename(img_path)}__{batch_id}_{safe_filename(level)}",
                 }
             )
 
@@ -298,32 +445,29 @@ def process_pdf(pdf_path):
     manifest = build_manifest(file_name, batch_jobs)
     atomic_write_json(manifest_path, manifest)
 
-    for job in tqdm(batch_jobs):
-        level = job["level"]
-        print(f"  Extracting level batch -> {level}")
-        update_batch_status(manifest, job["id"], "running")
-        atomic_write_json(manifest_path, manifest)
-
-        try:
-            level_columns = extract_level_columns(
-                job["img_path"],
-                prompt,
-                job["levels"],
-                level,
-            )
-            atomic_write_json(
-                job["path"],
-                {
-                    "level": level,
-                    "columns": level_columns,
-                },
-            )
-            update_batch_status(manifest, job["id"], "done")
-        except Exception as exc:
-            print(f"  Level batch failed for '{level}': {exc}")
-            update_batch_status(manifest, job["id"], "failed", str(exc))
+    with ThreadPoolExecutor(max_workers=MAX_LEVEL_WORKERS) as executor:
+        future_to_job = {}
+        for job in batch_jobs:
+            level = job["level"]
+            print(f"  Queueing level batch -> {level}")
+            update_batch_status(manifest, job["id"], "running")
+            future = executor.submit(run_level_job, job, prompt)
+            future_to_job[future] = job
 
         atomic_write_json(manifest_path, manifest)
+
+        for future in tqdm(as_completed(future_to_job), total=len(future_to_job)):
+            job = future_to_job[future]
+            level = job["level"]
+            try:
+                result = future.result()
+                update_batch_status(manifest, result["id"], result["status"], result["error"])
+                print(f"  Level batch done -> {level}")
+            except Exception as exc:
+                print(f"  Level batch failed for '{level}': {exc}")
+                update_batch_status(manifest, job["id"], "failed", str(exc))
+
+            atomic_write_json(manifest_path, manifest)
 
     output_data = merge_done_level_batches(manifest, output_folder)
 

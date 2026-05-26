@@ -2,24 +2,22 @@
   "pattern": 1,
   "pdf": "pattern-1.pdf",
   "levels": [
-    "ABOVE TERRACE LEVEL",
+    "ABOVE TERRACE FLOOR",
     "TERRACE FLOOR LEVEL",
     "4TH FLOOR LEVEL",
     "3RD FLOOR LEVEL",
     "2ND FLOOR LEVEL",
     "1ST FLOOR LEVEL",
     "GROUND FLOOR LEVEL",
-    "GROUND FLOOR LEVEL To BASEMENT LEVEL",
-    "BASEMENT LEVEL",
-    "BASEMENT LEVEL To FOUNDATION LEVEL"
+    "BASEMENT LEVEL"
   ],
   "batches": [
     {
       "id": "p01_l001",
       "page": 1,
-      "level": "ABOVE TERRACE LEVEL",
+      "level": "ABOVE TERRACE FLOOR",
       "status": "done",
-      "file": "level_batches\\p01_l001_ABOVE_TERRACE_LEVEL.json",
+      "file": "level_batches\\p01_l001_ABOVE_TERRACE_FLOOR.json",
       "error": null
     },
     {
@@ -73,25 +71,9 @@
     {
       "id": "p01_l008",
       "page": 1,
-      "level": "GROUND FLOOR LEVEL To BASEMENT LEVEL",
-      "status": "done",
-      "file": "level_batches\\p01_l008_GROUND_FLOOR_LEVEL_To_BASEMENT_LEVEL.json",
-      "error": null
-    },
-    {
-      "id": "p01_l009",
-      "page": 1,
       "level": "BASEMENT LEVEL",
       "status": "done",
-      "file": "level_batches\\p01_l009_BASEMENT_LEVEL.json",
-      "error": null
-    },
-    {
-      "id": "p01_l010",
-      "page": 1,
-      "level": "BASEMENT LEVEL To FOUNDATION LEVEL",
-      "status": "done",
-      "file": "level_batches\\p01_l010_BASEMENT_LEVEL_To_FOUNDATION_LEVEL.json",
+      "file": "level_batches\\p01_l008_BASEMENT_LEVEL.json",
       "error": null
     }
   ]

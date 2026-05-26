@@ -36,16 +36,24 @@ Return records in this final shape through add_column:
 
 Column-specific rules:
 - A single header cell may span multiple lines. Join every visible line into one comma-separated column_no.
+- Only actual column identifier headers are column_no values, such as C1 or C1,C7,C8.
+- Do not call add_column for the label "Column Nos."; it is a table label, not a column group.
+- Do not call add_column for "SIZE", "REINF.", "STIRRUPS", or any other non-column label.
 - Read every digit carefully: C67 is not C7, C32 is not C3, C14 is not C4.
 - Storey/floor labels must come only from visible text in the left-side (can be on the right side) level column.
 - Do not rename, reword, simplify, or assume any level/floor name that is not visible.
+- Copy LEVEL and FLOOR exactly as visible; they are not interchangeable words.
+- Treat each bounded level/floor cell as one label even when the text is stacked across multiple lines.
 - If a visible level/floor label is a range written as "UPPER LEVEL To LOWER LEVEL", use the upper level exactly as visible for column_name.
+- Never use the lower part of a range as column_name unless it appears in another visible cell as the upper level or as a standalone label.
+- Do not add ordinal words such as "1ST" unless they are visibly present in that same level/floor cell.
 - For example:
   "TERRACE FLOOR LEVEL To 4TH FLOOR LEVEL" -> column_name = "TERRACE FLOOR LEVEL"
   "4TH FLOOR LEVEL To 3RD FLOOR LEVEL" -> column_name = "4TH FLOOR LEVEL"
   "1ST FLOOR LEVEL To GROUND FLOOR LEVEL" -> column_name = "1ST FLOOR LEVEL"
   "GROUND FLOOR LEVEL To BASEMENT LEVEL" -> column_name = "GROUND FLOOR LEVEL"
   "BASEMENT LEVEL To FOUNDATION LEVEL" -> column_name = "BASEMENT LEVEL"
+- If the cell is stacked as three lines "BASEMENT LEVEL" / "To" / "FOUNDATION LEVEL", column_name must be "BASEMENT LEVEL", not "FOUNDATION LEVEL".
 - If the visible label is not a range, keep it exactly as visible, e.g. "ABOVE TERRACE LEVEL".
 - Reinforcement must be normalized as quantity-Tdiameter.
 - Split entries with "+": "4-T20+16-T16" becomes ["4-T20", "16-T16"].
