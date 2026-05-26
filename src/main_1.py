@@ -1,23 +1,22 @@
-import os
 import json
+import os
 import re
 from collections import OrderedDict
+
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from vision_extractor import extract_from_image, extract_with_tools
 
-
 # ==============================
 # LOAD PROMPT
 # ==============================
 
+
 def load_prompt():
     with open(
-        os.path.join(os.path.dirname(__file__), "prompt_1.txt"),
-        "r",
-        encoding="utf-8"
+        os.path.join(os.path.dirname(__file__), "prompt_1.txt"), "r", encoding="utf-8"
     ) as f:
         return f.read()
 
@@ -26,19 +25,23 @@ def load_prompt():
 # CLEAN SIZE
 # ==============================
 
+
 def clean_size(size):
+
     if not size:
         return {"width": None, "depth": None, "length": None}
-    return {
-        "width":  size.get("width"),
-        "depth":  size.get("depth"),
-        "length": None,
-    }
+
+    length = size.get("length")
+    if length is None:
+        length = size.get("depth")
+
+    return {"width": size.get("width"), "depth": None, "length": length}
 
 
 # ==============================
 # CLEAN REINFORCEMENT
 # ==============================
+
 
 def clean_reinforcement(values):
     if not values:
@@ -57,24 +60,25 @@ def clean_reinforcement(values):
 # CLEAN STIRRUPS
 # ==============================
 
+
 def clean_stirrups(stirrups):
     if not stirrups:
         return {"dia": [], "spacing": []}
 
     if isinstance(stirrups, dict):
-        dia     = stirrups.get("dia", [])
+        dia = stirrups.get("dia", [])
         spacing = stirrups.get("spacing", [])
         if isinstance(dia, str):
             dia = [dia] if dia else []
         if isinstance(spacing, str):
             spacing = [spacing] if spacing else []
         return {
-            "dia":     sorted(set(d for d in dia if d)),
+            "dia": sorted(set(d for d in dia if d)),
             "spacing": sorted(set(s for s in spacing if s)),
         }
 
-    text    = str(stirrups).upper()
-    dia     = []
+    text = str(stirrups).upper()
+    dia = []
     spacing = []
 
     dm = re.search(r"T\d+", text)
@@ -89,25 +93,9 @@ def clean_stirrups(stirrups):
 
 
 # ==============================
-# FORMAT SIZE STRING
-# ==============================
-
-def format_size(size):
-    """Convert size dict to 'W x D' string. Returns None if both values are absent."""
-    if not size:
-        return None
-    w = size.get("width")
-    d = size.get("depth")
-    if w is not None and d is not None:
-        return f"{int(w)} x {int(d)}"
-    if w is not None:
-        return str(int(w))
-    return None
-
-
-# ==============================
 # RESHAPE TO LEVEL-CENTRIC JSON
 # ==============================
+
 
 def reshape_to_levels(flat_records):
     """
@@ -117,7 +105,7 @@ def reshape_to_levels(flat_records):
         {
           "level": "ABOVE TERRACE LEVEL",
           "columns": [
-            {"column_no": "C1,C2", "size": "700 x 700", "reinforcement": ["8-T16"]}
+            {"column_no": "C1,C2", "size": {"width": 700, "depth": 700, "length": null}, "reinforcement": ["8-T16"]}
           ]
         }
       ]
@@ -129,8 +117,9 @@ def reshape_to_levels(flat_records):
         level = str(record.get("column_name") or "").strip() or "UNKNOWN"
 
         col_entry = {
-            "column_no":     record.get("column_no", ""),
-            "size":          format_size(record.get("size")),
+            "column_no": record.get("column_no", ""),
+            "size": record.get("size")
+            or {"width": None, "depth": None, "length": None},
             "reinforcement": record.get("reinforcement") or [],
         }
 
@@ -140,8 +129,7 @@ def reshape_to_levels(flat_records):
 
     return {
         "levels": [
-            {"level": level, "columns": cols}
-            for level, cols in level_map.items()
+            {"level": level, "columns": cols} for level, cols in level_map.items()
         ]
     }
 
@@ -149,6 +137,7 @@ def reshape_to_levels(flat_records):
 # ==============================
 # PROCESS PDF
 # ==============================
+
 
 def process_pdf(pdf_path):
 
@@ -176,9 +165,9 @@ def process_pdf(pdf_path):
     # Clean up each flat column record
     final_columns = []
     for col in all_columns:
-        col["size"]          = clean_size(col.get("size"))
+        col["size"] = clean_size(col.get("size"))
         col["reinforcement"] = clean_reinforcement(col.get("reinforcement"))
-        col["stirrups"]      = clean_stirrups(col.get("stirrups"))
+        col["stirrups"] = clean_stirrups(col.get("stirrups"))
         col.setdefault("mix", None)
         col.setdefault("steel_grade", None)
         final_columns.append(col)
@@ -190,13 +179,16 @@ def process_pdf(pdf_path):
         json.dump(output_data, f, indent=2, ensure_ascii=False)
 
     print(f"Output saved to {output_file}")
-    print(f"  {len(output_data['levels'])} level(s), "
-          f"{sum(len(l['columns']) for l in output_data['levels'])} column entries total.")
+    print(
+        f"  {len(output_data['levels'])} level(s), "
+        f"{sum(len(l['columns']) for l in output_data['levels'])} column entries total."
+    )
 
 
 # ==============================
 # MAIN
 # ==============================
+
 
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)

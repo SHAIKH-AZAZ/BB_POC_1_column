@@ -1,29 +1,9 @@
 import json
-import os
-import re
-
 from pdf_to_images import convert_pdf_to_images
 from vision_extractor import extract_from_image
 
 
-def _pattern_from_filename(pdf_path):
-    name = os.path.splitext(os.path.basename(pdf_path))[0].lower()
-    match = re.fullmatch(r"pattern[-_ ]?(\d{1,2})", name)
-    if not match:
-        return None
-
-    pattern_number = int(match.group(1))
-    if 1 <= pattern_number <= 14:
-        return pattern_number
-
-    return None
-
-
 def detect_pattern(pdf_path, temp_folder):
-
-    filename_pattern = _pattern_from_filename(pdf_path)
-    if filename_pattern is not None:
-        return filename_pattern
 
     image_paths = convert_pdf_to_images(pdf_path, temp_folder)
 
@@ -42,20 +22,69 @@ def detect_pattern(pdf_path, temp_folder):
     PATTERN DEFINITIONS — READ ALL BEFORE DECIDING
     =====================================================================
 
-    --- PATTERN 1: FLOOR-WISE ROWS + TYPE-GROUPED COLUMN HEADERS ---
+    --- PATTERN 1: TYPE-GROUPED COLUMN SCHEDULE WITH FLOOR-WISE SIZE / REINF ROWS ---
 
     Visual structure:
-    - Table has HORIZONTAL ROWS for each floor level
-      (e.g. "ABOVE TERRACE LEVEL", "4TH FLOOR LEVEL", "3RD FLOOR LEVEL", etc.)
-    - Table has many COLUMN HEADERS at the top grouping columns by TYPE
-      (e.g. TYPE-1, TYPE-2 ... or C1,C7,C13 / C2,C6 etc.)
-    - Under each TYPE group header: SIZE row and REINF (reinforcement) row
-    - STIRRUPS row at the bottom
+    - This is a COLUMN SCHEDULE table, usually very wide and dense.
+    - The page is mainly a tabular schedule, NOT a drawing grid.
+    - TOP header contains TYPE groups such as:
+      • TYPE-1
+      • TYPE-2
+      • TYPE-3
+      • TYPE-4
+      etc.
+    - Under each TYPE header, one or more COLUMN NUMBERS are listed, such as:
+      • C1,C7,C8,C14
+      • C2,C6,C79
+      • C40
+      • C70/C72
+    - LEFT-MOST side contains FLOOR LEVEL or FLOOR RANGE labels, such as:
+      • ABOVE TERRACE LEVEL
+      • TERRACE FLOOR LEVEL TO 4TH FLOOR LEVEL
+      • 4TH FLOOR LEVEL TO 3RD FLOOR LEVEL
+      • 3RD FLOOR LEVEL TO 2ND FLOOR LEVEL
+      • 2ND FLOOR LEVEL TO 1ST FLOOR LEVEL
+      • 1ST FLOOR LEVEL TO GROUND FLOOR LEVEL
+      • GROUND FLOOR LEVEL TO PLINTH LEVEL
+      • PLINTH LEVEL TO FOOTING LEVEL
 
-    Key identifiers:
-    ✓ Floor level names in LEFT-MOST COLUMN as row labels
-    ✓ Column type groups spanning multiple sub-columns at the TOP
-    ✓ Both SIZE and REINF. sub-rows within each floor row
+    Row structure:
+    - Each floor level is represented by repeated sub-rows.
+    - Common sub-row labels include:
+      • SIZE
+      • REINF.
+      • REINF
+      • STEEL
+    - SIZE rows contain dimensions such as:
+      • 700 x 700
+      • 750 x 750
+      • 850 x 850
+      • 300 x 650
+    - REINF rows contain main reinforcement such as:
+      • 20-T20
+      • 4-T20+16-T16
+      • 12-T25
+      • 4-T25+8-T20
+    - Stirrups/ties may be:
+      • in a separate common note
+      • at the bottom of the schedule
+      • absent from individual cells
+      • written as links/rings/ties
+
+    Positive identifiers:
+    ✓ "SCHEDULE OF COLUMNS" title
+    ✓ TYPE-1 / TYPE-2 / TYPE-3 etc. across the top
+    ✓ Column numbers grouped below TYPE headers
+    ✓ Floor levels/floor ranges down the left side
+    ✓ SIZE and REINF. repeated for each floor band
+    ✓ Data cells contain text only, not column cross-section drawings
+
+    Reject Pattern 1 if:
+    - Cells contain drawn column cross-sections with rebar dots/circles
+    - Page is dominated by elevation drawings
+    - Header uses footing/pedestal schedule format
+    - Table is only COLUMN MARK | SIZE without reinforcement
+    - Table has CROSS SECTION OF COLUMN as a drawing column
 
     → RETURN 1
 
