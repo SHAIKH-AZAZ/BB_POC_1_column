@@ -37,7 +37,16 @@ Return records in this final shape through add_column:
 Column-specific rules:
 - A single header cell may span multiple lines. Join every visible line into one comma-separated column_no.
 - Read every digit carefully: C67 is not C7, C32 is not C3, C14 is not C4.
-- Storey labels must be copied exactly as written.
+- Storey/floor labels must come only from visible text in the left-side (can be on the right side) level column.
+- Do not rename, reword, simplify, or assume any level/floor name that is not visible.
+- If a visible level/floor label is a range written as "UPPER LEVEL To LOWER LEVEL", use the upper level exactly as visible for column_name.
+- For example:
+  "TERRACE FLOOR LEVEL To 4TH FLOOR LEVEL" -> column_name = "TERRACE FLOOR LEVEL"
+  "4TH FLOOR LEVEL To 3RD FLOOR LEVEL" -> column_name = "4TH FLOOR LEVEL"
+  "1ST FLOOR LEVEL To GROUND FLOOR LEVEL" -> column_name = "1ST FLOOR LEVEL"
+  "GROUND FLOOR LEVEL To BASEMENT LEVEL" -> column_name = "GROUND FLOOR LEVEL"
+  "BASEMENT LEVEL To FOUNDATION LEVEL" -> column_name = "BASEMENT LEVEL"
+- If the visible label is not a range, keep it exactly as visible, e.g. "ABOVE TERRACE LEVEL".
 - Reinforcement must be normalized as quantity-Tdiameter.
 - Split entries with "+": "4-T20+16-T16" becomes ["4-T20", "16-T16"].
 - Bundle-bar notes such as "(4 NOS. BUNDLE BARS)" are annotations, not bar quantities.

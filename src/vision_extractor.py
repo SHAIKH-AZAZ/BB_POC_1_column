@@ -457,3 +457,55 @@ def extract_from_image(image_path, prompt_text, retries=3):
                 time.sleep(5)
 
     raise RuntimeError(f"Extraction failed after {retries} retries: {last_error}")
+
+
+def _parse_levels_response(raw):
+    data = json.loads(clean_json_string(raw))
+
+    if isinstance(data, dict):
+        levels = data.get("levels", [])
+    elif isinstance(data, list):
+        levels = data
+    else:
+        levels = []
+
+    cleaned = []
+    for level in levels:
+        value = str(level).strip()
+        if value and value not in cleaned:
+            cleaned.append(value)
+
+    return cleaned
+
+
+def detect_levels_from_image(image_path, pattern_number, prompt_context=""):
+    """Return visible floor/level names for one page using a focused vision prompt."""
+
+    prompt = f"""
+You are extracting ONLY the visible floor/level names from a column schedule image.
+
+Pattern number: {pattern_number}
+
+Return ONLY strict JSON in this exact shape:
+{{
+  "pattern": {pattern_number},
+  "levels": []
+}}
+
+Rules:
+- Read only the visible floor/level cells from the drawing.
+- Do not extract column numbers, sizes, reinforcement, stirrups, notes, or any other details.
+- Do not invent, rename, reword, or assume level/floor names.
+- Preserve the visible order from top to bottom.
+- For Pattern 1, read the left-side level/floor column.
+- For Pattern 1, if a visible cell is a range written like "UPPER LEVEL To LOWER LEVEL", return only the upper visible level exactly as written.
+- Example: "1ST FLOOR LEVEL To GROUND FLOOR LEVEL" becomes "1ST FLOOR LEVEL".
+- Example: "GROUND FLOOR LEVEL To BASEMENT LEVEL" becomes "GROUND FLOOR LEVEL".
+- If a visible cell is not a range, keep it exactly as visible.
+
+Additional pattern context:
+{prompt_context}
+"""
+
+    raw = extract_from_image(image_path, prompt)
+    return _parse_levels_response(raw)
