@@ -1,0 +1,40 @@
+{
+  "level": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+  "cells": [
+    {
+      "column_no": "TA-C1,TA-C4",
+      "skipped": true,
+      "reason": "Image size (197376240 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack."
+    },
+    {
+      "column_no": "TA-C2,TA-C3",
+      "skipped": true,
+      "reason": "Image size (197376240 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack."
+    },
+    {
+      "column_no": "TA-C34,TA-C35",
+      "skipped": true,
+      "reason": "Image size (197376240 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack."
+    },
+    {
+      "column_no": "TA-C33,TA-C36",
+      "skipped": true,
+      "reason": "Image size (197376240 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack."
+    },
+    {
+      "column_no": "TA-C29",
+      "skipped": true,
+      "reason": "Image size (197376240 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack."
+    },
+    {
+      "column_no": "TA-C5",
+      "skipped": true,
+      "reason": "Image size (197376240 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack."
+    },
+    {
+      "column_no": "TA-C23",
+      "skipped": true,
+      "reason": "Image size (197376240 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack."
+    }
+  ]
+}

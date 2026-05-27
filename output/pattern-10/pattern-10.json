@@ -13,7 +13,11 @@
           "reinforcement": [
             "16-T16",
             "14-T12"
-          ]
+          ],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC154",
@@ -25,7 +29,11 @@
           "reinforcement": [
             "10-T16",
             "16-T12"
-          ]
+          ],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC31",
@@ -34,7 +42,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC12",
@@ -43,7 +55,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC30",
@@ -52,7 +68,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC150",
@@ -64,7 +84,11 @@
           "reinforcement": [
             "16-T16",
             "14-T12"
-          ]
+          ],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC153",
@@ -76,7 +100,11 @@
           "reinforcement": [
             "10-T16",
             "16-T12"
-          ]
+          ],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC29",
@@ -85,7 +113,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC28",
@@ -94,7 +126,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC148",
@@ -106,7 +142,11 @@
           "reinforcement": [
             "14-T16",
             "20-T12"
-          ]
+          ],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC9",
@@ -115,7 +155,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         }
       ]
     },
@@ -134,14 +178,8 @@
             "14-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -156,14 +194,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -173,7 +205,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC12",
@@ -182,7 +218,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC30",
@@ -191,7 +231,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC150",
@@ -205,14 +249,8 @@
             "14-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -227,14 +265,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -244,7 +276,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC28",
@@ -253,7 +289,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC148",
@@ -267,14 +307,8 @@
             "20-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -284,7 +318,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         }
       ]
     },
@@ -303,14 +341,8 @@
             "14-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -325,14 +357,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -342,7 +368,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC12",
@@ -351,7 +381,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC30",
@@ -360,7 +394,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC150",
@@ -374,14 +412,8 @@
             "14-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -396,14 +428,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -413,7 +439,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC28",
@@ -422,7 +452,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC148",
@@ -436,14 +470,8 @@
             "20-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -453,7 +481,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         }
       ]
     },
@@ -472,14 +504,8 @@
             "14-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -494,14 +520,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -511,7 +531,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC12",
@@ -520,7 +544,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC30",
@@ -529,7 +557,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC150",
@@ -543,14 +575,8 @@
             "14-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -565,14 +591,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -582,7 +602,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC28",
@@ -591,7 +615,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC148",
@@ -605,14 +633,8 @@
             "20-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -622,7 +644,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         }
       ]
     },
@@ -641,14 +667,8 @@
             "14-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -663,14 +683,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -680,7 +694,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC12",
@@ -689,7 +707,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC30",
@@ -698,7 +720,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC150",
@@ -712,14 +738,8 @@
             "14-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -734,14 +754,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -751,7 +765,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC28",
@@ -760,7 +778,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC148",
@@ -774,14 +796,8 @@
             "20-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -791,7 +807,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         }
       ]
     },
@@ -810,14 +830,8 @@
             "14-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -832,14 +846,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -849,7 +857,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC12",
@@ -858,7 +870,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC30",
@@ -867,7 +883,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC150",
@@ -881,14 +901,8 @@
             "14-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -903,14 +917,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -920,7 +928,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC28",
@@ -929,7 +941,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC148",
@@ -943,14 +959,8 @@
             "20-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -960,7 +970,11 @@
             "depth": null,
             "length": null
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         }
       ]
     },
@@ -979,14 +993,8 @@
             "14-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1001,14 +1009,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -1021,7 +1023,11 @@
           "reinforcement": [
             "4-T16",
             "18-T12"
-          ]
+          ],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC12",
@@ -1033,7 +1039,11 @@
           "reinforcement": [
             "12-T16",
             "8-T12"
-          ]
+          ],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC30",
@@ -1045,7 +1055,11 @@
           "reinforcement": [
             "4-T16",
             "18-T12"
-          ]
+          ],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC150",
@@ -1059,14 +1073,8 @@
             "14-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1081,14 +1089,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -1100,14 +1102,8 @@
           },
           "reinforcement": [],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1120,7 +1116,11 @@
           "reinforcement": [
             "4-T16",
             "18-T12"
-          ]
+          ],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "PC148",
@@ -1134,14 +1134,8 @@
             "20-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1154,7 +1148,11 @@
           "reinforcement": [
             "12-T16",
             "8-T12"
-          ]
+          ],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         }
       ]
     },
@@ -1173,14 +1171,8 @@
             "6-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1195,14 +1187,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -1217,14 +1203,8 @@
             "18-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1239,14 +1219,8 @@
             "8-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1261,14 +1235,8 @@
             "18-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1283,14 +1251,8 @@
             "6-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1305,14 +1267,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -1325,7 +1281,11 @@
           "reinforcement": [
             "4-T16",
             "18-T12"
-          ]
+          ],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "GC28",
@@ -1339,14 +1299,8 @@
             "18-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1361,14 +1315,8 @@
             "20-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1383,14 +1331,8 @@
             "8-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         }
       ]
@@ -1410,14 +1352,8 @@
             "6-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1432,14 +1368,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -1454,14 +1384,8 @@
             "18-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1476,14 +1400,8 @@
             "8-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1498,14 +1416,8 @@
             "18-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1520,14 +1432,8 @@
             "6-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1542,14 +1448,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T12",
-              "T8"
-            ],
-            "spacing": [
-              "125 C/C",
-              "150 C/C"
-            ]
+            "dia": "T12",
+            "spacing": "125 C/C, 150 C/C"
           }
         },
         {
@@ -1564,14 +1464,8 @@
             "18-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1586,14 +1480,8 @@
             "18-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1608,14 +1496,8 @@
             "20-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         },
         {
@@ -1630,14 +1512,8 @@
             "8-T12"
           ],
           "stirrups": {
-            "dia": [
-              "T10",
-              "T8"
-            ],
-            "spacing": [
-              "100 C/C",
-              "150 C/C"
-            ]
+            "dia": "T10",
+            "spacing": "100 C/C, 150 C/C"
           }
         }
       ]
@@ -1654,130 +1530,10 @@
       "reinforcement": [
         "16-T16",
         "14-T12"
-      ]
-    },
-    {
-      "column_no": "PC154",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 1515
-      },
-      "reinforcement": [
-        "10-T16",
-        "16-T12"
-      ]
-    },
-    {
-      "column_no": "GC31",
-      "size": {
-        "width": null,
-        "depth": null,
-        "length": null
-      },
-      "reinforcement": []
-    },
-    {
-      "column_no": "GC12",
-      "size": {
-        "width": null,
-        "depth": null,
-        "length": null
-      },
-      "reinforcement": []
-    },
-    {
-      "column_no": "GC30",
-      "size": {
-        "width": null,
-        "depth": null,
-        "length": null
-      },
-      "reinforcement": []
-    },
-    {
-      "column_no": "PC150",
-      "size": {
-        "width": 400,
-        "depth": null,
-        "length": 1500
-      },
-      "reinforcement": [
-        "16-T16",
-        "14-T12"
-      ]
-    },
-    {
-      "column_no": "PC153",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 1515
-      },
-      "reinforcement": [
-        "10-T16",
-        "16-T12"
-      ]
-    },
-    {
-      "column_no": "GC29",
-      "size": {
-        "width": null,
-        "depth": null,
-        "length": null
-      },
-      "reinforcement": []
-    },
-    {
-      "column_no": "GC28",
-      "size": {
-        "width": null,
-        "depth": null,
-        "length": null
-      },
-      "reinforcement": []
-    },
-    {
-      "column_no": "PC148",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 1975
-      },
-      "reinforcement": [
-        "14-T16",
-        "20-T12"
-      ]
-    },
-    {
-      "column_no": "GC9",
-      "size": {
-        "width": null,
-        "depth": null,
-        "length": null
-      },
-      "reinforcement": []
-    },
-    {
-      "column_no": "PC157",
-      "size": {
-        "width": 400,
-        "depth": null,
-        "length": 1500
-      },
-      "reinforcement": [
-        "16-T16",
-        "14-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "",
+        "spacing": ""
       }
     },
     {
@@ -1792,14 +1548,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "",
+        "spacing": ""
       }
     },
     {
@@ -1809,7 +1559,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC12",
@@ -1818,7 +1572,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC30",
@@ -1827,7 +1585,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC150",
@@ -1841,14 +1603,8 @@
         "14-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "",
+        "spacing": ""
       }
     },
     {
@@ -1863,14 +1619,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "",
+        "spacing": ""
       }
     },
     {
@@ -1880,7 +1630,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC28",
@@ -1889,7 +1643,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC148",
@@ -1903,14 +1661,8 @@
         "20-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "",
+        "spacing": ""
       }
     },
     {
@@ -1920,7 +1672,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC157",
@@ -1934,14 +1690,8 @@
         "14-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -1956,14 +1706,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
       }
     },
     {
@@ -1973,7 +1717,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC12",
@@ -1982,7 +1730,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC30",
@@ -1991,7 +1743,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC150",
@@ -2005,14 +1761,8 @@
         "14-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2027,14 +1777,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
       }
     },
     {
@@ -2044,7 +1788,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC28",
@@ -2053,7 +1801,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC148",
@@ -2067,14 +1819,8 @@
         "20-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2084,7 +1830,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC157",
@@ -2098,14 +1848,8 @@
         "14-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2120,14 +1864,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
       }
     },
     {
@@ -2137,7 +1875,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC12",
@@ -2146,7 +1888,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC30",
@@ -2155,7 +1901,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC150",
@@ -2169,14 +1919,8 @@
         "14-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2191,14 +1935,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
       }
     },
     {
@@ -2208,7 +1946,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC28",
@@ -2217,7 +1959,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC148",
@@ -2231,14 +1977,8 @@
         "20-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2248,7 +1988,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC157",
@@ -2262,14 +2006,8 @@
         "14-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2284,14 +2022,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
       }
     },
     {
@@ -2301,7 +2033,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC12",
@@ -2310,7 +2046,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC30",
@@ -2319,7 +2059,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC150",
@@ -2333,14 +2077,8 @@
         "14-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2355,14 +2093,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
       }
     },
     {
@@ -2372,7 +2104,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC28",
@@ -2381,7 +2117,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC148",
@@ -2395,14 +2135,8 @@
         "20-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2412,7 +2146,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC157",
@@ -2426,14 +2164,8 @@
         "14-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2448,14 +2180,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
       }
     },
     {
@@ -2465,7 +2191,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC12",
@@ -2474,7 +2204,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC30",
@@ -2483,7 +2217,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC150",
@@ -2497,14 +2235,8 @@
         "14-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2519,14 +2251,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
       }
     },
     {
@@ -2536,7 +2262,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC28",
@@ -2545,7 +2275,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC148",
@@ -2559,14 +2293,8 @@
         "20-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2576,7 +2304,11 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC157",
@@ -2590,14 +2322,8 @@
         "14-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2612,14 +2338,166 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "GC31",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
+    },
+    {
+      "column_no": "GC12",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
+    },
+    {
+      "column_no": "GC30",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
+    },
+    {
+      "column_no": "PC150",
+      "size": {
+        "width": 400,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
+      "stirrups": {
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "PC153",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1515
+      },
+      "reinforcement": [
+        "10-T16",
+        "16-T12"
+      ],
+      "stirrups": {
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "GC29",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
+    },
+    {
+      "column_no": "GC28",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
+    },
+    {
+      "column_no": "PC148",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1975
+      },
+      "reinforcement": [
+        "14-T16",
+        "20-T12"
+      ],
+      "stirrups": {
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "GC9",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
+    },
+    {
+      "column_no": "PC157",
+      "size": {
+        "width": 400,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
+      "stirrups": {
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "PC154",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1515
+      },
+      "reinforcement": [
+        "10-T16",
+        "16-T12"
+      ],
+      "stirrups": {
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
       }
     },
     {
@@ -2632,7 +2510,11 @@
       "reinforcement": [
         "4-T16",
         "18-T12"
-      ]
+      ],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC12",
@@ -2644,7 +2526,11 @@
       "reinforcement": [
         "12-T16",
         "8-T12"
-      ]
+      ],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "GC30",
@@ -2656,7 +2542,11 @@
       "reinforcement": [
         "4-T16",
         "18-T12"
-      ]
+      ],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "PC150",
@@ -2670,14 +2560,8 @@
         "14-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2692,14 +2576,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
       }
     },
     {
@@ -2711,14 +2589,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2731,228 +2603,10 @@
       "reinforcement": [
         "4-T16",
         "18-T12"
-      ]
-    },
-    {
-      "column_no": "PC148",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 1975
-      },
-      "reinforcement": [
-        "14-T16",
-        "20-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
-      }
-    },
-    {
-      "column_no": "GC9",
-      "size": {
-        "width": 500,
-        "depth": null,
-        "length": 750
-      },
-      "reinforcement": [
-        "12-T16",
-        "8-T12"
-      ]
-    },
-    {
-      "column_no": "PC157",
-      "size": {
-        "width": 450,
-        "depth": null,
-        "length": 1500
-      },
-      "reinforcement": [
-        "24-T16",
-        "6-T12"
-      ],
-      "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
-      }
-    },
-    {
-      "column_no": "PC154",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 1515
-      },
-      "reinforcement": [
-        "10-T16",
-        "16-T12"
-      ],
-      "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
-      }
-    },
-    {
-      "column_no": "GC31",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 1150
-      },
-      "reinforcement": [
-        "4-T16",
-        "18-T12"
-      ],
-      "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
-      }
-    },
-    {
-      "column_no": "GC12",
-      "size": {
-        "width": 500,
-        "depth": null,
-        "length": 750
-      },
-      "reinforcement": [
-        "12-T16",
-        "8-T12"
-      ],
-      "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
-      }
-    },
-    {
-      "column_no": "GC30",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 1150
-      },
-      "reinforcement": [
-        "4-T16",
-        "18-T12"
-      ],
-      "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
-      }
-    },
-    {
-      "column_no": "PC150",
-      "size": {
-        "width": 450,
-        "depth": null,
-        "length": 1500
-      },
-      "reinforcement": [
-        "24-T16",
-        "6-T12"
-      ],
-      "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
-      }
-    },
-    {
-      "column_no": "PC153",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 1515
-      },
-      "reinforcement": [
-        "10-T16",
-        "16-T12"
-      ],
-      "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
-      }
-    },
-    {
-      "column_no": "GC29",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 1150
-      },
-      "reinforcement": [
-        "4-T16",
-        "18-T12"
-      ]
-    },
-    {
-      "column_no": "GC28",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 1150
-      },
-      "reinforcement": [
-        "4-T16",
-        "18-T12"
-      ],
-      "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "",
+        "spacing": ""
       }
     },
     {
@@ -2967,14 +2621,8 @@
         "20-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -2989,14 +2637,8 @@
         "8-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "",
+        "spacing": ""
       }
     },
     {
@@ -3011,14 +2653,8 @@
         "6-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -3033,14 +2669,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
       }
     },
     {
@@ -3055,14 +2685,8 @@
         "18-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -3077,14 +2701,8 @@
         "8-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -3099,14 +2717,8 @@
         "18-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -3121,14 +2733,8 @@
         "6-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -3143,14 +2749,8 @@
         "16-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
       }
     },
     {
@@ -3165,14 +2765,8 @@
         "18-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "",
+        "spacing": ""
       }
     },
     {
@@ -3187,14 +2781,8 @@
         "18-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -3209,14 +2797,8 @@
         "20-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     },
     {
@@ -3231,14 +2813,184 @@
         "8-T12"
       ],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "PC157",
+      "size": {
+        "width": 450,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "24-T16",
+        "6-T12"
+      ],
+      "stirrups": {
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "PC154",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1515
+      },
+      "reinforcement": [
+        "10-T16",
+        "16-T12"
+      ],
+      "stirrups": {
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "GC31",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1150
+      },
+      "reinforcement": [
+        "4-T16",
+        "18-T12"
+      ],
+      "stirrups": {
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "GC12",
+      "size": {
+        "width": 500,
+        "depth": null,
+        "length": 750
+      },
+      "reinforcement": [
+        "12-T16",
+        "8-T12"
+      ],
+      "stirrups": {
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "GC30",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1150
+      },
+      "reinforcement": [
+        "4-T16",
+        "18-T12"
+      ],
+      "stirrups": {
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "PC150",
+      "size": {
+        "width": 450,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "24-T16",
+        "6-T12"
+      ],
+      "stirrups": {
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "PC153",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1515
+      },
+      "reinforcement": [
+        "10-T16",
+        "16-T12"
+      ],
+      "stirrups": {
+        "dia": "T12",
+        "spacing": "125 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "GC29",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1150
+      },
+      "reinforcement": [
+        "4-T16",
+        "18-T12"
+      ],
+      "stirrups": {
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "GC28",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1150
+      },
+      "reinforcement": [
+        "4-T16",
+        "18-T12"
+      ],
+      "stirrups": {
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "PC148",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1975
+      },
+      "reinforcement": [
+        "14-T16",
+        "20-T12"
+      ],
+      "stirrups": {
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
+      }
+    },
+    {
+      "column_no": "GC9",
+      "size": {
+        "width": 500,
+        "depth": null,
+        "length": 750
+      },
+      "reinforcement": [
+        "12-T16",
+        "8-T12"
+      ],
+      "stirrups": {
+        "dia": "T10",
+        "spacing": "100 C/C, 150 C/C"
       }
     }
   ]

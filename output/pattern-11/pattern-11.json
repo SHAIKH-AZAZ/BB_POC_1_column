@@ -1,10 +1,1657 @@
 {
-  "document": "pattern-11.pdf",
-  "title": "Column Schedule",
+  "levels": [
+    {
+      "level": "6th_FLOOR_COLUMN",
+      "columns": [
+        {
+          "column_no": "C1",
+          "size": {
+            "width": 330,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "4-20T",
+            "12-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "4-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2A",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 970
+          },
+          "reinforcement": [
+            "4-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C3",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "14-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C4",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "10-20T",
+            "4-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C5",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "18-16T"
+          ],
+          "stirrups": {
+            "dia": "T8",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C6",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "4-20T",
+            "14-16T"
+          ],
+          "stirrups": {
+            "dia": "T8",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C7",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1075
+          },
+          "reinforcement": [
+            "4-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C8",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "4-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C9",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "13-20T",
+            "14-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C10",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "10-25T",
+            "10-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C11",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1220
+          },
+          "reinforcement": [
+            "4-20T",
+            "12-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        }
+      ]
+    },
+    {
+      "level": "5th_FLOOR_COLUMN",
+      "columns": [
+        {
+          "column_no": "C1",
+          "size": {
+            "width": 330,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "6-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2A",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 970
+          },
+          "reinforcement": [
+            "6-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C3",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "4-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C4",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "10-20T",
+            "4-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C5",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "4-20T",
+            "14-16T"
+          ],
+          "stirrups": {
+            "dia": "T8",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C6",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "4-20T",
+            "14-16T"
+          ],
+          "stirrups": {
+            "dia": "T8",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C7",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1075
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C8",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C9",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "17-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C10",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "14-25T",
+            "8-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C11",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1220
+          },
+          "reinforcement": [
+            "4-20T",
+            "12-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        }
+      ]
+    },
+    {
+      "level": "4th_FLOOR_COLUMN",
+      "columns": [
+        {
+          "column_no": "C1",
+          "size": {
+            "width": 330,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "6-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2A",
+          "size": {
+            "width": 330,
+            "depth": null,
+            "length": 970
+          },
+          "reinforcement": [
+            "6-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C3",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "4-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C4",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "10-20T",
+            "4-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C5",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "4-20T",
+            "14-16T"
+          ],
+          "stirrups": {
+            "dia": "T8",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C6",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "10-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T125",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C7",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1075
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C8",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C9",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "17-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C10",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "14-25T",
+            "8-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C11",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1220
+          },
+          "reinforcement": [
+            "6-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        }
+      ]
+    },
+    {
+      "level": "3rd_FLOOR_COLUMN",
+      "columns": [
+        {
+          "column_no": "C1",
+          "size": {
+            "width": 330,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "6-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2A",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 970
+          },
+          "reinforcement": [
+            "6-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C3",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "4-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C4",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C5",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "4-20T",
+            "14-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T125",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C6",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "10-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "T8",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C7",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1075
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C8",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C9",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "17-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C10",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "14-25T",
+            "6-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C11",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1220
+          },
+          "reinforcement": [
+            "6-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        }
+      ]
+    },
+    {
+      "level": "2nd_FLOOR_COLUMN",
+      "columns": [
+        {
+          "column_no": "C1",
+          "size": {
+            "width": 330,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "6-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2A",
+          "size": {
+            "width": 330,
+            "depth": null,
+            "length": 970
+          },
+          "reinforcement": [
+            "6-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C3",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C4",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C5",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "6-20T",
+            "12-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T125",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C6",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "18-20T"
+          ],
+          "stirrups": {
+            "dia": "T8",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C7",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1075
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C8",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "8-20T",
+            "6-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C9",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "17-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C10",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "14-25T",
+            "8-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C11",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1220
+          },
+          "reinforcement": [
+            "6-20T",
+            "10-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        }
+      ]
+    },
+    {
+      "level": "1st_FLOOR_COLUMN",
+      "columns": [
+        {
+          "column_no": "C1",
+          "size": {
+            "width": 330,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "10-20T",
+            "6-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "10-20T",
+            "4-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2A",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 970
+          },
+          "reinforcement": [
+            "10-20T",
+            "4-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C3",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C4",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "4-25T",
+            "10-20T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C5",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "10-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "T8",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C6",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "4-25T",
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": "T8",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C7",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1075
+          },
+          "reinforcement": [
+            "4-25T",
+            "10-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C8",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C9",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "27-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C10",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "20-25T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C11",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1220
+          },
+          "reinforcement": [
+            "10-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        }
+      ]
+    },
+    {
+      "level": "GROUND_FLOOR_COLUMN",
+      "columns": [
+        {
+          "column_no": "C1",
+          "size": {
+            "width": 330,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "10-20T",
+            "6-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "10-20T",
+            "4-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C2A",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 970
+          },
+          "reinforcement": [
+            "10-20T",
+            "4-16T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C3",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C4",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "8-25T",
+            "8-20T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C5",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "18-20T"
+          ],
+          "stirrups": {
+            "dia": "T8",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C6",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "10-25T",
+            "8-20T"
+          ],
+          "stirrups": {
+            "dia": "8-T125",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C7",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1075
+          },
+          "reinforcement": [
+            "8-25T",
+            "8-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C8",
+          "size": {
+            "width": 250,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C9",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "27-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C10",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "20-25T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C11",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1220
+          },
+          "reinforcement": [
+            "16-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C"
+          },
+          "mix": "M-25"
+        }
+      ]
+    },
+    {
+      "level": "BASE_FLOOR_COLUMN",
+      "columns": [
+        {
+          "column_no": "C1",
+          "size": {
+            "width": 330,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "16-20T"
+          ],
+          "stirrups": {
+            "dia": "8-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C2",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C2A",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 970
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C3",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 850
+          },
+          "reinforcement": [
+            "4-25T",
+            "10-20T"
+          ],
+          "stirrups": {
+            "dia": "8-T12",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C4",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "8-25T",
+            "11-20T"
+          ],
+          "stirrups": {
+            "dia": "8-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C5",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "4-25T",
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": "T8",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C6",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1330
+          },
+          "reinforcement": [
+            "18-25T"
+          ],
+          "stirrups": {
+            "dia": "T8",
+            "spacing": "125 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C7",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1075
+          },
+          "reinforcement": [
+            "14-25T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C8",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1100
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        },
+        {
+          "column_no": "C9",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "27-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 150 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C10",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [
+            "24-25T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C"
+          },
+          "mix": "M-30"
+        },
+        {
+          "column_no": "C11",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1220
+          },
+          "reinforcement": [
+            "16-20T"
+          ],
+          "stirrups": {
+            "dia": "10-T15",
+            "spacing": "75 C/C, 115 C/C"
+          },
+          "mix": "M-25"
+        }
+      ]
+    }
+  ],
   "columns": [
     {
       "column_no": "C1",
-      "column_name": "6th_FLOOR_COLUMN",
       "size": {
         "width": 330,
         "depth": null,
@@ -15,20 +1662,13 @@
         "12-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2",
-      "column_name": "6th_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -39,20 +1679,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2A",
-      "column_name": "6th_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -63,20 +1696,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C3",
-      "column_name": "6th_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -86,20 +1712,13 @@
         "14-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C4",
-      "column_name": "6th_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -110,20 +1729,13 @@
         "4-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C5",
-      "column_name": "6th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -133,19 +1745,13 @@
         "18-16T"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "T8",
+        "spacing": "125 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C6",
-      "column_name": "6th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -156,19 +1762,13 @@
         "14-16T"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "T8",
+        "spacing": "125 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C7",
-      "column_name": "6th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -179,20 +1779,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C8",
-      "column_name": "6th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -203,20 +1796,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C9",
-      "column_name": "6th_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -227,20 +1813,13 @@
         "14-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C10",
-      "column_name": "6th_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -251,20 +1830,13 @@
         "10-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C11",
-      "column_name": "6th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -275,20 +1847,13 @@
         "12-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C1",
-      "column_name": "5th_FLOOR_COLUMN",
       "size": {
         "width": 330,
         "depth": null,
@@ -299,20 +1864,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2",
-      "column_name": "5th_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -323,20 +1881,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2A",
-      "column_name": "5th_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -347,20 +1898,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C3",
-      "column_name": "5th_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -371,20 +1915,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C4",
-      "column_name": "5th_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -395,20 +1932,13 @@
         "4-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C5",
-      "column_name": "5th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -419,19 +1949,13 @@
         "14-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T125"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "T8",
+        "spacing": "125 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C6",
-      "column_name": "5th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -442,19 +1966,13 @@
         "14-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T125"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "T8",
+        "spacing": "125 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C7",
-      "column_name": "5th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -465,20 +1983,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C8",
-      "column_name": "5th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -486,23 +1997,16 @@
       },
       "reinforcement": [
         "8-20T",
-        "6-16T"
+        "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C9",
-      "column_name": "5th_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -513,20 +2017,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C10",
-      "column_name": "5th_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -537,19 +2034,13 @@
         "8-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C11",
-      "column_name": "5th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -560,20 +2051,13 @@
         "12-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C1",
-      "column_name": "4th_FLOOR_COLUMN",
       "size": {
         "width": 330,
         "depth": null,
@@ -584,20 +2068,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2",
-      "column_name": "4th_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -608,44 +2085,30 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2A",
-      "column_name": "4th_FLOOR_COLUMN",
       "size": {
-        "width": 350,
+        "width": 330,
         "depth": null,
         "length": 970
       },
       "reinforcement": [
-        "8-20T",
+        "6-20T",
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C3",
-      "column_name": "4th_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -656,20 +2119,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C4",
-      "column_name": "4th_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -680,20 +2136,13 @@
         "4-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C5",
-      "column_name": "4th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -704,19 +2153,13 @@
         "14-16T"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "T8",
+        "spacing": "125 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C6",
-      "column_name": "4th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -727,19 +2170,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "8-T125",
+        "spacing": "125 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C7",
-      "column_name": "4th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -750,20 +2187,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C8",
-      "column_name": "4th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -774,20 +2204,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C9",
-      "column_name": "4th_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -798,20 +2221,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C10",
-      "column_name": "4th_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -822,20 +2238,13 @@
         "8-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C11",
-      "column_name": "4th_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -846,20 +2255,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C1",
-      "column_name": "3rd_FLOOR_COLUMN",
       "size": {
         "width": 330,
         "depth": null,
@@ -870,20 +2272,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2",
-      "column_name": "3rd_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -894,20 +2289,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2A",
-      "column_name": "3rd_FLOOR_COLUMN",
       "size": {
         "width": 300,
         "depth": null,
@@ -918,20 +2306,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C3",
-      "column_name": "3rd_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -942,20 +2323,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C4",
-      "column_name": "3rd_FLOOR_COLUMN",
       "size": {
         "width": 300,
         "depth": null,
@@ -965,20 +2339,13 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C5",
-      "column_name": "3rd_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -989,19 +2356,13 @@
         "14-16T"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "8-T125",
+        "spacing": "125 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C6",
-      "column_name": "3rd_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1012,19 +2373,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "T8",
+        "spacing": "125 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C7",
-      "column_name": "3rd_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1035,20 +2390,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C8",
-      "column_name": "3rd_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1059,20 +2407,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C9",
-      "column_name": "3rd_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -1083,20 +2424,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C10",
-      "column_name": "3rd_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -1107,20 +2441,13 @@
         "6-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C11",
-      "column_name": "3rd_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1131,20 +2458,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C1",
-      "column_name": "2nd_FLOOR_COLUMN",
       "size": {
         "width": 330,
         "depth": null,
@@ -1155,20 +2475,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2",
-      "column_name": "2nd_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -1179,21 +2492,15 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2A",
-      "column_name": "2nd_FLOOR_COLUMN",
       "size": {
-        "width": 300,
+        "width": 330,
         "depth": null,
         "length": 970
       },
@@ -1202,20 +2509,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C3",
-      "column_name": "2nd_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -1226,20 +2526,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C4",
-      "column_name": "2nd_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -1249,20 +2542,13 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C5",
-      "column_name": "2nd_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1273,19 +2559,13 @@
         "12-16T"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "8-T125",
+        "spacing": "125 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C6",
-      "column_name": "2nd_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1295,19 +2575,13 @@
         "18-20T"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "T8",
+        "spacing": "125 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C7",
-      "column_name": "2nd_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1317,20 +2591,13 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C8",
-      "column_name": "2nd_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1341,20 +2608,13 @@
         "6-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C9",
-      "column_name": "2nd_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -1365,20 +2625,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C10",
-      "column_name": "2nd_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -1386,23 +2639,16 @@
       },
       "reinforcement": [
         "14-25T",
-        "6-20T"
+        "8-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C11",
-      "column_name": "2nd_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1413,20 +2659,13 @@
         "10-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C1",
-      "column_name": "1st_FLOOR_COLUMN",
       "size": {
         "width": 330,
         "depth": null,
@@ -1437,20 +2676,13 @@
         "6-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2",
-      "column_name": "1st_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -1461,22 +2693,15 @@
         "4-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2A",
-      "column_name": "1st_FLOOR_COLUMN",
       "size": {
-        "width": 380,
+        "width": 350,
         "depth": null,
         "length": 970
       },
@@ -1485,20 +2710,13 @@
         "4-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C3",
-      "column_name": "1st_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -1506,23 +2724,16 @@
       },
       "reinforcement": [
         "8-20T",
-        "6-16T"
+        "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C4",
-      "column_name": "1st_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -1533,20 +2744,13 @@
         "10-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C5",
-      "column_name": "1st_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1557,19 +2761,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T125"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "T8",
+        "spacing": "125 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C6",
-      "column_name": "1st_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1580,19 +2778,13 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "T8",
+        "spacing": "125 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C7",
-      "column_name": "1st_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1603,20 +2795,13 @@
         "10-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C8",
-      "column_name": "1st_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1626,20 +2811,13 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C9",
-      "column_name": "1st_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -1649,20 +2827,13 @@
         "27-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C10",
-      "column_name": "1st_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -1672,20 +2843,13 @@
         "20-25T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C11",
-      "column_name": "1st_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1696,20 +2860,13 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C1",
-      "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
         "width": 330,
         "depth": null,
@@ -1720,20 +2877,13 @@
         "6-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2",
-      "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -1744,44 +2894,30 @@
         "4-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C2A",
-      "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
-        "width": 300,
+        "width": 350,
         "depth": null,
-        "length": 870
+        "length": 970
       },
       "reinforcement": [
         "10-20T",
         "4-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C3",
-      "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -1791,20 +2927,13 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C4",
-      "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -1815,20 +2944,13 @@
         "8-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C5",
-      "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1838,19 +2960,13 @@
         "18-20T"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "T8",
+        "spacing": "125 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C6",
-      "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1861,19 +2977,13 @@
         "8-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T125"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "8-T125",
+        "spacing": "125 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C7",
-      "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1884,20 +2994,13 @@
         "8-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C8",
-      "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
         "width": 250,
         "depth": null,
@@ -1907,20 +3010,13 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C9",
-      "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -1930,20 +3026,13 @@
         "27-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C10",
-      "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -1953,20 +3042,13 @@
         "20-25T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C11",
-      "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -1976,20 +3058,13 @@
         "16-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C1",
-      "column_name": "BASE_FLOOR_COLUMN",
       "size": {
         "width": 330,
         "depth": null,
@@ -1999,20 +3074,13 @@
         "16-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C2",
-      "column_name": "BASE_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -2022,20 +3090,13 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C2A",
-      "column_name": "BASE_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -2045,20 +3106,13 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C3",
-      "column_name": "BASE_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -2069,20 +3123,13 @@
         "10-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T12",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C4",
-      "column_name": "BASE_FLOOR_COLUMN",
       "size": {
         "width": 350,
         "depth": null,
@@ -2093,20 +3140,13 @@
         "11-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "8-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C5",
-      "column_name": "BASE_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -2117,19 +3157,13 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "T8",
+        "spacing": "125 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C6",
-      "column_name": "BASE_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -2139,19 +3173,13 @@
         "18-25T"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": "T8",
+        "spacing": "125 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C7",
-      "column_name": "BASE_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -2161,20 +3189,13 @@
         "14-25T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C8",
-      "column_name": "BASE_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -2184,20 +3205,13 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     },
     {
       "column_no": "C9",
-      "column_name": "BASE_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -2207,20 +3221,13 @@
         "27-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 150 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C10",
-      "column_name": "BASE_FLOOR_COLUMN",
       "size": {
         "width": null,
         "depth": null,
@@ -2230,19 +3237,13 @@
         "24-25T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C"
       },
-      "mix": "M30",
-      "steel_grade": null
+      "mix": "M-30"
     },
     {
       "column_no": "C11",
-      "column_name": "BASE_FLOOR_COLUMN",
       "size": {
         "width": 230,
         "depth": null,
@@ -2252,16 +3253,10 @@
         "16-20T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": "10-T15",
+        "spacing": "75 C/C, 115 C/C"
       },
-      "mix": "M25",
-      "steel_grade": null
+      "mix": "M-25"
     }
   ]
 }

@@ -77,6 +77,7 @@ import base64
 import json
 from extraction_guard import reshape_columns_to_levels
 from pattern_batching import atomic_write_json, safe_filename
+from pattern_cleaners import standardize_records
 import os
 import re
 import sys
@@ -971,7 +972,11 @@ def extract_column_schedule(pdf_path:    str,
     # ── Save ──────────────────────────────────────────────────────────────────
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
-        result = reshape_columns_to_levels(result.get("columns", []))
+        # Pattern 1 standardization: filter + canonical cleaners.
+        # Stirrups left untouched so Pattern 13's parse_stirrups()
+        # dict shape is preserved.
+        cleaned = standardize_records(result.get("columns", []), stirrups_cleaner=None)
+        result = reshape_columns_to_levels(cleaned)
         json.dump(result, f, indent=2, ensure_ascii=False)
 
     print(f"\n✅  Done!  {len(result['columns'])} entries → {output_path}")

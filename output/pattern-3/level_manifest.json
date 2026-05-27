@@ -5,30 +5,30 @@
     {
       "page": 1,
       "levels": [
-        "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
-        "FOUNDATION LVL. To BASEMENT FLOOR LVL."
+        "BASEMENT FLOOR LVL.",
+        "FOUNDATION LVL."
       ]
     }
   ],
   "levels": [
-    "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
-    "FOUNDATION LVL. To BASEMENT FLOOR LVL."
+    "BASEMENT FLOOR LVL.",
+    "FOUNDATION LVL."
   ],
   "batches": [
     {
       "id": "p01_l001",
       "page": 1,
-      "level": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+      "level": "BASEMENT FLOOR LVL.",
       "status": "done",
-      "file": "level_batches\\p01_l001_BASEMENT_FLOOR_LVL_To_BASEMENT_SLAB_LVL.json",
+      "file": "level_batches\\p01_l001_BASEMENT_FLOOR_LVL.json",
       "error": null
     },
     {
       "id": "p01_l002",
       "page": 1,
-      "level": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+      "level": "FOUNDATION LVL.",
       "status": "done",
-      "file": "level_batches\\p01_l002_FOUNDATION_LVL_To_BASEMENT_FLOOR_LVL.json",
+      "file": "level_batches\\p01_l002_FOUNDATION_LVL.json",
       "error": null
     }
   ]

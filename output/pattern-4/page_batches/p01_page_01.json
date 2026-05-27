@@ -2,7 +2,7 @@
   "columns": [
     {
       "column_no": "C1",
-      "column_name": "row1",
+      "column_name": "C1",
       "size": {
         "width": 600,
         "depth": null,
@@ -18,7 +18,7 @@
     },
     {
       "column_no": "C2",
-      "column_name": "row2",
+      "column_name": "C2",
       "size": {
         "width": 600,
         "depth": null,
@@ -34,7 +34,7 @@
     },
     {
       "column_no": "C3",
-      "column_name": "row3",
+      "column_name": "C3",
       "size": {
         "width": 600,
         "depth": null,

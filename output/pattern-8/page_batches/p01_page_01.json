@@ -2,7 +2,7 @@
   "columns": [
     {
       "column_no": "CP1",
-      "column_name": "CP1",
+      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
         "depth": null,
@@ -24,7 +24,7 @@
     },
     {
       "column_no": "CP2",
-      "column_name": "CP2",
+      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
         "depth": null,
@@ -47,7 +47,7 @@
     },
     {
       "column_no": "CP3",
-      "column_name": "CP3",
+      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
         "depth": null,
@@ -69,7 +69,7 @@
     },
     {
       "column_no": "CP4",
-      "column_name": "CP4",
+      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
         "depth": null,
@@ -91,7 +91,7 @@
     },
     {
       "column_no": "CP5",
-      "column_name": "CP5",
+      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
         "depth": null,
@@ -114,7 +114,7 @@
     },
     {
       "column_no": "CP6",
-      "column_name": "CP6",
+      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
         "depth": null,
@@ -137,7 +137,7 @@
     },
     {
       "column_no": "CP7",
-      "column_name": "CP7",
+      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 600,
         "depth": null,
@@ -160,7 +160,7 @@
     },
     {
       "column_no": "CP8",
-      "column_name": "CP8",
+      "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
         "width": 350,
         "depth": null,

@@ -1,7 +1,7 @@
 {
   "levels": [
     {
-      "level": "CP1",
+      "level": "BASEMENT FLOOR COLUMN",
       "columns": [
         {
           "column_no": "CP1",
@@ -14,16 +14,11 @@
             "12-20T"
           ],
           "stirrups": {
-            "dia": [],
+            "dia": "",
             "spacing": "100 C/C"
           },
           "mix": "M25"
-        }
-      ]
-    },
-    {
-      "level": "CP2",
-      "columns": [
+        },
         {
           "column_no": "CP2",
           "size": {
@@ -36,16 +31,11 @@
             "8-20T"
           ],
           "stirrups": {
-            "dia": [],
+            "dia": "",
             "spacing": "100 C/C"
           },
           "mix": "M25"
-        }
-      ]
-    },
-    {
-      "level": "CP3",
-      "columns": [
+        },
         {
           "column_no": "CP3",
           "size": {
@@ -57,16 +47,11 @@
             "12-20T"
           ],
           "stirrups": {
-            "dia": [],
+            "dia": "",
             "spacing": "100 C/C"
           },
           "mix": "M25"
-        }
-      ]
-    },
-    {
-      "level": "CP4",
-      "columns": [
+        },
         {
           "column_no": "CP4",
           "size": {
@@ -78,16 +63,11 @@
             "16-25T"
           ],
           "stirrups": {
-            "dia": [],
+            "dia": "",
             "spacing": "100 C/C"
           },
           "mix": "M25"
-        }
-      ]
-    },
-    {
-      "level": "CP5",
-      "columns": [
+        },
         {
           "column_no": "CP5",
           "size": {
@@ -100,16 +80,11 @@
             "6-16T"
           ],
           "stirrups": {
-            "dia": [],
+            "dia": "",
             "spacing": "100 C/C"
           },
           "mix": "M25"
-        }
-      ]
-    },
-    {
-      "level": "CP6",
-      "columns": [
+        },
         {
           "column_no": "CP6",
           "size": {
@@ -122,16 +97,11 @@
             "8-16T"
           ],
           "stirrups": {
-            "dia": [],
+            "dia": "",
             "spacing": "100 C/C"
           },
           "mix": "M25"
-        }
-      ]
-    },
-    {
-      "level": "CP7",
-      "columns": [
+        },
         {
           "column_no": "CP7",
           "size": {
@@ -144,16 +114,11 @@
             "8-16T"
           ],
           "stirrups": {
-            "dia": [],
+            "dia": "",
             "spacing": "100 C/C"
           },
           "mix": "M25"
-        }
-      ]
-    },
-    {
-      "level": "CP8",
-      "columns": [
+        },
         {
           "column_no": "CP8",
           "size": {
@@ -165,7 +130,7 @@
             "12-16T"
           ],
           "stirrups": {
-            "dia": [],
+            "dia": "",
             "spacing": "100 C/C"
           },
           "mix": "M25"
@@ -185,7 +150,7 @@
         "12-20T"
       ],
       "stirrups": {
-        "dia": [],
+        "dia": "",
         "spacing": "100 C/C"
       },
       "mix": "M25"
@@ -202,7 +167,7 @@
         "8-20T"
       ],
       "stirrups": {
-        "dia": [],
+        "dia": "",
         "spacing": "100 C/C"
       },
       "mix": "M25"
@@ -218,7 +183,7 @@
         "12-20T"
       ],
       "stirrups": {
-        "dia": [],
+        "dia": "",
         "spacing": "100 C/C"
       },
       "mix": "M25"
@@ -234,7 +199,7 @@
         "16-25T"
       ],
       "stirrups": {
-        "dia": [],
+        "dia": "",
         "spacing": "100 C/C"
       },
       "mix": "M25"
@@ -251,7 +216,7 @@
         "6-16T"
       ],
       "stirrups": {
-        "dia": [],
+        "dia": "",
         "spacing": "100 C/C"
       },
       "mix": "M25"
@@ -268,7 +233,7 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [],
+        "dia": "",
         "spacing": "100 C/C"
       },
       "mix": "M25"
@@ -285,7 +250,7 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [],
+        "dia": "",
         "spacing": "100 C/C"
       },
       "mix": "M25"
@@ -301,7 +266,7 @@
         "12-16T"
       ],
       "stirrups": {
-        "dia": [],
+        "dia": "",
         "spacing": "100 C/C"
       },
       "mix": "M25"

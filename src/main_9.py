@@ -44,6 +44,7 @@ from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
 from pattern_batching import atomic_write_json, trace_key_for
+from pattern_cleaners import standardize_records
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -799,6 +800,11 @@ def process_pdf(pdf_path: str):
     # ── 3. Merge, sort, save ──────────────────────────────────────────────────
     final = _sort_records(_merge_pages(all_records), layout)
     _report(final, layout)
+
+    # Pattern 1 standardization: filter non-column rows + apply canonical
+    # size/reinforcement/mix cleaners. Stirrups left untouched so
+    # Pattern 9's own dict shape is preserved.
+    final = standardize_records(final, stirrups_cleaner=None)
 
     output_file = os.path.join(output_folder, f"{file_name}.json")
     with open(output_file, "w", encoding="utf-8") as f:

@@ -8,6 +8,7 @@ from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
 from pattern_batching import MAX_LEVEL_WORKERS, atomic_write_json, safe_filename, trace_key_for
+from pattern_cleaners import standardize_records
 from vision_extractor import detect_levels_from_image, extract_from_image, extract_with_tools
 
 
@@ -298,6 +299,11 @@ def process_pdf(pdf_path):
             atomic_write_json(manifest_path, manifest)
 
     final_columns = merge_done_batches(manifest, output_folder)
+
+    # Pattern 1 standardization: filter non-column rows + apply canonical
+    # size/reinforcement/mix cleaners. Stirrups left untouched so
+    # Pattern 14's own dict shape is preserved.
+    final_columns = standardize_records(final_columns, stirrups_cleaner=None)
 
     final_output = reshape_columns_to_levels(final_columns)
 

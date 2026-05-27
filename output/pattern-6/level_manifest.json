@@ -33,9 +33,9 @@
       "id": "p01_l002",
       "page": 1,
       "level": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
-      "status": "done",
+      "status": "failed",
       "file": "level_batches\\p01_l002_COLUMN_FROM_SECOND_FLOOR_LVL_TO_THIRD_FLOOR_LVL.json",
-      "error": null
+      "error": "Image size (197376240 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack."
     },
     {
       "id": "p01_l003",

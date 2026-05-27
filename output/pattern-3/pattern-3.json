@@ -1,7 +1,7 @@
 {
   "levels": [
     {
-      "level": "BASEMENT FLOOR LVL. To BASEMENT SLAB LVL.",
+      "level": "BASEMENT FLOOR LVL.",
       "columns": [
         {
           "column_no": "C1",
@@ -14,7 +14,7 @@
             "14-20T"
           ],
           "stirrups": {
-            "dia": "8T",
+            "dia": "T8",
             "spacing": "100 C/C, 150 C/C"
           },
           "mix": "M-35"
@@ -30,7 +30,7 @@
             "14-20T"
           ],
           "stirrups": {
-            "dia": "8T",
+            "dia": "T8",
             "spacing": "100 C/C, 150 C/C"
           },
           "mix": "M-35"
@@ -46,7 +46,7 @@
             "12-20T"
           ],
           "stirrups": {
-            "dia": "8T",
+            "dia": "T8",
             "spacing": "100 C/C, 150 C/C"
           },
           "mix": "M-35"
@@ -62,7 +62,7 @@
             "14-20T"
           ],
           "stirrups": {
-            "dia": "8T",
+            "dia": "T8",
             "spacing": "100 C/C, 150 C/C"
           },
           "mix": "M-35"
@@ -79,7 +79,7 @@
             "8-16T"
           ],
           "stirrups": {
-            "dia": "8T",
+            "dia": "T8",
             "spacing": "100 C/C, 150 C/C"
           },
           "mix": "M-35"
@@ -95,7 +95,7 @@
             "12-16T"
           ],
           "stirrups": {
-            "dia": "8T",
+            "dia": "T8",
             "spacing": "100 C/C, 150 C/C"
           },
           "mix": "M-35"
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "level": "FOUNDATION LVL. To BASEMENT FLOOR LVL.",
+      "level": "FOUNDATION LVL.",
       "columns": [
         {
           "column_no": "C1",
@@ -116,7 +116,7 @@
             "14-20T"
           ],
           "stirrups": {
-            "dia": "8T",
+            "dia": "T8",
             "spacing": "100 C/C"
           },
           "mix": "M-35"
@@ -132,7 +132,7 @@
             "14-20T"
           ],
           "stirrups": {
-            "dia": "8T",
+            "dia": "T8",
             "spacing": "100 C/C"
           },
           "mix": "M-35"
@@ -148,7 +148,7 @@
             "14-20T"
           ],
           "stirrups": {
-            "dia": "8T",
+            "dia": "T8",
             "spacing": "100 C/C"
           },
           "mix": "M-35"
@@ -161,10 +161,10 @@
             "length": 750
           },
           "reinforcement": [
-            "12-20T"
+            "14-20T"
           ],
           "stirrups": {
-            "dia": "8T",
+            "dia": "T8",
             "spacing": "100 C/C"
           },
           "mix": "M-35"
@@ -174,15 +174,15 @@
           "size": {
             "width": 450,
             "depth": null,
-            "length": 450
+            "length": 600
           },
           "reinforcement": [
             "4-20T",
             "8-16T"
           ],
           "stirrups": {
-            "dia": "8T",
-            "spacing": "100 C/C, 150 C/C"
+            "dia": "T8",
+            "spacing": "100 C/C"
           },
           "mix": "M-35"
         },
@@ -197,8 +197,8 @@
             "12-16T"
           ],
           "stirrups": {
-            "dia": "8T",
-            "spacing": "100 C/C, 150 C/C"
+            "dia": "T8",
+            "spacing": "100 C/C"
           },
           "mix": "M-35"
         }
@@ -217,7 +217,7 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": "8T",
+        "dia": "T8",
         "spacing": "100 C/C, 150 C/C"
       },
       "mix": "M-35"
@@ -233,7 +233,7 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": "8T",
+        "dia": "T8",
         "spacing": "100 C/C, 150 C/C"
       },
       "mix": "M-35"
@@ -249,7 +249,7 @@
         "12-20T"
       ],
       "stirrups": {
-        "dia": "8T",
+        "dia": "T8",
         "spacing": "100 C/C, 150 C/C"
       },
       "mix": "M-35"
@@ -265,7 +265,7 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": "8T",
+        "dia": "T8",
         "spacing": "100 C/C, 150 C/C"
       },
       "mix": "M-35"
@@ -282,7 +282,7 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": "8T",
+        "dia": "T8",
         "spacing": "100 C/C, 150 C/C"
       },
       "mix": "M-35"
@@ -298,7 +298,7 @@
         "12-16T"
       ],
       "stirrups": {
-        "dia": "8T",
+        "dia": "T8",
         "spacing": "100 C/C, 150 C/C"
       },
       "mix": "M-35"
@@ -314,7 +314,7 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": "8T",
+        "dia": "T8",
         "spacing": "100 C/C"
       },
       "mix": "M-35"
@@ -330,7 +330,7 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": "8T",
+        "dia": "T8",
         "spacing": "100 C/C"
       },
       "mix": "M-35"
@@ -346,7 +346,7 @@
         "14-20T"
       ],
       "stirrups": {
-        "dia": "8T",
+        "dia": "T8",
         "spacing": "100 C/C"
       },
       "mix": "M-35"
@@ -359,10 +359,10 @@
         "length": 750
       },
       "reinforcement": [
-        "12-20T"
+        "14-20T"
       ],
       "stirrups": {
-        "dia": "8T",
+        "dia": "T8",
         "spacing": "100 C/C"
       },
       "mix": "M-35"
@@ -372,15 +372,15 @@
       "size": {
         "width": 450,
         "depth": null,
-        "length": 450
+        "length": 600
       },
       "reinforcement": [
         "4-20T",
         "8-16T"
       ],
       "stirrups": {
-        "dia": "8T",
-        "spacing": "100 C/C, 150 C/C"
+        "dia": "T8",
+        "spacing": "100 C/C"
       },
       "mix": "M-35"
     },
@@ -395,8 +395,8 @@
         "12-16T"
       ],
       "stirrups": {
-        "dia": "8T",
-        "spacing": "100 C/C, 150 C/C"
+        "dia": "T8",
+        "spacing": "100 C/C"
       },
       "mix": "M-35"
     }

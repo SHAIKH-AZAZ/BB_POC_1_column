@@ -5,9 +5,9 @@
     "page_1.png__p01_page": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-4\\page_1.png",
-      "generated_at": "2026-05-26T18:49:25.262413+00:00",
+      "generated_at": "2026-05-27T12:16:35.635276+00:00",
       "think": {
-        "image_quality": "high resolution, clear, no skew",
+        "image_quality": "high",
         "table_bounds": {
           "x1": 30,
           "y1": 30,
@@ -23,9 +23,9 @@
           "TOP OF COLUMN"
         ],
         "storey_levels": [
-          "row1",
-          "row2",
-          "row3"
+          "C1",
+          "C2",
+          "C3"
         ],
         "expected_count": 3,
         "zoom_plan": [
@@ -90,7 +90,7 @@
             "y1": 70,
             "x2": 250,
             "y2": 110,
-            "reason": "Read first row SIZE OF COLUMN a"
+            "reason": "Read first row SIZE OF COLUMN a 600"
           },
           {
             "region_id": "r8",
@@ -99,7 +99,7 @@
             "y1": 70,
             "x2": 350,
             "y2": 110,
-            "reason": "Read first row SIZE OF COLUMN b"
+            "reason": "Read first row SIZE OF COLUMN b 600"
           },
           {
             "region_id": "r9",
@@ -108,7 +108,7 @@
             "y1": 110,
             "x2": 250,
             "y2": 150,
-            "reason": "Read second row SIZE OF COLUMN a"
+            "reason": "Read second row SIZE OF COLUMN a 600"
           },
           {
             "region_id": "r10",
@@ -117,7 +117,7 @@
             "y1": 110,
             "x2": 350,
             "y2": 150,
-            "reason": "Read second row SIZE OF COLUMN b"
+            "reason": "Read second row SIZE OF COLUMN b 450"
           },
           {
             "region_id": "r11",
@@ -126,7 +126,7 @@
             "y1": 150,
             "x2": 250,
             "y2": 190,
-            "reason": "Read third row SIZE OF COLUMN a"
+            "reason": "Read third row SIZE OF COLUMN a 600"
           },
           {
             "region_id": "r12",
@@ -135,18 +135,20 @@
             "y1": 150,
             "x2": 350,
             "y2": 190,
-            "reason": "Read third row SIZE OF COLUMN b"
+            "reason": "Read third row SIZE OF COLUMN b 600"
           }
         ],
         "normalization_rules": [
-          "Normalize all sizes to numbers",
+          "For SIZE OF COLUMN, width = a, length = b, depth = null",
           "Ignore NOS., GRID REFERENCE, TOP OF COLUMN columns",
-          "Return empty reinforcement and stirrups"
+          "Return empty reinforcement list and empty stirrups object",
+          "Return empty string for column_name",
+          "Return null for mix and steel_grade"
         ],
         "extraction_order": [
-          "row1",
-          "row2",
-          "row3"
+          "C1",
+          "C2",
+          "C3"
         ]
       },
       "zoom_regions": [],
@@ -154,7 +156,7 @@
       "records": [
         {
           "column_no": "C1",
-          "column_name": "row1",
+          "column_name": "C1",
           "size": {
             "width": 600,
             "depth": null,
@@ -170,7 +172,7 @@
         },
         {
           "column_no": "C2",
-          "column_name": "row2",
+          "column_name": "C2",
           "size": {
             "width": 600,
             "depth": null,
@@ -186,7 +188,7 @@
         },
         {
           "column_no": "C3",
-          "column_name": "row3",
+          "column_name": "C3",
           "size": {
             "width": 600,
             "depth": null,
@@ -205,7 +207,7 @@
         {
           "record": {
             "column_no": "C1",
-            "column_name": "row1",
+            "column_name": "C1",
             "size": {
               "width": 600,
               "depth": null,
@@ -224,7 +226,7 @@
         {
           "record": {
             "column_no": "C2",
-            "column_name": "row2",
+            "column_name": "C2",
             "size": {
               "width": 600,
               "depth": null,
@@ -243,7 +245,7 @@
         {
           "record": {
             "column_no": "C3",
-            "column_name": "row3",
+            "column_name": "C3",
             "size": {
               "width": 600,
               "depth": null,

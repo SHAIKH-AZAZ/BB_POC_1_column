@@ -18,16 +18,47 @@ def load_prompt():
         return f.read()
 
 
+def _flatten_to_strings(value):
+    """Coerce ANY shape (string / list / nested list / scalar / None) into
+    a flat list of non-empty strings. This is required before passing to
+    dict.fromkeys() — which would otherwise crash on nested lists with
+    'unhashable type: list'."""
+    if value is None:
+        return []
+    if isinstance(value, str):
+        return [value] if value.strip() else []
+    if isinstance(value, (list, tuple)):
+        out = []
+        for item in value:
+            out.extend(_flatten_to_strings(item))
+        return out
+    # numbers, dicts coerced via str() for safety
+    text = str(value).strip()
+    return [text] if text else []
+
+
 def clean_stirrups(stirrups):
     """
     Remove duplicate dia and spacing while preserving order.
+
+    Defensive: tolerates non-dict input, nested list values, and scalars
+    that the vision model occasionally returns. Without flattening, the
+    dict.fromkeys() dedupe call below would crash with
+    "unhashable type: 'list'" on inputs like {"dia": [["8T"]]}.
     """
 
     if not stirrups:
         return {"dia": [], "spacing": []}
 
-    dia = stirrups.get("dia", [])
-    spacing = stirrups.get("spacing", [])
+    if not isinstance(stirrups, dict):
+        # Raw list / string fallback — treat as spacing only.
+        return {
+            "dia": [],
+            "spacing": list(dict.fromkeys(_flatten_to_strings(stirrups))),
+        }
+
+    dia = _flatten_to_strings(stirrups.get("dia"))
+    spacing = _flatten_to_strings(stirrups.get("spacing"))
 
     # Remove duplicates but keep order
     dia = list(dict.fromkeys(dia))

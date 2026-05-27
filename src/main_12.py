@@ -31,6 +31,7 @@ DEPENDENCIES
 import json
 from extraction_guard import reshape_columns_to_levels
 from pattern_batching import atomic_write_json
+from pattern_cleaners import standardize_records
 import os
 import re
 import sys
@@ -786,6 +787,11 @@ def process_pdf(pdf_path: str) -> None:
         key = (col["column_no"], col["column_name"])
         if key not in seen:
             seen.add(key); final.append(col)
+
+    # Pattern 1 standardization: filter non-column rows + apply
+    # canonical size/reinforcement/mix cleaners. Stirrups left
+    # untouched so Pattern 12's own shape is preserved.
+    final = standardize_records(final, stirrups_cleaner=None)
 
     out_file = os.path.join(out_dir, f"{stem}.json")
     with open(out_file, "w", encoding="utf-8") as f:

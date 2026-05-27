@@ -7,6 +7,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
+from extraction_guard import _coerce_stirrups_to_strings
 from pattern1_cell_verifier import (
     detect_pattern1_grid,
     detect_levels_from_pattern1_label_crop,
@@ -176,13 +177,18 @@ def is_valid_column_no(value):
 
 def reshape_to_levels(flat_records):
     """
-    Output shape:
+    Output shape (canonical project-wide):
     {
       "levels": [
         {
-          "level": "ABOVE TERRACE LEVEL",
+          "level": "ABOVE TERRACE LEVEL",   // "UNKNOWN" if no floor data
           "columns": [
-            {"column_no": "C1,C2", "size": {"width": 700, "depth": 700, "length": null}, "reinforcement": ["8-T16"]}
+            {
+              "column_no": "C1,C2",
+              "size": {"width": 700, "depth": null, "length": 700},
+              "reinforcement": ["8-T16"],
+              "stirrups": {"dia": "T8", "spacing": "100 C/C, 200 C/C"}
+            }
           ]
         }
       ]
@@ -198,6 +204,7 @@ def reshape_to_levels(flat_records):
             "size": record.get("size")
             or {"width": None, "depth": None, "length": None},
             "reinforcement": record.get("reinforcement") or [],
+            "stirrups": _coerce_stirrups_to_strings(record.get("stirrups")),
         }
 
         if level not in level_map:
@@ -225,6 +232,7 @@ def column_entry_from_record(record):
         "column_no": record.get("column_no", ""),
         "size": record.get("size") or {"width": None, "depth": None, "length": None},
         "reinforcement": record.get("reinforcement") or [],
+        "stirrups": _coerce_stirrups_to_strings(record.get("stirrups")),
     }
 
 

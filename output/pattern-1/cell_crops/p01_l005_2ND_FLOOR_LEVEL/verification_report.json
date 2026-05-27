@@ -61,7 +61,7 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T25",
+      "raw_text": "700 x 700 20-T25",
       "source": "row"
     },
     {
@@ -89,7 +89,7 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T20",
+      "raw_text": "700 x 700 20-T20",
       "source": "row"
     },
     {
@@ -116,7 +116,7 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "750 x 750\n20-T32",
+      "raw_text": "750 x 750 20-T32",
       "source": "row"
     },
     {
@@ -144,7 +144,7 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "750 x 750\n20-T32",
+      "raw_text": "750 x 750 20-T32",
       "source": "row"
     },
     {
@@ -157,7 +157,8 @@
           "length": 700
         },
         "reinforcement": [
-          "20-T25"
+          "4-T32",
+          "16-T25"
         ]
       },
       "after": {
@@ -171,7 +172,7 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "750 x 750\n20-T32",
+      "raw_text": "750 x 750 20-T32",
       "source": "row"
     },
     {
@@ -184,7 +185,8 @@
           "length": 700
         },
         "reinforcement": [
-          "20-T25"
+          "4-T32",
+          "16-T25"
         ]
       },
       "after": {
@@ -199,7 +201,7 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "750 x 750\n4-T32+16-T25",
+      "raw_text": "750 x 750 4-T32+16-T25",
       "source": "row"
     },
     {
@@ -212,22 +214,22 @@
           "length": 700
         },
         "reinforcement": [
-          "4-T32",
+          "4-T25",
           "16-T25"
         ]
       },
       "after": {
         "size": {
-          "width": 700,
+          "width": 750,
           "depth": null,
-          "length": 700
+          "length": 750
         },
         "reinforcement": [
           "20-T32"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T32",
+      "raw_text": "750 x 750 20-T32",
       "source": "row"
     },
     {
@@ -243,16 +245,16 @@
       },
       "after": {
         "size": {
-          "width": 700,
+          "width": 750,
           "depth": null,
-          "length": 700
+          "length": 750
         },
         "reinforcement": [
-          "20-T32"
+          "24-T32"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T32",
+      "raw_text": "750 x 750 24-T32",
       "source": "row"
     },
     {
@@ -260,7 +262,7 @@
       "grid_col_index": 9,
       "before": {
         "size": {
-          "width": 300,
+          "width": 900,
           "depth": null,
           "length": 300
         },
@@ -271,16 +273,17 @@
       },
       "after": {
         "size": {
-          "width": 700,
+          "width": 750,
           "depth": null,
-          "length": 700
+          "length": 750
         },
         "reinforcement": [
-          "24-T32"
+          "4-T32",
+          "16-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n24-T32",
+      "raw_text": "750 x 750 4-T32+16-T25",
       "source": "row"
     },
     {
@@ -293,8 +296,7 @@
           "length": 300
         },
         "reinforcement": [
-          "4-T25",
-          "12-T16"
+          "16-T15"
         ]
       },
       "after": {
@@ -304,12 +306,11 @@
           "length": 700
         },
         "reinforcement": [
-          "4-T32",
-          "16-T25"
+          "20-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T32+16-T25",
+      "raw_text": "700 x 700 20-T25",
       "source": "row"
     },
     {
@@ -323,35 +324,7 @@
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 700,
-          "depth": null,
-          "length": 700
-        },
-        "reinforcement": [
-          "20-T25"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "700 x 700\n20-T25",
-      "source": "row"
-    },
-    {
-      "column_no": "C23,C44",
-      "grid_col_index": 12,
-      "before": {
-        "size": {
-          "width": 300,
-          "depth": null,
-          "length": 300
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
@@ -365,12 +338,12 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n26-T16",
+      "raw_text": "700 x 700 26-T16",
       "source": "row"
     },
     {
-      "column_no": "C24",
-      "grid_col_index": 13,
+      "column_no": "C23,C44",
+      "grid_col_index": 12,
       "before": {
         "size": {
           "width": 300,
@@ -378,7 +351,8 @@
           "length": 300
         },
         "reinforcement": [
-          "20-T25"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
@@ -392,12 +366,12 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n128-T25",
+      "raw_text": "700 x 700 128-T25",
       "source": "row"
     },
     {
-      "column_no": "C25",
-      "grid_col_index": 14,
+      "column_no": "C24",
+      "grid_col_index": 13,
       "before": {
         "size": {
           "width": 300,
@@ -406,7 +380,7 @@
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
@@ -421,12 +395,12 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T20+12-T16",
+      "raw_text": "700 x 700 4-T20+12-T16",
       "source": "row"
     },
     {
-      "column_no": "C26,C27",
-      "grid_col_index": 15,
+      "column_no": "C25",
+      "grid_col_index": 14,
       "before": {
         "size": {
           "width": 300,
@@ -435,7 +409,7 @@
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
@@ -449,7 +423,36 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n106-T25",
+      "raw_text": "700 x 700 106-T25",
+      "source": "row"
+    },
+    {
+      "column_no": "C26,C27",
+      "grid_col_index": 15,
+      "before": {
+        "size": {
+          "width": 300,
+          "depth": null,
+          "length": 300
+        },
+        "reinforcement": [
+          "4-T25",
+          "12-T20"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 700,
+          "depth": null,
+          "length": 700
+        },
+        "reinforcement": [
+          "4-T25",
+          "12-T20"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "700 x 700 4-T25+12-T20",
       "source": "row"
     },
     {
@@ -462,7 +465,8 @@
           "length": 300
         },
         "reinforcement": [
-          "16-T16"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
@@ -477,7 +481,7 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T25+12-T20",
+      "raw_text": "700 x 700 4-T25+12-T20",
       "source": "row"
     },
     {
@@ -490,7 +494,8 @@
           "length": 300
         },
         "reinforcement": [
-          "20-T20"
+          "4-T25",
+          "12-T20"
         ]
       },
       "after": {
@@ -500,12 +505,11 @@
           "length": 700
         },
         "reinforcement": [
-          "4-T25",
-          "12-T20"
+          "16-T16"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T25+12-T20",
+      "raw_text": "700 x 700 16-T16",
       "source": "row"
     },
     {
@@ -519,35 +523,7 @@
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 700,
-          "depth": null,
-          "length": 700
-        },
-        "reinforcement": [
-          "16-T16"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "700 x 700\n16-T16",
-      "source": "row"
-    },
-    {
-      "column_no": "C31",
-      "grid_col_index": 19,
-      "before": {
-        "size": {
-          "width": 300,
-          "depth": null,
-          "length": 300
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
@@ -562,12 +538,12 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T32+16-T25",
+      "raw_text": "700 x 700 4-T32+16-T25",
       "source": "row"
     },
     {
-      "column_no": "C34",
-      "grid_col_index": 20,
+      "column_no": "C31",
+      "grid_col_index": 19,
       "before": {
         "size": {
           "width": 300,
@@ -576,7 +552,7 @@
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
@@ -590,12 +566,12 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T20",
+      "raw_text": "700 x 700 20-T20",
       "source": "row"
     },
     {
-      "column_no": "C35,C38",
-      "grid_col_index": 21,
+      "column_no": "C34",
+      "grid_col_index": 20,
       "before": {
         "size": {
           "width": 300,
@@ -604,7 +580,7 @@
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
@@ -618,7 +594,36 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n102-T20",
+      "raw_text": "700 x 700 102-T20",
+      "source": "row"
+    },
+    {
+      "column_no": "C35,C38",
+      "grid_col_index": 21,
+      "before": {
+        "size": {
+          "width": 300,
+          "depth": null,
+          "length": 300
+        },
+        "reinforcement": [
+          "4-T25",
+          "12-T20"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 700,
+          "depth": null,
+          "length": 700
+        },
+        "reinforcement": [
+          "4-T25",
+          "16-T20"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "700 x 700 4-T25+16-T20",
       "source": "row"
     },
     {
@@ -632,7 +637,7 @@
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
@@ -642,12 +647,11 @@
           "length": 700
         },
         "reinforcement": [
-          "4-T25",
           "16-T20"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n4-T25+16-T20",
+      "raw_text": "700 x 700 16-T20",
       "source": "row"
     },
     {
@@ -661,35 +665,7 @@
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 700,
-          "depth": null,
-          "length": 700
-        },
-        "reinforcement": [
-          "16-T20"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "700 x 700\n16-T20",
-      "source": "row"
-    },
-    {
-      "column_no": "C40",
-      "grid_col_index": 24,
-      "before": {
-        "size": {
-          "width": 300,
-          "depth": null,
-          "length": 300
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
@@ -703,12 +679,12 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n174-T32",
+      "raw_text": "700 x 700 174-T32",
       "source": "row"
     },
     {
-      "column_no": "C41",
-      "grid_col_index": 25,
+      "column_no": "C40",
+      "grid_col_index": 24,
       "before": {
         "size": {
           "width": 300,
@@ -717,7 +693,7 @@
         },
         "reinforcement": [
           "4-T25",
-          "16-T20"
+          "12-T20"
         ]
       },
       "after": {
@@ -731,7 +707,36 @@
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T25",
+      "raw_text": "700 x 700 20-T25",
+      "source": "row"
+    },
+    {
+      "column_no": "C41",
+      "grid_col_index": 25,
+      "before": {
+        "size": {
+          "width": 300,
+          "depth": null,
+          "length": 300
+        },
+        "reinforcement": [
+          "4-T25",
+          "12-T20"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 700,
+          "depth": null,
+          "length": 700
+        },
+        "reinforcement": [
+          "4-T25",
+          "12-T20"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "700 x 700",
       "source": "row"
     }
   ],

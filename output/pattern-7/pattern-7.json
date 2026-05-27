@@ -10,7 +10,11 @@
             "depth": null,
             "length": 1200
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "TC-C8,TC-C9,TC-C10,TC-C11,TC-C12,TC-C24,TC-C25,TC-C26,TC-C27,TC-C29,TC-C30",
@@ -19,7 +23,11 @@
             "depth": null,
             "length": 1000
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "TC-C2,TC-C3",
@@ -28,7 +36,11 @@
             "depth": null,
             "length": 1000
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "TC-C13",
@@ -37,7 +49,11 @@
             "depth": null,
             "length": 1500
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "TC-C15,TC-C19",
@@ -46,7 +62,11 @@
             "depth": null,
             "length": 1420
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         },
         {
           "column_no": "TC-C34,TC-C35",
@@ -55,7 +75,76 @@
             "depth": null,
             "length": 900
           },
-          "reinforcement": []
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
+        },
+        {
+          "column_no": "TC-SW1",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
+        },
+        {
+          "column_no": "PC1,PC2,PC3,PC4,PC5,PC6,PC7,PC8,PC11,PC12,PC13,PC17,PC18,PC19,PC20,PC21,PC22,PC23,PC24,PC25,PC26,PC27,PC28,PC29,PC30,PC31,PC32,PC33,PC34,PC35,PC36,PC37,PC38,PC39,PC40,PC41,PC42,PC43,PC44,PC45",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
+        },
+        {
+          "column_no": "PC9,PC10,PC15",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
+        },
+        {
+          "column_no": "PC14",
+          "size": {
+            "width": 350,
+            "depth": null,
+            "length": 900
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
+        },
+        {
+          "column_no": "PC16",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 935
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": "",
+            "spacing": ""
+          }
         }
       ]
     }
@@ -68,7 +157,11 @@
         "depth": null,
         "length": 1200
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "TC-C8,TC-C9,TC-C10,TC-C11,TC-C12,TC-C24,TC-C25,TC-C26,TC-C27,TC-C29,TC-C30",
@@ -77,7 +170,11 @@
         "depth": null,
         "length": 1000
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "TC-C2,TC-C3",
@@ -86,7 +183,11 @@
         "depth": null,
         "length": 1000
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "TC-C13",
@@ -95,7 +196,11 @@
         "depth": null,
         "length": 1500
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "TC-C15,TC-C19",
@@ -104,7 +209,11 @@
         "depth": null,
         "length": 1420
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     },
     {
       "column_no": "TC-C34,TC-C35",
@@ -113,7 +222,76 @@
         "depth": null,
         "length": 900
       },
-      "reinforcement": []
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
+    },
+    {
+      "column_no": "TC-SW1",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
+    },
+    {
+      "column_no": "PC1,PC2,PC3,PC4,PC5,PC6,PC7,PC8,PC11,PC12,PC13,PC17,PC18,PC19,PC20,PC21,PC22,PC23,PC24,PC25,PC26,PC27,PC28,PC29,PC30,PC31,PC32,PC33,PC34,PC35,PC36,PC37,PC38,PC39,PC40,PC41,PC42,PC43,PC44,PC45",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
+    },
+    {
+      "column_no": "PC9,PC10,PC15",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
+    },
+    {
+      "column_no": "PC14",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 900
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
+    },
+    {
+      "column_no": "PC16",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 935
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": "",
+        "spacing": ""
+      }
     }
   ]
 }

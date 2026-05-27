@@ -439,36 +439,88 @@ def _format_size(size):
     }
 
 
+def _coerce_stirrups_to_strings(stirrups):
+    """Normalize ANY stirrups input shape to Pattern 2 scalar-string shape:
+        {"dia": "T8", "spacing": "100 C/C, 200 C/C"}
+
+    Always returns the dict, even when stirrups is missing/empty
+    (defaults to {"dia": "", "spacing": ""}).
+
+    Also normalizes the dia notation:
+        "8T"   -> "T8"
+        "10T"  -> "T10"
+        "T8"   -> "T8"
+    so the output is consistent across patterns whose drawings use
+    either prefix order.
+    """
+    if not stirrups:
+        return {"dia": "", "spacing": ""}
+
+    # Dict input ({"dia": ..., "spacing": ...})
+    if isinstance(stirrups, dict):
+        raw_dia = stirrups.get("dia") or ""
+        raw_sp = stirrups.get("spacing") or ""
+    # List input ([raw_zone_strings, ...]) - join into spacing
+    elif isinstance(stirrups, list):
+        raw_dia = ""
+        # try to pull a dia token from the first element
+        for item in stirrups:
+            m = re.search(r"\b([TYHRD#])\s*-?\s*(\d+)|\b(\d+)\s*([TYHRD#])\b", str(item).upper())
+            if m:
+                raw_dia = m.group(0).replace(" ", "").replace("-", "")
+                break
+        raw_sp = ", ".join(str(s) for s in stirrups if s)
+    else:
+        raw_dia = ""
+        raw_sp = str(stirrups)
+
+    # Flatten list-valued dia/spacing
+    if isinstance(raw_dia, list):
+        raw_dia = raw_dia[0] if raw_dia else ""
+    if isinstance(raw_sp, list):
+        raw_sp = ", ".join(str(s).strip() for s in raw_sp if s)
+
+    dia = str(raw_dia).strip().upper().replace(" ", "")
+    # Normalize "8T" -> "T8" (Pattern 6 notation -> Pattern 2 notation)
+    m = re.match(r"^(\d+)([TYHRD#])$", dia)
+    if m:
+        dia = f"{m.group(2)}{m.group(1)}"
+
+    return {
+        "dia": dia,
+        "spacing": str(raw_sp).strip(),
+    }
+
+
 def reshape_columns_to_levels(flat_records):
     """
-    Convert flat column records into level-centric (Option B) structure.
+    Convert flat column records into level-centric (Option B) structure
+    with the project-wide canonical shape:
 
-    Input  (flat):
-      [
-        {"column_no": "C1,C7,C8,C14,C67,C75",
-         "column_name": "ABOVE TERRACE LEVEL",
-         "size": {"width": 700, "depth": 700, "length": None},
-         "reinforcement": ["20-T20"],
-         "stirrups": {"dia": ["T8"], "spacing": ["200 C/C"]},
-         "mix": None, "steel_grade": None},
-        ...
-      ]
-
-    Output (level-centric):
       {
         "levels": [
           {
-            "level": "ABOVE TERRACE LEVEL",
+            "level": "<NAME or UNKNOWN if no floor data>",
             "columns": [
-              {"column_no": "C1,C7,C8,C14,C67,C75",
-               "size": "700 x 700",
-               "reinforcement": ["20-T20"],
-               "stirrups": {"dia": ["T8"], "spacing": ["200 C/C"]}}
+              {
+                "column_no": "...",
+                "size": {"width": ..., "depth": null, "length": ...},
+                "reinforcement": [...],
+                "stirrups": {"dia": "T8", "spacing": "100 C/C, 200 C/C"},
+                "mix": ...,           # only included when present
+                "steel_grade": ...    # only included when present
+              }
             ]
-          },
-          ...
-        ]
+          }
+        ],
+        "columns": [ ...flat back-compat list... ]
       }
+
+    Key contracts (apply to every pattern):
+      * stirrups is ALWAYS present, even when empty
+        ({"dia": "", "spacing": ""}). Pattern 2 scalar-string shape.
+      * "8T"-style dia (Pattern 6) is rewritten to "T8" style.
+      * If column_name (level) is missing, "UNKNOWN" is used.
     """
     from collections import OrderedDict
 
@@ -483,95 +535,8 @@ def reshape_columns_to_levels(flat_records):
             "column_no": record.get("column_no", ""),
             "size": _format_size(record.get("size")),
             "reinforcement": record.get("reinforcement") or [],
+            "stirrups": _coerce_stirrups_to_strings(record.get("stirrups")),
         }
-
-        stirrups = record.get("stirrups") or {}
-        dia = stirrups.get("dia") or []
-        spacing = stirrups.get("spacing") or []
-        if dia or spacing:
-            col_entry["stirrups"] = {"dia": dia, "spacing": spacing}
-
-        if record.get("mix"):
-            col_entry["mix"] = record["mix"]
-        if record.get("steel_grade"):
-            col_entry["steel_grade"] = record["steel_grade"]
-
-        if level not in level_map:
-            level_map[level] = []
-        level_map[level].append(col_entry)
-
-    return {
-        "levels": [
-            {"level": level, "columns": cols} for level, cols in level_map.items()
-        ]
-    }
-
-
-def _format_size(size):
-    """Return the common B x L size object used by Pattern 1."""
-    empty = {"width": None, "depth": None, "length": None}
-    if not size:
-        return dict(empty)
-    if not isinstance(size, dict):
-        nums = [int(n) for n in re.findall(r"\d+", str(size))]
-        if len(nums) >= 2:
-            return {"width": nums[0], "depth": None, "length": nums[1]}
-        if len(nums) == 1:
-            return {"width": nums[0], "depth": None, "length": None}
-        return dict(empty)
-    length = size.get("length")
-    if length is None:
-        length = size.get("depth")
-    return {
-        "width": _as_int(size.get("width")),
-        "depth": None,
-        "length": _as_int(length),
-    }
-
-
-def reshape_columns_to_levels(flat_records):
-    """
-    Convert flat column records into level-centric (Option B) structure.
-
-    Input  (flat):
-      [{"column_no": "C1,C7,C8,C14,C67,C75",
-        "column_name": "ABOVE TERRACE LEVEL",
-        "size": {"width": 700, "depth": 700, "length": None},
-        "reinforcement": ["20-T20"],
-        "stirrups": {"dia": ["T8"], "spacing": ["200 C/C"]},
-        "mix": None, "steel_grade": None}, ...]
-
-    Output (level-centric):
-      {"levels": [
-          {"level": "ABOVE TERRACE LEVEL",
-           "columns": [
-               {"column_no": "C1,C7,C8,C14,C67,C75",
-                "size": "700 x 700",
-                "reinforcement": ["20-T20"],
-                "stirrups": {"dia": ["T8"], "spacing": ["200 C/C"]}}
-           ]}
-      ]}
-    """
-    from collections import OrderedDict
-
-    level_map = OrderedDict()
-
-    for record in flat_records:
-        level = str(record.get("column_name") or "").strip()
-        if not level:
-            level = "UNKNOWN"
-
-        col_entry = {
-            "column_no": record.get("column_no", ""),
-            "size": _format_size(record.get("size")),
-            "reinforcement": record.get("reinforcement") or [],
-        }
-
-        stirrups = record.get("stirrups") or {}
-        dia = stirrups.get("dia") or []
-        spacing = stirrups.get("spacing") or []
-        if dia or spacing:
-            col_entry["stirrups"] = {"dia": dia, "spacing": spacing}
 
         if record.get("mix"):
             col_entry["mix"] = record["mix"]

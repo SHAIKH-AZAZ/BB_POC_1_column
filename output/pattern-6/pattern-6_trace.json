@@ -5,14 +5,14 @@
     "page_1.png__p01_l001_COLUMN_FROM_THIRD_FLOOR_LVL_TO_FOURTH_FLOOR_LVL": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-6\\page_1.png",
-      "generated_at": "2026-05-26T18:54:23.023034+00:00",
+      "generated_at": "2026-05-27T12:27:40.008487+00:00",
       "think": {
         "image_quality": "high resolution, clear, no skew",
         "table_bounds": {
           "x1": 0,
           "y1": 0,
           "x2": 2048,
-          "y2": 1536
+          "y2": 2048
         },
         "column_headers": [
           "TA-C1, TA-C4",
@@ -30,20 +30,21 @@
         "zoom_plan": [],
         "normalization_rules": [
           "Depth must always be null",
-          "Reinforcement format must be exact as shown",
-          "Stirrups dia and spacing must be exact as shown",
-          "Width is bottom horizontal dimension",
-          "Length is vertical dimension on left side",
-          "Empty cells return null size and empty reinforcement"
+          "Reinforcement from top-right corner only",
+          "Stirrups from bottom only",
+          "Size width from bottom horizontal dimension",
+          "Size length from left vertical dimension",
+          "Return null for empty cells",
+          "Mix M30 as M-30"
         ],
         "extraction_order": [
-          "TA-C1, TA-C4",
-          "TA-C2, TA-C3",
-          "TA-C34, TA-C35",
-          "TA-C33, TA-C36",
-          "TA-C29",
-          "TA-C5",
-          "TA-C23"
+          "TA-C1, TA-C4:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
+          "TA-C2, TA-C3:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
+          "TA-C34, TA-C35:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
+          "TA-C33, TA-C36:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
+          "TA-C29:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
+          "TA-C5:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
+          "TA-C23:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL."
         ]
       },
       "zoom_regions": [],
@@ -402,7 +403,7 @@
     "page_1.png__p01_l002_COLUMN_FROM_SECOND_FLOOR_LVL_TO_THIRD_FLOOR_LVL": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-6\\page_1.png",
-      "generated_at": "2026-05-26T18:55:16.165272+00:00",
+      "generated_at": "2026-05-27T12:19:11.639467+00:00",
       "think": {
         "image_quality": "high resolution, clear, no skew",
         "table_bounds": {
@@ -424,84 +425,19 @@
           "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL."
         ],
         "expected_count": 7,
-        "zoom_plan": [
-          {
-            "region_id": "r1",
-            "purpose": "data_cell",
-            "x1": 50,
-            "y1": 540,
-            "x2": 120,
-            "y2": 700,
-            "reason": "confirm size and reinforcement for TA-C1, TA-C4 at second floor level"
-          },
-          {
-            "region_id": "r2",
-            "purpose": "data_cell",
-            "x1": 180,
-            "y1": 540,
-            "x2": 250,
-            "y2": 700,
-            "reason": "confirm size and reinforcement for TA-C2, TA-C3 at second floor level"
-          },
-          {
-            "region_id": "r3",
-            "purpose": "data_cell",
-            "x1": 320,
-            "y1": 540,
-            "x2": 390,
-            "y2": 700,
-            "reason": "confirm size and reinforcement for TA-C34, TA-C35 at second floor level"
-          },
-          {
-            "region_id": "r4",
-            "purpose": "data_cell",
-            "x1": 460,
-            "y1": 540,
-            "x2": 530,
-            "y2": 700,
-            "reason": "confirm size and reinforcement for TA-C33, TA-C36 at second floor level"
-          },
-          {
-            "region_id": "r5",
-            "purpose": "data_cell",
-            "x1": 600,
-            "y1": 540,
-            "x2": 670,
-            "y2": 700,
-            "reason": "confirm size and reinforcement for TA-C29 at second floor level"
-          },
-          {
-            "region_id": "r6",
-            "purpose": "data_cell",
-            "x1": 740,
-            "y1": 540,
-            "x2": 810,
-            "y2": 700,
-            "reason": "confirm size and reinforcement for TA-C5 at second floor level"
-          },
-          {
-            "region_id": "r7",
-            "purpose": "data_cell",
-            "x1": 880,
-            "y1": 540,
-            "x2": 950,
-            "y2": 700,
-            "reason": "confirm size and reinforcement for TA-C23 at second floor level"
-          }
-        ],
+        "zoom_plan": [],
         "normalization_rules": [
           "width = bottom horizontal dimension",
-          "length = vertical dimension line on left side",
-          "depth = null always",
+          "length = vertical dimension line on left",
+          "depth = null",
           "reinforcement from top-right corner text",
           "stirrups from bottom text",
-          "reinforcement format exact",
-          "stirrups format exact",
-          "empty cell returns null size and empty arrays",
-          "mix M30 = M-30"
+          "keep reinforcement and stirrups text exact",
+          "empty cell = null values"
         ],
         "extraction_order": [
-          "bottom-to-top per strip"
+          "left to right columns",
+          "bottom to top storey levels"
         ]
       },
       "zoom_regions": [],
@@ -860,7 +796,7 @@
     "page_1.png__p01_l003_COLUMN_FROM_FIRST_FLOOR_LVL_TO_SECOND_FLOOR_LVL": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-6\\page_1.png",
-      "generated_at": "2026-05-26T18:56:03.176468+00:00",
+      "generated_at": "2026-05-27T12:27:31.191697+00:00",
       "think": {
         "image_quality": "high resolution, clear, no skew",
         "table_bounds": {
@@ -879,204 +815,26 @@
           "TA-C23"
         ],
         "storey_levels": [
-          "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
-          "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
-          "COLUMN FROM FIRST FLOOR LVL. TO SECOND FLOOR LVL.",
-          "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-          "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL."
+          "COLUMN FROM FIRST FLOOR LVL. TO SECOND FLOOR LVL."
         ],
-        "expected_count": 35,
-        "zoom_plan": [
-          {
-            "region_id": "r1",
-            "purpose": "row_label",
-            "target": "COLUMN FROM FIRST FLOOR LVL. TO SECOND FLOOR LVL.",
-            "reason": "Confirm exact text of target storey level label"
-          },
-          {
-            "region_id": "r2",
-            "purpose": "header",
-            "target": "TA-C1, TA-C4",
-            "reason": "Confirm exact column group header"
-          },
-          {
-            "region_id": "r3",
-            "purpose": "header",
-            "target": "TA-C2, TA-C3",
-            "reason": "Confirm exact column group header"
-          },
-          {
-            "region_id": "r4",
-            "purpose": "header",
-            "target": "TA-C34, TA-C35",
-            "reason": "Confirm exact column group header"
-          },
-          {
-            "region_id": "r5",
-            "purpose": "header",
-            "target": "TA-C33, TA-C36",
-            "reason": "Confirm exact column group header"
-          },
-          {
-            "region_id": "r6",
-            "purpose": "header",
-            "target": "TA-C29",
-            "reason": "Confirm exact column group header"
-          },
-          {
-            "region_id": "r7",
-            "purpose": "header",
-            "target": "TA-C5",
-            "reason": "Confirm exact column group header"
-          },
-          {
-            "region_id": "r8",
-            "purpose": "header",
-            "target": "TA-C23",
-            "reason": "Confirm exact column group header"
-          }
-        ],
+        "expected_count": 7,
+        "zoom_plan": [],
         "normalization_rules": [
-          "depth always null",
-          "reinforcement from top-right only",
-          "stirrups from bottom only",
-          "width from bottom horizontal dimension",
-          "length from vertical left dimension"
+          "width = bottom horizontal dimension",
+          "length = vertical dimension line on left",
+          "depth = null always",
+          "reinforcement from top-right corner text",
+          "stirrups from bottom text",
+          "mix M30 = M-30",
+          "return null for empty cells"
         ],
         "extraction_order": [
-          "TA-C1, TA-C4",
-          "TA-C2, TA-C3",
-          "TA-C34, TA-C35",
-          "TA-C33, TA-C36",
-          "TA-C29",
-          "TA-C5",
-          "TA-C23"
+          "bottom-to-top per strip",
+          "left-to-right per column group"
         ]
       },
-      "zoom_regions": [
-        {
-          "region_id": "r1",
-          "purpose": "row_label",
-          "x1": 0.0,
-          "y1": 900.0,
-          "x2": 150.0,
-          "y2": 950.0,
-          "reason": "Confirm exact text of target storey level label"
-        },
-        {
-          "region_id": "r2",
-          "purpose": "header",
-          "x1": 150.0,
-          "y1": 1400.0,
-          "x2": 350.0,
-          "y2": 1450.0,
-          "reason": "Confirm exact column group header"
-        },
-        {
-          "region_id": "r3",
-          "purpose": "header",
-          "x1": 350.0,
-          "y1": 1400.0,
-          "x2": 550.0,
-          "y2": 1450.0,
-          "reason": "Confirm exact column group header"
-        },
-        {
-          "region_id": "r4",
-          "purpose": "header",
-          "x1": 550.0,
-          "y1": 1400.0,
-          "x2": 750.0,
-          "y2": 1450.0,
-          "reason": "Confirm exact column group header"
-        },
-        {
-          "region_id": "r5",
-          "purpose": "header",
-          "x1": 750.0,
-          "y1": 1400.0,
-          "x2": 950.0,
-          "y2": 1450.0,
-          "reason": "Confirm exact column group header"
-        },
-        {
-          "region_id": "r6",
-          "purpose": "header",
-          "x1": 950.0,
-          "y1": 1400.0,
-          "x2": 1100.0,
-          "y2": 1450.0,
-          "reason": "Confirm exact column group header"
-        },
-        {
-          "region_id": "r7",
-          "purpose": "header",
-          "x1": 1100.0,
-          "y1": 1400.0,
-          "x2": 1300.0,
-          "y2": 1450.0,
-          "reason": "Confirm exact column group header"
-        },
-        {
-          "region_id": "r8",
-          "purpose": "header",
-          "x1": 1300.0,
-          "y1": 1400.0,
-          "x2": 1500.0,
-          "y2": 1450.0,
-          "reason": "Confirm exact column group header"
-        }
-      ],
-      "confirmed_reads": [
-        {
-          "region_id": "r1",
-          "text": "COLUMN FROM FIRST FLOOR LVL. TO SECOND FLOOR LVL.",
-          "confidence": "high",
-          "applies_to": "storey_level"
-        },
-        {
-          "region_id": "r2",
-          "text": "TA-C1, TA-C4",
-          "confidence": "high",
-          "applies_to": "column_no"
-        },
-        {
-          "region_id": "r3",
-          "text": "TA-C2, TA-C3",
-          "confidence": "high",
-          "applies_to": "column_no"
-        },
-        {
-          "region_id": "r4",
-          "text": "TA-C34, TA-C35",
-          "confidence": "high",
-          "applies_to": "column_no"
-        },
-        {
-          "region_id": "r5",
-          "text": "TA-C33, TA-C36",
-          "confidence": "high",
-          "applies_to": "column_no"
-        },
-        {
-          "region_id": "r6",
-          "text": "TA-C29",
-          "confidence": "high",
-          "applies_to": "column_no"
-        },
-        {
-          "region_id": "r7",
-          "text": "TA-C5",
-          "confidence": "high",
-          "applies_to": "column_no"
-        },
-        {
-          "region_id": "r8",
-          "text": "TA-C23",
-          "confidence": "high",
-          "applies_to": "column_no"
-        }
-      ],
+      "zoom_regions": [],
+      "confirmed_reads": [],
       "records": [
         {
           "column_no": "TA-C1, TA-C4",
@@ -1087,8 +845,8 @@
             "length": 1200
           },
           "reinforcement": [
-            "18-25T",
-            "8-20T"
+            "20-20T",
+            "4-16T"
           ],
           "stirrups": {
             "dia": [
@@ -1110,8 +868,8 @@
             "length": 1000
           },
           "reinforcement": [
-            "36-20T",
-            "14-25T"
+            "20-16T",
+            "6-12T"
           ],
           "stirrups": {
             "dia": [
@@ -1130,11 +888,11 @@
           "size": {
             "width": 230,
             "depth": null,
-            "length": 900
+            "length": 1410
           },
           "reinforcement": [
-            "6-25T",
-            "6-20T"
+            "8-20T",
+            "20-16T"
           ],
           "stirrups": {
             "dia": [
@@ -1156,8 +914,8 @@
             "length": 1200
           },
           "reinforcement": [
-            "18-25T",
-            "8-20T"
+            "8-20T",
+            "16-16T"
           ],
           "stirrups": {
             "dia": [
@@ -1179,8 +937,8 @@
             "length": 1200
           },
           "reinforcement": [
-            "14-25T",
-            "8-20T"
+            "8-25T",
+            "16-20T"
           ],
           "stirrups": {
             "dia": [
@@ -1202,8 +960,8 @@
             "length": 1000
           },
           "reinforcement": [
-            "6-20T",
-            "8-16T"
+            "4-25T",
+            "16-20T"
           ],
           "stirrups": {
             "dia": [
@@ -1225,8 +983,8 @@
             "length": 1600
           },
           "reinforcement": [
-            "6-20T",
-            "8-16T"
+            "4-16T",
+            "28-12T"
           ],
           "stirrups": {
             "dia": [
@@ -1251,8 +1009,8 @@
               "length": 1200
             },
             "reinforcement": [
-              "18-25T",
-              "8-20T"
+              "20-20T",
+              "4-16T"
             ],
             "stirrups": {
               "dia": [
@@ -1277,8 +1035,8 @@
               "length": 1000
             },
             "reinforcement": [
-              "36-20T",
-              "14-25T"
+              "20-16T",
+              "6-12T"
             ],
             "stirrups": {
               "dia": [
@@ -1300,11 +1058,11 @@
             "size": {
               "width": 230,
               "depth": null,
-              "length": 900
+              "length": 1410
             },
             "reinforcement": [
-              "6-25T",
-              "6-20T"
+              "8-20T",
+              "20-16T"
             ],
             "stirrups": {
               "dia": [
@@ -1329,8 +1087,8 @@
               "length": 1200
             },
             "reinforcement": [
-              "18-25T",
-              "8-20T"
+              "8-20T",
+              "16-16T"
             ],
             "stirrups": {
               "dia": [
@@ -1355,8 +1113,8 @@
               "length": 1200
             },
             "reinforcement": [
-              "14-25T",
-              "8-20T"
+              "8-25T",
+              "16-20T"
             ],
             "stirrups": {
               "dia": [
@@ -1381,8 +1139,8 @@
               "length": 1000
             },
             "reinforcement": [
-              "6-20T",
-              "8-16T"
+              "4-25T",
+              "16-20T"
             ],
             "stirrups": {
               "dia": [
@@ -1407,8 +1165,8 @@
               "length": 1600
             },
             "reinforcement": [
-              "6-20T",
-              "8-16T"
+              "4-16T",
+              "28-12T"
             ],
             "stirrups": {
               "dia": [
@@ -1424,23 +1182,21 @@
           "source_region_ids": []
         }
       ],
-      "expected_count": 35,
+      "expected_count": 7,
       "actual_count": 7,
-      "warnings": [
-        "expected 35 record(s), collected 7"
-      ]
+      "warnings": []
     },
     "page_1.png__p01_l004_COLUMN_FROM_GROUND_FLOOR_LVL_TO_FIRST_FLOOR_LVL": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-6\\page_1.png",
-      "generated_at": "2026-05-26T18:56:12.941044+00:00",
+      "generated_at": "2026-05-27T12:27:55.340662+00:00",
       "think": {
         "image_quality": "high resolution, clear, no skew",
         "table_bounds": {
           "x1": 0,
-          "y1": 800,
-          "x2": 1920,
-          "y2": 1080
+          "y1": 0,
+          "x2": 2048,
+          "y2": 2732
         },
         "column_headers": [
           "TA-C1, TA-C4",
@@ -1457,16 +1213,16 @@
         "expected_count": 7,
         "zoom_plan": [],
         "normalization_rules": [
-          "width = bottom horizontal dimension",
-          "length = vertical dimension line on left",
-          "depth = null",
-          "reinforcement from top-right corner text",
-          "stirrups from bottom text",
+          "depth always null",
+          "width from bottom horizontal dimension",
+          "length from vertical left dimension",
+          "reinforcement from top right corner",
+          "stirrups from bottom region",
           "mix M30 as M-30"
         ],
         "extraction_order": [
-          "left to right columns",
-          "bottom to top storey levels"
+          "bottom to top per strip",
+          "left to right per column group"
         ]
       },
       "zoom_regions": [],
@@ -1475,683 +1231,6 @@
         {
           "column_no": "TA-C1, TA-C4",
           "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 1200
-          },
-          "reinforcement": [
-            "18-25T"
-          ],
-          "stirrups": {
-            "dia": [
-              [
-                "8T"
-              ]
-            ],
-            "spacing": [
-              [
-                "100 C/C"
-              ]
-            ]
-          },
-          "mix": "M-30",
-          "steel_grade": null
-        },
-        {
-          "column_no": "TA-C2, TA-C3",
-          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-          "size": {
-            "width": 530,
-            "depth": null,
-            "length": 1000
-          },
-          "reinforcement": [
-            "36-20T"
-          ],
-          "stirrups": {
-            "dia": [
-              [
-                "8T"
-              ]
-            ],
-            "spacing": [
-              [
-                "100 C/C"
-              ]
-            ]
-          },
-          "mix": "M-30",
-          "steel_grade": null
-        },
-        {
-          "column_no": "TA-C34, TA-C35",
-          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 900
-          },
-          "reinforcement": [
-            "14-25T"
-          ],
-          "stirrups": {
-            "dia": [
-              [
-                "8T"
-              ]
-            ],
-            "spacing": [
-              [
-                "100 C/C"
-              ]
-            ]
-          },
-          "mix": "M-30",
-          "steel_grade": null
-        },
-        {
-          "column_no": "TA-C33, TA-C36",
-          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 1200
-          },
-          "reinforcement": [
-            "6-25T"
-          ],
-          "stirrups": {
-            "dia": [
-              [
-                "8T"
-              ]
-            ],
-            "spacing": [
-              [
-                "100 C/C"
-              ]
-            ]
-          },
-          "mix": "M-30",
-          "steel_grade": null
-        },
-        {
-          "column_no": "TA-C29",
-          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 1200
-          },
-          "reinforcement": [
-            "18-25T"
-          ],
-          "stirrups": {
-            "dia": [
-              [
-                "8T"
-              ]
-            ],
-            "spacing": [
-              [
-                "100 C/C"
-              ]
-            ]
-          },
-          "mix": "M-30",
-          "steel_grade": null
-        },
-        {
-          "column_no": "TA-C5",
-          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 1000
-          },
-          "reinforcement": [
-            "14-25T"
-          ],
-          "stirrups": {
-            "dia": [
-              [
-                "8T"
-              ]
-            ],
-            "spacing": [
-              [
-                "100 C/C"
-              ]
-            ]
-          },
-          "mix": "M-30",
-          "steel_grade": null
-        },
-        {
-          "column_no": "TA-C23",
-          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 1000
-          },
-          "reinforcement": [
-            "6-20T"
-          ],
-          "stirrups": {
-            "dia": [
-              [
-                "8T"
-              ]
-            ],
-            "spacing": [
-              [
-                "100 C/C"
-              ]
-            ]
-          },
-          "mix": "M-30",
-          "steel_grade": null
-        }
-      ],
-      "added_records": [
-        {
-          "record": {
-            "column_no": "TA-C1, TA-C4",
-            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 1200
-            },
-            "reinforcement": [
-              "18-25T"
-            ],
-            "stirrups": {
-              "dia": [
-                [
-                  "8T"
-                ]
-              ],
-              "spacing": [
-                [
-                  "100 C/C"
-                ]
-              ]
-            },
-            "mix": "M-30",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "TA-C2, TA-C3",
-            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-            "size": {
-              "width": 530,
-              "depth": null,
-              "length": 1000
-            },
-            "reinforcement": [
-              "36-20T"
-            ],
-            "stirrups": {
-              "dia": [
-                [
-                  "8T"
-                ]
-              ],
-              "spacing": [
-                [
-                  "100 C/C"
-                ]
-              ]
-            },
-            "mix": "M-30",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "TA-C34, TA-C35",
-            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 900
-            },
-            "reinforcement": [
-              "14-25T"
-            ],
-            "stirrups": {
-              "dia": [
-                [
-                  "8T"
-                ]
-              ],
-              "spacing": [
-                [
-                  "100 C/C"
-                ]
-              ]
-            },
-            "mix": "M-30",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "TA-C33, TA-C36",
-            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 1200
-            },
-            "reinforcement": [
-              "6-25T"
-            ],
-            "stirrups": {
-              "dia": [
-                [
-                  "8T"
-                ]
-              ],
-              "spacing": [
-                [
-                  "100 C/C"
-                ]
-              ]
-            },
-            "mix": "M-30",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "TA-C29",
-            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 1200
-            },
-            "reinforcement": [
-              "18-25T"
-            ],
-            "stirrups": {
-              "dia": [
-                [
-                  "8T"
-                ]
-              ],
-              "spacing": [
-                [
-                  "100 C/C"
-                ]
-              ]
-            },
-            "mix": "M-30",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "TA-C5",
-            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 1000
-            },
-            "reinforcement": [
-              "14-25T"
-            ],
-            "stirrups": {
-              "dia": [
-                [
-                  "8T"
-                ]
-              ],
-              "spacing": [
-                [
-                  "100 C/C"
-                ]
-              ]
-            },
-            "mix": "M-30",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "TA-C23",
-            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 1000
-            },
-            "reinforcement": [
-              "6-20T"
-            ],
-            "stirrups": {
-              "dia": [
-                [
-                  "8T"
-                ]
-              ],
-              "spacing": [
-                [
-                  "100 C/C"
-                ]
-              ]
-            },
-            "mix": "M-30",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        }
-      ],
-      "expected_count": 7,
-      "actual_count": 7,
-      "warnings": []
-    },
-    "page_1.png__p01_l005_COLUMN_FROM_FOUNDATION_LVL_TO_GROUND_FLOOR_LVL": {
-      "project": "column",
-      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-6\\page_1.png",
-      "generated_at": "2026-05-26T18:57:53.208632+00:00",
-      "think": {
-        "image_quality": "high",
-        "table_bounds": {
-          "x1": 0,
-          "y1": 0,
-          "x2": 2048,
-          "y2": 1536
-        },
-        "column_headers": [
-          "TA-C1, TA-C4",
-          "TA-C2, TA-C3",
-          "TA-C34, TA-C35",
-          "TA-C33, TA-C36",
-          "TA-C29",
-          "TA-C5",
-          "TA-C23"
-        ],
-        "storey_levels": [
-          "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
-          "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
-          "COLUMN FROM FIRST FLOOR LVL. TO SECOND FLOOR LVL.",
-          "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-          "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL."
-        ],
-        "expected_count": 7,
-        "zoom_plan": [
-          {
-            "region_id": "r1",
-            "purpose": "row_label",
-            "target": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
-            "reason": "Confirm exact text of target storey level band label"
-          },
-          {
-            "region_id": "r2",
-            "purpose": "header",
-            "target": "TA-C1, TA-C4",
-            "reason": "Confirm exact text of first column group header"
-          },
-          {
-            "region_id": "r3",
-            "purpose": "header",
-            "target": "TA-C2, TA-C3",
-            "reason": "Confirm exact text of second column group header"
-          },
-          {
-            "region_id": "r4",
-            "purpose": "header",
-            "target": "TA-C34, TA-C35",
-            "reason": "Confirm exact text of third column group header"
-          },
-          {
-            "region_id": "r5",
-            "purpose": "header",
-            "target": "TA-C33, TA-C36",
-            "reason": "Confirm exact text of fourth column group header"
-          },
-          {
-            "region_id": "r6",
-            "purpose": "header",
-            "target": "TA-C29",
-            "reason": "Confirm exact text of fifth column group header"
-          },
-          {
-            "region_id": "r7",
-            "purpose": "header",
-            "target": "TA-C5",
-            "reason": "Confirm exact text of sixth column group header"
-          },
-          {
-            "region_id": "r8",
-            "purpose": "header",
-            "target": "TA-C23",
-            "reason": "Confirm exact text of seventh column group header"
-          },
-          {
-            "region_id": "r9",
-            "purpose": "data_cell",
-            "target": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL. in TA-C1, TA-C4",
-            "x1": 50,
-            "y1": 1350,
-            "x2": 150,
-            "y2": 1450,
-            "reason": "Extract size, reinforcement, stirrups, mix for this cell"
-          },
-          {
-            "region_id": "r10",
-            "purpose": "data_cell",
-            "target": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL. in TA-C2, TA-C3",
-            "x1": 250,
-            "y1": 1350,
-            "x2": 350,
-            "y2": 1450,
-            "reason": "Extract size, reinforcement, stirrups, mix for this cell"
-          },
-          {
-            "region_id": "r11",
-            "purpose": "data_cell",
-            "target": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL. in TA-C34, TA-C35",
-            "x1": 450,
-            "y1": 1350,
-            "x2": 550,
-            "y2": 1450,
-            "reason": "Extract size, reinforcement, stirrups, mix for this cell"
-          },
-          {
-            "region_id": "r12",
-            "purpose": "data_cell",
-            "target": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL. in TA-C33, TA-C36",
-            "x1": 650,
-            "y1": 1350,
-            "x2": 750,
-            "y2": 1450,
-            "reason": "Extract size, reinforcement, stirrups, mix for this cell"
-          },
-          {
-            "region_id": "r13",
-            "purpose": "data_cell",
-            "target": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL. in TA-C29",
-            "x1": 850,
-            "y1": 1350,
-            "x2": 950,
-            "y2": 1450,
-            "reason": "Extract size, reinforcement, stirrups, mix for this cell"
-          },
-          {
-            "region_id": "r14",
-            "purpose": "data_cell",
-            "target": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL. in TA-C5",
-            "x1": 1050,
-            "y1": 1350,
-            "x2": 1150,
-            "y2": 1450,
-            "reason": "Extract size, reinforcement, stirrups, mix for this cell"
-          },
-          {
-            "region_id": "r15",
-            "purpose": "data_cell",
-            "target": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL. in TA-C23",
-            "x1": 1250,
-            "y1": 1350,
-            "x2": 1350,
-            "y2": 1450,
-            "reason": "Extract size, reinforcement, stirrups, mix for this cell"
-          }
-        ],
-        "normalization_rules": [
-          "depth always null",
-          "reinforcement exact text from top-right",
-          "stirrups dia and spacing exact text from bottom",
-          "mix M30 to M-30"
-        ],
-        "extraction_order": [
-          "column_headers left to right",
-          "storey_levels bottom to top"
-        ]
-      },
-      "zoom_regions": [
-        {
-          "region_id": "r1",
-          "purpose": "row_label",
-          "x1": 10.0,
-          "y1": 1340.0,
-          "x2": 200.0,
-          "y2": 1380.0,
-          "reason": "Confirm exact text of target storey level band label"
-        },
-        {
-          "region_id": "r2",
-          "purpose": "header",
-          "x1": 50.0,
-          "y1": 1500.0,
-          "x2": 150.0,
-          "y2": 1540.0,
-          "reason": "Confirm exact text of first column group header"
-        },
-        {
-          "region_id": "r3",
-          "purpose": "header",
-          "x1": 250.0,
-          "y1": 1500.0,
-          "x2": 350.0,
-          "y2": 1540.0,
-          "reason": "Confirm exact text of second column group header"
-        },
-        {
-          "region_id": "r4",
-          "purpose": "header",
-          "x1": 450.0,
-          "y1": 1500.0,
-          "x2": 550.0,
-          "y2": 1540.0,
-          "reason": "Confirm exact text of third column group header"
-        },
-        {
-          "region_id": "r5",
-          "purpose": "header",
-          "x1": 650.0,
-          "y1": 1500.0,
-          "x2": 750.0,
-          "y2": 1540.0,
-          "reason": "Confirm exact text of fourth column group header"
-        },
-        {
-          "region_id": "r6",
-          "purpose": "header",
-          "x1": 850.0,
-          "y1": 1500.0,
-          "x2": 950.0,
-          "y2": 1540.0,
-          "reason": "Confirm exact text of fifth column group header"
-        },
-        {
-          "region_id": "r7",
-          "purpose": "header",
-          "x1": 1050.0,
-          "y1": 1500.0,
-          "x2": 1150.0,
-          "y2": 1540.0,
-          "reason": "Confirm exact text of sixth column group header"
-        },
-        {
-          "region_id": "r8",
-          "purpose": "header",
-          "x1": 1250.0,
-          "y1": 1500.0,
-          "x2": 1350.0,
-          "y2": 1540.0,
-          "reason": "Confirm exact text of seventh column group header"
-        }
-      ],
-      "confirmed_reads": [
-        {
-          "region_id": "r1",
-          "text": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
-          "confidence": "high",
-          "applies_to": "storey_level"
-        },
-        {
-          "region_id": "r2",
-          "text": "TA-C1, TA-C4",
-          "confidence": "high",
-          "applies_to": "column_no"
-        },
-        {
-          "region_id": "r3",
-          "text": "TA-C2, TA-C3",
-          "confidence": "high",
-          "applies_to": "column_no"
-        },
-        {
-          "region_id": "r4",
-          "text": "TA-C34, TA-C35",
-          "confidence": "high",
-          "applies_to": "column_no"
-        },
-        {
-          "region_id": "r5",
-          "text": "TA-C33, TA-C36",
-          "confidence": "high",
-          "applies_to": "column_no"
-        },
-        {
-          "region_id": "r6",
-          "text": "TA-C29",
-          "confidence": "high",
-          "applies_to": "column_no"
-        },
-        {
-          "region_id": "r7",
-          "text": "TA-C5",
-          "confidence": "high",
-          "applies_to": "column_no"
-        },
-        {
-          "region_id": "r8",
-          "text": "TA-C23",
-          "confidence": "high",
-          "applies_to": "column_no"
-        }
-      ],
-      "records": [
-        {
-          "column_no": "TA-C1, TA-C4",
-          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
           "size": {
             "width": 300,
             "depth": null,
@@ -2174,7 +1253,7 @@
         },
         {
           "column_no": "TA-C2, TA-C3",
-          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
           "size": {
             "width": 530,
             "depth": null,
@@ -2196,14 +1275,15 @@
         },
         {
           "column_no": "TA-C34, TA-C35",
-          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
           "size": {
             "width": 300,
             "depth": null,
             "length": 900
           },
           "reinforcement": [
-            "14-25T"
+            "14-25T",
+            "6-20T"
           ],
           "stirrups": {
             "dia": [
@@ -2218,7 +1298,7 @@
         },
         {
           "column_no": "TA-C33, TA-C36",
-          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
           "size": {
             "width": 300,
             "depth": null,
@@ -2226,7 +1306,7 @@
           },
           "reinforcement": [
             "6-25T",
-            "18-25T"
+            "20-20T"
           ],
           "stirrups": {
             "dia": [
@@ -2241,11 +1321,34 @@
         },
         {
           "column_no": "TA-C29",
-          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
           "size": {
             "width": 300,
             "depth": null,
             "length": 1200
+          },
+          "reinforcement": [
+            "18-25T",
+            "8-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "TA-C5",
+          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 1000
           },
           "reinforcement": [
             "14-25T",
@@ -2263,30 +1366,8 @@
           "steel_grade": null
         },
         {
-          "column_no": "TA-C5",
-          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 1000
-          },
-          "reinforcement": [
-            "6-20T"
-          ],
-          "stirrups": {
-            "dia": [
-              "8T"
-            ],
-            "spacing": [
-              "100 C/C"
-            ]
-          },
-          "mix": "M-30",
-          "steel_grade": null
-        },
-        {
           "column_no": "TA-C23",
-          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
           "size": {
             "width": 300,
             "depth": null,
@@ -2312,7 +1393,7 @@
         {
           "record": {
             "column_no": "TA-C1, TA-C4",
-            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
             "size": {
               "width": 300,
               "depth": null,
@@ -2338,7 +1419,7 @@
         {
           "record": {
             "column_no": "TA-C2, TA-C3",
-            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
             "size": {
               "width": 530,
               "depth": null,
@@ -2363,14 +1444,15 @@
         {
           "record": {
             "column_no": "TA-C34, TA-C35",
-            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
             "size": {
               "width": 300,
               "depth": null,
               "length": 900
             },
             "reinforcement": [
-              "14-25T"
+              "14-25T",
+              "6-20T"
             ],
             "stirrups": {
               "dia": [
@@ -2388,7 +1470,7 @@
         {
           "record": {
             "column_no": "TA-C33, TA-C36",
-            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
             "size": {
               "width": 300,
               "depth": null,
@@ -2396,7 +1478,7 @@
             },
             "reinforcement": [
               "6-25T",
-              "18-25T"
+              "20-20T"
             ],
             "stirrups": {
               "dia": [
@@ -2414,11 +1496,37 @@
         {
           "record": {
             "column_no": "TA-C29",
-            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
             "size": {
               "width": 300,
               "depth": null,
               "length": 1200
+            },
+            "reinforcement": [
+              "18-25T",
+              "8-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TA-C5",
+            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 1000
             },
             "reinforcement": [
               "14-25T",
@@ -2439,33 +1547,8 @@
         },
         {
           "record": {
-            "column_no": "TA-C5",
-            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 1000
-            },
-            "reinforcement": [
-              "6-20T"
-            ],
-            "stirrups": {
-              "dia": [
-                "8T"
-              ],
-              "spacing": [
-                "100 C/C"
-              ]
-            },
-            "mix": "M-30",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
             "column_no": "TA-C23",
-            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
             "size": {
               "width": 300,
               "depth": null,
@@ -2492,14 +1575,457 @@
       "expected_count": 7,
       "actual_count": 7,
       "warnings": []
+    },
+    "page_1.png__p01_l005_COLUMN_FROM_FOUNDATION_LVL_TO_GROUND_FLOOR_LVL": {
+      "project": "column",
+      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-6\\page_1.png",
+      "generated_at": "2026-05-27T12:28:20.010076+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 2048,
+          "y2": 2732
+        },
+        "column_headers": [
+          "TA-C1, TA-C4",
+          "TA-C2, TA-C3",
+          "TA-C34, TA-C35",
+          "TA-C33, TA-C36",
+          "TA-C29",
+          "TA-C5",
+          "TA-C23"
+        ],
+        "storey_levels": [
+          "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL."
+        ],
+        "expected_count": 7,
+        "zoom_plan": [],
+        "normalization_rules": [
+          "Depth always null",
+          "Width is bottom horizontal dimension",
+          "Length is vertical dimension on left side",
+          "Reinforcement from top right corner",
+          "Stirrups from bottom region",
+          "Empty cells return null size and empty reinforcement"
+        ],
+        "extraction_order": [
+          "bottom to top per strip"
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "TA-C1, TA-C4",
+          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 1200
+          },
+          "reinforcement": [
+            "18-25T",
+            "8-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              [
+                "8T"
+              ]
+            ],
+            "spacing": [
+              [
+                "100 C/C"
+              ]
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "TA-C2, TA-C3",
+          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "size": {
+            "width": 530,
+            "depth": null,
+            "length": 1000
+          },
+          "reinforcement": [
+            "36-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              [
+                "8T"
+              ]
+            ],
+            "spacing": [
+              [
+                "100 C/C"
+              ]
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "TA-C34, TA-C35",
+          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 900
+          },
+          "reinforcement": [
+            "14-25T",
+            "6-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              [
+                "8T"
+              ]
+            ],
+            "spacing": [
+              [
+                "100 C/C"
+              ]
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "TA-C33, TA-C36",
+          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 1200
+          },
+          "reinforcement": [
+            "6-25T",
+            "20-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              [
+                "8T"
+              ]
+            ],
+            "spacing": [
+              [
+                "100 C/C"
+              ]
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "TA-C29",
+          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 1200
+          },
+          "reinforcement": [
+            "18-25T",
+            "8-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              [
+                "8T"
+              ]
+            ],
+            "spacing": [
+              [
+                "100 C/C"
+              ]
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "TA-C5",
+          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 1000
+          },
+          "reinforcement": [
+            "14-25T",
+            "8-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              [
+                "8T"
+              ]
+            ],
+            "spacing": [
+              [
+                "100 C/C"
+              ]
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "TA-C23",
+          "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 1000
+          },
+          "reinforcement": [
+            "6-20T",
+            "16-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              [
+                "8T"
+              ]
+            ],
+            "spacing": [
+              [
+                "100 C/C"
+              ]
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "TA-C1, TA-C4",
+            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 1200
+            },
+            "reinforcement": [
+              "18-25T",
+              "8-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                [
+                  "8T"
+                ]
+              ],
+              "spacing": [
+                [
+                  "100 C/C"
+                ]
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TA-C2, TA-C3",
+            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "size": {
+              "width": 530,
+              "depth": null,
+              "length": 1000
+            },
+            "reinforcement": [
+              "36-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                [
+                  "8T"
+                ]
+              ],
+              "spacing": [
+                [
+                  "100 C/C"
+                ]
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TA-C34, TA-C35",
+            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 900
+            },
+            "reinforcement": [
+              "14-25T",
+              "6-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                [
+                  "8T"
+                ]
+              ],
+              "spacing": [
+                [
+                  "100 C/C"
+                ]
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TA-C33, TA-C36",
+            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 1200
+            },
+            "reinforcement": [
+              "6-25T",
+              "20-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                [
+                  "8T"
+                ]
+              ],
+              "spacing": [
+                [
+                  "100 C/C"
+                ]
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TA-C29",
+            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 1200
+            },
+            "reinforcement": [
+              "18-25T",
+              "8-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                [
+                  "8T"
+                ]
+              ],
+              "spacing": [
+                [
+                  "100 C/C"
+                ]
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TA-C5",
+            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 1000
+            },
+            "reinforcement": [
+              "14-25T",
+              "8-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                [
+                  "8T"
+                ]
+              ],
+              "spacing": [
+                [
+                  "100 C/C"
+                ]
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "TA-C23",
+            "column_name": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 1000
+            },
+            "reinforcement": [
+              "6-20T",
+              "16-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                [
+                  "8T"
+                ]
+              ],
+              "spacing": [
+                [
+                  "100 C/C"
+                ]
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        }
+      ],
+      "expected_count": 7,
+      "actual_count": 7,
+      "warnings": []
     }
   },
   "summary": {
     "page_count": 5,
     "record_count": 35,
-    "warning_count": 1,
-    "warnings": [
-      "expected 35 record(s), collected 7"
-    ]
+    "warning_count": 0,
+    "warnings": []
   }
 }
