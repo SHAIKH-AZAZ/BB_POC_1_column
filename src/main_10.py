@@ -286,6 +286,15 @@ def _cell_bbox_for_layout(layout: dict, ri: int, ci: int) -> tuple:
     )
 
 
+def _is_links_token(txt: str) -> bool:
+    lu = str(txt or "").upper()
+    return (
+        "LOC" in lu
+        or lu in {"AND", "ANO", "&", "+"}
+        or re.search(r"T\s*\d+\s*(?:-|@)\s*\d{2,4}", lu) is not None
+    )
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Vision label detection  (GPT-4.1-mini)
 # ─────────────────────────────────────────────────────────────────────────────
@@ -536,6 +545,11 @@ def extract_from_pdf_page_10(page: fitz.Page, layout: dict) -> list:
     # Pattern-9: gi = nearest_index(grp_coord - shift, grp_centres, half)
     # Pattern-10: ri = nearest_index(yc - y_shift,    row_centres, y_half)
     cell_lines: dict = defaultdict(list)
+    link_snap_ys = {
+        round(((entry[1] + entry[3]) / 2) / 4) * 4
+        for entry in words
+        if _is_links_token(entry[4])
+    }
 
     for entry in words:
         x0, y0, x1, y1, txt = entry[0], entry[1], entry[2], entry[3], entry[4]
@@ -546,11 +560,14 @@ def extract_from_pdf_page_10(page: fitz.Page, layout: dict) -> list:
         yc = (y0 + y1) / 2
 
         ci = nearest_index(xc - X_SHIFT, col_centres, col_half)
-        ri = nearest_index(yc - y_shift, row_centres, y_half * 2.2)
+        snap_y = round(yc / 4) * 4
+        row_y = yc - y_shift
+        if snap_y in link_snap_ys:
+            row_y -= layout.get("row_spacing", 0.0)
+        ri = nearest_index(row_y, row_centres, y_half * 2.2)
         if ci < 0 or ri < 0:
             continue
 
-        snap_y = round(yc / 4) * 4
         cell_lines[(snap_y, ri, ci)].append((x0, txt))
 
     # ── Step 2: classify lines per cell ──────────────────────────────────────

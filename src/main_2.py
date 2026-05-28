@@ -6,6 +6,7 @@ from collections import OrderedDict
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
+from extraction_guard import _coerce_stirrups_to_strings
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pdf_to_images import convert_pdf_to_images
 from pattern_batching import env_enabled, extract_levels_with_checkpoints, upper_level_from_range
@@ -151,7 +152,7 @@ def reshape_to_levels(flat_records):
             "reinforcement": record.get("reinforcement") or [],
         }
 
-        stirrups = record.get("stirrups") or {}
+        stirrups = _coerce_stirrups_to_strings(record.get("stirrups"))
         dia = stirrups.get("dia")
         spacing = stirrups.get("spacing")
         if dia or spacing:

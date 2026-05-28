@@ -440,11 +440,11 @@ def _format_size(size):
 
 
 def _coerce_stirrups_to_strings(stirrups):
-    """Normalize ANY stirrups input shape to Pattern 2 scalar-string shape:
-        {"dia": "T8", "spacing": "100 C/C, 200 C/C"}
+    """Normalize ANY stirrups input shape to list-valued canonical shape:
+        {"dia": ["T8"], "spacing": ["100 C/C", "200 C/C"]}
 
     Always returns the dict, even when stirrups is missing/empty
-    (defaults to {"dia": "", "spacing": ""}).
+    (defaults to {"dia": [], "spacing": []}).
 
     Also normalizes the dia notation:
         "8T"   -> "T8"
@@ -454,7 +454,7 @@ def _coerce_stirrups_to_strings(stirrups):
     either prefix order.
     """
     if not stirrups:
-        return {"dia": "", "spacing": ""}
+        return {"dia": [], "spacing": []}
 
     # Dict input ({"dia": ..., "spacing": ...})
     if isinstance(stirrups, dict):
@@ -474,8 +474,8 @@ def _coerce_stirrups_to_strings(stirrups):
         raw_dia = ""
         raw_sp = str(stirrups)
 
-    # Flatten list-valued dia/spacing. Keep multi-zone diameters; Pattern 10
-    # links can legitimately be ["T10", "T8"] for one cell.
+    # Flatten list-valued dia/spacing. Keep multi-zone diameters and spacing
+    # as arrays in the final output schema.
     if isinstance(raw_dia, list):
         raw_dia = ", ".join(str(d).strip() for d in raw_dia if d)
     if isinstance(raw_sp, list):
@@ -483,7 +483,7 @@ def _coerce_stirrups_to_strings(stirrups):
 
     dia_parts = []
     for part in re.split(r"\s*,\s*", str(raw_dia).strip().upper()):
-        part = part.replace(" ", "")
+        part = part.strip(" '\"[]").replace(" ", "")
         # Normalize "8T" -> "T8" (Pattern 6 notation -> Pattern 2 notation)
         m = re.match(r"^(\d+)([TYHRD#])$", part)
         if m:
@@ -491,9 +491,15 @@ def _coerce_stirrups_to_strings(stirrups):
         if part and part not in dia_parts:
             dia_parts.append(part)
 
+    spacing_parts = []
+    for part in re.split(r"\s*,\s*", str(raw_sp).strip()):
+        part = part.strip(" '\"[]")
+        if part and part not in spacing_parts:
+            spacing_parts.append(part)
+
     return {
-        "dia": ", ".join(dia_parts),
-        "spacing": str(raw_sp).strip(),
+        "dia": dia_parts,
+        "spacing": spacing_parts,
     }
 
 
@@ -523,7 +529,7 @@ def reshape_columns_to_levels(flat_records):
 
     Key contracts (apply to every pattern):
       * stirrups is ALWAYS present, even when empty
-        ({"dia": "", "spacing": ""}). Pattern 2 scalar-string shape.
+        ({"dia": [], "spacing": []}).
       * "8T"-style dia (Pattern 6) is rewritten to "T8" style.
       * If column_name (level) is missing, "UNKNOWN" is used.
     """

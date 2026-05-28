@@ -101,12 +101,12 @@ class ExtractionGuardTests(unittest.TestCase):
             {"width": 200, "depth": None, "length": 600},
         )
 
-    def test_stirrups_string_coercion_preserves_multiple_diameters(self):
+    def test_stirrups_coercion_preserves_multiple_diameters_as_lists(self):
         stirrups = _coerce_stirrups_to_strings(
             {"dia": ["T10", "T8"], "spacing": ["100 C/C", "150 C/C"]}
         )
-        self.assertEqual(stirrups["dia"], "T10, T8")
-        self.assertEqual(stirrups["spacing"], "100 C/C, 150 C/C")
+        self.assertEqual(stirrups["dia"], ["T10", "T8"])
+        self.assertEqual(stirrups["spacing"], ["100 C/C", "150 C/C"])
 
     def test_slab_schema_builder(self):
         record = build_slab_record(
