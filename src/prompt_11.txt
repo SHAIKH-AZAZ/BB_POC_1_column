@@ -55,23 +55,63 @@ STEP 1 — SCAN THE TABLE STRUCTURE BEFORE EXTRACTING
   Each horizontal band separated by a thick line = one floor level.
   Each band has a rotated label on its LEFT edge.
 
-  Possible floor labels (any subset may appear, in any order):
-    "BASE FLOOR COLUMN"
-    "GROUND FLOOR COLUMN"
-    "1ST FLOOR COLUMN"
-    "2ND FLOOR COLUMN"
-    "3RD FLOOR COLUMN"
-    "4TH FLOOR COLUMN"
-    "5TH FLOOR COLUMN"
-    "6TH FLOOR COLUMN"
-    "7TH FLOOR COLUMN"
-    "8TH FLOOR COLUMN"
-    "9TH FLOOR COLUMN"
-    "10TH FLOOR COLUMN"
-    "11TH FLOOR COLUMN"
-    "12TH FLOOR COLUMN"
-    "13TH FLOOR COLUMN"
-    (or higher — extract whatever is printed)
+  ==========================================================================
+  FLOOR NAMING CONVENTION — RECOGNISE AND NORMALISE EVERY LABEL VARIANT
+  ==========================================================================
+
+  Floor labels appear in many typographic styles in CAD drawings.
+  ALL of the examples below represent valid floor rows — do NOT skip any.
+
+  ORDINAL SUFFIX STYLES (same floor, different formatting):
+    Compact uppercase  :  "11TH FLOOR COLUMN"     → output → "11TH FLOOR COLUMN"
+    Split with space   :  "11 TH FLOOR COLUMN"    → output → "11TH FLOOR COLUMN"
+    Mixed case         :  "11th Floor Column"      → output → "11TH FLOOR COLUMN"
+    Mixed case+space   :  "10Th Floor column"      → output → "10TH FLOOR COLUMN"
+    All lowercase      :  "10th floor column"      → output → "10TH FLOOR COLUMN"
+
+  LOOKUP TABLE — every known variant and its normalised output:
+    ┌──────────────────────────────┬──────────────────────────────────────────┐
+    │ Printed label (any variant)  │ Normalised column_name to output         │
+    ├──────────────────────────────┼──────────────────────────────────────────┤
+    │ BASE FLOOR COLUMN            │ BASE FLOOR COLUMN                        │
+    │ BASEMENT COLUMN              │ BASEMENT COLUMN                          │
+    │ BASEMENT FLOOR COLUMN        │ BASEMENT FLOOR COLUMN                    │
+    │ GROUND FLOOR COLUMN          │ GROUND FLOOR COLUMN                      │
+    │ 1ST FLOOR COLUMN             │ 1ST FLOOR COLUMN                         │
+    │ 1st Floor Column             │ 1ST FLOOR COLUMN                         │
+    │ 2ND FLOOR COLUMN             │ 2ND FLOOR COLUMN                         │
+    │ 3RD FLOOR COLUMN             │ 3RD FLOOR COLUMN                         │
+    │ 4TH FLOOR COLUMN             │ 4TH FLOOR COLUMN                         │
+    │ 5TH FLOOR COLUMN             │ 5TH FLOOR COLUMN                         │
+    │ 6TH FLOOR COLUMN             │ 6TH FLOOR COLUMN                         │
+    │ 7TH FLOOR COLUMN             │ 7TH FLOOR COLUMN                         │
+    │ 8TH FLOOR COLUMN             │ 8TH FLOOR COLUMN                         │
+    │ 9TH FLOOR COLUMN             │ 9TH FLOOR COLUMN                         │
+    │ 10TH FLOOR COLUMN            │ 10TH FLOOR COLUMN                        │
+    │ 10 TH FLOOR COLUMN           │ 10TH FLOOR COLUMN                        │
+    │ 10Th Floor column            │ 10TH FLOOR COLUMN                        │
+    │ 10th floor column            │ 10TH FLOOR COLUMN                        │
+    │ 11TH FLOOR COLUMN            │ 11TH FLOOR COLUMN                        │
+    │ 11 TH FLOOR COLUMN           │ 11TH FLOOR COLUMN                        │
+    │ 11th Floor Column            │ 11TH FLOOR COLUMN                        │
+    │ 12TH FLOOR COLUMN            │ 12TH FLOOR COLUMN                        │
+    │ 12 TH FLOOR COLUMN           │ 12TH FLOOR COLUMN                        │
+    │ 13TH FLOOR COLUMN            │ 13TH FLOOR COLUMN                        │
+    │ TERRACE FLOOR COLUMN         │ TERRACE FLOOR COLUMN                     │
+    │ ROOF FLOOR COLUMN            │ ROOF FLOOR COLUMN                        │
+    └──────────────────────────────┴──────────────────────────────────────────┘
+    (or higher floor numbers — extract whatever is printed)
+
+  NORMALIZATION RULE (apply before writing to JSON):
+    Step 1 — Collapse space between ordinal and suffix:
+              "11 TH"  →  "11TH"     "10 Th"  →  "10TH"
+    Step 2 — Uppercase everything.
+    Step 3 — Collapse multiple spaces to one.
+    Result  → "11th Floor Column" → "11TH FLOOR COLUMN"
+
+  KEY RULE: ANY label containing (ordinal + FLOOR + COLUMN) or
+  (GROUND / BASE / BASEMENT / TERRACE + FLOOR COLUMN) is a valid floor
+  band — regardless of capitalisation, ordinal spacing, or font.
 
   Count every floor band visible on this page.
   Do NOT assume a fixed number of floors.
@@ -118,9 +158,19 @@ FIELD: column_name
 Source: rotated vertical text label on the LEFT side of each floor band.
 
 Rules:
-- Extract exactly as written, including capitalisation and ordinal suffix.
-- The full text includes "FLOOR COLUMN" at the end.
-- Extract the complete text — do NOT abbreviate.
+- USE THE FLOOR NAMING CONVENTION TABLE (in Step 1B above) to recognise
+  every floor band, regardless of its capitalisation or ordinal spacing.
+- Normalise before writing to JSON (3 steps):
+    Step 1 → Collapse space between ordinal and suffix: "11 TH" → "11TH"
+    Step 2 → Uppercase everything
+    Step 3 → Collapse multiple spaces to one
+  Examples:
+    "11th Floor Column"    → "11TH FLOOR COLUMN"
+    "10Th Floor column"    → "10TH FLOOR COLUMN"
+    "11 TH FLOOR COLUMN"   → "11TH FLOOR COLUMN"
+    "GROUND FLOOR COLUMN"  → "GROUND FLOOR COLUMN"  (no change needed)
+- The full text must include "FLOOR COLUMN" at the end (or BASEMENT COLUMN /
+  BASE FLOOR COLUMN — extract the full label, do NOT abbreviate).
 
 ───────────────────────────────────────────────────────────
 FIELD: size  (source: SIZE sub-row inside each cell)

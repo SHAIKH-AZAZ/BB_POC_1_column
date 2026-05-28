@@ -5,7 +5,7 @@ Generalized extraction — ZERO hard-coded pixel coordinates.
 
 APPROACH  (adapted from pattern-11 architecture)
 ------------------------------------------------
-1.  Render PDF at 300 DPI.
+1.  Render PDF at 600 DPI.
 2.  Scan for bright-green [0,255,0] text to locate the footing section start
     (last green group = footing block).
 3.  Detect data-column VERTICAL boundaries by scanning for full-height
@@ -47,7 +47,7 @@ from pdf2image import convert_from_path
 from scipy.signal import find_peaks
 
 sys.path.insert(0, str(Path(__file__).parent))
-from config import INPUT_DIR, OUTPUT_DIR, OPENAI_API_KEY   # noqa: E402
+from config import INPUT_DIR, OUTPUT_DIR, OPENAI_API_KEY, OPENAI_MODEL   # noqa: E402
 
 
 # ═══════════════════════════════════════════════════════════════════
@@ -245,7 +245,7 @@ def call_vision(client, img: Image.Image, prompt: str,
     for attempt in range(1, retries + 1):
         try:
             resp = client.chat.completions.create(
-                model="gpt-4o",
+                model=OPENAI_MODEL,
                 max_tokens=max_tokens,
                 messages=[{
                     "role": "user",
@@ -312,12 +312,16 @@ The labels are stacked from TOP to BOTTOM — read ALL of them in order.
 Each label contains:
   • Floor name — e.g. "10TH FLOOR COLUMN", "GROUND FLOOR COLUMN",
                       "BASEMENT COLUMN", "12TH FLOOR COLUMN",
+                      "11th Floor Column", "10Th Floor column",
                       "TERRACE FLOOR COLUMN", "1ST FLOOR COLUMN" etc.
   • Mix grade  — look for "MIX : M250" or "MIX:M300" → extract "M250" or "M300"
   • Steel grade — look for "STEEL:FE500" or "SEEL:FE500" → extract "FE500"
 
 Important rules:
   • List EVERY distinct floor row from TOP to BOTTOM — do not skip any.
+  • Treat ordinal/case/spacing variants as valid floor names:
+    "11 TH FLOOR COLUMN", "11th Floor Column", "11TH FLOOR COLUMN",
+    and "10Th Floor column" all mean floor labels.
   • Do NOT deduplicate — if the same floor name appears twice in the schedule
     (e.g. a schedule covers two separate stacks), include it twice.
   • If MIX or steel grade is not visible for a row, use null.
@@ -325,7 +329,7 @@ Important rules:
 Return ONLY valid raw JSON — no markdown, no explanation:
 {"floors": [
     {"name": "10TH FLOOR COLUMN", "mix": "M250", "steel_grade": "FE500"},
-    {"name": "GROUND FLOOR COLUMN", "mix": "M300", "steel_grade": "FE500"}
+    {"name": "GROUND FLOOR COLUMN", "mix": "M300", "steel_grade": "FE500"},
     {"name": "BASEMENT FLOOR COLUMN", "mix": "M300", "steel_grade": "FE500"}
 ]}
 """
@@ -347,12 +351,16 @@ If the cell contains a cross-section diagram:
                   Include ALL distinct groups; deduplicate identical ones.
                   φ may appear as ⌀ or a similar circle symbol.
                   If no bars visible → [].
+  ties_dia      = the stirrup / link bar diameter written near the cross-section
+                  (string, e.g. "T8", "T10", "8T", "10T") — null if not visible.
+  ties_spacing  = the stirrup spacing annotation (e.g. "200 C/C", "150 C/C",
+                  "@ 200", "200") — null if not visible.
 
 If the cell is EMPTY (blank — no cross-section box, no annotations):
-  → {"width": null, "length": null, "reinforcement": []}
+  → {"width": null, "length": null, "reinforcement": [], "ties_dia": null, "ties_spacing": null}
 
 Return ONLY valid raw JSON — no markdown, no explanation:
-{"width": 300, "length": 750, "reinforcement": ["5-20T", "2-16T"]}
+{"width": 300, "length": 750, "reinforcement": ["5-20T", "2-16T"], "ties_dia": "T8", "ties_spacing": "200 C/C"}
 """
 
 
@@ -655,7 +663,6 @@ def process_page(img_path: str, client) -> list:
 
     all_cols = []
     done     = 0
-    stirrups = {"dia": None, "spacing": None}   # always null for column schedule
 
     for ri, (fi, (ry1, ry2)) in enumerate(zip(floor_info_list, row_bounds)):
         fname = fi["name"] or f"FLOOR_{ri + 1}"
@@ -674,7 +681,7 @@ def process_page(img_path: str, client) -> list:
                     "column_name":  norm_column_name(fname),
                     "size":         {"width": None, "depth": None, "length": None},
                     "reinforcement":[],
-                    "stirrups":     stirrups,
+                    "stirrups":     {"dia": [], "spacing": []},
                     "mix":          fi["mix"],
                     "steel_grade":  fi["steel_grade"],
                 })
@@ -685,11 +692,21 @@ def process_page(img_path: str, client) -> list:
             cell_img   = _crop_upscale(pil, cx1, ry1, cx2, ry2, upscale=3)
             print(f"       [{done:>3}/{total}]  {fname} / {col_marks[ci]} …",
                   end=" ", flush=True)
-            raw_cell   = call_vision(client, cell_img, _PROMPT_CELL, max_tokens=150)
+            raw_cell   = call_vision(client, cell_img, _PROMPT_CELL, max_tokens=250)
             parsed_cell = _parse_json(raw_cell)
             print("✓")
 
             if parsed_cell and isinstance(parsed_cell, dict):
+                raw_dia     = parsed_cell.get("ties_dia")
+                raw_spacing = parsed_cell.get("ties_spacing")
+                # Normalise "8T" → "T8" notation
+                if raw_dia:
+                    m = re.match(r'^(\d+)([TYHRD#])$', str(raw_dia).strip().upper())
+                    raw_dia = f"{m.group(2)}{m.group(1)}" if m else str(raw_dia).strip().upper()
+                cell_stirrups = {
+                    "dia":     [raw_dia]     if raw_dia     else [],
+                    "spacing": [raw_spacing] if raw_spacing else [],
+                }
                 all_cols.append({
                     "column_no":    col_marks[ci],
                     "column_name":  norm_column_name(fname),
@@ -700,7 +717,7 @@ def process_page(img_path: str, client) -> list:
                     },
                     "reinforcement": norm_reinforcement(
                                         parsed_cell.get("reinforcement", [])),
-                    "stirrups":     stirrups,
+                    "stirrups":     cell_stirrups,
                     "mix":          fi["mix"],
                     "steel_grade":  fi["steel_grade"],
                 })
@@ -710,7 +727,7 @@ def process_page(img_path: str, client) -> list:
                     "column_name":  norm_column_name(fname),
                     "size":         {"width": None, "depth": None, "length": None},
                     "reinforcement":[],
-                    "stirrups":     stirrups,
+                    "stirrups":     {"dia": [], "spacing": []},
                     "mix":          fi["mix"],
                     "steel_grade":  fi["steel_grade"],
                 })
@@ -731,12 +748,13 @@ def process_pdf(pdf_path: str) -> None:
     print(f"\n{'═'*60}\n  PDF: {stem}.pdf\n{'═'*60}")
 
     client      = _get_client()
-    image_paths = render_pdf(pdf_path, out_dir, dpi=300)
+    image_paths = render_pdf(pdf_path, out_dir, dpi=600)
 
     batch_folder_name = "page_batches"
     batch_folder = os.path.join(out_dir, batch_folder_name)
     os.makedirs(batch_folder, exist_ok=True)
-    manifest = {
+
+    fresh_manifest = {
         "pattern": 12,
         "mode": "page_batches",
         "batches": [
@@ -751,6 +769,23 @@ def process_pdf(pdf_path: str) -> None:
         ],
     }
     manifest_path = os.path.join(out_dir, "page_manifest.json")
+
+    # ── Resume: load existing manifest so completed pages are skipped ──────────
+    manifest = fresh_manifest
+    if os.path.exists(manifest_path):
+        try:
+            with open(manifest_path, "r", encoding="utf-8") as _mf:
+                loaded = json.load(_mf)
+            # Only reuse if it belongs to the same pattern and page count
+            if (loaded.get("pattern") == 12
+                    and len(loaded.get("batches", [])) == len(image_paths)):
+                manifest = loaded
+                done_count = sum(1 for b in manifest["batches"] if b.get("status") == "done")
+                if done_count:
+                    print(f"  ♻  Resuming — {done_count}/{len(image_paths)} page(s) already done")
+        except Exception as _e:
+            print(f"  ⚠  Could not read existing manifest ({_e}); starting fresh")
+
     atomic_write_json(manifest_path, manifest)
 
     def _set_batch_status(batch_id, status, error=None):
@@ -763,6 +798,25 @@ def process_pdf(pdf_path: str) -> None:
     raw_cols = []
     for page_index, img_path in enumerate(image_paths):
         batch_id = f"p{page_index + 1:02d}"
+
+        # ── Skip already-completed pages ──────────────────────────────────────
+        batch_status = next(
+            (b["status"] for b in manifest["batches"] if b["id"] == batch_id),
+            "pending",
+        )
+        if batch_status == "done":
+            cached_path = os.path.join(batch_folder, f"{batch_id}.json")
+            if os.path.exists(cached_path):
+                try:
+                    with open(cached_path, "r", encoding="utf-8") as _cf:
+                        page_cols = json.load(_cf).get("columns", [])
+                    raw_cols.extend(page_cols)
+                    print(f"\n  ♻  Page {page_index + 1} already done — "
+                          f"loaded {len(page_cols)} entries from cache")
+                    continue
+                except Exception as _e:
+                    print(f"  ⚠  Cache read failed ({_e}); re-processing page {page_index + 1}")
+
         _set_batch_status(batch_id, "running")
         atomic_write_json(manifest_path, manifest)
         print(f"\n  ── Page: {os.path.basename(img_path)} ──")

@@ -16,6 +16,63 @@ Left side of grid  → floor-label cells (green text):
   Each floor row has a label cell showing the floor name + mix + steel grade.
   e.g.  "12 TH FLOOR COLUMN  (MIX : M250)  (STEEL:FE500)"
 
+=============================================================================
+FLOOR NAMING CONVENTION — HOW TO READ ANY FLOOR LABEL
+=============================================================================
+
+Floor labels appear in many typographic styles.  ALL of the examples below
+represent valid floor rows.  When you see any of them, recognise it as a
+floor row and extract accordingly.
+
+ORDINAL SUFFIX STYLES (all mean the same floor — just different formatting):
+  Compact uppercase  :  "11TH FLOOR COLUMN"      → normalize → "11TH FLOOR COLUMN"
+  Split with space   :  "11 TH FLOOR COLUMN"     → normalize → "11TH FLOOR COLUMN"
+  Mixed case         :  "11th Floor Column"       → normalize → "11TH FLOOR COLUMN"
+  Mixed case+space   :  "10Th Floor column"       → normalize → "10TH FLOOR COLUMN"
+  Compact lower      :  "10th floor column"       → normalize → "10TH FLOOR COLUMN"
+
+COMMON FLOOR NAMES AND THEIR VARIANTS:
+  ┌──────────────────────────────┬────────────────────────────────────────────┐
+  │ Printed Label (any variant)  │ Normalised column_name to output           │
+  ├──────────────────────────────┼────────────────────────────────────────────┤
+  │ BASEMENT COLUMN              │ BASEMENT COLUMN                            │
+  │ BASEMENT FLOOR COLUMN        │ BASEMENT FLOOR COLUMN                      │
+  │ GROUND FLOOR COLUMN          │ GROUND FLOOR COLUMN                        │
+  │ 1ST FLOOR COLUMN             │ 1ST FLOOR COLUMN                           │
+  │ 1st Floor Column             │ 1ST FLOOR COLUMN                           │
+  │ 2ND FLOOR COLUMN             │ 2ND FLOOR COLUMN                           │
+  │ 3RD FLOOR COLUMN             │ 3RD FLOOR COLUMN                           │
+  │ 4TH FLOOR COLUMN             │ 4TH FLOOR COLUMN                           │
+  │ 5TH FLOOR COLUMN             │ 5TH FLOOR COLUMN                           │
+  │ 6TH FLOOR COLUMN             │ 6TH FLOOR COLUMN                           │
+  │ 7TH FLOOR COLUMN             │ 7TH FLOOR COLUMN                           │
+  │ 8TH FLOOR COLUMN             │ 8TH FLOOR COLUMN                           │
+  │ 9TH FLOOR COLUMN             │ 9TH FLOOR COLUMN                           │
+  │ 10TH FLOOR COLUMN            │ 10TH FLOOR COLUMN                          │
+  │ 10 TH FLOOR COLUMN           │ 10TH FLOOR COLUMN                          │
+  │ 10Th Floor column            │ 10TH FLOOR COLUMN                          │
+  │ 10th floor column            │ 10TH FLOOR COLUMN                          │
+  │ 11TH FLOOR COLUMN            │ 11TH FLOOR COLUMN                          │
+  │ 11 TH FLOOR COLUMN           │ 11TH FLOOR COLUMN                          │
+  │ 11th Floor Column            │ 11TH FLOOR COLUMN                          │
+  │ 12TH FLOOR COLUMN            │ 12TH FLOOR COLUMN                          │
+  │ 12 TH FLOOR COLUMN           │ 12TH FLOOR COLUMN                          │
+  │ 13TH FLOOR COLUMN            │ 13TH FLOOR COLUMN                          │
+  │ TERRACE FLOOR COLUMN         │ TERRACE FLOOR COLUMN                       │
+  │ ROOF FLOOR COLUMN            │ ROOF FLOOR COLUMN                          │
+  └──────────────────────────────┴────────────────────────────────────────────┘
+
+NORMALIZATION RULE (apply to every extracted floor label):
+  Step 1 — Remove extra spaces between the ordinal number and its suffix:
+            "11 TH"  →  "11TH",   "10 Th"  →  "10TH"
+  Step 2 — Uppercase everything.
+  Step 3 — Collapse multiple spaces to one.
+  Result  → e.g. "11th Floor Column" becomes "11TH FLOOR COLUMN"
+
+KEY RULE: ANY text label on the left-side row that contains a floor reference
+(ordinal number + FLOOR + COLUMN, or GROUND/BASEMENT/TERRACE + FLOOR COLUMN)
+is a valid floor row — regardless of capitalisation, ordinal spacing, or font.
+
 Bottom of grid → column mark labels (magenta/pink text):
   Each column position has a mark label, possibly grouped.
   e.g.  C1,C18  |  C2,C9  |  C3,C17  |  C4,C14  |  C5  |  C7,C16  |
@@ -45,8 +102,8 @@ OUTPUT FORMAT  — return ONLY valid raw JSON, no markdown, no explanation
       },
       "reinforcement": ["5-20T", "2-16T"],
       "stirrups": {
-        "dia":     "16T",
-        "spacing": "130 C/C"
+        "dia":     ["16T"],
+        "spacing": ["130 C/C"]
       },
       "mix":         "M250",
       "steel_grade": "FE500"
@@ -64,7 +121,17 @@ column_no
 
 column_name
   • Read from the floor-label cell on the left side of each row.
-  • Normalise ordinal spacing: "12 TH FLOOR" → "12TH FLOOR COLUMN".
+  • ANY label containing ordinal-number + FLOOR + COLUMN (or GROUND /
+    BASEMENT / TERRACE + FLOOR COLUMN) is a valid floor row — see the
+    FLOOR NAMING CONVENTION table at the top of this prompt.
+  • Normalise before writing to JSON:
+      Step 1 → collapse "11 TH" / "10 Th" → "11TH" / "10TH"
+      Step 2 → uppercase everything
+      Step 3 → collapse multiple spaces to one
+    Examples: "11th Floor Column" → "11TH FLOOR COLUMN"
+              "10Th Floor column" → "10TH FLOOR COLUMN"
+              "12 TH FLOOR COLUMN" → "12TH FLOOR COLUMN"
+
 
 size
   • width  = horizontal mm dimension beside the cross-section box.
@@ -82,11 +149,11 @@ reinforcement
 
 stirrups
   • Read from the SHORT SPAN stirrup row in the footing details section.
-  • dia     = diameter + T   e.g. "16T", "12T"
-  • spacing = number + C/C  e.g. "130 C/C", "100 C/C"
+  • dia     = array of diameter + T values   e.g. ["16T"], ["12T"]
+  • spacing = array of number + C/C values   e.g. ["130 C/C"], ["100 C/C"]
   • C/S in the drawing means the same as C/C — always output as C/C.
   • The SAME stirrup values apply to EVERY floor of that column position.
-  • If no stirrup info → dia=null, spacing=null.
+  • If no stirrup info → dia=[], spacing=[].
 
 mix
   • Extract from the floor-label text: "MIX : M300" → "M300".
@@ -101,6 +168,13 @@ EXTRACTION ORDER
 
 1. Read the column mark labels LEFT TO RIGHT from the bottom row.
 2. Read the floor labels TOP TO BOTTOM from the left column.
+   USE THE FLOOR NAMING CONVENTION TABLE (at the top) to recognise each label.
+   Any ordinal + FLOOR + COLUMN variant is a valid floor row.
+   Normalise each label before writing:
+     • Remove space between ordinal and suffix  ("11 TH" → "11TH")
+     • Uppercase all text
+     • Collapse multiple spaces
+   Example: "11th Floor Column" → "11TH FLOOR COLUMN"
 3. For each floor (top = highest, bottom = basement):
      For each column position (left to right):
        → One JSON entry.

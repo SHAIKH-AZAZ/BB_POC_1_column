@@ -7,3 +7,5 @@ tqdm
 Pillow
 pydantic
 scipy
+numpy
+pdf2image

@@ -53,6 +53,7 @@ import json
 import os
 import re
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from io import BytesIO
 from pathlib import Path
@@ -77,7 +78,7 @@ MAX_CELL_WORKERS = max(1, int(os.getenv("PATTERN11_CELL_WORKERS", "6")))
 # ── Project config ────────────────────────────────────────────────────────────
 # Allows running from the project root as:  python src/main_11.py
 sys.path.insert(0, str(Path(__file__).parent))
-from config import INPUT_DIR, OPENAI_API_KEY, OUTPUT_DIR
+from config import INPUT_DIR, OPENAI_API_KEY, OPENAI_MODEL, OUTPUT_DIR
 
 # ══════════════════════════════════════════════════════════════════════════════
 # §1  PDF → Image
@@ -299,29 +300,57 @@ def get_client():
         raise RuntimeError("Run: pip install openai")
 
 
-def call_vision(client, img: Image.Image, prompt: str, max_tokens: int = 500) -> str:
-    """Send `img` + `prompt` to GPT-4o and return the text response."""
+_RETRY_PHRASES = (
+    "502", "503", "500", "504", "429",
+    "bad gateway", "service unavailable",
+    "timeout", "timed out", "connection",
+)
+
+
+def call_vision(client, img: Image.Image, prompt: str,
+                max_tokens: int = 500, retries: int = 5) -> str:
+    """Send `img` + `prompt` to the configured vision model.
+
+    Retries up to `retries` times with exponential back-off on
+    transient 5xx / 429 / timeout errors.
+    """
     b64 = _to_b64(img)
-    resp = client.chat.completions.create(
-        model="gpt-4o",
-        max_tokens=max_tokens,
-        messages=[
-            {
-                "role": "user",
-                "content": [
+    last_exc = None
+    for attempt in range(1, retries + 1):
+        try:
+            resp = client.chat.completions.create(
+                model=OPENAI_MODEL,
+                max_tokens=max_tokens,
+                messages=[
                     {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": f"data:image/png;base64,{b64}",
-                            "detail": "high",
-                        },
-                    },
-                    {"type": "text", "text": prompt},
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": f"data:image/png;base64,{b64}",
+                                    "detail": "high",
+                                },
+                            },
+                            {"type": "text", "text": prompt},
+                        ],
+                    }
                 ],
-            }
-        ],
-    )
-    return resp.choices[0].message.content
+            )
+            return resp.choices[0].message.content
+        except Exception as exc:
+            msg = str(exc).lower()
+            if any(p in msg for p in _RETRY_PHRASES):
+                wait = 2 ** attempt
+                print(
+                    f"  ⚠ API error (attempt {attempt}/{retries}): "
+                    f"{str(exc)[:80]} — retrying in {wait}s …"
+                )
+                time.sleep(wait)
+                last_exc = exc
+            else:
+                raise
+    raise RuntimeError(f"call_vision failed after {retries} retries: {last_exc}")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -608,11 +637,13 @@ def extract_floor_labels(
         "TASK: Decide whether this cell contains a floor or level label.\n\n"
         "Floor labels look like (ANY floor number is valid — not limited to 6):\n"
         "  '13th FLOOR COLUMN', '12th FLOOR COLUMN', '11th FLOOR COLUMN',\n"
-        "  '10th FLOOR COLUMN', '9th FLOOR COLUMN',  '8th FLOOR COLUMN',\n"
+        "  '10th FLOOR COLUMN', '10Th Floor column', '9th FLOOR COLUMN',  '8th FLOOR COLUMN',\n"
         "  '7th FLOOR COLUMN',  '6th FLOOR COLUMN',  '5th FLOOR COLUMN',\n"
         "  '4th FLOOR COLUMN',  '3rd FLOOR COLUMN',  '2nd FLOOR COLUMN',\n"
         "  '1st FLOOR COLUMN',  'GROUND FLOOR COLUMN', 'BASE FLOOR COLUMN',\n"
         "  'BASEMENT FLOOR COLUMN', 'PODIUM COLUMN', 'Base Floor Column'.\n"
+        "  Ordinal spacing/case varies: '11 TH FLOOR COLUMN', '11th Floor Column',\n"
+        "  and '11TH FLOOR COLUMN' are all valid floor labels.\n"
         "  NOTE: 'BASE' / 'BASE.' can mean BASEMENT. Any ordinal is valid.\n\n"
         "NON-floor cells look like:\n"
         "  'FOOTING', 'PEDESTAL', 'COL. MARK', 'SIZE', 'CONC. MIX',\n"
@@ -708,7 +739,8 @@ def filter_and_recheck_floor_rows(
                 client,
                 cell,
                 "Does this cell contain a floor or storey name (e.g. Ground Floor, "
-                "1st Floor, Basement, 7th Floor, 13th Floor, or any other level)? "
+                "1st Floor, Basement, 7th Floor, 10Th Floor column, 11th Floor Column, "
+                "13th Floor, or any other level)? "
                 "Answer YES or NO only.",
                 max_tokens=5,
             )
@@ -726,7 +758,8 @@ def filter_and_recheck_floor_rows(
                 cell,
                 "Read the floor/level label in this cell (text may be vertical). "
                 "Examples: 'BASE FLOOR COLUMN', 'BASEMENT FLOOR COLUMN', "
-                "'Base Floor Column', '7th FLOOR COLUMN', '13th FLOOR COLUMN'. "
+                "'Base Floor Column', '7th FLOOR COLUMN', '10Th Floor column', "
+                "'11th Floor Column', '13th FLOOR COLUMN'. "
                 "Return ONLY the label text.",
                 max_tokens=60,
             )
@@ -1257,7 +1290,8 @@ def extract_column_schedule(
     batch_folder_name = "level_batches"
     batch_folder = os.path.join(os.path.dirname(output_path), batch_folder_name)
     os.makedirs(batch_folder, exist_ok=True)
-    manifest = {
+
+    fresh_manifest = {
         "pattern": 11,
         "mode": "level_batches",
         "levels": floor_labels,
@@ -1276,6 +1310,30 @@ def extract_column_schedule(
         ],
     }
     manifest_path = os.path.join(os.path.dirname(output_path), "level_manifest.json")
+
+    # ── Resume: load existing manifest so completed rows are skipped ───────────
+    manifest = fresh_manifest
+    if os.path.exists(manifest_path):
+        try:
+            with open(manifest_path, "r", encoding="utf-8") as _mf:
+                loaded = json.load(_mf)
+            # Only reuse if it matches the same pattern, mode, and level set
+            if (
+                loaded.get("pattern") == 11
+                and loaded.get("mode") == "level_batches"
+                and loaded.get("levels") == floor_labels
+            ):
+                manifest = loaded
+                done_count = sum(
+                    1 for b in manifest["batches"] if b.get("status") == "done"
+                )
+                if done_count:
+                    print(
+                        f"       ♻  Resuming — {done_count}/{n_rows} row(s) already done"
+                    )
+        except Exception as _e:
+            print(f"       ⚠  Could not read existing manifest ({_e}); starting fresh")
+
     atomic_write_json(manifest_path, manifest)
 
     def _set_batch_status(batch_id, status, error=None):
@@ -1288,10 +1346,40 @@ def extract_column_schedule(
     done = 0
     for r in range(n_rows):
         batch_id = f"l{r + 1:03d}"
+        flabel = floor_labels[r]
+
+        # ── Skip already-completed rows ───────────────────────────────────────
+        batch_status = next(
+            (b["status"] for b in manifest["batches"] if b["id"] == batch_id),
+            "pending",
+        )
+        if batch_status == "done":
+            cached_path = os.path.join(
+                batch_folder, f"{batch_id}_{safe_filename(flabel)}.json"
+            )
+            if os.path.exists(cached_path):
+                try:
+                    with open(cached_path, "r", encoding="utf-8") as _cf:
+                        cached_data = json.load(_cf)
+                    row_entries = cached_data.get("columns", [])
+                    result["columns"].extend(row_entries)
+                    for entry in row_entries:
+                        fk = _to_key(entry.get("column_name", ""))
+                        seen_entries.add((fk, entry.get("column_no", "")))
+                    done += len(row_entries)
+                    print(
+                        f"       ♻  Row {r + 1} '{flabel}' already done — "
+                        f"loaded {len(row_entries)} entries from cache"
+                    )
+                    continue
+                except Exception as _e:
+                    print(
+                        f"       ⚠  Cache read failed ({_e}); re-processing row {r + 1}"
+                    )
+
         _set_batch_status(batch_id, "running")
         atomic_write_json(manifest_path, manifest)
         y0, y1 = row_bounds[r]
-        flabel = floor_labels[r]
 
         # ── Parallel cell extraction (cap = MAX_CELL_WORKERS) ────────────
         # Crop every cell up-front (CPU-bound, fast), then submit all

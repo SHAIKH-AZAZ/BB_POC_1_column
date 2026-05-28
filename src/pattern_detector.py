@@ -279,7 +279,9 @@ def detect_pattern(pdf_path, temp_folder):
 
     Visual structure:
     - Page organized vertically with floors stacked top to bottom
-    - LEFT column shows floor labels (e.g. "16 TH FLOOR ROOFTOP (MIX: M250)", "11 TH FLOOR ROOFTOP (MIX: M260)" etc.)
+    - LEFT column shows floor labels (e.g. "16 TH FLOOR ROOFTOP (MIX: M250)",
+      "11 TH FLOOR ROOFTOP (MIX: M260)", "11TH FLOOR COLUMN",
+      "10Th Floor column", "GROUND FLOOR COLUMN", etc.)
     - Each floor row contains multiple column cross-section drawings
     - Each drawing is a small rectangular box showing bar dots
     - At the very bottom: summary row with SIZE and STEEL data
@@ -287,7 +289,8 @@ def detect_pattern(pdf_path, temp_folder):
     - Relatively few columns but MANY floors (10-16 floor rows visible)
 
     Key identifiers:
-    ✓ Floor number + "FLOOR ROOFTOP" labels on the LEFT with concrete mix
+    ✓ Floor number + "FLOOR ROOFTOP" OR "FLOOR COLUMN" labels on the LEFT,
+      often with concrete mix / steel grade
     ✓ Multiple floors stacked vertically (not horizontally)
     ✓ Small cross-section drawings in each cell
     ✓ Summary table at the very bottom with SIZE / STEEL counts
@@ -372,11 +375,14 @@ def detect_pattern(pdf_path, temp_folder):
        • If the data cells contain ONLY TEXT/NUMBERS (sizes like "700x700", steel like "20-T25") with NO drawn boxes/diagrams → RETURN 1
        • If the data cells contain cross-section DRAWINGS (rectangular boxes with rebar dots inside) → do NOT return 1, continue to STEP 12
 
-    STEP 12: Does the page show a large grid where COLUMN NAMES (C1, C2, C3... or SW1, SW2...) span the TOP and FLOOR LEVELS span the LEFT, with cross-section DRAWINGS inside every cell?
+    STEP 12: Does the page show a vertical floor-by-floor stack where the LEFT SIDE has labels like "11TH FLOOR COLUMN", "10Th Floor column", "GROUND FLOOR COLUMN", or labels with "(MIX: M250)/(STEEL:FE500)", and the bottom has a summary SIZE / STEEL table?
+    → YES → RETURN 12
+
+    STEP 13: Does the page show a large grid where COLUMN NAMES (C1, C2, C3... or SW1, SW2...) span the TOP and FLOOR LEVELS span the LEFT, with cross-section DRAWINGS inside every cell?
     → YES, column names are regular C1/C2/C3A type → RETURN 11
     → YES, column names are SW (shear walls) or irregular complex shapes → RETURN 13
 
-    STEP 13: Does the LEFT SIDE show floor labels containing "(MIX: M260)" or "(MIX: M250)" or "TH FLOOR ROOFTOP" stacked top-to-bottom, with cross-section drawings in each row?
+    STEP 14: Does the LEFT SIDE show floor labels containing "(MIX: M260)" or "(MIX: M250)" or "TH FLOOR ROOFTOP" or "TH FLOOR COLUMN" stacked top-to-bottom, with cross-section drawings in each row?
     → YES → RETURN 12
 
     → NONE OF THE ABOVE → RETURN 13
