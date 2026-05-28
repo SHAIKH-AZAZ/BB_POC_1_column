@@ -1,0 +1,4619 @@
+{
+  "project": "column",
+  "pdf_stem": "pattern-9",
+  "pages": {
+    "page_1.png__p01_l001_4th_LAP": {
+      "project": "column",
+      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-9\\page_1.png",
+      "generated_at": "2026-05-28T11:46:18.247696+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 2480,
+          "y2": 3508
+        },
+        "column_headers": [
+          "AC13,AC14",
+          "AC06,AC07",
+          "AC02,AC03",
+          "AC17,AC22,AC23,AC24,AC25",
+          "AC29",
+          "AC08,AC26",
+          "AC05",
+          "AC27,AC28",
+          "AC10,AC11",
+          "AC01,AC04",
+          "AC09,AC12",
+          "AC21",
+          "AC15,AC18",
+          "AC16,AC19",
+          "AC20"
+        ],
+        "storey_levels": [
+          "4th LAP",
+          "3rd LAP",
+          "2nd LAP",
+          "1st LAP",
+          "FOUNDATION"
+        ],
+        "expected_count": 15,
+        "zoom_plan": [],
+        "normalization_rules": [
+          "Upper-level rule for storey labels: keep only part before 'TO' if present",
+          "Column IDs: preserve exact prefix and case, split combined IDs by commas, exclude non-ID labels",
+          "Size parsing: width x length for 2 values, width x depth x length for 3 values",
+          "Reinforcement split by '+' if present",
+          "Stirrups dia and spacing: collect all distinct values",
+          "Mix: extract concrete grade or null if missing"
+        ],
+        "extraction_order": [
+          "4th LAP"
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "AC13,AC14",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-20T",
+            "6-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC06,AC07",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 375,
+            "depth": null,
+            "length": 200
+          },
+          "reinforcement": [
+            "26-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC02,AC03",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 375,
+            "depth": null,
+            "length": 550
+          },
+          "reinforcement": [
+            "24-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC17,AC22,AC23,AC24,AC25",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "16-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC29",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "24-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC08,AC26",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC05",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC27,AC28",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "10-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC10,AC11",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC01,AC04",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "12-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC09,AC12",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "8-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC21",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "12-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC15,AC18",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-20T",
+            "14-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC16,AC19",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1200
+          },
+          "reinforcement": [
+            "4-20T",
+            "6-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC20",
+          "column_name": "4th LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "6-16T",
+            "19-12Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "AC13,AC14",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 450,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-20T",
+              "6-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC06,AC07",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 375,
+              "depth": null,
+              "length": 200
+            },
+            "reinforcement": [
+              "26-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC02,AC03",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 375,
+              "depth": null,
+              "length": 550
+            },
+            "reinforcement": [
+              "24-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC17,AC22,AC23,AC24,AC25",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "16-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC29",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "24-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC08,AC26",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC05",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC27,AC28",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "10-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC10,AC11",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "14-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC01,AC04",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "12-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC09,AC12",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "8-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC21",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "12-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC15,AC18",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-20T",
+              "14-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC16,AC19",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 1200
+            },
+            "reinforcement": [
+              "4-20T",
+              "6-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC20",
+            "column_name": "4th LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "6-16T",
+              "19-12Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        }
+      ],
+      "expected_count": 15,
+      "actual_count": 15,
+      "warnings": []
+    },
+    "page_1.png__p01_l002_3rd_LAP": {
+      "project": "column",
+      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-9\\page_1.png",
+      "generated_at": "2026-05-28T11:46:22.131323+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 2480,
+          "y2": 3508
+        },
+        "column_headers": [
+          "AC13,AC14",
+          "AC06,AC07",
+          "AC02,AC03",
+          "AC17,AC22,AC23,AC24,AC25",
+          "AC29",
+          "AC08,AC26",
+          "AC05",
+          "AC27,AC28",
+          "AC10,AC11",
+          "AC01,AC04",
+          "AC09,AC12",
+          "AC21",
+          "AC15,AC18",
+          "AC16,AC19",
+          "AC20"
+        ],
+        "storey_levels": [
+          "4th LAP",
+          "3rd LAP",
+          "2nd LAP",
+          "1st LAP",
+          "FOUNDATION"
+        ],
+        "expected_count": 15,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "row_label",
+            "target": "3rd LAP",
+            "reason": "Confirm exact text of target level label"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "header",
+            "target": "AC13,AC14",
+            "reason": "Confirm exact text of first column group header"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "header",
+            "target": "AC06,AC07",
+            "reason": "Confirm exact text of second column group header"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "header",
+            "target": "AC02,AC03",
+            "reason": "Confirm exact text of third column group header"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "header",
+            "target": "AC17,AC22,AC23,AC24,AC25",
+            "reason": "Confirm exact text of fourth column group header"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "header",
+            "target": "AC29",
+            "reason": "Confirm exact text of fifth column group header"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "header",
+            "target": "AC08,AC26",
+            "reason": "Confirm exact text of sixth column group header"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "header",
+            "target": "AC05",
+            "reason": "Confirm exact text of seventh column group header"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "header",
+            "target": "AC27,AC28",
+            "reason": "Confirm exact text of eighth column group header"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "header",
+            "target": "AC10,AC11",
+            "reason": "Confirm exact text of ninth column group header"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "header",
+            "target": "AC01,AC04",
+            "reason": "Confirm exact text of tenth column group header"
+          },
+          {
+            "region_id": "r12",
+            "purpose": "header",
+            "target": "AC09,AC12",
+            "reason": "Confirm exact text of eleventh column group header"
+          },
+          {
+            "region_id": "r13",
+            "purpose": "header",
+            "target": "AC21",
+            "reason": "Confirm exact text of twelfth column group header"
+          },
+          {
+            "region_id": "r14",
+            "purpose": "header",
+            "target": "AC15,AC18",
+            "reason": "Confirm exact text of thirteenth column group header"
+          },
+          {
+            "region_id": "r15",
+            "purpose": "header",
+            "target": "AC16,AC19",
+            "reason": "Confirm exact text of fourteenth column group header"
+          },
+          {
+            "region_id": "r16",
+            "purpose": "header",
+            "target": "AC20",
+            "reason": "Confirm exact text of fifteenth column group header"
+          }
+        ],
+        "normalization_rules": [
+          "Apply upper-level rule to storey levels",
+          "Split reinforcement '+' notation into list",
+          "Return null size and empty reinforcement if cell empty"
+        ],
+        "extraction_order": [
+          "3rd LAP",
+          "AC13,AC14",
+          "AC06,AC07",
+          "AC02,AC03",
+          "AC17,AC22,AC23,AC24,AC25",
+          "AC29",
+          "AC08,AC26",
+          "AC05",
+          "AC27,AC28",
+          "AC10,AC11",
+          "AC01,AC04",
+          "AC09,AC12",
+          "AC21",
+          "AC15,AC18",
+          "AC16,AC19",
+          "AC20"
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "AC13,AC14",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-20 Tor",
+            "8-16 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC06,AC07",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 375,
+            "depth": null,
+            "length": 200
+          },
+          "reinforcement": [
+            "26-20 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC02,AC03",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 375,
+            "depth": null,
+            "length": 550
+          },
+          "reinforcement": [
+            "24-25 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC17,AC22,AC23,AC24,AC25",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "16-16 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC29",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "24-16 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC08,AC26",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-20 Tor",
+            "16-16 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC05",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-20 Tor",
+            "16-16 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC27,AC28",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-25 Tor",
+            "16-16 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC10,AC11",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "10-20 Tor",
+            "16-16 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC01,AC04",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "14-20 Tor",
+            "6-16 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC09,AC12",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "12-25 Tor",
+            "8-20 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC21",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "8-25 Tor",
+            "14-20 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC15,AC18",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 200
+          },
+          "reinforcement": [
+            "4-20 Tor",
+            "16-16 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC16,AC19",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1200
+          },
+          "reinforcement": [
+            "4-20 Tor",
+            "16-16 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC20",
+          "column_name": "3rd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-16 Tor",
+            "19-12 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "AC13,AC14",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 450,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-20 Tor",
+              "8-16 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC06,AC07",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 375,
+              "depth": null,
+              "length": 200
+            },
+            "reinforcement": [
+              "26-20 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC02,AC03",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 375,
+              "depth": null,
+              "length": 550
+            },
+            "reinforcement": [
+              "24-25 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC17,AC22,AC23,AC24,AC25",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "16-16 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC29",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "24-16 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC08,AC26",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-20 Tor",
+              "16-16 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC05",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-20 Tor",
+              "16-16 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC27,AC28",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-25 Tor",
+              "16-16 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC10,AC11",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "10-20 Tor",
+              "16-16 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC01,AC04",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "14-20 Tor",
+              "6-16 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC09,AC12",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "12-25 Tor",
+              "8-20 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC21",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "8-25 Tor",
+              "14-20 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC15,AC18",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 200
+            },
+            "reinforcement": [
+              "4-20 Tor",
+              "16-16 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC16,AC19",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 1200
+            },
+            "reinforcement": [
+              "4-20 Tor",
+              "16-16 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC20",
+            "column_name": "3rd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-16 Tor",
+              "19-12 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        }
+      ],
+      "expected_count": 15,
+      "actual_count": 15,
+      "warnings": []
+    },
+    "page_1.png__p01_l003_2nd_LAP": {
+      "project": "column",
+      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-9\\page_1.png",
+      "generated_at": "2026-05-28T11:46:28.076355+00:00",
+      "think": {
+        "image_quality": "high resolution, clear text",
+        "table_bounds": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 2480,
+          "y2": 3508
+        },
+        "column_headers": [
+          "AC13,AC14",
+          "AC06,AC07",
+          "AC02,AC03",
+          "AC17,AC22,AC23,AC24,AC25",
+          "AC29",
+          "AC08,AC26",
+          "AC05",
+          "AC27,AC28",
+          "AC10,AC11",
+          "AC01,AC04",
+          "AC09,AC12",
+          "AC21",
+          "AC15,AC18",
+          "AC16,AC19",
+          "AC20"
+        ],
+        "storey_levels": [
+          "2nd LAP"
+        ],
+        "expected_count": 15,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "data_cell",
+            "x1": 100,
+            "y1": 1800,
+            "x2": 180,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC13,AC14 at 2nd LAP"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "x1": 200,
+            "y1": 1800,
+            "x2": 280,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC06,AC07 at 2nd LAP"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "data_cell",
+            "x1": 300,
+            "y1": 1800,
+            "x2": 380,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC02,AC03 at 2nd LAP"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "x1": 400,
+            "y1": 1800,
+            "x2": 480,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC17,AC22,AC23,AC24,AC25 at 2nd LAP"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "data_cell",
+            "x1": 500,
+            "y1": 1800,
+            "x2": 580,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC29 at 2nd LAP"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "data_cell",
+            "x1": 600,
+            "y1": 1800,
+            "x2": 680,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC08,AC26 at 2nd LAP"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "data_cell",
+            "x1": 700,
+            "y1": 1800,
+            "x2": 780,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC05 at 2nd LAP"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "x1": 800,
+            "y1": 1800,
+            "x2": 880,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC27,AC28 at 2nd LAP"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "data_cell",
+            "x1": 900,
+            "y1": 1800,
+            "x2": 980,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC10,AC11 at 2nd LAP"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "data_cell",
+            "x1": 1000,
+            "y1": 1800,
+            "x2": 1080,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC01,AC04 at 2nd LAP"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "data_cell",
+            "x1": 1100,
+            "y1": 1800,
+            "x2": 1180,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC09,AC12 at 2nd LAP"
+          },
+          {
+            "region_id": "r12",
+            "purpose": "data_cell",
+            "x1": 1200,
+            "y1": 1800,
+            "x2": 1280,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC21 at 2nd LAP"
+          },
+          {
+            "region_id": "r13",
+            "purpose": "data_cell",
+            "x1": 1300,
+            "y1": 1800,
+            "x2": 1380,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC15,AC18 at 2nd LAP"
+          },
+          {
+            "region_id": "r14",
+            "purpose": "data_cell",
+            "x1": 1400,
+            "y1": 1800,
+            "x2": 1480,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC16,AC19 at 2nd LAP"
+          },
+          {
+            "region_id": "r15",
+            "purpose": "data_cell",
+            "x1": 1500,
+            "y1": 1800,
+            "x2": 1580,
+            "y2": 1900,
+            "reason": "Confirm size and reinforcement for AC20 at 2nd LAP"
+          }
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "AC13,AC14",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC06,AC07",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 375,
+            "depth": null,
+            "length": 200
+          },
+          "reinforcement": [
+            "26-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC02,AC03",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 375,
+            "depth": null,
+            "length": 350
+          },
+          "reinforcement": [
+            "24-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC17,AC22,AC23,AC24,AC25",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "16-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC29",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "24-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC08,AC26",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC05",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC27,AC28",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "10-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC10,AC11",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC01,AC04",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "12-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC09,AC12",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "8-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC21",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "12-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC15,AC18",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 200
+          },
+          "reinforcement": [
+            "4-20T+16-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC16,AC19",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1200
+          },
+          "reinforcement": [
+            "4-20T+16-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC20",
+          "column_name": "2nd LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "6-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "AC13,AC14",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 450,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-20T",
+              "8-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC06,AC07",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 375,
+              "depth": null,
+              "length": 200
+            },
+            "reinforcement": [
+              "26-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC02,AC03",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 375,
+              "depth": null,
+              "length": 350
+            },
+            "reinforcement": [
+              "24-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC17,AC22,AC23,AC24,AC25",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "16-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC29",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "24-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC08,AC26",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC05",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC27,AC28",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "10-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC10,AC11",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "14-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC01,AC04",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "12-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC09,AC12",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "8-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC21",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "12-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC15,AC18",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 200
+            },
+            "reinforcement": [
+              "4-20T+16-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC16,AC19",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 1200
+            },
+            "reinforcement": [
+              "4-20T+16-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC20",
+            "column_name": "2nd LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "6-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        }
+      ],
+      "expected_count": 15,
+      "actual_count": 15,
+      "warnings": [
+        "think missing structured field(s): normalization_rules, extraction_order"
+      ]
+    },
+    "page_1.png__p01_l004_1st_LAP": {
+      "project": "column",
+      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-9\\page_1.png",
+      "generated_at": "2026-05-28T11:47:17.927652+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 2480,
+          "y2": 3508
+        },
+        "column_headers": [
+          "AC13,AC14",
+          "AC06,AC07",
+          "AC02,AC03",
+          "AC17,AC22,AC23,AC24,AC25",
+          "AC29",
+          "AC08,AC26",
+          "AC05",
+          "AC27,AC28",
+          "AC10,AC11",
+          "AC01,AC04",
+          "AC09,AC12",
+          "AC21",
+          "AC15,AC18",
+          "AC16,AC19",
+          "AC20"
+        ],
+        "storey_levels": [
+          "1st LAP"
+        ],
+        "expected_count": 15,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "data_cell",
+            "x1": 100,
+            "y1": 2500,
+            "x2": 180,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC13,AC14 1st LAP"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "x1": 250,
+            "y1": 2500,
+            "x2": 320,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC06,AC07 1st LAP"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "data_cell",
+            "x1": 350,
+            "y1": 2500,
+            "x2": 420,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC02,AC03 1st LAP"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "x1": 470,
+            "y1": 2500,
+            "x2": 540,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC17,AC22,AC23,AC24,AC25 1st LAP"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "data_cell",
+            "x1": 580,
+            "y1": 2500,
+            "x2": 650,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC29 1st LAP"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "data_cell",
+            "x1": 700,
+            "y1": 2500,
+            "x2": 770,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC08,AC26 1st LAP"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "data_cell",
+            "x1": 810,
+            "y1": 2500,
+            "x2": 880,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC05 1st LAP"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "x1": 920,
+            "y1": 2500,
+            "x2": 990,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC27,AC28 1st LAP"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "data_cell",
+            "x1": 1030,
+            "y1": 2500,
+            "x2": 1100,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC10,AC11 1st LAP"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "data_cell",
+            "x1": 1140,
+            "y1": 2500,
+            "x2": 1210,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC01,AC04 1st LAP"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "data_cell",
+            "x1": 1250,
+            "y1": 2500,
+            "x2": 1320,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC09,AC12 1st LAP"
+          },
+          {
+            "region_id": "r12",
+            "purpose": "data_cell",
+            "x1": 1360,
+            "y1": 2500,
+            "x2": 1430,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC21 1st LAP"
+          },
+          {
+            "region_id": "r13",
+            "purpose": "data_cell",
+            "x1": 1470,
+            "y1": 2500,
+            "x2": 1540,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC15,AC18 1st LAP"
+          },
+          {
+            "region_id": "r14",
+            "purpose": "data_cell",
+            "x1": 1580,
+            "y1": 2500,
+            "x2": 1650,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC16,AC19 1st LAP"
+          },
+          {
+            "region_id": "r15",
+            "purpose": "data_cell",
+            "x1": 1690,
+            "y1": 2500,
+            "x2": 1760,
+            "y2": 2600,
+            "reason": "check size and reinforcement for AC20 1st LAP"
+          }
+        ],
+        "normalization_rules": [
+          "For any label shaped like 'X TO Y', return ONLY X (the part BEFORE 'TO').",
+          "For B x L sizes, width = B, length = L, depth = null.",
+          "Split reinforcement '+' notation into separate bars.",
+          "Keep stirrup diameter and spacing as printed."
+        ],
+        "extraction_order": [
+          "1st LAP"
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "AC13,AC14",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-20T",
+            "6-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC06,AC07",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 375,
+            "depth": null,
+            "length": 200
+          },
+          "reinforcement": [
+            "26-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC02,AC03",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 375,
+            "depth": null,
+            "length": 550
+          },
+          "reinforcement": [
+            "24-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC17,AC22,AC23,AC24,AC25",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "16-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC29",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "24-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC08,AC26",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-20T",
+            "16-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC05",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-20T",
+            "12-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC27,AC28",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "12-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC10,AC11",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "8-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC01,AC04",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "12-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC09,AC12",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-20T",
+            "12-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC21",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 200
+          },
+          "reinforcement": [
+            "4-20T",
+            "12-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC15,AC18",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "6-16T",
+            "19-12 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC16,AC19",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-20T",
+            "12-16 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC20",
+          "column_name": "1st LAP",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-20T",
+            "12-16 Tor"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 C/C",
+                "150 C/C"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "AC13,AC14",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 450,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-20T",
+              "6-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC06,AC07",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 375,
+              "depth": null,
+              "length": 200
+            },
+            "reinforcement": [
+              "26-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC02,AC03",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 375,
+              "depth": null,
+              "length": 550
+            },
+            "reinforcement": [
+              "24-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC17,AC22,AC23,AC24,AC25",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "16-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC29",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "24-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC08,AC26",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-20T",
+              "16-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC05",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-20T",
+              "12-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC27,AC28",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "12-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC10,AC11",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "8-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC01,AC04",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "12-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC09,AC12",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-20T",
+              "12-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC21",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 200
+            },
+            "reinforcement": [
+              "4-20T",
+              "12-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC15,AC18",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "6-16T",
+              "19-12 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC16,AC19",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-20T",
+              "12-16 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC20",
+            "column_name": "1st LAP",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-20T",
+              "12-16 Tor"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 C/C",
+                  "150 C/C"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        }
+      ],
+      "expected_count": 15,
+      "actual_count": 15,
+      "warnings": []
+    },
+    "page_1.png__p01_l005_FOUNDATION": {
+      "project": "column",
+      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-9\\page_1.png",
+      "generated_at": "2026-05-28T11:47:19.225215+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 2480,
+          "y2": 3508
+        },
+        "column_headers": [
+          "AC13,AC14",
+          "AC06,AC07",
+          "AC02,AC03",
+          "AC17,AC22,AC23,AC24,AC25",
+          "AC29",
+          "AC08,AC26",
+          "AC05",
+          "AC27,AC28",
+          "AC10,AC11",
+          "AC01,AC04",
+          "AC09,AC12",
+          "AC21",
+          "AC15,AC18",
+          "AC16,AC19",
+          "AC20"
+        ],
+        "storey_levels": [
+          "4th LAP",
+          "3rd LAP",
+          "2nd LAP",
+          "1st LAP",
+          "FOUNDATION"
+        ],
+        "expected_count": 15,
+        "zoom_plan": [],
+        "normalization_rules": [
+          "For any label shaped like 'X TO Y', return ONLY X (the part BEFORE 'TO').",
+          "For B x L sizes, width = B, length = L, depth = null.",
+          "Split combined reinforcement '+' notation into separate bars.",
+          "Keep stirrup diameter and spacing exactly as printed."
+        ],
+        "extraction_order": [
+          "FOUNDATION"
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "AC13,AC14",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 450,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-20T",
+            "8-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC06,AC07",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 375,
+            "depth": null,
+            "length": 200
+          },
+          "reinforcement": [
+            "26-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC02,AC03",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 375,
+            "depth": null,
+            "length": 550
+          },
+          "reinforcement": [
+            "24-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC17,AC22,AC23,AC24,AC25",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "16-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC29",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "24-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC08,AC26",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC05",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "4-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC27,AC28",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "10-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC10,AC11",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "14-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC01,AC04",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "12-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC09,AC12",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 950
+          },
+          "reinforcement": [
+            "8-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC21",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 200
+          },
+          "reinforcement": [
+            "12-25T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC15,AC18",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 1200
+          },
+          "reinforcement": [
+            "4-20T",
+            "14-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC16,AC19",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 300
+          },
+          "reinforcement": [
+            "6-16T",
+            "19-12T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC20",
+          "column_name": "FOUNDATION",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "4-16T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              [
+                "100 c/c",
+                "150 c/c"
+              ]
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "AC13,AC14",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 450,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-20T",
+              "8-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC06,AC07",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 375,
+              "depth": null,
+              "length": 200
+            },
+            "reinforcement": [
+              "26-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC02,AC03",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 375,
+              "depth": null,
+              "length": 550
+            },
+            "reinforcement": [
+              "24-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC17,AC22,AC23,AC24,AC25",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "16-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC29",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "24-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC08,AC26",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC05",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "4-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC27,AC28",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "10-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC10,AC11",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "14-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC01,AC04",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "12-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC09,AC12",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "8-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC21",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 200
+            },
+            "reinforcement": [
+              "12-25T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC15,AC18",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 1200
+            },
+            "reinforcement": [
+              "4-20T",
+              "14-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC16,AC19",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 300
+            },
+            "reinforcement": [
+              "6-16T",
+              "19-12T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC20",
+            "column_name": "FOUNDATION",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "4-16T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                [
+                  "100 c/c",
+                  "150 c/c"
+                ]
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        }
+      ],
+      "expected_count": 15,
+      "actual_count": 15,
+      "warnings": []
+    }
+  },
+  "summary": {
+    "page_count": 5,
+    "record_count": 75,
+    "warning_count": 1,
+    "warnings": [
+      "think missing structured field(s): normalization_rules, extraction_order"
+    ]
+  }
+}

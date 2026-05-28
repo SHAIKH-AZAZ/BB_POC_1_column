@@ -1,0 +1,65 @@
+{
+  "pattern": 9,
+  "mode": "level_batches",
+  "pages": [
+    {
+      "page": 1,
+      "levels": [
+        "4th LAP",
+        "3rd LAP",
+        "2nd LAP",
+        "1st LAP",
+        "FOUNDATION"
+      ]
+    }
+  ],
+  "levels": [
+    "4th LAP",
+    "3rd LAP",
+    "2nd LAP",
+    "1st LAP",
+    "FOUNDATION"
+  ],
+  "batches": [
+    {
+      "id": "p01_l001",
+      "page": 1,
+      "level": "4th LAP",
+      "status": "done",
+      "file": "level_batches\\p01_l001_4th_LAP.json",
+      "error": null
+    },
+    {
+      "id": "p01_l002",
+      "page": 1,
+      "level": "3rd LAP",
+      "status": "done",
+      "file": "level_batches\\p01_l002_3rd_LAP.json",
+      "error": null
+    },
+    {
+      "id": "p01_l003",
+      "page": 1,
+      "level": "2nd LAP",
+      "status": "done",
+      "file": "level_batches\\p01_l003_2nd_LAP.json",
+      "error": null
+    },
+    {
+      "id": "p01_l004",
+      "page": 1,
+      "level": "1st LAP",
+      "status": "done",
+      "file": "level_batches\\p01_l004_1st_LAP.json",
+      "error": null
+    },
+    {
+      "id": "p01_l005",
+      "page": 1,
+      "level": "FOUNDATION",
+      "status": "done",
+      "file": "level_batches\\p01_l005_FOUNDATION.json",
+      "error": null
+    }
+  ]
+}

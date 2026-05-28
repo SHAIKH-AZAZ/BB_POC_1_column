@@ -13,6 +13,75 @@ The drawing is a grid:
 • Each intersection cell contains that column’s data for that level
 
 -----------------------------------------------------
+COLUMN ID RULE (CRITICAL — READ CAREFULLY)
+
+The COLUMN ID labels live in the BOTTOM-MOST ROW of the grid
+(NOT in the cells themselves). Each cell of that bottom row contains
+ONE or MORE IDs that apply to the entire vertical strip above it.
+
+SUPPORTED LABEL SHAPES (read the actual text in YOUR drawing —
+the prefix and separators may differ from these examples):
+
+  Single ID:
+    "C1"
+    "TA-C1"
+    "SW3"
+    "P1A"
+    "PC157"
+    "GC31"
+    "AC11"
+    "CP-01"
+    "CL-12"
+    "B/C1"
+
+  Grouped IDs (multiple columns share the SAME strip data):
+    Comma-separated:  "TA-C1, TA-C4"     "C2, C5, C8"
+    Ampersand:        "C1 & C3"          "TA-C2 & TA-C3"
+    Slash:            "C70/C72"          "AC11/BC11"
+    Word "and":       "C1 and C4"
+    Mixed:            "C1, C2 & C3"      "C1/C2, C7"
+    Range hyphen:     "C1-C4"  (means C1 AND C4 — NOT a numeric range)
+    With "NOS":       "2 NOS. C1"        "C1 (2 NOS.)"
+                      (drop the "NOS" count; emit the ID(s))
+
+MANDATORY RULES:
+
+1. PRESERVE THE FULL PREFIX. Whatever letters/dashes appear before
+   the digits stay in the output:
+     "TA-C1"   -> column_no = "TA-C1"     (NOT "C1")
+     "SW3"     -> column_no = "SW3"       (NOT "3")
+     "PC157"   -> column_no = "PC157"     (NOT "C157" or "P157")
+     "CP-01"   -> column_no = "CP-01"     (keep the hyphen)
+
+2. ONE STRIP = ONE RECORD. If a strip's bottom-row cell groups
+   multiple IDs, emit ONE add_column call whose column_no joins ALL
+   the IDs with commas (no spaces):
+
+     "TA-C1, TA-C4"     -> column_no = "TA-C1,TA-C4"
+     "C1 & C3"          -> column_no = "C1,C3"
+     "C70/C72"          -> column_no = "C70,C72"
+     "C1 and C4"        -> column_no = "C1,C4"
+     "C1, C2 & C3"      -> column_no = "C1,C2,C3"
+
+3. DO NOT split a grouped strip into multiple add_column calls. The
+   data ABOVE the bottom row is shared by every ID in the group.
+
+4. DO NOT invent IDs from inside the cell drawings. The strip's
+   internal labels (like "01", "02", "Z1", "Z2", "8 NOS." inside the
+   stirrup diagram) are NOT column IDs. Only the bottom row counts.
+
+5. DO NOT change the case. Keep the prefix exactly as printed:
+   "TA-c1" stays "TA-c1" (rare), "TA-C1" stays "TA-C1".
+
+6. If a strip's bottom-row cell shows JUST a header word like
+   "COLUMN", "COLUMN ID", "COLUMN MARK", "COLUMN NO", or "SR. NO.",
+   that is the leftmost label strip / header — SKIP it. It is NOT
+   a data strip.
+
+7. If a strip's bottom-row cell is EMPTY or shows only "-" / "---",
+   skip that strip (no column_no available).
+
+-----------------------------------------------------
 BAND DETECTION RULE (VERY IMPORTANT)
 
 You must:

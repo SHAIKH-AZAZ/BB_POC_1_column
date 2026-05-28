@@ -205,17 +205,147 @@ def clean_stirrups_strings(stirrups):
 # COLUMN NO normalization
 # ---------------------------------------------------------------------------
 
+# Column-ID prefixes we see across the 14 patterns. Used by
+# `clean_column_no()` to decide which inner tokens are real IDs vs
+# noise (counts, zone numbers, etc.) when splitting a grouped label.
+#
+# Real-world variety we must handle (Pattern 9 + others):
+#   C34, C1A                            (C-family)
+#   P1, P11A                            (P-family)
+#   r2, W23a                            (lowercase variants — case kept)
+#   AC1, BC1, CP1, GC1, NC1, PC1,       (2-letter prefixes)
+#   SC1, RW1, LW1, SW1, TW33
+#   BSW1                                (3-letter prefixes)
+#   SW-1, CP-01, CL-12                  (letter prefix + hyphen + digits)
+#   TA-C1, TB-C1, TC-C1                 (T-letter compound prefix)
+#   PC206-12, PC197A-8                  (ID with trailing -digits sub-id)
+#
+# The regex below is greedy enough to catch all of the above while
+# still rejecting M-grade, TYPE-XX, and lone header words.
+_COLUMN_ID_TOKEN_RE = re.compile(
+    r"\b("
+    # ── (1) T<X>- compound prefix : TA-C1, TB-C1, TC-C1 ─────────────
+    r"T[A-Z]-[A-Z]\d+[A-Z]?(?:-\d+)?"
+    r"|"
+    # ── (2) base form : 1-4 letter prefix + optional hyphen + digits
+    #        + optional letter suffix + optional -digits sub-id ──────
+    r"[A-Z]{1,4}-?\d+[A-Z]?(?:-\d+)?"
+    r"|"
+    # ── (3) rare leading-digit form : 1A, 12B2 ──────────────────────
+    r"\d+[A-Z]+\d*"
+    r")\b",
+    re.IGNORECASE,
+)
+
+# Words/tokens that are NEVER an ID and should be stripped before
+# parsing a grouped label.
+_NON_ID_TOKEN_RE = re.compile(
+    r"\b(?:"
+    r"NOS?\.?|NUMBER|NUMBERS|MARK|MARKS|TYPE|"
+    r"AND|OR|"
+    r"COLUMN|COLUMNS|"
+    r"GROUP|GROUPS|"        # Pattern 9 organizational labels — never column IDs
+    r"LAP|LAPS|"            # Pattern 9 storey labels — never column IDs
+    r"SR\.?|S\.?\s*NO\.?"
+    r")\b",
+    re.IGNORECASE,
+)
+
+
+# Words that look like "GROUP 1" / "GROUP 2" should also be filtered
+# OUT of the final tokens list. The token regex would accidentally
+# match "GROUP1" / "GROUP 1" otherwise (4-letter prefix + digits).
+_FORBIDDEN_TOKEN_RE = re.compile(
+    r"^(?:GROUP|LAP|TYPE|NOS)\d+[A-Z]?$",
+    re.IGNORECASE,
+)
+
+
 def clean_column_no(value):
-    """Strip whitespace, collapse separators around commas, uppercase."""
+    """Normalize ANY shape of column-ID label into a comma-joined
+    canonical form with no spaces.
+
+    Accepts grouped IDs separated by ANY of:
+        ","   "&"   "/"   "  and  "   "  AND  "   "-" between two IDs
+    Drops:
+        leading counts like "2 NOS."
+        words like "NOS", "AND", "OR", "MARK", "TYPE"
+        empty fragments
+
+    Preserves the original prefix (TA-, SW, P, AC, BC, PC, GC, CP, CL,
+    M, etc.) and the original case of letters. Tightens whitespace.
+
+    Examples:
+        "C1 & C3"          -> "C1,C3"
+        "TA-C1, TA-C4"     -> "TA-C1,TA-C4"
+        "C70/C72"          -> "C70,C72"
+        "C1 and C4"        -> "C1,C4"
+        "C1, C2 & C3"      -> "C1,C2,C3"
+        "2 NOS. C1"        -> "C1"
+        "C1 (2 NOS.)"      -> "C1"
+        "C1-C4"            -> "C1,C4"   (range hyphen between two IDs)
+        "CP-01"            -> "CP-01"   (kept — hyphen is part of one ID)
+        "TA-C1"            -> "TA-C1"   (kept — hyphen is part of one ID)
+        ""                 -> ""
+        None               -> ""
+    """
     if value is None:
         return ""
+
+    # Already-list input: join with commas first, then re-clean.
+    if isinstance(value, (list, tuple)):
+        joined = ",".join(str(v).strip() for v in value if v is not None and str(v).strip())
+        return clean_column_no(joined)
+
     text = str(value).strip()
     if not text:
         return ""
-    text = re.sub(r"\s*&\s*", ",", text)         # "C1 & C3" -> "C1,C3"
-    text = re.sub(r"\s*,\s*", ",", text)         # tighten commas
-    text = re.sub(r"\s{2,}", " ", text)
-    return text
+
+    # Strip trailing/leading parenthetical noise like "(2 NOS.)" /
+    # "(TYP)" that some schedules append next to a column ID.
+    text = re.sub(r"\((?:[^)]*?(?:NOS?\.?|TYP|TYPICAL|EACH)[^)]*?)\)", " ", text, flags=re.IGNORECASE)
+
+    # Strip "<digits> NOS." count prefixes/suffixes.
+    text = re.sub(r"\b\d+\s*NOS?\.?\s*", " ", text, flags=re.IGNORECASE)
+
+    # Strip the explicit non-ID words.
+    text = _NON_ID_TOKEN_RE.sub(" ", text)
+
+    # Pull every recognizable ID token out of the remaining text. This
+    # is the robust path — we don't rely on a particular separator,
+    # we just extract every token that LOOKS like a column ID.
+    tokens = []
+    for match in _COLUMN_ID_TOKEN_RE.finditer(text):
+        token = match.group(1).strip()
+        if not token:
+            continue
+        # Tighten internal spaces (e.g. "TA C1" -> "TA-C1" when the
+        # original had a space instead of a hyphen).
+        token = re.sub(r"\s+", "-", token)
+        # Avoid emitting "M30" / "M-30" / "TYPE-26" as a column ID.
+        if re.fullmatch(r"M[-\s]?\d+", token, re.IGNORECASE):
+            continue
+        if re.fullmatch(r"TYPE[-\s]?\d+[A-Z]?", token, re.IGNORECASE):
+            continue
+        # Skip Pattern 9-style "GROUP 1" / "LAP 1" organizational
+        # labels that aren't real column IDs.
+        if _FORBIDDEN_TOKEN_RE.match(token):
+            continue
+        if token not in tokens:
+            tokens.append(token)
+
+    if tokens:
+        return ",".join(tokens)
+
+    # Fallback: nothing recognized — fall back to legacy normalization
+    # so we don't lose unusual labels entirely.
+    fallback = str(value).strip()
+    fallback = re.sub(r"\s*&\s*", ",", fallback)
+    fallback = re.sub(r"\s+/\s+", "/", fallback)
+    fallback = re.sub(r"\s+(?:and|AND)\s+", ",", fallback)
+    fallback = re.sub(r"\s*,\s*", ",", fallback)
+    fallback = re.sub(r"\s{2,}", " ", fallback)
+    return fallback
 
 
 # ---------------------------------------------------------------------------

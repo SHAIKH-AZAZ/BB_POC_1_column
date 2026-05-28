@@ -6,8 +6,31 @@ from tqdm import tqdm
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
-from pattern_batching import extract_pages_with_checkpoints
+from pattern_batching import extract_pages_with_checkpoints, parse_json_result
 from vision_extractor import extract_from_image, extract_with_tools
+
+
+# ==============================
+# CUSTOM EXTRACTOR (Pattern 5 specific)
+# ==============================
+#
+# Pattern 5's LATERAL TIES cell contains MULTIPLE zones per column,
+# e.g. "T8 AT 100 C/C | T8 AT 200 C/C | T8 AT 100 C/C". The default
+# tool-protocol extractor (`extract_with_tools`) uses an `add_column`
+# schema that accepts only ONE `ties_dia` and ONE `ties_spacing` per
+# call, so multi-zone stirrups get dropped entirely.
+#
+# Bypass the tool protocol and let the model return free-form JSON
+# matching the schema in prompt_5.txt — including the full stirrups
+# list verbatim.
+
+def _extract_pattern_5(job, prompt):
+    raw = extract_from_image(job["img_path"], prompt)
+    try:
+        return parse_json_result(raw)
+    except Exception as exc:
+        print(f"  Pattern 5: could not parse JSON for {job['img_path']}: {exc}")
+        return {"columns": []}
 
 
 # ==============================
@@ -147,6 +170,7 @@ def process_pdf(pdf_path):
         prompt,
         pattern_number=5,
         output_folder=output_folder,
+        extractor=_extract_pattern_5,
     )
 
     # ==========================

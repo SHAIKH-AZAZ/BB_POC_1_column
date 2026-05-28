@@ -1,82 +1,159 @@
-You are an expert RCC structural drawing extractor.
+You are an expert RCC structural drawing extractor specialized in
+COLUMN SCHEDULES that use a GRID of column cross-section drawings.
 
-This drawing is a COLUMN SCHEDULE – PATTERN 9.
-NOTE: This prompt is used as a FALLBACK for scanned pages where direct PDF
-text extraction failed. Read carefully and return only what you can verify.
+This drawing is COLUMN SCHEDULE – PATTERN 9.
 
-=====================================================
-LAYOUT
-=====================================================
+=====================================================================
+GRID STRUCTURE
+=====================================================================
 
-GRID structure:
-  Columns (left → right) = 5 LAP band repetitions of the same set of groups
-  Rows    (top → bottom) = 15 column groups
+The page is a 2-D GRID:
 
-Each horizontal band has:
-  SECTION A (upper) — column cross-section DIAGRAMS with bar labels beside them
-  SECTION B (lower) — SUMMARY TABLE with rows: SIZE, RING X, RING Y, MIX
+  • HORIZONTAL BANDS (rows, top → bottom)
+        Each band = one storey / lap / floor level.
+        The LEVEL LABEL is the ROTATED text running vertically along
+        the LEFT edge of each band.
+        Typical labels:
+          "5th LAP TO 6th LAP"
+          "4th LAP TO 5th LAP"
+          "3rd LAP TO 4th LAP"
+          "2nd LAP TO 3rd LAP"
+          "1st LAP TO 2nd LAP"
+          "FOUNDATION TO 1st LAP"
+          "GROUND FLOOR TO FIRST FLOOR"
+          ...etc.
 
-CRITICAL: The 5 LAP columns (left to right) represent:
-  Col 1: 5th LAP TO 6th LAP
-  Col 2: 6th LAP TO 7th LAP
-  Col 3: 7th LAP TO 8th LAP
-  Col 4: 8th LAP TO 9th LAP
-  Col 5: 9th LAP TO 10th LAP
+  • VERTICAL STRIPS (columns, left → right)
+        Each strip = ONE column type (or ONE group of identical
+        columns).
+        The COLUMN ID labels can appear in ANY of these positions:
+            - BOTTOM-MOST row (most common)  — a labeled row like
+              "COLUMNS NOS." with the IDs printed below each strip
+            - TOP of each strip               — header row above the cells
+            - LEFT of each strip              — vertical label
+            - RIGHT of each strip
+            - INSIDE each cell                — small text near the drawing
 
-The group rows (top to bottom) are:
-  Row  1: AC13, AC14
-  Row  2: AC06, AC07
-  Row  3: AC02, AC03
-  Row  4: AC17, AC22, AC23, AC24, AC25
-  Row  5: AC29
-  Row  6: AC08, AC26
-  Row  7: AC05
-  Row  8: AC27, AC28
-  Row  9: AC10, AC11
-  Row 10: AC01, AC04
-  Row 11: AC09, AC12
-  Row 12: AC21
-  Row 13: AC15, AC18
-  Row 14: AC16, AC19
-  Row 15: AC20
+        Read every label visible in the grid; do NOT assume only one
+        position carries the IDs.
 
-Total records = 15 groups x 5 LAP columns = 75
+  • CELL = ONE band × ONE strip
+        Each cell contains: a small column cross-section drawing PLUS
+        nearby text with SIZE, REINFORCEMENT, STIRRUPS, MIX.
 
-=====================================================
-EXTRACTION RULES
-=====================================================
+=====================================================================
+LEVEL DETECTION (LEFT SIDE)
+=====================================================================
 
-REINFORCEMENT (from diagram labels in Section A):
-- Read ONLY labels next to the diagram for THIS cell
-- Do NOT copy from adjacent rows or columns
-- Format: "12-16 Tor" → "12-16T",  "+4-12 Tor" → "4-12T"
-- Valid bar diameter range: 8 to 32
-- Valid bar count range: 2 to 40
-- Diameter 30+ is almost certainly a misread — re-verify
+Read every rotated level label along the LEFT edge top → bottom.
 
-SIZE (from SIZE row in Section B):
-- Format: "300x950" → width=300, depth=null, length=950
-- Three numbers "300x500x950" → width=300, depth=500, length=950
+UPPER-LEVEL RULE (CRITICAL):
 
-STIRRUPS (from RING rows in Section B):
-- RING X (first line) and RING Y (second line) give spacing
-- IGNORE "N Rings" count text — only extract spacing values
-- dia format: "8T"
-- spacing format: "100 C/C", "150 C/C"
+  For any label shaped like "X TO Y", return ONLY X (the part BEFORE
+  "TO"). Examples:
 
-MIX (from MIX row in Section B): e.g. "M30"
+    "5th LAP TO 6th LAP"            -> "5th LAP"
+    "FOUNDATION TO 1st LAP"         -> "FOUNDATION"
+    "TERRACE FLOOR LEVEL / To /
+       4TH FLOOR LEVEL"             -> "TERRACE FLOOR LEVEL"
+    "GROUND FLOOR TO FIRST FLOOR"   -> "GROUND FLOOR"
 
-=====================================================
-OUTPUT FORMAT
-=====================================================
+If a label has no "TO", keep it exactly as printed.
 
-Return ONLY raw JSON. No markdown. No code fences. No preamble.
+=====================================================================
+COLUMN ID DETECTION (CRITICAL — READ CAREFULLY)
+=====================================================================
+
+Column IDs are HIGHLY VARIED in real schedules. Recognise ANY of
+these shapes as a valid column_no token:
+
+  Simple:
+    C1, C34, C1A             (C-family)
+    P1, P11A                 (P-family)
+    r2, W23a                 (lowercase variants — KEEP the case)
+
+  Two-letter prefixes:
+    AC1, BC1, CP1, GC1,
+    NC1, PC1, SC1, RW1,
+    LW1, SW1, TW33           (any of AC/BC/CP/GC/NC/PC/SC/RW/LW/SW/TW…)
+
+  Three-letter prefixes:
+    BSW1                     (and similar 3-letter prefixes)
+
+  Hyphenated single ID:
+    SW-1, CP-01, CL-12,
+    TA-C1, TB-C1, TC-C1,
+    PC206-12, PC197A-8
+
+  Combined / grouped IDs (multiple IDs share ONE strip):
+    "C1 & C3"                -> column_no = "C1,C3"
+    "C70/C72"                -> column_no = "C70,C72"
+    "TA-C1, TA-C4"           -> column_no = "TA-C1,TA-C4"
+    "(SW1+SW1A)"             -> column_no = "SW1,SW1A"
+    "C1 and C4"              -> column_no = "C1,C4"
+    "C1, C2, C3"             -> column_no = "C1,C2,C3"
+
+NEVER return any of these as a column_no:
+    GROUP 1, GROUP 2 …       (these are organizational labels, not IDs)
+    COLUMN, COLUMNS NOS,
+    COLUMN MARK, COLUMN NO,  (these are header words)
+    SR. NO, S. NO,
+    SIZE, REINF, STIRRUPS,
+    MIX, TYPE, NOS,
+    M30, M-30                (concrete grade, not column ID)
+
+PRESERVE THE FULL PREFIX EXACTLY as printed. "TA-C1" stays "TA-C1",
+"SW-1" stays "SW-1", "r2" stays "r2" (case kept).
+
+=====================================================================
+PER-CELL DATA EXTRACTION
+=====================================================================
+
+For EACH cell in the grid (one band × one strip), emit ONE record
+with the following fields:
+
+  column_no       — the column ID(s) from the strip (see above)
+  column_name     — the LEVEL label of this band (upper-level rule applied)
+  size            — {"width": W, "depth": null, "length": L}
+                    For "300x950"      -> width=300, length=950, depth=null
+                    For "300x500x950"  -> width=300, depth=500, length=950
+  reinforcement   — list of bar specs from the cell, exactly as written
+                    Examples: ["12-16T"], ["12-20T", "4-16T"], ["26-20T"]
+                    Split combined "+" notation:
+                      "4-T20+16-T16" -> ["4-T20", "16-T16"]
+  stirrups        — {"dia": ["8T"], "spacing": ["100 C/C", "150 C/C"]}
+                    Extract the lateral tie bar diameter and spacing.
+                    Multiple zones may exist — return ALL distinct values.
+                    Keep "8T" notation if that's how it's printed; keep
+                    "T8" if that's how it's printed.
+  mix             — concrete grade, e.g. "M30", "M-30", or null
+  steel_grade     — usually null in this pattern
+
+=====================================================================
+PER-LEVEL EXTRACTION (LEVELS MAY HAVE DIFFERENT COLUMNS)
+=====================================================================
+
+Different levels (bands) may contain different column sets. Do NOT
+assume every level has the same columns. For each level, independently
+read the column IDs visible in THAT band only and produce one record
+per (column_no × this level).
+
+If a cell looks empty (no drawing / no text), still emit a record but
+with:
+    size = {"width": null, "depth": null, "length": null}
+    reinforcement = []
+    stirrups = {"dia": [], "spacing": []}
+    mix = null
+
+=====================================================================
+RETURN STRICT JSON
+=====================================================================
 
 {
   "columns": [
     {
-      "column_no": "AC13, AC14",
-      "column_name": "5th LAP TO 6th LAP",
+      "column_no": "AC13,AC14",
+      "column_name": "5th LAP",
       "size": {"width": 450, "depth": null, "length": 600},
       "reinforcement": ["12-16T", "4-12T"],
       "stirrups": {"dia": ["8T"], "spacing": ["100 C/C", "150 C/C"]},
@@ -86,5 +163,4 @@ Return ONLY raw JSON. No markdown. No code fences. No preamble.
   ]
 }
 
-Order: group rows top-to-bottom; within each group, LAP columns left-to-right
-(5th LAP TO 6th LAP first, 9th LAP TO 10th LAP last).
+Return ONLY JSON. No explanation, no markdown fences.
