@@ -32,7 +32,7 @@ without touching its bespoke extraction flow (fitz / OpenCV / 2-pass).
 
 import re
 
-from pattern_batching import filter_valid_columns
+from pattern_batching import filter_valid_columns, upper_level_from_range
 
 
 # ---------------------------------------------------------------------------
@@ -231,6 +231,7 @@ def standardize_records(
     apply_reinforcement=True,
     apply_mix=True,
     apply_column_no=True,
+    apply_upper_level=True,
     defaults=None,
 ):
     """Run the canonical cleanup over a flat list of column-record dicts.
@@ -239,6 +240,12 @@ def standardize_records(
 
     Each step is opt-out so bespoke patterns can keep their custom logic
     for fields where the canonical cleaner would lose information.
+
+    apply_upper_level (default True):
+        For any column_name shaped like "X TO Y", keep only the X
+        (upper / first-before-TO) portion. Single-name labels like
+        "GROUND FLOOR" pass through unchanged, so this is safe to
+        leave enabled for every pattern.
     """
     if not isinstance(records, list):
         return []
@@ -263,6 +270,8 @@ def standardize_records(
             item["reinforcement"] = clean_reinforcement(item.get("reinforcement"))
         if apply_mix and "mix" in item:
             item["mix"] = clean_mix(item.get("mix"))
+        if apply_upper_level and "column_name" in item:
+            item["column_name"] = upper_level_from_range(item.get("column_name"))
         if stirrups_cleaner is not None:
             item["stirrups"] = stirrups_cleaner(item.get("stirrups"))
 

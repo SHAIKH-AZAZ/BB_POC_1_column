@@ -77,24 +77,16 @@
       "column_no": "C3",
       "column_name": "1st_FLOOR_COLUMN",
       "size": {
-        "width": 350,
+        "width": null,
         "depth": null,
-        "length": 850
+        "length": null
       },
-      "reinforcement": [
-        "8-20T",
-        "8-16T"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -148,47 +140,32 @@
       "column_no": "C6",
       "column_name": "1st_FLOOR_COLUMN",
       "size": {
-        "width": 230,
+        "width": null,
         "depth": null,
-        "length": 1330
+        "length": null
       },
-      "reinforcement": [
-        "4-25T",
-        "14-20T"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     },
     {
       "column_no": "C7",
       "column_name": "1st_FLOOR_COLUMN",
       "size": {
-        "width": 230,
+        "width": null,
         "depth": null,
-        "length": 1075
+        "length": null
       },
-      "reinforcement": [
-        "4-25T",
-        "10-20T"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -222,18 +199,12 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": [
-        "27-20T"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -252,8 +223,7 @@
           "10-T15"
         ],
         "spacing": [
-          "75 C/C",
-          "115 C/C"
+          "75 C/C"
         ]
       },
       "mix": "M30",

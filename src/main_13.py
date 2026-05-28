@@ -75,6 +75,7 @@ DEPENDENCIES
 import argparse
 import base64
 import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from extraction_guard import reshape_columns_to_levels
 from pattern_batching import atomic_write_json, safe_filename
 from pattern_cleaners import standardize_records
@@ -83,6 +84,12 @@ import re
 import sys
 from io import BytesIO
 from pathlib import Path
+
+# Cell-level parallelism for [6/6] data-cell extraction.
+# Each row's N cells are read concurrently via the Vision API.
+# Default 6 workers — override with PATTERN13_CELL_WORKERS env var.
+# Be mindful of your OpenAI rate limit if you raise this.
+MAX_CELL_WORKERS = max(1, int(os.getenv("PATTERN13_CELL_WORKERS", "6")))
 
 import numpy as np
 from PIL import Image, ImageDraw
@@ -452,14 +459,32 @@ def extract_floor_labels(client, img, label_x0, label_x1,
     return labels
 
 
+# Escape hatch when the model returns "SKIP" for every row — typically
+# caused by grid detection picking the wrong table region or a label
+# column too narrow to OCR. Default behavior drops all SKIP rows. Set
+# PATTERN13_KEEP_SKIP_ROWS=1 to keep them with placeholder labels so
+# extraction can continue and you can inspect what was actually read.
+KEEP_SKIP_ROWS = os.getenv("PATTERN13_KEEP_SKIP_ROWS", "0").strip().lower() in {"1", "true", "yes", "on"}
+
+
 def filter_and_recheck_floor_rows(client, img, label_x0, label_x1,
                                    h_grid, raw_labels, upscale=2) -> tuple:
     """Drop SKIPs, re-query Floor_N fallbacks. Returns (row_bounds, labels)."""
     row_bounds, floor_labels = [], []
+    skip_count = 0
     for i, label in enumerate(raw_labels):
         y0, y1 = h_grid[i], h_grid[i+1]
         if label == "SKIP":
-            print(f"       Row {i+1} ({y0}–{y1} px): excluded (non-floor)")
+            skip_count += 1
+            if KEEP_SKIP_ROWS:
+                placeholder = f"UNKNOWN_ROW_{i+1}"
+                print(
+                    f"       Row {i+1} ({y0}–{y1} px): kept as '{placeholder}' "
+                    "(PATTERN13_KEEP_SKIP_ROWS=1)"
+                )
+                row_bounds.append((y0, y1)); floor_labels.append(placeholder)
+            else:
+                print(f"       Row {i+1} ({y0}–{y1} px): excluded (non-floor)")
             continue
         if not label.startswith("Floor_"):
             row_bounds.append((y0, y1)); floor_labels.append(label); continue
@@ -482,6 +507,25 @@ def filter_and_recheck_floor_rows(client, img, label_x0, label_x1,
         final = retry if retry and len(retry) < 80 else label
         print(f"       Row {i+1} ({y0}–{y1} px): re-read as '{final}'")
         row_bounds.append((y0, y1)); floor_labels.append(final)
+
+    # Diagnostic summary when filtering wiped out every row.
+    if not floor_labels and skip_count == len(raw_labels):
+        print(
+            "\n       ─────────────────────────────────────────────────────────\n"
+            f"       DIAGNOSTIC: All {skip_count} row(s) were tagged 'SKIP' by "
+            "the vision model.\n"
+            f"       Label column was X={label_x0}-{label_x1} ({label_x1-label_x0}px wide).\n"
+            "       Likely causes:\n"
+            "         1. Grid detection picked the wrong table region.\n"
+            "         2. The label column is too narrow to OCR (verify >80px).\n"
+            "         3. This PDF was misclassified as Pattern 13 by the\n"
+            "            vision detector and is actually a different pattern.\n"
+            "       Workarounds:\n"
+            "         • Re-run with --debug to save grid overlay PNG.\n"
+            "         • Set PATTERN13_KEEP_SKIP_ROWS=1 to keep all rows with\n"
+            "           placeholder labels and inspect the resulting JSON.\n"
+            "       ─────────────────────────────────────────────────────────"
+        )
 
     return row_bounds, floor_labels
 
@@ -922,19 +966,46 @@ def extract_column_schedule(pdf_path:    str,
         print(f"       Floor '{flabel}': text strip = rows {text_y0}–{text_y1} "
               f"({strip_pct}% of row height)")
 
+        # ── Parallel cell extraction (cap = MAX_CELL_WORKERS) ────────────
+        # Crop every cell up-front (CPU-bound, fast), then submit all
+        # vision calls to a thread pool. Results stored by column index
+        # so row_raw preserves left-to-right order regardless of
+        # completion order.
+        cell_inputs = []
         for c in range(n_cols):
-            x0, x1  = data_col_x[c], data_col_x[c+1]
-            group    = col_groups[c]
-            dlabel   = group[0] if group else f"COL_{c+1}"
+            x0, x1 = data_col_x[c], data_col_x[c + 1]
+            group = col_groups[c]
+            dlabel = group[0] if group else f"COL_{c + 1}"
+            cell = _crop_upscale(img, x0, text_y0, x1, text_y1, upscale)
+            cell_inputs.append((c, dlabel, cell))
 
-            # Crop ONLY the text-data portion (ignore the drawing above)
-            cell  = _crop_upscale(img, x0, text_y0, x1, text_y1, upscale)
-            done += 1
-            print(f"       [{done:>3}/{total}]  {flabel} / {dlabel} …",
-                  end=" ", flush=True)
+        row_raw = [None] * n_cols
+
+        def _extract_one(item):
+            c, dlabel, cell = item
             raw = extract_data_cell(client, cell, flabel, dlabel)
-            print("✓")
-            row_raw.append(raw)
+            return c, dlabel, raw
+
+        with ThreadPoolExecutor(max_workers=MAX_CELL_WORKERS) as ex:
+            futures = {ex.submit(_extract_one, item): item for item in cell_inputs}
+            for future in as_completed(futures):
+                try:
+                    c, dlabel, raw = future.result()
+                    row_raw[c] = raw
+                    done += 1
+                    print(
+                        f"       [{done:>3}/{total}]  {flabel} / {dlabel} ✓",
+                        flush=True,
+                    )
+                except Exception as exc:
+                    item = futures[future]
+                    c, dlabel, _ = item
+                    row_raw[c] = {}
+                    done += 1
+                    print(
+                        f"       [{done:>3}/{total}]  {flabel} / {dlabel} ✗ ({exc})",
+                        flush=True,
+                    )
 
         # Combined-row fallback: > 50 % empty → re-read full text strip
         empty_count = sum(1 for d in row_raw if _is_empty(d))

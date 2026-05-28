@@ -6,7 +6,7 @@ from tqdm import tqdm
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
-from pattern_batching import extract_levels_with_checkpoints
+from pattern_batching import extract_levels_with_checkpoints, upper_level_from_range
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -151,7 +151,10 @@ def process_pdf(pdf_path):
         output_folder=output_folder,
         prompt_context=(
             "Read the visible row/left-side level labels only. "
-            "Keep full visible level names exactly as printed."
+            "UPPER-LEVEL RULE: for any 'X TO Y' label, return ONLY X "
+            "(the part BEFORE 'TO'). Example: 'BASEMENT LEVEL TO "
+            "FOUNDATION LEVEL' -> 'BASEMENT LEVEL'. Do NOT keep the "
+            "'TO ...' suffix."
         ),
     )
 
@@ -163,8 +166,9 @@ def process_pdf(pdf_path):
 
     for col in all_columns:
 
-        col["column_name"] = clean_column_name(
-            col.get("column_name")
+        # Upper-level rule (safety net): collapse "X TO Y" -> "X"
+        col["column_name"] = upper_level_from_range(
+            clean_column_name(col.get("column_name"))
         )
 
         col["size"] = clean_size(

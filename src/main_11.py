@@ -50,29 +50,38 @@ DEPENDENCIES
 import argparse
 import base64
 import json
-from extraction_guard import reshape_columns_to_levels
-from pattern_batching import atomic_write_json, safe_filename
-from pattern_cleaners import standardize_records
 import os
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from io import BytesIO
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageDraw
 from pdf2image import convert_from_path
+from PIL import Image, ImageDraw
 from scipy.signal import find_peaks
+
+from extraction_guard import reshape_columns_to_levels
+from pattern_batching import atomic_write_json, safe_filename
+from pattern_cleaners import standardize_records
+
+# Cell-level parallelism for [6/6] data-cell extraction.
+# Each row's N cells are read concurrently via the Vision API.
+# Default 6 workers — override with PATTERN11_CELL_WORKERS env var.
+# Be mindful of your OpenAI rate limit if you raise this.
+MAX_CELL_WORKERS = max(1, int(os.getenv("PATTERN11_CELL_WORKERS", "6")))
+
 
 # ── Project config ────────────────────────────────────────────────────────────
 # Allows running from the project root as:  python src/main_11.py
 sys.path.insert(0, str(Path(__file__).parent))
-from config import INPUT_DIR, OUTPUT_DIR, OPENAI_API_KEY
-
+from config import INPUT_DIR, OPENAI_API_KEY, OUTPUT_DIR
 
 # ══════════════════════════════════════════════════════════════════════════════
 # §1  PDF → Image
 # ══════════════════════════════════════════════════════════════════════════════
+
 
 def pdf_to_image(pdf_path: str, dpi: int = 600) -> Image.Image:
     """Render the first page of a PDF at the given DPI."""
@@ -83,9 +92,8 @@ def pdf_to_image(pdf_path: str, dpi: int = 600) -> Image.Image:
 # §2  Grid-Line Detection
 # ══════════════════════════════════════════════════════════════════════════════
 
-def _darkness_peaks(arr2d: np.ndarray,
-                    threshold: float,
-                    min_distance: int) -> list:
+
+def _darkness_peaks(arr2d: np.ndarray, threshold: float, min_distance: int) -> list:
     """
     Return row indices where the fraction of dark pixels (value < 100)
     is a local maximum above `threshold`.
@@ -95,9 +103,7 @@ def _darkness_peaks(arr2d: np.ndarray,
     return peaks.tolist()
 
 
-def _gradient_peaks(arr2d: np.ndarray,
-                    threshold: float,
-                    min_distance: int) -> list:
+def _gradient_peaks(arr2d: np.ndarray, threshold: float, min_distance: int) -> list:
     """
     Return row indices with strong vertical gradient (edge-based detection).
 
@@ -112,17 +118,21 @@ def _gradient_peaks(arr2d: np.ndarray,
     if grad.max() < 1e-6:
         return []
     norm_grad = grad / (grad.max() + 1e-9)
-    abs_thr   = max(threshold, norm_grad.mean() + norm_grad.std())
-    peaks, _  = find_peaks(norm_grad, height=abs_thr, distance=min_distance)
+    abs_thr = max(threshold, norm_grad.mean() + norm_grad.std())
+    peaks, _ = find_peaks(norm_grad, height=abs_thr, distance=min_distance)
     return peaks.tolist()
 
 
-def detect_lines(img: Image.Image,
-                 y0: int = 0,   y1: int = -1,
-                 x0: int = 0,   x1: int = -1,
-                 h_thr: float = 0.15,
-                 v_thr: float = 0.15,
-                 min_dist: int = 30) -> tuple:
+def detect_lines(
+    img: Image.Image,
+    y0: int = 0,
+    y1: int = -1,
+    x0: int = 0,
+    x1: int = -1,
+    h_thr: float = 0.15,
+    v_thr: float = 0.15,
+    min_dist: int = 30,
+) -> tuple:
     """
     Detect horizontal and vertical dark lines within a sub-region of `img`.
 
@@ -139,12 +149,12 @@ def detect_lines(img: Image.Image,
         x1 = arr.shape[1]
 
     region = arr[y0:y1, x0:x1, :3]
-    gray   = np.mean(region, axis=2)          # (H, W) — avoids 3-D scipy bug
+    gray = np.mean(region, axis=2)  # (H, W) — avoids 3-D scipy bug
 
     # Horizontal lines — combine darkness + gradient signals, then cluster
-    dark_h     = _darkness_peaks(gray,   h_thr, min_dist)
-    grad_h     = _gradient_peaks(gray,   h_thr, min_dist)
-    combined_h = cluster_lines(sorted(set(dark_h + grad_h)))   # merge near-dups
+    dark_h = _darkness_peaks(gray, h_thr, min_dist)
+    grad_h = _gradient_peaks(gray, h_thr, min_dist)
+    combined_h = cluster_lines(sorted(set(dark_h + grad_h)))  # merge near-dups
 
     # Vertical lines — darkness only (transpose trick)
     v_raw = _darkness_peaks(gray.T, v_thr, min_dist)
@@ -177,11 +187,11 @@ def find_regular_grid(lines: list, tolerance: float = 0.35) -> list:
         return lines
 
     lines = sorted(lines)
-    gaps  = [lines[i + 1] - lines[i] for i in range(len(lines) - 1)]
-    med   = float(np.median(gaps))
+    gaps = [lines[i + 1] - lines[i] for i in range(len(lines) - 1)]
+    med = float(np.median(gaps))
 
     best_s, best_n = 0, 0
-    cur_s,  cur_n  = 0, 1
+    cur_s, cur_n = 0, 1
 
     for i, g in enumerate(gaps):
         if abs(g - med) / (med + 1e-9) <= tolerance:
@@ -194,12 +204,10 @@ def find_regular_grid(lines: list, tolerance: float = 0.35) -> list:
     if cur_n > best_n:
         best_s, best_n = cur_s, cur_n
 
-    return lines[best_s: best_s + best_n + 1]
+    return lines[best_s : best_s + best_n + 1]
 
 
-def find_best_grid(lines: list,
-                   min_rows: int = 3,
-                   tolerance: float = 0.35) -> list:
+def find_best_grid(lines: list, min_rows: int = 3, tolerance: float = 0.35) -> list:
     """
     Find the grid scale that covers the MAXIMUM vertical span.
 
@@ -217,20 +225,20 @@ def find_best_grid(lines: list,
         return lines
 
     lines = sorted(lines)
-    gaps  = [lines[i + 1] - lines[i] for i in range(len(lines) - 1)]
+    gaps = [lines[i + 1] - lines[i] for i in range(len(lines) - 1)]
 
-    best_lines    = []
+    best_lines = []
     best_coverage = 0
 
     def _evaluate(s: int, n: int) -> None:
         nonlocal best_lines, best_coverage
         if n < min_rows:
             return
-        run      = lines[s: s + n]         # FIXED: was lines[s: s+n+1]
+        run = lines[s : s + n]  # FIXED: was lines[s: s+n+1]
         coverage = run[-1] - run[0]
         if coverage > best_coverage:
             best_coverage = coverage
-            best_lines    = run
+            best_lines = run
 
     for target in set(gaps):
         cur_s, cur_n = 0, 1
@@ -245,9 +253,9 @@ def find_best_grid(lines: list,
     return best_lines if best_lines else lines
 
 
-def extend_grid_with_trailing_lines(grid: list,
-                                    all_lines: list,
-                                    max_extra_multiplier: float = 2.0) -> list:
+def extend_grid_with_trailing_lines(
+    grid: list, all_lines: list, max_extra_multiplier: float = 2.0
+) -> list:
     """
     After finding the regular vertical grid (uniform columns), append any
     extra lines to the right that form a wider final column.
@@ -260,11 +268,10 @@ def extend_grid_with_trailing_lines(grid: list,
         return grid
 
     med_gap = np.median([grid[i + 1] - grid[i] for i in range(len(grid) - 1)])
-    last    = grid[-1]
+    last = grid[-1]
 
     extras = sorted(
-        x for x in all_lines
-        if last < x <= last + max_extra_multiplier * med_gap
+        x for x in all_lines if last < x <= last + max_extra_multiplier * med_gap
     )
     return grid + extras
 
@@ -272,6 +279,7 @@ def extend_grid_with_trailing_lines(grid: list,
 # ══════════════════════════════════════════════════════════════════════════════
 # §3  Vision API (OpenAI / GPT-4o)
 # ══════════════════════════════════════════════════════════════════════════════
+
 
 def _to_b64(img: Image.Image) -> str:
     """Convert a PIL Image to a base-64 PNG string."""
@@ -284,33 +292,33 @@ def get_client():
     """Instantiate the OpenAI client using the API key from config / .env."""
     try:
         from openai import OpenAI
+
         return OpenAI(api_key=OPENAI_API_KEY)
     except ImportError:
         raise RuntimeError("Run: pip install openai")
 
 
-def call_vision(client,
-                img:        Image.Image,
-                prompt:     str,
-                max_tokens: int = 500) -> str:
+def call_vision(client, img: Image.Image, prompt: str, max_tokens: int = 500) -> str:
     """Send `img` + `prompt` to GPT-4o and return the text response."""
-    b64  = _to_b64(img)
+    b64 = _to_b64(img)
     resp = client.chat.completions.create(
         model="gpt-4o",
         max_tokens=max_tokens,
-        messages=[{
-            "role": "user",
-            "content": [
-                {
-                    "type": "image_url",
-                    "image_url": {
-                        "url":    f"data:image/png;base64,{b64}",
-                        "detail": "high",
+        messages=[
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:image/png;base64,{b64}",
+                            "detail": "high",
+                        },
                     },
-                },
-                {"type": "text", "text": prompt},
-            ],
-        }],
+                    {"type": "text", "text": prompt},
+                ],
+            }
+        ],
     )
     return resp.choices[0].message.content
 
@@ -319,9 +327,10 @@ def call_vision(client,
 # §4  Label Extraction
 # ══════════════════════════════════════════════════════════════════════════════
 
-def _crop_upscale(img: Image.Image,
-                  x0: int, y0: int, x1: int, y1: int,
-                  upscale: int = 2) -> Image.Image:
+
+def _crop_upscale(
+    img: Image.Image, x0: int, y0: int, x1: int, y1: int, upscale: int = 2
+) -> Image.Image:
     """Crop a region and upscale it for clearer text recognition."""
     cell = img.crop((x0, y0, x1, y1))
     if upscale > 1:
@@ -336,14 +345,31 @@ def _crop_upscale(img: Image.Image,
 
 # Pattern: 1-2 uppercase letters + 1-3 digits + optional 1 uppercase letter
 # Examples: C1, C2, C2A, C10, C11, C12, C13, C14, D3, PC1
-_COL_LABEL_RE = re.compile(r'^[A-Z]{1,2}\d{1,3}[A-Z]?$')
+_COL_LABEL_RE = re.compile(r"^[A-Z]{1,2}\d{1,3}[A-Z]?$")
 
 # Words that are clearly NOT structural-column labels even if they slip through
-_SKIP_LABEL_WORDS = frozenset({
-    "COL", "COLMARK", "COLNO", "FLOOR", "MARK", "SIZE", "CONC",
-    "MIX", "VERT", "REINF", "RING", "NO", "NOTE", "NOTES",
-    "SKIP", "NA", "NIA", "NIL",
-})
+_SKIP_LABEL_WORDS = frozenset(
+    {
+        "COL",
+        "COLMARK",
+        "COLNO",
+        "FLOOR",
+        "MARK",
+        "SIZE",
+        "CONC",
+        "MIX",
+        "VERT",
+        "REINF",
+        "RING",
+        "NO",
+        "NOTE",
+        "NOTES",
+        "SKIP",
+        "NA",
+        "NIA",
+        "NIL",
+    }
+)
 
 
 def _normalize_col_label(raw: str) -> str | None:
@@ -361,12 +387,12 @@ def _normalize_col_label(raw: str) -> str | None:
     """
     if not raw:
         return None
-    s = re.sub(r'[\s\u00a0]+', '', raw.strip())
+    s = re.sub(r"[\s\u00a0]+", "", raw.strip())
     s = s.upper()
-    s = s.strip('.,;:-/\\()[]{}"\' ')
+    s = s.strip(".,;:-/\\()[]{}\"' ")
     if not s:
         return None
-    letter_part = re.sub(r'\d', '', s)
+    letter_part = re.sub(r"\d", "", s)
     if letter_part in _SKIP_LABEL_WORDS:
         return None
     if _COL_LABEL_RE.match(s):
@@ -374,11 +400,14 @@ def _normalize_col_label(raw: str) -> str | None:
     return None
 
 
-def extract_col_labels_strip(client,
-                              img: Image.Image,
-                              header_y0: int, header_y1: int,
-                              data_col_x: list,
-                              upscale: int = 2) -> list:
+def extract_col_labels_strip(
+    client,
+    img: Image.Image,
+    header_y0: int,
+    header_y1: int,
+    data_col_x: list,
+    upscale: int = 2,
+) -> list:
     """
     Read ALL column labels from the full header strip in a single API call.
 
@@ -389,7 +418,7 @@ def extract_col_labels_strip(client,
 
     Returns a list of N items; each is a normalised label string or None.
     """
-    n     = len(data_col_x) - 1
+    n = len(data_col_x) - 1
     strip = _crop_upscale(
         img, data_col_x[0], header_y0, data_col_x[-1], header_y1, upscale
     )
@@ -406,28 +435,31 @@ def extract_col_labels_strip(client,
         "sequence. Output ONLY the comma-separated labels — no other text.\n\n"
         "Example for 11 columns:  C1, C2, C2A, C3, C4, C5, C6, C7, C8, C9, C10, C11"
     )
-    resp  = call_vision(client, strip, prompt, max_tokens=200).strip()
-    parts = re.split(r'[,\n]+', resp)
+    resp = call_vision(client, strip, prompt, max_tokens=200).strip()
+    parts = re.split(r"[,\n]+", resp)
     result = []
     for p in parts:
-        p    = p.strip().strip('"').strip("'").strip()
+        p = p.strip().strip('"').strip("'").strip()
         norm = _normalize_col_label(p)
         result.append(norm)
     return result[:n]
 
 
-def extract_col_labels(client,
-                       img: Image.Image,
-                       header_y0: int, header_y1: int,
-                       data_col_x: list,
-                       upscale: int = 2) -> list:
+def extract_col_labels(
+    client,
+    img: Image.Image,
+    header_y0: int,
+    header_y1: int,
+    data_col_x: list,
+    upscale: int = 2,
+) -> list:
     """
     Per-cell fallback: read each column-header cell individually.
 
     Used to patch any None slots left behind by the strip call.
     Returns a list of N items (normalised str or None).
     """
-    n      = len(data_col_x) - 1
+    n = len(data_col_x) - 1
     result = []
     for i in range(n):
         cell = _crop_upscale(
@@ -445,7 +477,12 @@ def extract_col_labels(client,
             "Return ONLY the label code (e.g. 'C1'). "
             "If you genuinely cannot read it, return 'SKIP'."
         )
-        raw  = call_vision(client, cell, prompt, max_tokens=20).strip().strip('"').strip("'")
+        raw = (
+            call_vision(client, cell, prompt, max_tokens=20)
+            .strip()
+            .strip('"')
+            .strip("'")
+        )
         norm = _normalize_col_label(raw)
         result.append(norm)
     return result
@@ -466,22 +503,24 @@ def _repair_col_sequence(labels: list) -> list:
     def _parse(lbl: str):
         if not lbl:
             return None
-        m = re.match(r'^([A-Z]{1,2})(\d{1,3})([A-Z]?)$', lbl)
+        m = re.match(r"^([A-Z]{1,2})(\d{1,3})([A-Z]?)$", lbl)
         return (m.group(1), int(m.group(2)), m.group(3)) if m else None
 
     result = list(labels)
-    n      = len(result)
+    n = len(result)
 
     for i in range(n):
         if result[i] is not None:
             continue
 
-        left_lbl  = next((result[j] for j in range(i - 1, -1, -1) if result[j]), None)
-        right_lbl = next((result[j] for j in range(i + 1, n)      if result[j]), None)
+        left_lbl = next((result[j] for j in range(i - 1, -1, -1) if result[j]), None)
+        right_lbl = next((result[j] for j in range(i + 1, n) if result[j]), None)
 
-        left_idx  = next((j for j in range(i - 1, -1, -1) if result[j] is not None), -1)
-        right_idx = next((j for j in range(i + 1, n)       if result[j] is not None), -1)
-        gap_size  = (right_idx - left_idx - 1) if (left_idx >= 0 and right_idx >= 0) else 0
+        left_idx = next((j for j in range(i - 1, -1, -1) if result[j] is not None), -1)
+        right_idx = next((j for j in range(i + 1, n) if result[j] is not None), -1)
+        gap_size = (
+            (right_idx - left_idx - 1) if (left_idx >= 0 and right_idx >= 0) else 0
+        )
 
         if gap_size != 1:
             continue
@@ -497,11 +536,11 @@ def _repair_col_sequence(labels: list) -> list:
         if prefix_l != prefix_r:
             continue
 
-        if suf_l == '' and suf_r == '' and num_r - num_l == 2:
+        if suf_l == "" and suf_r == "" and num_r - num_l == 2:
             result[i] = f"{prefix_l}{num_l + 1}"
-        elif suf_l == '' and suf_r == '' and num_r - num_l == 1:
+        elif suf_l == "" and suf_r == "" and num_r - num_l == 1:
             result[i] = f"{prefix_l}{num_l}A"
-        elif suf_l != '' and suf_r == '' and num_r - num_l == 2:
+        elif suf_l != "" and suf_r == "" and num_r - num_l == 2:
             result[i] = f"{prefix_l}{num_l + 1}"
 
     return result
@@ -526,30 +565,34 @@ def _col_sequence_score(labels: list) -> int:
         a, b = labels[i], labels[i + 1]
         if not a or not b:
             continue
-        ma = re.match(r'^([A-Z]{1,2})(\d{1,3})([A-Z]?)$', a)
-        mb = re.match(r'^([A-Z]{1,2})(\d{1,3})([A-Z]?)$', b)
+        ma = re.match(r"^([A-Z]{1,2})(\d{1,3})([A-Z]?)$", a)
+        mb = re.match(r"^([A-Z]{1,2})(\d{1,3})([A-Z]?)$", b)
         if not ma or not mb:
             continue
         if ma.group(1) != mb.group(1):
             continue
         na, sa = int(ma.group(2)), ma.group(3)
         nb, sb = int(mb.group(2)), mb.group(3)
-        if na == nb and sa == '' and sb != '':          # C2 → C2A
+        if na == nb and sa == "" and sb != "":  # C2 → C2A
             score += 1
-        elif nb == na + 1 and sa == '' and sb == '':    # C2 → C3
+        elif nb == na + 1 and sa == "" and sb == "":  # C2 → C3
             score += 1
-        elif nb == na + 1 and sa != '' and sb == '':    # C2A → C3
+        elif nb == na + 1 and sa != "" and sb == "":  # C2A → C3
             score += 1
     return score
 
 
 # ── Floor-label helpers ───────────────────────────────────────────────────────
 
-def extract_floor_labels(client,
-                          img: Image.Image,
-                          label_x0: int, label_x1: int,
-                          row_y: list,
-                          upscale: int = 2) -> list:
+
+def extract_floor_labels(
+    client,
+    img: Image.Image,
+    label_x0: int,
+    label_x1: int,
+    row_y: list,
+    upscale: int = 2,
+) -> list:
     """
     Read the floor/level name from each cell in the label column.
 
@@ -580,7 +623,12 @@ def extract_floor_labels(client,
     labels = []
     for i in range(len(row_y) - 1):
         cell = _crop_upscale(img, label_x0, row_y[i], label_x1, row_y[i + 1], upscale)
-        raw  = call_vision(client, cell, prompt, max_tokens=60).strip().strip('"').strip("'")
+        raw = (
+            call_vision(client, cell, prompt, max_tokens=60)
+            .strip()
+            .strip('"')
+            .strip("'")
+        )
         if raw.upper() == "SKIP":
             labels.append("SKIP")
         elif raw:
@@ -590,28 +638,60 @@ def extract_floor_labels(client,
     return labels
 
 
-def filter_and_recheck_floor_rows(client,
-                                   img: Image.Image,
-                                   label_x0: int, label_x1: int,
-                                   h_grid: list,
-                                   raw_labels: list,
-                                   upscale: int = 2) -> tuple:
+# Escape hatch for over-aggressive floor-row filtering. When the model
+# returns "SKIP" for every row (typically because the grid detection
+# picked the wrong table region or a label column too narrow to OCR),
+# the default behavior drops all rows and the run fails. Set
+# PATTERN11_KEEP_SKIP_ROWS=1 to keep "SKIP" rows with placeholder
+# labels ("UNKNOWN_ROW_N") so extraction can continue — useful for
+# diagnosing what the grid actually captured. Output may be partial
+# until grid detection is corrected.
+KEEP_SKIP_ROWS = os.getenv("PATTERN11_KEEP_SKIP_ROWS", "0").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+    "on",
+}
+
+
+def filter_and_recheck_floor_rows(
+    client,
+    img: Image.Image,
+    label_x0: int,
+    label_x1: int,
+    h_grid: list,
+    raw_labels: list,
+    upscale: int = 2,
+) -> tuple:
     """
     Post-process raw floor labels:
-      • "SKIP"    → drop the row
+      • "SKIP"    → drop the row (unless PATTERN11_KEEP_SKIP_ROWS=1)
       • "Floor_N" → second vision call to confirm and re-read
       • Anything else → keep as-is
 
     Returns (row_bounds, floor_labels) for valid rows only.
     """
-    row_bounds   = []
+    row_bounds = []
     floor_labels = []
+    skip_count = 0
 
     for i, label in enumerate(raw_labels):
         y0, y1 = h_grid[i], h_grid[i + 1]
 
         if label == "SKIP":
-            print(f"       Row {i + 1} ({y0}–{y1} px): excluded (non-floor section)")
+            skip_count += 1
+            if KEEP_SKIP_ROWS:
+                placeholder = f"UNKNOWN_ROW_{i + 1}"
+                print(
+                    f"       Row {i + 1} ({y0}–{y1} px): kept as '{placeholder}' "
+                    "(PATTERN11_KEEP_SKIP_ROWS=1)"
+                )
+                row_bounds.append((y0, y1))
+                floor_labels.append(placeholder)
+            else:
+                print(
+                    f"       Row {i + 1} ({y0}–{y1} px): excluded (non-floor section)"
+                )
             continue
 
         if not label.startswith("Floor_"):
@@ -622,31 +702,61 @@ def filter_and_recheck_floor_rows(client,
         # Fallback label "Floor_N" — verify and re-read
         cell = _crop_upscale(img, label_x0, y0, label_x1, y1, upscale)
 
-        check = call_vision(
-            client, cell,
-            "Does this cell contain a floor or storey name (e.g. Ground Floor, "
-            "1st Floor, Basement, 7th Floor, 13th Floor, or any other level)? "
-            "Answer YES or NO only.",
-            max_tokens=5,
-        ).strip().upper()
+        check = (
+            call_vision(
+                client,
+                cell,
+                "Does this cell contain a floor or storey name (e.g. Ground Floor, "
+                "1st Floor, Basement, 7th Floor, 13th Floor, or any other level)? "
+                "Answer YES or NO only.",
+                max_tokens=5,
+            )
+            .strip()
+            .upper()
+        )
 
         if "YES" not in check:
             print(f"       Row {i + 1} ({y0}–{y1} px): excluded (confirmed non-floor)")
             continue
 
-        retry = call_vision(
-            client, cell,
-            "Read the floor/level label in this cell (text may be vertical). "
-            "Examples: 'BASE FLOOR COLUMN', 'BASEMENT FLOOR COLUMN', "
-            "'Base Floor Column', '7th FLOOR COLUMN', '13th FLOOR COLUMN'. "
-            "Return ONLY the label text.",
-            max_tokens=60,
-        ).strip().strip('"').strip("'")
+        retry = (
+            call_vision(
+                client,
+                cell,
+                "Read the floor/level label in this cell (text may be vertical). "
+                "Examples: 'BASE FLOOR COLUMN', 'BASEMENT FLOOR COLUMN', "
+                "'Base Floor Column', '7th FLOOR COLUMN', '13th FLOOR COLUMN'. "
+                "Return ONLY the label text.",
+                max_tokens=60,
+            )
+            .strip()
+            .strip('"')
+            .strip("'")
+        )
 
         final_label = retry if retry and len(retry) < 50 else label
         print(f"       Row {i + 1} ({y0}–{y1} px): re-read as '{final_label}'")
         row_bounds.append((y0, y1))
         floor_labels.append(final_label)
+
+    # Diagnostic summary when filtering wiped out every row.
+    if not floor_labels and skip_count == len(raw_labels):
+        print(
+            "\n       ─────────────────────────────────────────────────────────\n"
+            f"       DIAGNOSTIC: All {skip_count} row(s) were tagged 'SKIP' by "
+            "the vision model.\n"
+            f"       Label column was X={label_x0}-{label_x1} ({label_x1 - label_x0}px wide).\n"
+            "       Likely causes:\n"
+            "         1. Grid detection picked the wrong table region.\n"
+            "         2. The label column is too narrow to OCR (verify >80px).\n"
+            "         3. This PDF was misclassified as Pattern 11 by the\n"
+            "            vision detector and is actually a different pattern.\n"
+            "       Workarounds:\n"
+            "         • Re-run with --debug to save grid overlay PNG.\n"
+            "         • Set PATTERN11_KEEP_SKIP_ROWS=1 to keep all rows with\n"
+            "           placeholder labels and inspect the resulting JSON.\n"
+            "       ─────────────────────────────────────────────────────────"
+        )
 
     return row_bounds, floor_labels
 
@@ -656,10 +766,10 @@ def filter_and_recheck_floor_rows(client,
 # ══════════════════════════════════════════════════════════════════════════════
 
 _EMPTY_CELL = {
-    "SIZE":       "---",
-    "CONC_MIX":   "---",
+    "SIZE": "---",
+    "CONC_MIX": "---",
     "VERT_REINF": "---",
-    "RING":       "---",
+    "RING": "---",
 }
 
 _DATA_PROMPT_TEMPLATE = (
@@ -671,7 +781,7 @@ _DATA_PROMPT_TEMPLATE = (
     '  CONC. MIX    (e.g. "M25", "M30")\n'
     '  VERT. REINF. (e.g. "4-20 TOR + 12-16 TOR", "49-25 TOR", "8-16 TOR")\n'
     '  RING         (e.g. "8 TOR 15 @ 75 + @ 150 + 15 @ 75 C/C, 4 SETS + 1 LINK")\n\n'
-    'Return ONLY a JSON object with these exact keys:\n'
+    "Return ONLY a JSON object with these exact keys:\n"
     '{{"SIZE":"...","CONC_MIX":"...","VERT_REINF":"...","RING":"..."}}\n'
     'Use "---" for any field that is genuinely not visible or unreadable.'
 )
@@ -685,7 +795,7 @@ _COMBINED_PROMPT_TEMPLATE = (
     '  CONC. MIX    (e.g. "M25", "M30")\n'
     '  VERT. REINF. (e.g. "49-25 TOR", "14-20 TOR + 6-16 TOR")\n'
     '  RING         (e.g. "10 TOR 15 @ 75 + @ 115 + 15 @ 75 C/C, 9 SETS + 9 LINKS")\n\n'
-    'Return ONLY a JSON object:\n'
+    "Return ONLY a JSON object:\n"
     '{{"SIZE":"...","CONC_MIX":"...","VERT_REINF":"...","RING":"..."}}\n'
     'Use "---" for any field that is not visible or clearly unreadable.'
 )
@@ -694,7 +804,7 @@ _COMBINED_PROMPT_TEMPLATE = (
 def _parse_json_response(text: str) -> dict:
     """Extract the first JSON object from a vision-model response."""
     try:
-        m = re.search(r'\{[^{}]+\}', text, re.DOTALL)
+        m = re.search(r"\{[^{}]+\}", text, re.DOTALL)
         if m:
             return json.loads(m.group())
     except (json.JSONDecodeError, AttributeError):
@@ -728,12 +838,13 @@ def _is_empty(cell_data: dict) -> bool:
 # §6  Output JSON Parsers
 # ══════════════════════════════════════════════════════════════════════════════
 
+
 def parse_size(raw: str) -> dict:
     empty = {"width": None, "depth": None, "length": None}
     if not raw or raw.strip() in ("---", "", "N/A", "n/a"):
         return empty
-    parts = re.split(r'\s*[xX×]\s*', raw.strip())
-    nums  = []
+    parts = re.split(r"\s*[xX×]\s*", raw.strip())
+    nums = []
     for p in parts:
         try:
             nums.append(int(float(p.strip())))
@@ -750,15 +861,15 @@ def parse_reinforcement(raw: str) -> list:
     if not raw or raw.strip() in ("---", ""):
         return []
     result = []
-    for part in re.split(r'\s*\+\s*', raw.strip()):
+    for part in re.split(r"\s*\+\s*", raw.strip()):
         part = part.strip()
         if not part:
             continue
-        m = re.match(r'(\d+)\s*[-–]\s*(\d+)\s*(?:TOR|T)\b', part, re.IGNORECASE)
+        m = re.match(r"(\d+)\s*[-–]\s*(\d+)\s*(?:TOR|T)\b", part, re.IGNORECASE)
         if m:
             result.append(f"{m.group(1)}-{m.group(2)}T")
         else:
-            nums = re.findall(r'\d+', part)
+            nums = re.findall(r"\d+", part)
             if len(nums) >= 2:
                 result.append(f"{nums[0]}-{nums[1]}T")
     return result
@@ -769,21 +880,21 @@ def parse_stirrups(raw: str) -> dict:
     if not raw or raw.strip() in ("---", ""):
         return empty
     # Primary pattern: "8 TOR 15 @ 75 C/C" — both bar-size AND count present
-    primary = re.findall(r'(\d+)\s*(?:TOR|T)\s*(\d+)', raw, re.IGNORECASE)
+    primary = re.findall(r"(\d+)\s*(?:TOR|T)\s*(\d+)", raw, re.IGNORECASE)
     dias = [f"{m[0]}-T{m[1]}" for m in primary]
 
     # Fallback pattern: "8 TOR @ 125 C/C" — bar-size only, no count after TOR
     # Only fires when the primary pattern found nothing, so there is no double-counting.
     if not dias:
-        fallback = re.findall(r'(\d+)\s*TOR\b(?!\s*\d)', raw, re.IGNORECASE)
+        fallback = re.findall(r"(\d+)\s*TOR\b(?!\s*\d)", raw, re.IGNORECASE)
         dias = [f"T{d}" for d in fallback]
-    seen: set      = set()
+    seen: set = set()
     spacings: list = []
-    for n in re.findall(r'(\d+)\s*C/C', raw, re.IGNORECASE):
+    for n in re.findall(r"(\d+)\s*C/C", raw, re.IGNORECASE):
         if n not in seen:
             spacings.append(f"{n} C/C")
             seen.add(n)
-    for n in re.findall(r'@\s*(\d+)', raw):
+    for n in re.findall(r"@\s*(\d+)", raw):
         if n not in seen:
             spacings.append(f"{n} C/C")
             seen.add(n)
@@ -794,13 +905,13 @@ def _build_entry(clabel: str, flabel: str, raw: dict, _to_key) -> dict:
     """Convert raw vision-API dict into the final flat JSON entry."""
     mix_raw = raw.get("CONC_MIX", "---")
     return {
-        "column_no":     clabel,
-        "column_name":   _to_key(flabel),
-        "size":          parse_size(raw.get("SIZE", "---")),
+        "column_no": clabel,
+        "column_name": _to_key(flabel),
+        "size": parse_size(raw.get("SIZE", "---")),
         "reinforcement": parse_reinforcement(raw.get("VERT_REINF", "---")),
-        "stirrups":      parse_stirrups(raw.get("RING", "---")),
-        "mix":           mix_raw if mix_raw and mix_raw != "---" else None,
-        "steel_grade":   None,
+        "stirrups": parse_stirrups(raw.get("RING", "---")),
+        "mix": mix_raw if mix_raw and mix_raw != "---" else None,
+        "steel_grade": None,
     }
 
 
@@ -808,17 +919,20 @@ def _build_entry(clabel: str, flabel: str, raw: dict, _to_key) -> dict:
 # §7  Debug Overlay  (optional)
 # ══════════════════════════════════════════════════════════════════════════════
 
-def save_debug_overlay(img:         Image.Image,
-                        h_grid:      list,
-                        v_grid:      list,
-                        header_band: tuple,
-                        label_band:  tuple,
-                        out_path:    str) -> None:
+
+def save_debug_overlay(
+    img: Image.Image,
+    h_grid: list,
+    v_grid: list,
+    header_band: tuple,
+    label_band: tuple,
+    out_path: str,
+) -> None:
     """Save a colour-coded grid-overlay PNG for inspection."""
-    W, H    = img.size
-    rgba    = img.convert("RGBA")
+    W, H = img.size
+    rgba = img.convert("RGBA")
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    dr      = ImageDraw.Draw(overlay)
+    dr = ImageDraw.Draw(overlay)
 
     for y in h_grid:
         dr.line([(0, y), (W, y)], fill=(0, 220, 0, 200), width=3)
@@ -839,11 +953,14 @@ def save_debug_overlay(img:         Image.Image,
 # §8  Main Pipeline
 # ══════════════════════════════════════════════════════════════════════════════
 
-def extract_column_schedule(pdf_path:    str,
-                             output_path: str  = "output.json",
-                             dpi:         int  = 600,
-                             upscale:     int  = 2,
-                             debug:       bool = False) -> dict:
+
+def extract_column_schedule(
+    pdf_path: str,
+    output_path: str = "output.json",
+    dpi: int = 600,
+    upscale: int = 2,
+    debug: bool = False,
+) -> dict:
     """
     Fully generalized extraction pipeline for structural-engineering
     column schedule PDFs.
@@ -855,7 +972,7 @@ def extract_column_schedule(pdf_path:    str,
 
     # ── Step 1 : Render ───────────────────────────────────────────────────────
     print(f"\n[1/6] Rendering '{Path(pdf_path).name}' at {dpi} DPI …")
-    img  = pdf_to_image(pdf_path, dpi=dpi)
+    img = pdf_to_image(pdf_path, dpi=dpi)
     W, H = img.size
     print(f"       Image: {W} × {H} px")
 
@@ -863,32 +980,32 @@ def extract_column_schedule(pdf_path:    str,
     print("[2/6] Detecting horizontal grid lines (adaptive threshold) …")
 
     H_THRESHOLDS = [0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.50]
-    min_floor_h  = H / 25
-    max_floor_h  = H / 2
+    min_floor_h = H / 25
+    max_floor_h = H / 2
 
-    h_all      = []
-    h_grid     = []
+    h_all = []
+    h_grid = []
     chosen_thr = H_THRESHOLDS[0]
 
     for h_thr in H_THRESHOLDS:
         h_raw, _ = detect_lines(img, h_thr=h_thr, v_thr=0.0, min_dist=30)
-        cand_all  = cluster_lines(sorted(h_raw))
+        cand_all = cluster_lines(sorted(h_raw))
 
         if len(cand_all) < 4:
             h_all = cand_all
             continue
 
         cand_grid = find_best_grid(cand_all, min_rows=3, tolerance=0.35)
-        n_cand    = len(cand_grid) - 1
+        n_cand = len(cand_grid) - 1
 
         if n_cand < 3:
-            h_all  = cand_all
+            h_all = cand_all
             h_grid = cand_grid
             continue
 
-        avg_h      = (cand_grid[-1] - cand_grid[0]) / n_cand
-        h_all      = cand_all
-        h_grid     = cand_grid
+        avg_h = (cand_grid[-1] - cand_grid[0]) / n_cand
+        h_all = cand_all
+        h_grid = cand_grid
         chosen_thr = h_thr
 
         if min_floor_h <= avg_h <= max_floor_h:
@@ -902,13 +1019,13 @@ def extract_column_schedule(pdf_path:    str,
     # Any line in h_all that sits within 1.5× the median row height below
     # h_grid[-1] is appended — fully generalised, no names hard-coded.
     if len(h_grid) >= 2:
-        med_row_h = float(np.median(
-            [h_grid[i + 1] - h_grid[i] for i in range(len(h_grid) - 1)]
-        ))
+        med_row_h = float(
+            np.median([h_grid[i + 1] - h_grid[i] for i in range(len(h_grid) - 1)])
+        )
         extra_below = sorted(
-            y for y in h_all
-            if h_grid[-1] < y <= h_grid[-1] + med_row_h * 1.5
-            and y not in h_grid
+            y
+            for y in h_all
+            if h_grid[-1] < y <= h_grid[-1] + med_row_h * 1.5 and y not in h_grid
         )
         if extra_below:
             print(
@@ -934,10 +1051,13 @@ def extract_column_schedule(pdf_path:    str,
     print("[4/6] Detecting vertical grid lines within table …")
     _, v_raw = detect_lines(
         img,
-        y0=h_grid[0], y1=h_grid[-1],
-        h_thr=0.0, v_thr=0.20, min_dist=30,
+        y0=h_grid[0],
+        y1=h_grid[-1],
+        h_thr=0.0,
+        v_thr=0.20,
+        min_dist=30,
     )
-    v_all  = cluster_lines(sorted(v_raw))
+    v_all = cluster_lines(sorted(v_raw))
     v_core = find_regular_grid(v_all, tolerance=0.40)
     # max_extra_multiplier=2.0 prevents distant border/legend lines from being
     # counted as extra data columns (was 4.0 which over-detected on wide PDFs).
@@ -952,18 +1072,18 @@ def extract_column_schedule(pdf_path:    str,
         )
 
     # ── Step 5a : Identify label column and column-header row ─────────────────
-    typical_col_width   = float(np.median(
-        [v_grid[i + 1] - v_grid[i] for i in range(len(v_grid) - 1)]
-    ))
+    typical_col_width = float(
+        np.median([v_grid[i + 1] - v_grid[i] for i in range(len(v_grid) - 1)])
+    )
     label_col_threshold = int(typical_col_width * 0.5)
 
     if v_grid[0] <= label_col_threshold:
-        label_x0   = v_grid[0]
-        label_x1   = v_grid[1]
+        label_x0 = v_grid[0]
+        label_x1 = v_grid[1]
         data_col_x = v_grid[1:]
     else:
-        label_x1   = v_grid[0]
-        label_x0   = max(0, label_x1 - int(typical_col_width * 2.0))
+        label_x1 = v_grid[0]
+        label_x0 = max(0, label_x1 - int(typical_col_width * 2.0))
         data_col_x = v_grid
 
     n_cols = len(data_col_x) - 1
@@ -975,7 +1095,9 @@ def extract_column_schedule(pdf_path:    str,
     above_h = [y for y in h_all if y < h_grid[0]]
     below_h = [y for y in h_all if y > h_grid[-1]]
 
-    header_y0 = above_h[-1] if above_h else max(0, h_grid[0] - (h_grid[1] - h_grid[0]) // 2)
+    header_y0 = (
+        above_h[-1] if above_h else max(0, h_grid[0] - (h_grid[1] - h_grid[0]) // 2)
+    )
     header_y1 = h_grid[0]
 
     footer_y0 = h_grid[-1] if below_h else None
@@ -989,9 +1111,11 @@ def extract_column_schedule(pdf_path:    str,
     if debug:
         dbg_path = str(Path(output_path).with_suffix(".debug.png"))
         save_debug_overlay(
-            img, h_grid, v_grid,
+            img,
+            h_grid,
+            v_grid,
             (header_y0, header_y1),
-            (label_x0,  label_x1),
+            (label_x0, label_x1),
             dbg_path,
         )
 
@@ -1016,10 +1140,16 @@ def extract_column_schedule(pdf_path:    str,
 
         none_count = sum(1 for lb in labels if lb is None)
         if none_count:
-            print(f"         Strip call: {none_count} slot(s) unresolved → per-cell retry")
+            print(
+                f"         Strip call: {none_count} slot(s) unresolved → per-cell retry"
+            )
             per_cell = extract_col_labels(client, img, y0, y1, data_col_x, upscale)
             for idx in range(n_cols):
-                if labels[idx] is None and idx < len(per_cell) and per_cell[idx] is not None:
+                if (
+                    labels[idx] is None
+                    and idx < len(per_cell)
+                    and per_cell[idx] is not None
+                ):
                     labels[idx] = per_cell[idx]
 
         labels = _repair_col_sequence(labels)
@@ -1055,14 +1185,20 @@ def extract_column_schedule(pdf_path:    str,
             print("       Footer wins: fewer fallbacks — using footer labels.")
             col_labels, fallback_count = footer_labels, footer_fb
         elif footer_fb == fallback_count and score_f >= score_h:
-            print("       Footer wins: equal fallbacks, ≥ sequence score — using footer labels.")
+            print(
+                "       Footer wins: equal fallbacks, ≥ sequence score — using footer labels."
+            )
             col_labels, fallback_count = footer_labels, footer_fb
         elif score_f > score_h + 1:
-            print("       Footer wins: clearly better sequence score — using footer labels.")
+            print(
+                "       Footer wins: clearly better sequence score — using footer labels."
+            )
             col_labels, fallback_count = footer_labels, footer_fb
         else:
-            print(f"       Header kept (score={score_h} ≥ footer={score_f}, "
-                  f"fb={fallback_count} ≤ {footer_fb}).")
+            print(
+                f"       Header kept (score={score_h} ≥ footer={score_f}, "
+                f"fb={fallback_count} ≤ {footer_fb})."
+            )
 
     # ── Step 5c : Extract and validate floor labels ───────────────────────────
     raw_floor_labels = extract_floor_labels(
@@ -1084,7 +1220,7 @@ def extract_column_schedule(pdf_path:    str,
     # data grid in case the label row was labelled SKIP but contains real labels.
     fallback_count = sum(1 for lb in col_labels if lb.startswith("COL_"))
     if fallback_count > n_cols // 2 and row_bounds:
-        last_valid_y1  = row_bounds[-1][1]
+        last_valid_y1 = row_bounds[-1][1]
         skipped_bottom = [
             (h_grid[i], h_grid[i + 1])
             for i, lbl in enumerate(raw_floor_labels)
@@ -1093,8 +1229,10 @@ def extract_column_schedule(pdf_path:    str,
         for sy0, sy1 in skipped_bottom:
             skip_labels, skip_fb = _attempt_col_labels(sy0, sy1, f"skip-row@{sy0}")
             if skip_fb < fallback_count:
-                print(f"       SKIP row better ({skip_fb}) — using it as column source.")
-                col_labels     = skip_labels
+                print(
+                    f"       SKIP row better ({skip_fb}) — using it as column source."
+                )
+                col_labels = skip_labels
                 fallback_count = skip_fb
                 break
 
@@ -1110,8 +1248,8 @@ def extract_column_schedule(pdf_path:    str,
 
     result = {
         "document": Path(pdf_path).name,
-        "title":    "Column Schedule",
-        "columns":  [],
+        "title": "Column Schedule",
+        "columns": [],
     }
 
     seen_entries: set = set()
@@ -1154,19 +1292,45 @@ def extract_column_schedule(pdf_path:    str,
         y0, y1 = row_bounds[r]
         flabel = floor_labels[r]
 
-        row_cells: list[dict] = []
+        # ── Parallel cell extraction (cap = MAX_CELL_WORKERS) ────────────
+        # Crop every cell up-front (CPU-bound, fast), then submit all
+        # vision calls to a thread pool. Results are stored by column
+        # index so row_cells preserves left-to-right order regardless of
+        # completion order.
+        cell_inputs = []
         for c in range(n_cols):
             x0, x1 = data_col_x[c], data_col_x[c + 1]
-            clabel  = col_labels[c]
-            cell    = _crop_upscale(img, x0, y0, x1, y1, upscale)
-            done   += 1
-            print(
-                f"       [{done:>3}/{total}]  {flabel} / {clabel} …",
-                end=" ", flush=True,
-            )
+            clabel = col_labels[c]
+            cell = _crop_upscale(img, x0, y0, x1, y1, upscale)
+            cell_inputs.append((c, clabel, cell))
+
+        row_cells: list[dict] = [None] * n_cols
+
+        def _extract_one(item):
+            c, clabel, cell = item
             raw = extract_data_cell(client, cell, flabel, clabel)
-            print("✓")
-            row_cells.append(raw)
+            return c, clabel, raw
+
+        with ThreadPoolExecutor(max_workers=MAX_CELL_WORKERS) as ex:
+            futures = {ex.submit(_extract_one, item): item for item in cell_inputs}
+            for future in as_completed(futures):
+                try:
+                    c, clabel, raw = future.result()
+                    row_cells[c] = raw
+                    done += 1
+                    print(
+                        f"       [{done:>3}/{total}]  {flabel} / {clabel} ✓",
+                        flush=True,
+                    )
+                except Exception as exc:
+                    item = futures[future]
+                    c, clabel, _ = item
+                    row_cells[c] = {}
+                    done += 1
+                    print(
+                        f"       [{done:>3}/{total}]  {flabel} / {clabel} ✗ ({exc})",
+                        flush=True,
+                    )
 
         # Combined-row detection: >50 % empty cells → full-width re-read
         empty_count = sum(1 for d in row_cells if _is_empty(d))
@@ -1174,7 +1338,8 @@ def extract_column_schedule(pdf_path:    str,
             print(
                 f"       ↳ {empty_count}/{n_cols} empty — "
                 f"COMBINED row detected; re-reading full width …",
-                end=" ", flush=True,
+                end=" ",
+                flush=True,
             )
             full_row = _crop_upscale(
                 img, data_col_x[0], y0, data_col_x[-1], y1, upscale
@@ -1182,15 +1347,19 @@ def extract_column_schedule(pdf_path:    str,
             combined = extract_combined_row(client, full_row, flabel)
             print("✓")
             if not _is_empty(combined):
-                print(f"       ↳ Combined read succeeded — broadcasting to all {n_cols} columns.")
+                print(
+                    f"       ↳ Combined read succeeded — broadcasting to all {n_cols} columns."
+                )
                 row_cells = [combined] * n_cols
             else:
-                print(f"       ↳ Combined read also empty — keeping individual results.")
+                print(
+                    f"       ↳ Combined read also empty — keeping individual results."
+                )
 
         floor_key = _to_key(flabel)
         row_entries = []
         for c, raw in enumerate(row_cells):
-            clabel    = col_labels[c]
+            clabel = col_labels[c]
             entry_key = (floor_key, clabel)
             if entry_key in seen_entries:
                 continue
@@ -1224,6 +1393,7 @@ def extract_column_schedule(pdf_path:    str,
 # §9  CLI  —  run as:  python src/main_11.py
 # ══════════════════════════════════════════════════════════════════════════════
 
+
 def _build_output_path(pdf_path: str, output_dir: str) -> str:
     """Return output JSON path: <output_dir>/<pdf_stem>/<pdf_stem>.json
 
@@ -1234,7 +1404,9 @@ def _build_output_path(pdf_path: str, output_dir: str) -> str:
     return os.path.join(output_dir, stem, f"{stem}.json")
 
 
-def process_pdf(pdf_path: str, dpi: int = 600, upscale: int = 2, debug: bool = False) -> dict:
+def process_pdf(
+    pdf_path: str, dpi: int = 600, upscale: int = 2, debug: bool = False
+) -> dict:
     """auto_runner entry point. Wraps extract_column_schedule with the
     standard output path: <OUTPUT_DIR>/<pdf_stem>/<pdf_stem>.json."""
     output_path = _build_output_path(pdf_path, OUTPUT_DIR)
@@ -1275,19 +1447,33 @@ if __name__ == "__main__":
         default=OUTPUT_DIR,
         help=f"Folder where JSON results are written  (default: {OUTPUT_DIR})",
     )
-    ap.add_argument("--dpi",     type=int, default=600,
-                    help="PDF render resolution (600 recommended minimum)")
-    ap.add_argument("--upscale", type=int, default=2,
-                    help="Per-cell upscale factor (higher = better OCR, slower)")
-    ap.add_argument("--debug",   action="store_true",
-                    help="Save a colour-coded grid-overlay PNG for each PDF")
+    ap.add_argument(
+        "--dpi",
+        type=int,
+        default=600,
+        help="PDF render resolution (600 recommended minimum)",
+    )
+    ap.add_argument(
+        "--upscale",
+        type=int,
+        default=2,
+        help="Per-cell upscale factor (higher = better OCR, slower)",
+    )
+    ap.add_argument(
+        "--debug",
+        action="store_true",
+        help="Save a colour-coded grid-overlay PNG for each PDF",
+    )
     args = ap.parse_args()
 
     # ── Resolve list of PDFs to process ──────────────────────────────────────
     if args.pdf:
         # Single file: accept bare name (looked up in input dir) or full path
-        candidate = args.pdf if os.path.isabs(args.pdf) else \
-                    os.path.join(args.input_dir, args.pdf)
+        candidate = (
+            args.pdf
+            if os.path.isabs(args.pdf)
+            else os.path.join(args.input_dir, args.pdf)
+        )
         if not os.path.isfile(candidate):
             print(f"ERROR: PDF not found → {candidate}", file=sys.stderr)
             sys.exit(1)
@@ -1296,7 +1482,9 @@ if __name__ == "__main__":
         # Batch mode: all PDFs in the input folder
         pdf_files = sorted(Path(args.input_dir).glob("*.pdf"))
         if not pdf_files:
-            print(f"No PDF files found in input folder: {args.input_dir}", file=sys.stderr)
+            print(
+                f"No PDF files found in input folder: {args.input_dir}", file=sys.stderr
+            )
             sys.exit(1)
         pdf_files = [str(p) for p in pdf_files]
 
@@ -1317,11 +1505,11 @@ if __name__ == "__main__":
         print(f"\n▶  Processing: {Path(pdf_path).name}  →  {Path(out_path).name}")
         try:
             extract_column_schedule(
-                pdf_path    = pdf_path,
-                output_path = out_path,
-                dpi         = args.dpi,
-                upscale     = args.upscale,
-                debug       = args.debug,
+                pdf_path=pdf_path,
+                output_path=out_path,
+                dpi=args.dpi,
+                upscale=args.upscale,
+                debug=args.debug,
             )
             success.append(Path(pdf_path).name)
         except Exception as exc:

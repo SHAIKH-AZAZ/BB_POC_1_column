@@ -5,14 +5,14 @@
     "page_1.png__p01_page": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-8\\page_1.png",
-      "generated_at": "2026-05-27T12:22:45.880394+00:00",
+      "generated_at": "2026-05-28T09:22:54.392738+00:00",
       "think": {
-        "image_quality": "good",
+        "image_quality": "high",
         "table_bounds": {
           "x1": 0,
           "y1": 0,
           "x2": 2480,
-          "y2": 1750
+          "y2": 1600
         },
         "column_headers": [
           "CP1",
@@ -74,9 +74,9 @@
             "purpose": "data_cell",
             "target": "CP2 COL. SIZE",
             "x1": 1800,
-            "y1": 450,
+            "y1": 400,
             "x2": 1900,
-            "y2": 500,
+            "y2": 450,
             "reason": "read size 600X600"
           },
           {
@@ -84,9 +84,9 @@
             "purpose": "data_cell",
             "target": "CP2 VER. STEEL",
             "x1": 1900,
-            "y1": 500,
+            "y1": 450,
             "x2": 2000,
-            "y2": 550,
+            "y2": 500,
             "reason": "read reinforcement 4-25 TOR + 8-20 TOR"
           },
           {
@@ -94,9 +94,9 @@
             "purpose": "data_cell",
             "target": "CP2 COL. RING",
             "x1": 2000,
-            "y1": 500,
+            "y1": 450,
             "x2": 2100,
-            "y2": 550,
+            "y2": 500,
             "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
           },
           {
@@ -104,9 +104,9 @@
             "purpose": "data_cell",
             "target": "CP2 MIX",
             "x1": 2100,
-            "y1": 500,
+            "y1": 450,
             "x2": 2150,
-            "y2": 550,
+            "y2": 500,
             "reason": "read mix M25"
           },
           {
@@ -114,9 +114,9 @@
             "purpose": "data_cell",
             "target": "CP3 COL. SIZE",
             "x1": 1800,
-            "y1": 600,
+            "y1": 500,
             "x2": 1900,
-            "y2": 650,
+            "y2": 550,
             "reason": "read size 600X600"
           },
           {
@@ -124,9 +124,9 @@
             "purpose": "data_cell",
             "target": "CP3 VER. STEEL",
             "x1": 1900,
-            "y1": 650,
+            "y1": 550,
             "x2": 2000,
-            "y2": 700,
+            "y2": 600,
             "reason": "read reinforcement 12-20 TOR"
           },
           {
@@ -134,9 +134,9 @@
             "purpose": "data_cell",
             "target": "CP3 COL. RING",
             "x1": 2000,
-            "y1": 650,
+            "y1": 550,
             "x2": 2100,
-            "y2": 700,
+            "y2": 600,
             "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
           },
           {
@@ -144,9 +144,9 @@
             "purpose": "data_cell",
             "target": "CP3 MIX",
             "x1": 2100,
-            "y1": 650,
+            "y1": 550,
             "x2": 2150,
-            "y2": 700,
+            "y2": 600,
             "reason": "read mix M25"
           },
           {
@@ -154,9 +154,9 @@
             "purpose": "data_cell",
             "target": "CP4 COL. SIZE",
             "x1": 1800,
-            "y1": 750,
+            "y1": 600,
             "x2": 1900,
-            "y2": 800,
+            "y2": 650,
             "reason": "read size 600X600"
           },
           {
@@ -164,9 +164,9 @@
             "purpose": "data_cell",
             "target": "CP4 VER. STEEL",
             "x1": 1900,
-            "y1": 800,
+            "y1": 650,
             "x2": 2000,
-            "y2": 850,
+            "y2": 700,
             "reason": "read reinforcement 16-25 TOR"
           },
           {
@@ -174,9 +174,9 @@
             "purpose": "data_cell",
             "target": "CP4 COL. RING",
             "x1": 2000,
-            "y1": 800,
+            "y1": 650,
             "x2": 2100,
-            "y2": 850,
+            "y2": 700,
             "reason": "read stirrups 10 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
           },
           {
@@ -184,9 +184,9 @@
             "purpose": "data_cell",
             "target": "CP4 MIX",
             "x1": 2100,
-            "y1": 800,
+            "y1": 650,
             "x2": 2150,
-            "y2": 850,
+            "y2": 700,
             "reason": "read mix M25"
           },
           {
@@ -194,9 +194,9 @@
             "purpose": "data_cell",
             "target": "CP5 COL. SIZE",
             "x1": 1800,
-            "y1": 900,
+            "y1": 700,
             "x2": 1900,
-            "y2": 950,
+            "y2": 750,
             "reason": "read size 600X600"
           },
           {
@@ -204,9 +204,9 @@
             "purpose": "data_cell",
             "target": "CP5 VER. STEEL",
             "x1": 1900,
-            "y1": 950,
+            "y1": 750,
             "x2": 2000,
-            "y2": 1000,
+            "y2": 800,
             "reason": "read reinforcement 6-20 TOR + 6-16 TOR"
           },
           {
@@ -214,9 +214,9 @@
             "purpose": "data_cell",
             "target": "CP5 COL. RING",
             "x1": 2000,
-            "y1": 950,
+            "y1": 750,
             "x2": 2100,
-            "y2": 1000,
+            "y2": 800,
             "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
           },
           {
@@ -224,9 +224,9 @@
             "purpose": "data_cell",
             "target": "CP5 MIX",
             "x1": 2100,
-            "y1": 950,
+            "y1": 750,
             "x2": 2150,
-            "y2": 1000,
+            "y2": 800,
             "reason": "read mix M25"
           },
           {
@@ -234,9 +234,9 @@
             "purpose": "data_cell",
             "target": "CP6 COL. SIZE",
             "x1": 1800,
-            "y1": 1050,
+            "y1": 800,
             "x2": 1900,
-            "y2": 1100,
+            "y2": 850,
             "reason": "read size 600X600"
           },
           {
@@ -244,9 +244,9 @@
             "purpose": "data_cell",
             "target": "CP6 VER. STEEL",
             "x1": 1900,
-            "y1": 1100,
+            "y1": 850,
             "x2": 2000,
-            "y2": 1150,
+            "y2": 900,
             "reason": "read reinforcement 4-20 TOR + 8-16 TOR"
           },
           {
@@ -254,9 +254,9 @@
             "purpose": "data_cell",
             "target": "CP6 COL. RING",
             "x1": 2000,
-            "y1": 1100,
+            "y1": 850,
             "x2": 2100,
-            "y2": 1150,
+            "y2": 900,
             "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
           },
           {
@@ -264,9 +264,9 @@
             "purpose": "data_cell",
             "target": "CP6 MIX",
             "x1": 2100,
-            "y1": 1100,
+            "y1": 850,
             "x2": 2150,
-            "y2": 1150,
+            "y2": 900,
             "reason": "read mix M25"
           },
           {
@@ -274,9 +274,9 @@
             "purpose": "data_cell",
             "target": "CP7 COL. SIZE",
             "x1": 1800,
-            "y1": 1200,
+            "y1": 900,
             "x2": 1900,
-            "y2": 1250,
+            "y2": 950,
             "reason": "read size 600X600"
           },
           {
@@ -284,9 +284,9 @@
             "purpose": "data_cell",
             "target": "CP7 VER. STEEL",
             "x1": 1900,
-            "y1": 1250,
+            "y1": 950,
             "x2": 2000,
-            "y2": 1300,
+            "y2": 1000,
             "reason": "read reinforcement 4-20 TOR + 8-16 TOR"
           },
           {
@@ -294,9 +294,9 @@
             "purpose": "data_cell",
             "target": "CP7 COL. RING",
             "x1": 2000,
-            "y1": 1250,
+            "y1": 950,
             "x2": 2100,
-            "y2": 1300,
+            "y2": 1000,
             "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
           },
           {
@@ -304,9 +304,9 @@
             "purpose": "data_cell",
             "target": "CP7 MIX",
             "x1": 2100,
-            "y1": 1250,
+            "y1": 950,
             "x2": 2150,
-            "y2": 1300,
+            "y2": 1000,
             "reason": "read mix M25"
           },
           {
@@ -314,9 +314,9 @@
             "purpose": "data_cell",
             "target": "CP8 COL. SIZE",
             "x1": 1800,
-            "y1": 1350,
+            "y1": 1000,
             "x2": 1900,
-            "y2": 1400,
+            "y2": 1050,
             "reason": "read size 350X600"
           },
           {
@@ -324,9 +324,9 @@
             "purpose": "data_cell",
             "target": "CP8 VER. STEEL",
             "x1": 1900,
-            "y1": 1400,
+            "y1": 1050,
             "x2": 2000,
-            "y2": 1450,
+            "y2": 1100,
             "reason": "read reinforcement 12-16 TOR"
           },
           {
@@ -334,9 +334,9 @@
             "purpose": "data_cell",
             "target": "CP8 COL. RING",
             "x1": 2000,
-            "y1": 1400,
+            "y1": 1050,
             "x2": 2100,
-            "y2": 1450,
+            "y2": 1100,
             "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
           },
           {
@@ -344,20 +344,19 @@
             "purpose": "data_cell",
             "target": "CP8 MIX",
             "x1": 2100,
-            "y1": 1400,
+            "y1": 1050,
             "x2": 2150,
-            "y2": 1450,
+            "y2": 1100,
             "reason": "read mix M25"
           }
         ],
         "normalization_rules": [
-          "Remove bullet or circle markers from reinforcement",
+          "Remove bullet symbols • or ○ from reinforcement",
           "Replace 'TOR' with 'T' in reinforcement",
-          "Extract size as width x length, depth is null",
-          "Extract stirrup dia as number before 'TOR' and count after it, format as 'dia-Tdia'",
-          "Extract stirrup spacing as comma separated values with 'C/C' suffix",
-          "Ignore notes like SETS and LINKS in stirrups",
-          "Reinforcement is never empty"
+          "Format stirrup dia as '8-T8' or '10-T8'",
+          "Extract spacing values as comma-separated ascending with 'C/C'",
+          "Size format WIDTHxLENGTH, depth always null",
+          "Reinforcement split by '+' into separate list items"
         ],
         "extraction_order": [
           "CP1",
@@ -370,490 +369,8 @@
           "CP8"
         ]
       },
-      "zoom_regions": [
-        {
-          "region_id": "r1",
-          "purpose": "data_cell",
-          "x1": 1800.0,
-          "y1": 300.0,
-          "x2": 1900.0,
-          "y2": 350.0,
-          "reason": "read size 600X600"
-        },
-        {
-          "region_id": "r2",
-          "purpose": "data_cell",
-          "x1": 1900.0,
-          "y1": 350.0,
-          "x2": 2000.0,
-          "y2": 400.0,
-          "reason": "read reinforcement 12-20 TOR"
-        },
-        {
-          "region_id": "r3",
-          "purpose": "data_cell",
-          "x1": 2000.0,
-          "y1": 350.0,
-          "x2": 2100.0,
-          "y2": 400.0,
-          "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
-        },
-        {
-          "region_id": "r4",
-          "purpose": "data_cell",
-          "x1": 2100.0,
-          "y1": 350.0,
-          "x2": 2150.0,
-          "y2": 400.0,
-          "reason": "read mix M25"
-        },
-        {
-          "region_id": "r5",
-          "purpose": "data_cell",
-          "x1": 1800.0,
-          "y1": 450.0,
-          "x2": 1900.0,
-          "y2": 500.0,
-          "reason": "read size 600X600"
-        },
-        {
-          "region_id": "r6",
-          "purpose": "data_cell",
-          "x1": 1900.0,
-          "y1": 500.0,
-          "x2": 2000.0,
-          "y2": 550.0,
-          "reason": "read reinforcement 4-25 TOR + 8-20 TOR"
-        },
-        {
-          "region_id": "r7",
-          "purpose": "data_cell",
-          "x1": 2000.0,
-          "y1": 500.0,
-          "x2": 2100.0,
-          "y2": 550.0,
-          "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
-        },
-        {
-          "region_id": "r8",
-          "purpose": "data_cell",
-          "x1": 2100.0,
-          "y1": 500.0,
-          "x2": 2150.0,
-          "y2": 550.0,
-          "reason": "read mix M25"
-        },
-        {
-          "region_id": "r9",
-          "purpose": "data_cell",
-          "x1": 1800.0,
-          "y1": 600.0,
-          "x2": 1900.0,
-          "y2": 650.0,
-          "reason": "read size 600X600"
-        },
-        {
-          "region_id": "r10",
-          "purpose": "data_cell",
-          "x1": 1900.0,
-          "y1": 650.0,
-          "x2": 2000.0,
-          "y2": 700.0,
-          "reason": "read reinforcement 12-20 TOR"
-        },
-        {
-          "region_id": "r11",
-          "purpose": "data_cell",
-          "x1": 2000.0,
-          "y1": 650.0,
-          "x2": 2100.0,
-          "y2": 700.0,
-          "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
-        },
-        {
-          "region_id": "r12",
-          "purpose": "data_cell",
-          "x1": 2100.0,
-          "y1": 650.0,
-          "x2": 2150.0,
-          "y2": 700.0,
-          "reason": "read mix M25"
-        },
-        {
-          "region_id": "r13",
-          "purpose": "data_cell",
-          "x1": 1800.0,
-          "y1": 750.0,
-          "x2": 1900.0,
-          "y2": 800.0,
-          "reason": "read size 600X600"
-        },
-        {
-          "region_id": "r14",
-          "purpose": "data_cell",
-          "x1": 1900.0,
-          "y1": 800.0,
-          "x2": 2000.0,
-          "y2": 850.0,
-          "reason": "read reinforcement 16-25 TOR"
-        },
-        {
-          "region_id": "r15",
-          "purpose": "data_cell",
-          "x1": 2000.0,
-          "y1": 800.0,
-          "x2": 2100.0,
-          "y2": 850.0,
-          "reason": "read stirrups 10 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
-        },
-        {
-          "region_id": "r16",
-          "purpose": "data_cell",
-          "x1": 2100.0,
-          "y1": 800.0,
-          "x2": 2150.0,
-          "y2": 850.0,
-          "reason": "read mix M25"
-        },
-        {
-          "region_id": "r17",
-          "purpose": "data_cell",
-          "x1": 1800.0,
-          "y1": 900.0,
-          "x2": 1900.0,
-          "y2": 950.0,
-          "reason": "read size 600X600"
-        },
-        {
-          "region_id": "r18",
-          "purpose": "data_cell",
-          "x1": 1900.0,
-          "y1": 950.0,
-          "x2": 2000.0,
-          "y2": 1000.0,
-          "reason": "read reinforcement 6-20 TOR + 6-16 TOR"
-        },
-        {
-          "region_id": "r19",
-          "purpose": "data_cell",
-          "x1": 2000.0,
-          "y1": 950.0,
-          "x2": 2100.0,
-          "y2": 1000.0,
-          "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
-        },
-        {
-          "region_id": "r20",
-          "purpose": "data_cell",
-          "x1": 2100.0,
-          "y1": 950.0,
-          "x2": 2150.0,
-          "y2": 1000.0,
-          "reason": "read mix M25"
-        },
-        {
-          "region_id": "r21",
-          "purpose": "data_cell",
-          "x1": 1800.0,
-          "y1": 1050.0,
-          "x2": 1900.0,
-          "y2": 1100.0,
-          "reason": "read size 600X600"
-        },
-        {
-          "region_id": "r22",
-          "purpose": "data_cell",
-          "x1": 1900.0,
-          "y1": 1100.0,
-          "x2": 2000.0,
-          "y2": 1150.0,
-          "reason": "read reinforcement 4-20 TOR + 8-16 TOR"
-        },
-        {
-          "region_id": "r23",
-          "purpose": "data_cell",
-          "x1": 2000.0,
-          "y1": 1100.0,
-          "x2": 2100.0,
-          "y2": 1150.0,
-          "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
-        },
-        {
-          "region_id": "r24",
-          "purpose": "data_cell",
-          "x1": 2100.0,
-          "y1": 1100.0,
-          "x2": 2150.0,
-          "y2": 1150.0,
-          "reason": "read mix M25"
-        },
-        {
-          "region_id": "r25",
-          "purpose": "data_cell",
-          "x1": 1800.0,
-          "y1": 1200.0,
-          "x2": 1900.0,
-          "y2": 1250.0,
-          "reason": "read size 600X600"
-        },
-        {
-          "region_id": "r26",
-          "purpose": "data_cell",
-          "x1": 1900.0,
-          "y1": 1250.0,
-          "x2": 2000.0,
-          "y2": 1300.0,
-          "reason": "read reinforcement 4-20 TOR + 8-16 TOR"
-        },
-        {
-          "region_id": "r27",
-          "purpose": "data_cell",
-          "x1": 2000.0,
-          "y1": 1250.0,
-          "x2": 2100.0,
-          "y2": 1300.0,
-          "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
-        },
-        {
-          "region_id": "r28",
-          "purpose": "data_cell",
-          "x1": 2100.0,
-          "y1": 1250.0,
-          "x2": 2150.0,
-          "y2": 1300.0,
-          "reason": "read mix M25"
-        },
-        {
-          "region_id": "r29",
-          "purpose": "data_cell",
-          "x1": 1800.0,
-          "y1": 1350.0,
-          "x2": 1900.0,
-          "y2": 1400.0,
-          "reason": "read size 350X600"
-        },
-        {
-          "region_id": "r30",
-          "purpose": "data_cell",
-          "x1": 1900.0,
-          "y1": 1400.0,
-          "x2": 2000.0,
-          "y2": 1450.0,
-          "reason": "read reinforcement 12-16 TOR"
-        },
-        {
-          "region_id": "r31",
-          "purpose": "data_cell",
-          "x1": 2000.0,
-          "y1": 1400.0,
-          "x2": 2100.0,
-          "y2": 1450.0,
-          "reason": "read stirrups 8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C"
-        },
-        {
-          "region_id": "r32",
-          "purpose": "data_cell",
-          "x1": 2100.0,
-          "y1": 1400.0,
-          "x2": 2150.0,
-          "y2": 1450.0,
-          "reason": "read mix M25"
-        }
-      ],
-      "confirmed_reads": [
-        {
-          "region_id": "r1",
-          "text": "600X600",
-          "confidence": "high",
-          "applies_to": "CP1 COL. SIZE"
-        },
-        {
-          "region_id": "r2",
-          "text": "• 12-20 TOR",
-          "confidence": "high",
-          "applies_to": "CP1 VER. STEEL"
-        },
-        {
-          "region_id": "r3",
-          "text": "8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS",
-          "confidence": "high",
-          "applies_to": "CP1 COL. RING"
-        },
-        {
-          "region_id": "r4",
-          "text": "M25",
-          "confidence": "high",
-          "applies_to": "CP1 MIX"
-        },
-        {
-          "region_id": "r5",
-          "text": "600X600",
-          "confidence": "high",
-          "applies_to": "CP2 COL. SIZE"
-        },
-        {
-          "region_id": "r6",
-          "text": "• 4-25 TOR + • 8-20 TOR",
-          "confidence": "high",
-          "applies_to": "CP2 VER. STEEL"
-        },
-        {
-          "region_id": "r7",
-          "text": "8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS",
-          "confidence": "high",
-          "applies_to": "CP2 COL. RING"
-        },
-        {
-          "region_id": "r8",
-          "text": "M25",
-          "confidence": "high",
-          "applies_to": "CP2 MIX"
-        },
-        {
-          "region_id": "r9",
-          "text": "600X600",
-          "confidence": "high",
-          "applies_to": "CP3 COL. SIZE"
-        },
-        {
-          "region_id": "r10",
-          "text": "• 12-20 TOR",
-          "confidence": "high",
-          "applies_to": "CP3 VER. STEEL"
-        },
-        {
-          "region_id": "r11",
-          "text": "8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS",
-          "confidence": "high",
-          "applies_to": "CP3 COL. RING"
-        },
-        {
-          "region_id": "r12",
-          "text": "M25",
-          "confidence": "high",
-          "applies_to": "CP3 MIX"
-        },
-        {
-          "region_id": "r13",
-          "text": "600X600",
-          "confidence": "high",
-          "applies_to": "CP4 COL. SIZE"
-        },
-        {
-          "region_id": "r14",
-          "text": "• 16-25 TOR",
-          "confidence": "high",
-          "applies_to": "CP4 VER. STEEL"
-        },
-        {
-          "region_id": "r15",
-          "text": "10 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS + 2 LINKS",
-          "confidence": "high",
-          "applies_to": "CP4 COL. RING"
-        },
-        {
-          "region_id": "r16",
-          "text": "M25",
-          "confidence": "high",
-          "applies_to": "CP4 MIX"
-        },
-        {
-          "region_id": "r17",
-          "text": "600X600",
-          "confidence": "high",
-          "applies_to": "CP5 COL. SIZE"
-        },
-        {
-          "region_id": "r18",
-          "text": "• 6-20 TOR + • 6-16 TOR",
-          "confidence": "high",
-          "applies_to": "CP5 VER. STEEL"
-        },
-        {
-          "region_id": "r19",
-          "text": "8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS",
-          "confidence": "high",
-          "applies_to": "CP5 COL. RING"
-        },
-        {
-          "region_id": "r20",
-          "text": "M25",
-          "confidence": "high",
-          "applies_to": "CP5 MIX"
-        },
-        {
-          "region_id": "r21",
-          "text": "600X600",
-          "confidence": "high",
-          "applies_to": "CP6 COL. SIZE"
-        },
-        {
-          "region_id": "r22",
-          "text": "• 4-20 TOR + • 8-16 TOR",
-          "confidence": "high",
-          "applies_to": "CP6 VER. STEEL"
-        },
-        {
-          "region_id": "r23",
-          "text": "8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS",
-          "confidence": "high",
-          "applies_to": "CP6 COL. RING"
-        },
-        {
-          "region_id": "r24",
-          "text": "M25",
-          "confidence": "high",
-          "applies_to": "CP6 MIX"
-        },
-        {
-          "region_id": "r25",
-          "text": "600X600",
-          "confidence": "high",
-          "applies_to": "CP7 COL. SIZE"
-        },
-        {
-          "region_id": "r26",
-          "text": "• 4-20 TOR + • 8-16 TOR",
-          "confidence": "high",
-          "applies_to": "CP7 VER. STEEL"
-        },
-        {
-          "region_id": "r27",
-          "text": "8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS",
-          "confidence": "high",
-          "applies_to": "CP7 COL. RING"
-        },
-        {
-          "region_id": "r28",
-          "text": "M25",
-          "confidence": "high",
-          "applies_to": "CP7 MIX"
-        },
-        {
-          "region_id": "r29",
-          "text": "350X600",
-          "confidence": "high",
-          "applies_to": "CP8 COL. SIZE"
-        },
-        {
-          "region_id": "r30",
-          "text": "• 12-16 TOR",
-          "confidence": "high",
-          "applies_to": "CP8 VER. STEEL"
-        },
-        {
-          "region_id": "r31",
-          "text": "8 TOR 8 @ 100 + @ 150 + 8 @ 100 C/C 3-SETS + 1 LINK",
-          "confidence": "high",
-          "applies_to": "CP8 COL. RING"
-        },
-        {
-          "region_id": "r32",
-          "text": "M25",
-          "confidence": "high",
-          "applies_to": "CP8 MIX"
-        }
-      ],
+      "zoom_regions": [],
+      "confirmed_reads": [],
       "records": [
         {
           "column_no": "CP1",

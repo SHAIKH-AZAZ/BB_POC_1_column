@@ -1220,14 +1220,14 @@
     "page_1.png__p01_l002_FOUNDATION_LVL": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-3\\page_1.png",
-      "generated_at": "2026-05-27T12:15:42.026097+00:00",
+      "generated_at": "2026-05-28T09:14:59.629841+00:00",
       "think": {
         "image_quality": "high resolution, clear, no skew",
         "table_bounds": {
           "x1": 0,
           "y1": 0,
-          "x2": 2480,
-          "y2": 3500
+          "x2": 1920,
+          "y2": 1080
         },
         "column_headers": [
           "C1",
@@ -1241,268 +1241,20 @@
           "FOUNDATION LVL. TO BASEMENT FLOOR LVL."
         ],
         "expected_count": 6,
-        "zoom_plan": [
-          {
-            "region_id": "r1",
-            "purpose": "data_cell",
-            "target": "C1 size",
-            "x1": 350,
-            "y1": 1800,
-            "x2": 400,
-            "y2": 1900,
-            "reason": "read size 300 x 750"
-          },
-          {
-            "region_id": "r2",
-            "purpose": "data_cell",
-            "target": "C1 reinforcement",
-            "x1": 350,
-            "y1": 1900,
-            "x2": 400,
-            "y2": 2000,
-            "reason": "read reinforcement 14-20T"
-          },
-          {
-            "region_id": "r3",
-            "purpose": "data_cell",
-            "target": "C1 stirrups",
-            "x1": 350,
-            "y1": 2000,
-            "x2": 400,
-            "y2": 2100,
-            "reason": "read stirrups 8T@100c/c ALL"
-          },
-          {
-            "region_id": "r4",
-            "purpose": "data_cell",
-            "target": "C1 mix",
-            "x1": 350,
-            "y1": 2100,
-            "x2": 400,
-            "y2": 2150,
-            "reason": "read mix M-35"
-          },
-          {
-            "region_id": "r5",
-            "purpose": "data_cell",
-            "target": "C2 size",
-            "x1": 500,
-            "y1": 1800,
-            "x2": 550,
-            "y2": 1900,
-            "reason": "read size 450 x 600"
-          },
-          {
-            "region_id": "r6",
-            "purpose": "data_cell",
-            "target": "C2 reinforcement",
-            "x1": 500,
-            "y1": 1900,
-            "x2": 550,
-            "y2": 2000,
-            "reason": "read reinforcement 14-20T"
-          },
-          {
-            "region_id": "r7",
-            "purpose": "data_cell",
-            "target": "C2 stirrups",
-            "x1": 500,
-            "y1": 2000,
-            "x2": 550,
-            "y2": 2100,
-            "reason": "read stirrups 8T@100c/c ALL"
-          },
-          {
-            "region_id": "r8",
-            "purpose": "data_cell",
-            "target": "C2 mix",
-            "x1": 500,
-            "y1": 2100,
-            "x2": 550,
-            "y2": 2150,
-            "reason": "read mix M-35"
-          },
-          {
-            "region_id": "r9",
-            "purpose": "data_cell",
-            "target": "C3 size",
-            "x1": 650,
-            "y1": 1800,
-            "x2": 700,
-            "y2": 1900,
-            "reason": "read size 300 x 600"
-          },
-          {
-            "region_id": "r10",
-            "purpose": "data_cell",
-            "target": "C3 reinforcement",
-            "x1": 650,
-            "y1": 1900,
-            "x2": 700,
-            "y2": 2000,
-            "reason": "read reinforcement 14-20T"
-          },
-          {
-            "region_id": "r11",
-            "purpose": "data_cell",
-            "target": "C3 stirrups",
-            "x1": 650,
-            "y1": 2000,
-            "x2": 700,
-            "y2": 2100,
-            "reason": "read stirrups 8T@100c/c ALL"
-          },
-          {
-            "region_id": "r12",
-            "purpose": "data_cell",
-            "target": "C3 mix",
-            "x1": 650,
-            "y1": 2100,
-            "x2": 700,
-            "y2": 2150,
-            "reason": "read mix M-35"
-          },
-          {
-            "region_id": "r13",
-            "purpose": "data_cell",
-            "target": "C4 size",
-            "x1": 800,
-            "y1": 1800,
-            "x2": 850,
-            "y2": 1900,
-            "reason": "read size 350 x 750"
-          },
-          {
-            "region_id": "r14",
-            "purpose": "data_cell",
-            "target": "C4 reinforcement",
-            "x1": 800,
-            "y1": 1900,
-            "x2": 850,
-            "y2": 2000,
-            "reason": "read reinforcement 14-20T"
-          },
-          {
-            "region_id": "r15",
-            "purpose": "data_cell",
-            "target": "C4 stirrups",
-            "x1": 800,
-            "y1": 2000,
-            "x2": 850,
-            "y2": 2100,
-            "reason": "read stirrups 8T@100c/c ALL"
-          },
-          {
-            "region_id": "r16",
-            "purpose": "data_cell",
-            "target": "C4 mix",
-            "x1": 800,
-            "y1": 2100,
-            "x2": 850,
-            "y2": 2150,
-            "reason": "read mix M-35"
-          },
-          {
-            "region_id": "r17",
-            "purpose": "data_cell",
-            "target": "C6 size",
-            "x1": 950,
-            "y1": 1800,
-            "x2": 1000,
-            "y2": 1900,
-            "reason": "read size 450 x 600"
-          },
-          {
-            "region_id": "r18",
-            "purpose": "data_cell",
-            "target": "C6 reinforcement",
-            "x1": 950,
-            "y1": 1900,
-            "x2": 1000,
-            "y2": 2000,
-            "reason": "read reinforcement 4-20T+8-16T"
-          },
-          {
-            "region_id": "r19",
-            "purpose": "data_cell",
-            "target": "C6 stirrups",
-            "x1": 950,
-            "y1": 2000,
-            "x2": 1000,
-            "y2": 2100,
-            "reason": "read stirrups 8T@100c/c ALL"
-          },
-          {
-            "region_id": "r20",
-            "purpose": "data_cell",
-            "target": "C6 mix",
-            "x1": 950,
-            "y1": 2100,
-            "x2": 1000,
-            "y2": 2150,
-            "reason": "read mix M-35"
-          },
-          {
-            "region_id": "r21",
-            "purpose": "data_cell",
-            "target": "C7 size",
-            "x1": 1100,
-            "y1": 1800,
-            "x2": 1150,
-            "y2": 1900,
-            "reason": "read size 300 x 600"
-          },
-          {
-            "region_id": "r22",
-            "purpose": "data_cell",
-            "target": "C7 reinforcement",
-            "x1": 1100,
-            "y1": 1900,
-            "x2": 1150,
-            "y2": 2000,
-            "reason": "read reinforcement 12-16T"
-          },
-          {
-            "region_id": "r23",
-            "purpose": "data_cell",
-            "target": "C7 stirrups",
-            "x1": 1100,
-            "y1": 2000,
-            "x2": 1150,
-            "y2": 2100,
-            "reason": "read stirrups 8T@100c/c ALL"
-          },
-          {
-            "region_id": "r24",
-            "purpose": "data_cell",
-            "target": "C7 mix",
-            "x1": 1100,
-            "y1": 2100,
-            "x2": 1150,
-            "y2": 2150,
-            "reason": "read mix M-35"
-          }
-        ],
+        "zoom_plan": [],
         "normalization_rules": [
-          "Remove words ALL, REST, nos from stirrups",
-          "Keep stirrup diameter exactly as written (e.g. 8T)",
-          "Extract multiple stirrup spacings if present",
-          "Do not convert 8T to T8",
-          "Return null for missing sizes or reinforcement",
-          "Use exact column_no from ovals",
-          "Use exact level name from left side",
-          "Return empty array for missing reinforcement",
-          "Return stirrups as object with dia and spacing strings",
-          "Return mix as string or null if missing"
+          "width and length from dimension near column sketch, width is first value, length is second value, depth is null",
+          "reinforcement as list of strings exactly as shown",
+          "stirrups dia and spacing extracted separately, spacing normalized to '100 C/C' format",
+          "mix read as text below diagram"
         ],
         "extraction_order": [
-          "FOUNDATION LVL. TO BASEMENT FLOOR LVL.",
-          "C1",
-          "C2",
-          "C3",
-          "C4",
-          "C6",
-          "C7"
+          "FOUNDATION LVL. TO BASEMENT FLOOR LVL. C1",
+          "FOUNDATION LVL. TO BASEMENT FLOOR LVL. C2",
+          "FOUNDATION LVL. TO BASEMENT FLOOR LVL. C3",
+          "FOUNDATION LVL. TO BASEMENT FLOOR LVL. C4",
+          "FOUNDATION LVL. TO BASEMENT FLOOR LVL. C6",
+          "FOUNDATION LVL. TO BASEMENT FLOOR LVL. C7"
         ]
       },
       "zoom_regions": [],
@@ -1524,7 +1276,7 @@
               "8T"
             ],
             "spacing": [
-              "100 C/C"
+              "100 C/C, 150 C/C"
             ]
           },
           "mix": "M-35",
@@ -1546,7 +1298,7 @@
               "8T"
             ],
             "spacing": [
-              "100 C/C"
+              "100 C/C, 150 C/C"
             ]
           },
           "mix": "M-35",
@@ -1561,14 +1313,14 @@
             "length": 600
           },
           "reinforcement": [
-            "14-20T"
+            "12-20T"
           ],
           "stirrups": {
             "dia": [
               "8T"
             ],
             "spacing": [
-              "100 C/C"
+              "100 C/C, 150 C/C"
             ]
           },
           "mix": "M-35",
@@ -1590,7 +1342,7 @@
               "8T"
             ],
             "spacing": [
-              "100 C/C"
+              "100 C/C, 150 C/C"
             ]
           },
           "mix": "M-35",
@@ -1602,7 +1354,7 @@
           "size": {
             "width": 450,
             "depth": null,
-            "length": 600
+            "length": 450
           },
           "reinforcement": [
             "4-20T",
@@ -1613,7 +1365,7 @@
               "8T"
             ],
             "spacing": [
-              "100 C/C"
+              "100 C/C, 150 C/C"
             ]
           },
           "mix": "M-35",
@@ -1635,7 +1387,7 @@
               "8T"
             ],
             "spacing": [
-              "100 C/C"
+              "100 C/C, 150 C/C"
             ]
           },
           "mix": "M-35",
@@ -1660,18 +1412,13 @@
                 "8T"
               ],
               "spacing": [
-                "100 C/C"
+                "100 C/C, 150 C/C"
               ]
             },
             "mix": "M-35",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r1",
-            "r2",
-            "r3",
-            "r4"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1690,18 +1437,13 @@
                 "8T"
               ],
               "spacing": [
-                "100 C/C"
+                "100 C/C, 150 C/C"
               ]
             },
             "mix": "M-35",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r5",
-            "r6",
-            "r7",
-            "r8"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1713,25 +1455,20 @@
               "length": 600
             },
             "reinforcement": [
-              "14-20T"
+              "12-20T"
             ],
             "stirrups": {
               "dia": [
                 "8T"
               ],
               "spacing": [
-                "100 C/C"
+                "100 C/C, 150 C/C"
               ]
             },
             "mix": "M-35",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r9",
-            "r10",
-            "r11",
-            "r12"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1750,18 +1487,13 @@
                 "8T"
               ],
               "spacing": [
-                "100 C/C"
+                "100 C/C, 150 C/C"
               ]
             },
             "mix": "M-35",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r13",
-            "r14",
-            "r15",
-            "r16"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1770,7 +1502,7 @@
             "size": {
               "width": 450,
               "depth": null,
-              "length": 600
+              "length": 450
             },
             "reinforcement": [
               "4-20T",
@@ -1781,18 +1513,13 @@
                 "8T"
               ],
               "spacing": [
-                "100 C/C"
+                "100 C/C, 150 C/C"
               ]
             },
             "mix": "M-35",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r17",
-            "r18",
-            "r19",
-            "r20"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1811,18 +1538,13 @@
                 "8T"
               ],
               "spacing": [
-                "100 C/C"
+                "100 C/C, 150 C/C"
               ]
             },
             "mix": "M-35",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r21",
-            "r22",
-            "r23",
-            "r24"
-          ]
+          "source_region_ids": []
         }
       ],
       "expected_count": 6,
@@ -1832,7 +1554,7 @@
     "page_1.png__p01_l001_BASEMENT_FLOOR_LVL": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-3\\page_1.png",
-      "generated_at": "2026-05-27T12:16:08.460212+00:00",
+      "generated_at": "2026-05-28T09:15:48.875246+00:00",
       "think": {
         "image_quality": "high resolution, clear, no skew",
         "table_bounds": {
@@ -1856,266 +1578,296 @@
         "zoom_plan": [
           {
             "region_id": "r1",
-            "purpose": "row_label",
-            "target": "BASEMENT FLOOR LVL. TO BASEMENT SLAB LVL.",
-            "x1": 50,
-            "y1": 300,
-            "x2": 200,
-            "y2": 450,
-            "reason": "Extract level name for column_name"
+            "purpose": "header",
+            "target": "C1",
+            "reason": "Confirm column header C1"
           },
           {
             "region_id": "r2",
-            "purpose": "data_cell",
-            "target": "C1 size",
-            "x1": 250,
-            "y1": 300,
-            "x2": 300,
-            "y2": 450,
-            "reason": "Extract size width and length for C1"
+            "purpose": "header",
+            "target": "C2",
+            "reason": "Confirm column header C2"
           },
           {
             "region_id": "r3",
-            "purpose": "data_cell",
-            "target": "C1 reinforcement",
-            "x1": 250,
-            "y1": 450,
-            "x2": 300,
-            "y2": 600,
-            "reason": "Extract vertical reinforcement for C1"
+            "purpose": "header",
+            "target": "C3",
+            "reason": "Confirm column header C3"
           },
           {
             "region_id": "r4",
-            "purpose": "data_cell",
-            "target": "C1 stirrups",
-            "x1": 250,
-            "y1": 600,
-            "x2": 300,
-            "y2": 700,
-            "reason": "Extract stirrups dia and spacing for C1"
+            "purpose": "header",
+            "target": "C4",
+            "reason": "Confirm column header C4"
           },
           {
             "region_id": "r5",
-            "purpose": "data_cell",
-            "target": "C1 mix",
-            "x1": 250,
-            "y1": 700,
-            "x2": 300,
-            "y2": 750,
-            "reason": "Extract concrete mix for C1"
+            "purpose": "header",
+            "target": "C6",
+            "reason": "Confirm column header C6"
           },
           {
             "region_id": "r6",
-            "purpose": "data_cell",
-            "target": "C2 size",
-            "x1": 350,
-            "y1": 300,
-            "x2": 400,
-            "y2": 450,
-            "reason": "Extract size width and length for C2"
+            "purpose": "header",
+            "target": "C7",
+            "reason": "Confirm column header C7"
           },
           {
             "region_id": "r7",
-            "purpose": "data_cell",
-            "target": "C2 reinforcement",
-            "x1": 350,
-            "y1": 450,
-            "x2": 400,
-            "y2": 600,
-            "reason": "Extract vertical reinforcement for C2"
+            "purpose": "row_label",
+            "target": "BASEMENT FLOOR LVL. TO BASEMENT SLAB LVL.",
+            "x1": 0,
+            "y1": 200,
+            "x2": 200,
+            "y2": 400,
+            "reason": "Confirm row label for level"
           },
           {
             "region_id": "r8",
             "purpose": "data_cell",
-            "target": "C2 stirrups",
-            "x1": 350,
-            "y1": 600,
-            "x2": 400,
-            "y2": 700,
-            "reason": "Extract stirrups dia and spacing for C2"
+            "target": "C1 size",
+            "x1": 300,
+            "y1": 300,
+            "x2": 350,
+            "y2": 450,
+            "reason": "Confirm size 300x750 for C1"
           },
           {
             "region_id": "r9",
             "purpose": "data_cell",
-            "target": "C2 mix",
-            "x1": 350,
-            "y1": 700,
-            "x2": 400,
-            "y2": 750,
-            "reason": "Extract concrete mix for C2"
+            "target": "C1 reinforcement",
+            "x1": 320,
+            "y1": 350,
+            "x2": 370,
+            "y2": 450,
+            "reason": "Confirm reinforcement 14-20T for C1"
           },
           {
             "region_id": "r10",
             "purpose": "data_cell",
-            "target": "C3 size",
-            "x1": 450,
-            "y1": 300,
-            "x2": 500,
-            "y2": 450,
-            "reason": "Extract size width and length for C3"
+            "target": "C1 stirrups",
+            "x1": 320,
+            "y1": 460,
+            "x2": 370,
+            "y2": 520,
+            "reason": "Confirm stirrups 8T@100c/c and 8T@150c/c for C1"
           },
           {
             "region_id": "r11",
             "purpose": "data_cell",
-            "target": "C3 reinforcement",
-            "x1": 450,
-            "y1": 450,
-            "x2": 500,
-            "y2": 600,
-            "reason": "Extract vertical reinforcement for C3"
+            "target": "C1 mix",
+            "x1": 320,
+            "y1": 530,
+            "x2": 370,
+            "y2": 570,
+            "reason": "Confirm mix M-35 for C1"
           },
           {
             "region_id": "r12",
             "purpose": "data_cell",
-            "target": "C3 stirrups",
-            "x1": 450,
-            "y1": 600,
-            "x2": 500,
-            "y2": 700,
-            "reason": "Extract stirrups dia and spacing for C3"
+            "target": "C2 size",
+            "x1": 400,
+            "y1": 300,
+            "x2": 460,
+            "y2": 450,
+            "reason": "Confirm size 450x600 for C2"
           },
           {
             "region_id": "r13",
             "purpose": "data_cell",
-            "target": "C3 mix",
-            "x1": 450,
-            "y1": 700,
-            "x2": 500,
-            "y2": 750,
-            "reason": "Extract concrete mix for C3"
+            "target": "C2 reinforcement",
+            "x1": 420,
+            "y1": 350,
+            "x2": 470,
+            "y2": 450,
+            "reason": "Confirm reinforcement 14-20T for C2"
           },
           {
             "region_id": "r14",
             "purpose": "data_cell",
-            "target": "C4 size",
-            "x1": 550,
-            "y1": 300,
-            "x2": 600,
-            "y2": 450,
-            "reason": "Extract size width and length for C4"
+            "target": "C2 stirrups",
+            "x1": 420,
+            "y1": 460,
+            "x2": 470,
+            "y2": 520,
+            "reason": "Confirm stirrups 8T@100c/c and 8T@150c/c for C2"
           },
           {
             "region_id": "r15",
             "purpose": "data_cell",
-            "target": "C4 reinforcement",
-            "x1": 550,
-            "y1": 450,
-            "x2": 600,
-            "y2": 600,
-            "reason": "Extract vertical reinforcement for C4"
+            "target": "C2 mix",
+            "x1": 420,
+            "y1": 530,
+            "x2": 470,
+            "y2": 570,
+            "reason": "Confirm mix M-35 for C2"
           },
           {
             "region_id": "r16",
             "purpose": "data_cell",
-            "target": "C4 stirrups",
-            "x1": 550,
-            "y1": 600,
-            "x2": 600,
-            "y2": 700,
-            "reason": "Extract stirrups dia and spacing for C4"
+            "target": "C3 size",
+            "x1": 500,
+            "y1": 300,
+            "x2": 550,
+            "y2": 450,
+            "reason": "Confirm size 300x600 for C3"
           },
           {
             "region_id": "r17",
             "purpose": "data_cell",
-            "target": "C4 mix",
-            "x1": 550,
-            "y1": 700,
-            "x2": 600,
-            "y2": 750,
-            "reason": "Extract concrete mix for C4"
+            "target": "C3 reinforcement",
+            "x1": 520,
+            "y1": 350,
+            "x2": 570,
+            "y2": 450,
+            "reason": "Confirm reinforcement 12-20T for C3"
           },
           {
             "region_id": "r18",
             "purpose": "data_cell",
-            "target": "C6 size",
-            "x1": 650,
-            "y1": 300,
-            "x2": 700,
-            "y2": 450,
-            "reason": "Extract size width and length for C6"
+            "target": "C3 stirrups",
+            "x1": 520,
+            "y1": 460,
+            "x2": 570,
+            "y2": 520,
+            "reason": "Confirm stirrups 8T@100c/c and 8T@150c/c for C3"
           },
           {
             "region_id": "r19",
             "purpose": "data_cell",
-            "target": "C6 reinforcement",
-            "x1": 650,
-            "y1": 450,
-            "x2": 700,
-            "y2": 600,
-            "reason": "Extract vertical reinforcement for C6"
+            "target": "C3 mix",
+            "x1": 520,
+            "y1": 530,
+            "x2": 570,
+            "y2": 570,
+            "reason": "Confirm mix M-35 for C3"
           },
           {
             "region_id": "r20",
             "purpose": "data_cell",
-            "target": "C6 stirrups",
-            "x1": 650,
-            "y1": 600,
-            "x2": 700,
-            "y2": 700,
-            "reason": "Extract stirrups dia and spacing for C6"
+            "target": "C4 size",
+            "x1": 600,
+            "y1": 300,
+            "x2": 650,
+            "y2": 450,
+            "reason": "Confirm size 350x750 for C4"
           },
           {
             "region_id": "r21",
             "purpose": "data_cell",
-            "target": "C6 mix",
-            "x1": 650,
-            "y1": 700,
-            "x2": 700,
-            "y2": 750,
-            "reason": "Extract concrete mix for C6"
+            "target": "C4 reinforcement",
+            "x1": 620,
+            "y1": 350,
+            "x2": 670,
+            "y2": 450,
+            "reason": "Confirm reinforcement 14-20T for C4"
           },
           {
             "region_id": "r22",
             "purpose": "data_cell",
-            "target": "C7 size",
-            "x1": 750,
-            "y1": 300,
-            "x2": 800,
-            "y2": 450,
-            "reason": "Extract size width and length for C7"
+            "target": "C4 stirrups",
+            "x1": 620,
+            "y1": 460,
+            "x2": 670,
+            "y2": 520,
+            "reason": "Confirm stirrups 8T@100c/c and 8T@150c/c for C4"
           },
           {
             "region_id": "r23",
             "purpose": "data_cell",
-            "target": "C7 reinforcement",
-            "x1": 750,
-            "y1": 450,
-            "x2": 800,
-            "y2": 600,
-            "reason": "Extract vertical reinforcement for C7"
+            "target": "C4 mix",
+            "x1": 620,
+            "y1": 530,
+            "x2": 670,
+            "y2": 570,
+            "reason": "Confirm mix M-35 for C4"
           },
           {
             "region_id": "r24",
             "purpose": "data_cell",
-            "target": "C7 stirrups",
-            "x1": 750,
-            "y1": 600,
-            "x2": 800,
-            "y2": 700,
-            "reason": "Extract stirrups dia and spacing for C7"
+            "target": "C6 size",
+            "x1": 700,
+            "y1": 300,
+            "x2": 750,
+            "y2": 450,
+            "reason": "Confirm size 450x450 for C6"
           },
           {
             "region_id": "r25",
             "purpose": "data_cell",
+            "target": "C6 reinforcement",
+            "x1": 720,
+            "y1": 350,
+            "x2": 770,
+            "y2": 450,
+            "reason": "Confirm reinforcement 4-20T and 8-16T for C6"
+          },
+          {
+            "region_id": "r26",
+            "purpose": "data_cell",
+            "target": "C6 stirrups",
+            "x1": 720,
+            "y1": 460,
+            "x2": 770,
+            "y2": 520,
+            "reason": "Confirm stirrups 8T@100c/c and 8T@150c/c for C6"
+          },
+          {
+            "region_id": "r27",
+            "purpose": "data_cell",
+            "target": "C6 mix",
+            "x1": 720,
+            "y1": 530,
+            "x2": 770,
+            "y2": 570,
+            "reason": "Confirm mix M-35 for C6"
+          },
+          {
+            "region_id": "r28",
+            "purpose": "data_cell",
+            "target": "C7 size",
+            "x1": 800,
+            "y1": 300,
+            "x2": 850,
+            "y2": 450,
+            "reason": "Confirm size 300x600 for C7"
+          },
+          {
+            "region_id": "r29",
+            "purpose": "data_cell",
+            "target": "C7 reinforcement",
+            "x1": 820,
+            "y1": 350,
+            "x2": 870,
+            "y2": 450,
+            "reason": "Confirm reinforcement 12-16T for C7"
+          },
+          {
+            "region_id": "r30",
+            "purpose": "data_cell",
+            "target": "C7 stirrups",
+            "x1": 820,
+            "y1": 460,
+            "x2": 870,
+            "y2": 520,
+            "reason": "Confirm stirrups 8T@100c/c and 8T@150c/c for C7"
+          },
+          {
+            "region_id": "r31",
+            "purpose": "data_cell",
             "target": "C7 mix",
-            "x1": 750,
-            "y1": 700,
-            "x2": 800,
-            "y2": 750,
-            "reason": "Extract concrete mix for C7"
+            "x1": 820,
+            "y1": 530,
+            "x2": 870,
+            "y2": 570,
+            "reason": "Confirm mix M-35 for C7"
           }
         ],
         "normalization_rules": [
-          "Remove words like ALL, REST, no, nos from stirrup spacing",
-          "Keep stirrup diameter exactly as shown (e.g. 8T, not T8)",
-          "Extract stirrup spacing as '100 C/C' format",
-          "Return null for missing size or reinforcement",
-          "Use exact column_no from ovals",
-          "Use exact level name from left side text",
-          "Return reinforcement as list of strings",
-          "Return stirrups as object with dia and spacing strings",
-          "Extract concrete mix if visible",
-          "Ignore footing and RCC size tables at bottom"
+          "Remove duplicates in stirrups",
+          "Keep stirrup diameter exactly as written (e.g. 8T)",
+          "Remove words ALL, REST, nos from stirrups",
+          "Extract spacing as '100 C/C' not '100c/c'"
         ],
         "extraction_order": [
           "BASEMENT FLOOR LVL. TO BASEMENT SLAB LVL.",
@@ -2129,363 +1881,363 @@
       },
       "zoom_regions": [
         {
-          "region_id": "r2",
-          "purpose": "data_cell",
-          "x1": 250.0,
-          "y1": 300.0,
-          "x2": 300.0,
-          "y2": 450.0,
-          "reason": "Extract size width and length for C1"
-        },
-        {
-          "region_id": "r3",
-          "purpose": "data_cell",
-          "x1": 250.0,
-          "y1": 450.0,
-          "x2": 300.0,
-          "y2": 600.0,
-          "reason": "Extract vertical reinforcement for C1"
-        },
-        {
-          "region_id": "r4",
-          "purpose": "data_cell",
-          "x1": 250.0,
-          "y1": 600.0,
-          "x2": 300.0,
-          "y2": 700.0,
-          "reason": "Extract stirrups dia and spacing for C1"
-        },
-        {
-          "region_id": "r5",
-          "purpose": "data_cell",
-          "x1": 250.0,
-          "y1": 700.0,
-          "x2": 300.0,
-          "y2": 750.0,
-          "reason": "Extract concrete mix for C1"
-        },
-        {
-          "region_id": "r6",
-          "purpose": "data_cell",
-          "x1": 350.0,
-          "y1": 300.0,
-          "x2": 400.0,
-          "y2": 450.0,
-          "reason": "Extract size width and length for C2"
-        },
-        {
-          "region_id": "r7",
-          "purpose": "data_cell",
-          "x1": 350.0,
-          "y1": 450.0,
-          "x2": 400.0,
-          "y2": 600.0,
-          "reason": "Extract vertical reinforcement for C2"
-        },
-        {
           "region_id": "r8",
           "purpose": "data_cell",
-          "x1": 350.0,
-          "y1": 600.0,
-          "x2": 400.0,
-          "y2": 700.0,
-          "reason": "Extract stirrups dia and spacing for C2"
+          "x1": 300.0,
+          "y1": 300.0,
+          "x2": 350.0,
+          "y2": 450.0,
+          "reason": "Confirm size 300x750 for C1"
         },
         {
           "region_id": "r9",
           "purpose": "data_cell",
-          "x1": 350.0,
-          "y1": 700.0,
-          "x2": 400.0,
-          "y2": 750.0,
-          "reason": "Extract concrete mix for C2"
+          "x1": 320.0,
+          "y1": 350.0,
+          "x2": 370.0,
+          "y2": 450.0,
+          "reason": "Confirm reinforcement 14-20T for C1"
         },
         {
           "region_id": "r10",
           "purpose": "data_cell",
-          "x1": 450.0,
-          "y1": 300.0,
-          "x2": 500.0,
-          "y2": 450.0,
-          "reason": "Extract size width and length for C3"
+          "x1": 320.0,
+          "y1": 460.0,
+          "x2": 370.0,
+          "y2": 520.0,
+          "reason": "Confirm stirrups 8T@100c/c and 8T@150c/c for C1"
         },
         {
           "region_id": "r11",
           "purpose": "data_cell",
-          "x1": 450.0,
-          "y1": 450.0,
-          "x2": 500.0,
-          "y2": 600.0,
-          "reason": "Extract vertical reinforcement for C3"
+          "x1": 320.0,
+          "y1": 530.0,
+          "x2": 370.0,
+          "y2": 570.0,
+          "reason": "Confirm mix M-35 for C1"
         },
         {
           "region_id": "r12",
           "purpose": "data_cell",
-          "x1": 450.0,
-          "y1": 600.0,
-          "x2": 500.0,
-          "y2": 700.0,
-          "reason": "Extract stirrups dia and spacing for C3"
+          "x1": 400.0,
+          "y1": 300.0,
+          "x2": 460.0,
+          "y2": 450.0,
+          "reason": "Confirm size 450x600 for C2"
         },
         {
           "region_id": "r13",
           "purpose": "data_cell",
-          "x1": 450.0,
-          "y1": 700.0,
-          "x2": 500.0,
-          "y2": 750.0,
-          "reason": "Extract concrete mix for C3"
+          "x1": 420.0,
+          "y1": 350.0,
+          "x2": 470.0,
+          "y2": 450.0,
+          "reason": "Confirm reinforcement 14-20T for C2"
         },
         {
           "region_id": "r14",
           "purpose": "data_cell",
-          "x1": 550.0,
-          "y1": 300.0,
-          "x2": 600.0,
-          "y2": 450.0,
-          "reason": "Extract size width and length for C4"
+          "x1": 420.0,
+          "y1": 460.0,
+          "x2": 470.0,
+          "y2": 520.0,
+          "reason": "Confirm stirrups 8T@100c/c and 8T@150c/c for C2"
         },
         {
           "region_id": "r15",
           "purpose": "data_cell",
-          "x1": 550.0,
-          "y1": 450.0,
-          "x2": 600.0,
-          "y2": 600.0,
-          "reason": "Extract vertical reinforcement for C4"
+          "x1": 420.0,
+          "y1": 530.0,
+          "x2": 470.0,
+          "y2": 570.0,
+          "reason": "Confirm mix M-35 for C2"
         },
         {
           "region_id": "r16",
           "purpose": "data_cell",
-          "x1": 550.0,
-          "y1": 600.0,
-          "x2": 600.0,
-          "y2": 700.0,
-          "reason": "Extract stirrups dia and spacing for C4"
+          "x1": 500.0,
+          "y1": 300.0,
+          "x2": 550.0,
+          "y2": 450.0,
+          "reason": "Confirm size 300x600 for C3"
         },
         {
           "region_id": "r17",
           "purpose": "data_cell",
-          "x1": 550.0,
-          "y1": 700.0,
-          "x2": 600.0,
-          "y2": 750.0,
-          "reason": "Extract concrete mix for C4"
+          "x1": 520.0,
+          "y1": 350.0,
+          "x2": 570.0,
+          "y2": 450.0,
+          "reason": "Confirm reinforcement 12-20T for C3"
         },
         {
           "region_id": "r18",
           "purpose": "data_cell",
-          "x1": 650.0,
-          "y1": 300.0,
-          "x2": 700.0,
-          "y2": 450.0,
-          "reason": "Extract size width and length for C6"
+          "x1": 520.0,
+          "y1": 460.0,
+          "x2": 570.0,
+          "y2": 520.0,
+          "reason": "Confirm stirrups 8T@100c/c and 8T@150c/c for C3"
         },
         {
           "region_id": "r19",
           "purpose": "data_cell",
-          "x1": 650.0,
-          "y1": 450.0,
-          "x2": 700.0,
-          "y2": 600.0,
-          "reason": "Extract vertical reinforcement for C6"
+          "x1": 520.0,
+          "y1": 530.0,
+          "x2": 570.0,
+          "y2": 570.0,
+          "reason": "Confirm mix M-35 for C3"
         },
         {
           "region_id": "r20",
           "purpose": "data_cell",
-          "x1": 650.0,
-          "y1": 600.0,
-          "x2": 700.0,
-          "y2": 700.0,
-          "reason": "Extract stirrups dia and spacing for C6"
+          "x1": 600.0,
+          "y1": 300.0,
+          "x2": 650.0,
+          "y2": 450.0,
+          "reason": "Confirm size 350x750 for C4"
         },
         {
           "region_id": "r21",
           "purpose": "data_cell",
-          "x1": 650.0,
-          "y1": 700.0,
-          "x2": 700.0,
-          "y2": 750.0,
-          "reason": "Extract concrete mix for C6"
+          "x1": 620.0,
+          "y1": 350.0,
+          "x2": 670.0,
+          "y2": 450.0,
+          "reason": "Confirm reinforcement 14-20T for C4"
         },
         {
           "region_id": "r22",
           "purpose": "data_cell",
-          "x1": 750.0,
-          "y1": 300.0,
-          "x2": 800.0,
-          "y2": 450.0,
-          "reason": "Extract size width and length for C7"
+          "x1": 620.0,
+          "y1": 460.0,
+          "x2": 670.0,
+          "y2": 520.0,
+          "reason": "Confirm stirrups 8T@100c/c and 8T@150c/c for C4"
         },
         {
           "region_id": "r23",
           "purpose": "data_cell",
-          "x1": 750.0,
-          "y1": 450.0,
-          "x2": 800.0,
-          "y2": 600.0,
-          "reason": "Extract vertical reinforcement for C7"
+          "x1": 620.0,
+          "y1": 530.0,
+          "x2": 670.0,
+          "y2": 570.0,
+          "reason": "Confirm mix M-35 for C4"
         },
         {
           "region_id": "r24",
           "purpose": "data_cell",
-          "x1": 750.0,
-          "y1": 600.0,
-          "x2": 800.0,
-          "y2": 700.0,
-          "reason": "Extract stirrups dia and spacing for C7"
+          "x1": 700.0,
+          "y1": 300.0,
+          "x2": 750.0,
+          "y2": 450.0,
+          "reason": "Confirm size 450x450 for C6"
         },
         {
           "region_id": "r25",
           "purpose": "data_cell",
-          "x1": 750.0,
-          "y1": 700.0,
-          "x2": 800.0,
-          "y2": 750.0,
-          "reason": "Extract concrete mix for C7"
+          "x1": 720.0,
+          "y1": 350.0,
+          "x2": 770.0,
+          "y2": 450.0,
+          "reason": "Confirm reinforcement 4-20T and 8-16T for C6"
+        },
+        {
+          "region_id": "r26",
+          "purpose": "data_cell",
+          "x1": 720.0,
+          "y1": 460.0,
+          "x2": 770.0,
+          "y2": 520.0,
+          "reason": "Confirm stirrups 8T@100c/c and 8T@150c/c for C6"
+        },
+        {
+          "region_id": "r27",
+          "purpose": "data_cell",
+          "x1": 720.0,
+          "y1": 530.0,
+          "x2": 770.0,
+          "y2": 570.0,
+          "reason": "Confirm mix M-35 for C6"
+        },
+        {
+          "region_id": "r28",
+          "purpose": "data_cell",
+          "x1": 800.0,
+          "y1": 300.0,
+          "x2": 850.0,
+          "y2": 450.0,
+          "reason": "Confirm size 300x600 for C7"
+        },
+        {
+          "region_id": "r29",
+          "purpose": "data_cell",
+          "x1": 820.0,
+          "y1": 350.0,
+          "x2": 870.0,
+          "y2": 450.0,
+          "reason": "Confirm reinforcement 12-16T for C7"
+        },
+        {
+          "region_id": "r30",
+          "purpose": "data_cell",
+          "x1": 820.0,
+          "y1": 460.0,
+          "x2": 870.0,
+          "y2": 520.0,
+          "reason": "Confirm stirrups 8T@100c/c and 8T@150c/c for C7"
+        },
+        {
+          "region_id": "r31",
+          "purpose": "data_cell",
+          "x1": 820.0,
+          "y1": 530.0,
+          "x2": 870.0,
+          "y2": 570.0,
+          "reason": "Confirm mix M-35 for C7"
         }
       ],
       "confirmed_reads": [
         {
-          "region_id": "r2",
+          "region_id": "r8",
           "text": "300\n750",
           "confidence": "high",
           "applies_to": "C1 size"
         },
         {
-          "region_id": "r3",
+          "region_id": "r9",
           "text": "14-20T",
           "confidence": "high",
           "applies_to": "C1 reinforcement"
         },
         {
-          "region_id": "r4",
-          "text": "8T@100c/c\n8T@150c/c",
+          "region_id": "r10",
+          "text": "8T@100c/c\n8 no.\n8T@150c/c\nREST",
           "confidence": "high",
           "applies_to": "C1 stirrups"
         },
         {
-          "region_id": "r5",
+          "region_id": "r11",
           "text": "M-35",
           "confidence": "high",
           "applies_to": "C1 mix"
         },
         {
-          "region_id": "r6",
+          "region_id": "r12",
           "text": "450\n600",
           "confidence": "high",
           "applies_to": "C2 size"
         },
         {
-          "region_id": "r7",
+          "region_id": "r13",
           "text": "14-20T",
           "confidence": "high",
           "applies_to": "C2 reinforcement"
         },
         {
-          "region_id": "r8",
-          "text": "8T@100c/c\n8T@150c/c",
+          "region_id": "r14",
+          "text": "8T@100c/c\n7 no.\n8T@150c/c\nREST",
           "confidence": "high",
           "applies_to": "C2 stirrups"
         },
         {
-          "region_id": "r9",
+          "region_id": "r15",
           "text": "M-35",
           "confidence": "high",
           "applies_to": "C2 mix"
         },
         {
-          "region_id": "r10",
+          "region_id": "r16",
           "text": "300\n600",
           "confidence": "high",
           "applies_to": "C3 size"
         },
         {
-          "region_id": "r11",
+          "region_id": "r17",
           "text": "12-20T",
           "confidence": "high",
           "applies_to": "C3 reinforcement"
         },
         {
-          "region_id": "r12",
-          "text": "8T@100c/c\n8T@150c/c",
+          "region_id": "r18",
+          "text": "8T@100c/c\n7 no.\n8T@150c/c\nREST",
           "confidence": "high",
           "applies_to": "C3 stirrups"
         },
         {
-          "region_id": "r13",
+          "region_id": "r19",
           "text": "M-35",
           "confidence": "high",
           "applies_to": "C3 mix"
         },
         {
-          "region_id": "r14",
+          "region_id": "r20",
           "text": "350\n750",
           "confidence": "high",
           "applies_to": "C4 size"
         },
         {
-          "region_id": "r15",
+          "region_id": "r21",
           "text": "14-20T",
           "confidence": "high",
           "applies_to": "C4 reinforcement"
         },
         {
-          "region_id": "r16",
-          "text": "8T@100c/c\n8T@150c/c",
+          "region_id": "r22",
+          "text": "8T@100c/c\n7 no.\n8T@150c/c\nREST",
           "confidence": "high",
           "applies_to": "C4 stirrups"
         },
         {
-          "region_id": "r17",
+          "region_id": "r23",
           "text": "M-35",
           "confidence": "high",
           "applies_to": "C4 mix"
         },
         {
-          "region_id": "r18",
+          "region_id": "r24",
           "text": "450\n450",
           "confidence": "high",
           "applies_to": "C6 size"
         },
         {
-          "region_id": "r19",
+          "region_id": "r25",
           "text": "4-20T\n8-16T",
           "confidence": "high",
           "applies_to": "C6 reinforcement"
         },
         {
-          "region_id": "r20",
-          "text": "8T@100c/c\n8T@150c/c",
+          "region_id": "r26",
+          "text": "8T@100c/c\n9 no.\n8T@150c/c\nREST",
           "confidence": "high",
           "applies_to": "C6 stirrups"
         },
         {
-          "region_id": "r21",
+          "region_id": "r27",
           "text": "M-35",
           "confidence": "high",
           "applies_to": "C6 mix"
         },
         {
-          "region_id": "r22",
+          "region_id": "r28",
           "text": "300\n600",
           "confidence": "high",
           "applies_to": "C7 size"
         },
         {
-          "region_id": "r23",
+          "region_id": "r29",
           "text": "12-16T",
           "confidence": "high",
           "applies_to": "C7 reinforcement"
         },
         {
-          "region_id": "r24",
-          "text": "8T@100c/c\n8T@150c/c",
+          "region_id": "r30",
+          "text": "8T@100c/c\n7 no.\n8T@150c/c\nREST",
           "confidence": "high",
           "applies_to": "C7 stirrups"
         },
         {
-          "region_id": "r25",
+          "region_id": "r31",
           "text": "M-35",
           "confidence": "high",
           "applies_to": "C7 mix"

@@ -2,7 +2,7 @@
   "level": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
   "columns": [
     {
-      "column_no": "TA-C1, TA-C4",
+      "column_no": "C1",
       "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
       "size": {
         "width": 230,
@@ -21,11 +21,11 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
-      "column_no": "TA-C2, TA-C3",
+      "column_no": "C2",
       "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
       "size": {
         "width": 530,
@@ -44,11 +44,11 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
-      "column_no": "TA-C34, TA-C35",
+      "column_no": "C3",
       "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
       "size": {
         "width": 230,
@@ -67,11 +67,11 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
-      "column_no": "TA-C33, TA-C36",
+      "column_no": "C4",
       "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
       "size": {
         "width": 230,
@@ -90,11 +90,11 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
-      "column_no": "TA-C29",
+      "column_no": "C5",
       "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
       "size": {
         "width": 230,
@@ -113,16 +113,16 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
-      "column_no": "TA-C5",
+      "column_no": "C6",
       "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
       "size": {
         "width": 230,
         "depth": null,
-        "length": 1000
+        "length": 1600
       },
       "reinforcement": [
         "4-25T",
@@ -136,30 +136,7 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
-      "steel_grade": null
-    },
-    {
-      "column_no": "TA-C23",
-      "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
-      "size": {
-        "width": 230,
-        "depth": null,
-        "length": 1600
-      },
-      "reinforcement": [
-        "4-16T",
-        "28-12T"
-      ],
-      "stirrups": {
-        "dia": [
-          "8T"
-        ],
-        "spacing": [
-          "100 C/C"
-        ]
-      },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     }
   ]

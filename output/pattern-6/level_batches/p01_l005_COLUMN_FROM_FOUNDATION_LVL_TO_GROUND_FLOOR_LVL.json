@@ -15,17 +15,13 @@
       ],
       "stirrups": {
         "dia": [
-          [
-            "8T"
-          ]
+          "8T"
         ],
         "spacing": [
-          [
-            "100 C/C"
-          ]
+          "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
@@ -41,17 +37,13 @@
       ],
       "stirrups": {
         "dia": [
-          [
-            "8T"
-          ]
+          "8T"
         ],
         "spacing": [
-          [
-            "100 C/C"
-          ]
+          "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
@@ -68,17 +60,13 @@
       ],
       "stirrups": {
         "dia": [
-          [
-            "8T"
-          ]
+          "8T"
         ],
         "spacing": [
-          [
-            "100 C/C"
-          ]
+          "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
@@ -95,17 +83,13 @@
       ],
       "stirrups": {
         "dia": [
-          [
-            "8T"
-          ]
+          "8T"
         ],
         "spacing": [
-          [
-            "100 C/C"
-          ]
+          "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
@@ -122,17 +106,13 @@
       ],
       "stirrups": {
         "dia": [
-          [
-            "8T"
-          ]
+          "8T"
         ],
         "spacing": [
-          [
-            "100 C/C"
-          ]
+          "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
@@ -149,17 +129,13 @@
       ],
       "stirrups": {
         "dia": [
-          [
-            "8T"
-          ]
+          "8T"
         ],
         "spacing": [
-          [
-            "100 C/C"
-          ]
+          "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
@@ -176,17 +152,13 @@
       ],
       "stirrups": {
         "dia": [
-          [
-            "8T"
-          ]
+          "8T"
         ],
         "spacing": [
-          [
-            "100 C/C"
-          ]
+          "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     }
   ]

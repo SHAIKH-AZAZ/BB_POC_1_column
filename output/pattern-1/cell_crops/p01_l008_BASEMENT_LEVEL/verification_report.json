@@ -34,7 +34,7 @@
   "row_crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l008_BASEMENT_LEVEL\\row_l008_BASEMENT_LEVEL.png",
   "row_error": null,
   "row_checked": true,
-  "cell_retries": 0,
+  "cell_retries": 1,
   "corrected": [
     {
       "column_no": "C1,C7,C8,C14,C67,C75",
@@ -125,13 +125,12 @@
       "grid_col_index": 3,
       "before": {
         "size": {
-          "width": 700,
+          "width": 800,
           "depth": null,
-          "length": 700
+          "length": 800
         },
         "reinforcement": [
-          "4-T32",
-          "16-T25"
+          "24-T32"
         ]
       },
       "after": {
@@ -149,8 +148,89 @@
       "source": "row"
     },
     {
+      "column_no": "C11",
+      "grid_col_index": 5,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "20-T32"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 800,
+          "depth": null,
+          "length": 800
+        },
+        "reinforcement": [
+          "24-T32"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "800 x 800\n24-T32",
+      "source": "row"
+    },
+    {
+      "column_no": "C12",
+      "grid_col_index": 6,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "20-T32"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 600,
+          "depth": null,
+          "length": 600
+        },
+        "reinforcement": [
+          "20-T32"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "600 x 600\n20-T32",
+      "source": "row"
+    },
+    {
       "column_no": "C16,C17,C33",
       "grid_col_index": 7,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "20-T32"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 700,
+          "depth": null,
+          "length": 700
+        },
+        "reinforcement": [
+          "32-T32"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "700 x 700\n32-T32",
+      "source": "row"
+    },
+    {
+      "column_no": "C18",
+      "grid_col_index": 8,
       "before": {
         "size": {
           "width": 900,
@@ -164,44 +244,16 @@
       },
       "after": {
         "size": {
-          "width": 320,
+          "width": 700,
           "depth": null,
-          "length": 1320
+          "length": 700
         },
         "reinforcement": [
-          "28-T32"
+          "20-T32"
         ]
       },
       "confidence": "high",
-      "raw_text": "320 x 1320\n28-T32",
-      "source": "row"
-    },
-    {
-      "column_no": "C18",
-      "grid_col_index": 8,
-      "before": {
-        "size": {
-          "width": 900,
-          "depth": null,
-          "length": 900
-        },
-        "reinforcement": [
-          "4-T25",
-          "12-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 320,
-          "depth": null,
-          "length": 1320
-        },
-        "reinforcement": [
-          "28-T32"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "320 x 1320\n28-T32",
+      "raw_text": "700 x 700\n20-T32",
       "source": "row"
     },
     {
@@ -214,291 +266,7 @@
           "length": 900
         },
         "reinforcement": [
-          "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 320,
-          "depth": null,
-          "length": 1320
-        },
-        "reinforcement": [
-          "32-T32"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "320 x 1320\n32-T32",
-      "source": "row"
-    },
-    {
-      "column_no": "C20",
-      "grid_col_index": 10,
-      "before": {
-        "size": {
-          "width": 900,
-          "depth": null,
-          "length": 900
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 320,
-          "depth": null,
-          "length": 1320
-        },
-        "reinforcement": [
           "20-T32"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "320 x 1320\n20-T32",
-      "source": "row"
-    },
-    {
-      "column_no": "C21",
-      "grid_col_index": 11,
-      "before": {
-        "size": {
-          "width": 900,
-          "depth": null,
-          "length": 900
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 400,
-          "depth": null,
-          "length": 1320
-        },
-        "reinforcement": [
-          "16-T25"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "400 x 1320\n16-T25",
-      "source": "row"
-    },
-    {
-      "column_no": "C23,C44",
-      "grid_col_index": 12,
-      "before": {
-        "size": {
-          "width": 900,
-          "depth": null,
-          "length": 900
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 250,
-          "depth": null,
-          "length": 116
-        },
-        "reinforcement": [
-          "25-T116"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "25-T116",
-      "source": "row"
-    },
-    {
-      "column_no": "C24",
-      "grid_col_index": 13,
-      "before": {
-        "size": {
-          "width": 900,
-          "depth": null,
-          "length": 900
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 130,
-          "depth": null,
-          "length": 125
-        },
-        "reinforcement": [
-          "4-T20",
-          "12-T16"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "130-125\n4-T20+12-T16",
-      "source": "row"
-    },
-    {
-      "column_no": "C25",
-      "grid_col_index": 14,
-      "before": {
-        "size": {
-          "width": 900,
-          "depth": null,
-          "length": 900
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 108,
-          "depth": null,
-          "length": 125
-        },
-        "reinforcement": [
-          "4-T25",
-          "12-T20"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "108-125\n4-T25+12-T20",
-      "source": "row"
-    },
-    {
-      "column_no": "C26,C27",
-      "grid_col_index": 15,
-      "before": {
-        "size": {
-          "width": 900,
-          "depth": null,
-          "length": 900
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 125,
-          "depth": null,
-          "length": 120
-        },
-        "reinforcement": [
-          "16-T16"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "16-T16",
-      "source": "row"
-    },
-    {
-      "column_no": "C28",
-      "grid_col_index": 16,
-      "before": {
-        "size": {
-          "width": 900,
-          "depth": null,
-          "length": 900
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 250,
-          "depth": null,
-          "length": 250
-        },
-        "reinforcement": [
-          "4-T25",
-          "12-T32"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "250 x 250\n4-T25+12-T32",
-      "source": "row"
-    },
-    {
-      "column_no": "C29",
-      "grid_col_index": 17,
-      "before": {
-        "size": {
-          "width": 900,
-          "depth": null,
-          "length": 900
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 700,
-          "depth": null,
-          "length": 700
-        },
-        "reinforcement": [
-          "20-T120"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "700 x 700\n20-T120",
-      "source": "row"
-    },
-    {
-      "column_no": "C30",
-      "grid_col_index": 18,
-      "before": {
-        "size": {
-          "width": 900,
-          "depth": null,
-          "length": 900
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
-        ]
-      },
-      "after": {
-        "size": {
-          "width": 700,
-          "depth": null,
-          "length": 700
-        },
-        "reinforcement": [
-          "102-T20"
-        ]
-      },
-      "confidence": "high",
-      "raw_text": "700 x 700\n102-T20",
-      "source": "row"
-    },
-    {
-      "column_no": "C31",
-      "grid_col_index": 19,
-      "before": {
-        "size": {
-          "width": 900,
-          "depth": null,
-          "length": 900
-        },
-        "reinforcement": [
-          "4-T25",
-          "16-T20"
         ]
       },
       "after": {
@@ -516,6 +284,277 @@
       "source": "row"
     },
     {
+      "column_no": "C20",
+      "grid_col_index": 10,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "20-T32"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 950,
+          "depth": null,
+          "length": 250
+        },
+        "reinforcement": [
+          "20-T25"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "950 x 250\n20-T25",
+      "source": "row"
+    },
+    {
+      "column_no": "C21",
+      "grid_col_index": 11,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "20-T32"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 750,
+          "depth": null,
+          "length": 350
+        },
+        "reinforcement": [
+          "20-T25"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "750 x 350\n20-T25",
+      "source": "row"
+    },
+    {
+      "column_no": "C23,C44",
+      "grid_col_index": 12,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "4-T32",
+          "16-T25"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 750,
+          "depth": null,
+          "length": 350
+        },
+        "reinforcement": [
+          "20-T25"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "750 x 350\n20-T25",
+      "source": "row"
+    },
+    {
+      "column_no": "C24",
+      "grid_col_index": 13,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "20-T32"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 700,
+          "depth": null,
+          "length": 650
+        },
+        "reinforcement": [
+          "20-T25"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "700 x 650\n20-T25",
+      "source": "row"
+    },
+    {
+      "column_no": "C25",
+      "grid_col_index": 14,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "20-T32"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 300,
+          "depth": null,
+          "length": 750
+        },
+        "reinforcement": [
+          "20-T25"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "300 x 750\n20-T25",
+      "source": "row"
+    },
+    {
+      "column_no": "C26,C27",
+      "grid_col_index": 15,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "20-T32"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 300,
+          "depth": null,
+          "length": 750
+        },
+        "reinforcement": [
+          "20-T25"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "300 x 750\n20-T25",
+      "source": "row"
+    },
+    {
+      "column_no": "C28",
+      "grid_col_index": 16,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "20-T32"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 750,
+          "depth": null,
+          "length": 350
+        },
+        "reinforcement": [
+          "16-T16"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "750 x 350\n16-T16",
+      "source": "row"
+    },
+    {
+      "column_no": "C29",
+      "grid_col_index": 17,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "20-T32"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 750,
+          "depth": null,
+          "length": 750
+        },
+        "reinforcement": [
+          "24-T32"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "750 x 750\n24-T32",
+      "source": "row"
+    },
+    {
+      "column_no": "C30",
+      "grid_col_index": 18,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "20-T32"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 950,
+          "depth": null,
+          "length": 300
+        },
+        "reinforcement": [
+          "20-T120"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "950 x 300\n20-T120",
+      "source": "row"
+    },
+    {
+      "column_no": "C31",
+      "grid_col_index": 19,
+      "before": {
+        "size": {
+          "width": 900,
+          "depth": null,
+          "length": 900
+        },
+        "reinforcement": [
+          "16-T25"
+        ]
+      },
+      "after": {
+        "size": {
+          "width": 950,
+          "depth": null,
+          "length": 300
+        },
+        "reinforcement": [
+          "20-T120"
+        ]
+      },
+      "confidence": "high",
+      "raw_text": "950 x 300\n20-T120",
+      "source": "row"
+    },
+    {
       "column_no": "C34",
       "grid_col_index": 20,
       "before": {
@@ -525,8 +564,7 @@
           "length": 900
         },
         "reinforcement": [
-          "4-T25",
-          "16-T20"
+          "20-T32"
         ]
       },
       "after": {
@@ -536,11 +574,11 @@
           "length": 700
         },
         "reinforcement": [
-          "16-T20"
+          "102-T20"
         ]
       },
       "confidence": "high",
-      "raw_text": "16-T20",
+      "raw_text": "700 x 700\n102-T20",
       "source": "row"
     },
     {
@@ -553,22 +591,21 @@
           "length": 900
         },
         "reinforcement": [
-          "4-T25",
-          "16-T20"
+          "20-T32"
         ]
       },
       "after": {
         "size": {
-          "width": 174,
+          "width": 700,
           "depth": null,
-          "length": 132
+          "length": 700
         },
         "reinforcement": [
-          "20-T125"
+          "20-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "174 x 132\n20-T125",
+      "raw_text": "700 x 700\n20-T25",
       "source": "row"
     },
     {
@@ -581,8 +618,7 @@
           "length": 900
         },
         "reinforcement": [
-          "4-T25",
-          "16-T20"
+          "20-T32"
         ]
       },
       "after": {
@@ -592,11 +628,11 @@
           "length": 700
         },
         "reinforcement": [
-          "20-T125"
+          "16-T20"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T125",
+      "raw_text": "700 x 700\n16-T20",
       "source": "row"
     },
     {
@@ -609,8 +645,7 @@
           "length": 900
         },
         "reinforcement": [
-          "4-T25",
-          "16-T20"
+          "16-T25"
         ]
       },
       "after": {
@@ -620,11 +655,11 @@
           "length": 700
         },
         "reinforcement": [
-          "20-T125"
+          "17-T32"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T125",
+      "raw_text": "700 x 700\n17-T32",
       "source": "row"
     },
     {
@@ -637,8 +672,7 @@
           "length": 900
         },
         "reinforcement": [
-          "4-T25",
-          "16-T20"
+          "20-T32"
         ]
       },
       "after": {
@@ -648,11 +682,11 @@
           "length": 700
         },
         "reinforcement": [
-          "20-T125"
+          "20-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T125",
+      "raw_text": "700 x 700\n20-T25",
       "source": "row"
     },
     {
@@ -665,24 +699,48 @@
           "length": 900
         },
         "reinforcement": [
-          "4-T25",
-          "16-T20"
+          "20-T32"
         ]
       },
       "after": {
         "size": {
-          "width": 700,
+          "width": 300,
           "depth": null,
-          "length": 700
+          "length": 950
         },
         "reinforcement": [
-          "20-T125"
+          "20-T25"
         ]
       },
       "confidence": "high",
-      "raw_text": "700 x 700\n20-T125",
-      "source": "row"
+      "raw_text": "300 x 950\n20-T25",
+      "source": "cell_retry"
     }
   ],
-  "errors": []
+  "errors": [],
+  "retry_attempts": [
+    {
+      "column_no": "C41",
+      "grid_col_index": 25,
+      "attempts": [
+        {
+          "mode": "cell",
+          "padding": 6,
+          "crop": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-1\\cell_crops\\p01_l008_BASEMENT_LEVEL\\l008_c026_BASEMENT_LEVEL_C41_cell.png",
+          "result": {
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 950
+            },
+            "reinforcement": [
+              "20-T25"
+            ],
+            "confidence": "high",
+            "raw_text": "300 x 950\n20-T25"
+          }
+        }
+      ]
+    }
+  ]
 }

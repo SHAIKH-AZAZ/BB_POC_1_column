@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
-from pattern_batching import env_enabled, extract_levels_with_checkpoints
+from pattern_batching import env_enabled, extract_levels_with_checkpoints, upper_level_from_range
 from vision_extractor import extract_from_image, extract_with_tools
 
 # ==============================
@@ -256,10 +256,17 @@ def clean_mix(mix):
 # EXPECTED LEVELS
 # ==============================
 
+#
+# Upper-level rule: each level is the FIRST part (before "TO") of the
+# original schedule range header. Mapping for reference:
+#   "FIRST FLOOR TO ROOF LEVEL"      -> "FIRST FLOOR"
+#   "GROUND FLOOR TO FIRST FLOOR"    -> "GROUND FLOOR"
+#   "FOOTING TO GROUND FLOOR"        -> "FOOTING"
+#
 EXPECTED_LEVELS = [
-    "FIRST FLOOR TO ROOF LEVEL",
-    "GROUND FLOOR TO FIRST FLOOR",
-    "FOOTING TO GROUND FLOOR",
+    "FIRST FLOOR",
+    "GROUND FLOOR",
+    "FOOTING",
 ]
 
 
@@ -324,9 +331,14 @@ def process_pdf(pdf_path):
         pattern_number=2,
         output_folder=output_folder,
         prompt_context=(
-            "Pattern 2 levels are horizontal section titles such as "
-            "'GROUND FLOOR TO FIRST FLOOR', 'FOOTING TO GROUND FLOOR', "
-            "and 'FIRST FLOOR TO ROOF LEVEL'. Keep full visible range names."
+            "Pattern 2 levels are horizontal section titles spanning "
+            "two floors, such as 'GROUND FLOOR TO FIRST FLOOR', "
+            "'FOOTING TO GROUND FLOOR', 'FIRST FLOOR TO ROOF LEVEL'. "
+            "UPPER-LEVEL RULE: return ONLY the part BEFORE 'TO'. "
+            "Examples: 'GROUND FLOOR TO FIRST FLOOR' -> 'GROUND FLOOR'; "
+            "'FOOTING TO GROUND FLOOR' -> 'FOOTING'; "
+            "'FIRST FLOOR TO ROOF LEVEL' -> 'FIRST FLOOR'. "
+            "Do NOT keep the 'TO ...' suffix."
         ),
     )
 
@@ -349,6 +361,9 @@ def process_pdf(pdf_path):
         col["mix"] = clean_mix(col.get("mix"))
 
         col["steel_grade"] = None
+
+        # Upper-level rule (safety net): collapse "X TO Y" -> "X"
+        col["column_name"] = upper_level_from_range(col.get("column_name"))
 
         final_columns.append(col)
 

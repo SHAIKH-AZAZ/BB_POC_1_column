@@ -2,7 +2,7 @@
   "level": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
   "columns": [
     {
-      "column_no": "TA-C1, TA-C4",
+      "column_no": "C1",
       "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
       "size": {
         "width": 230,
@@ -21,11 +21,11 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
-      "column_no": "TA-C2, TA-C3",
+      "column_no": "C2",
       "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
       "size": {
         "width": 530,
@@ -44,11 +44,11 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
-      "column_no": "TA-C34, TA-C35",
+      "column_no": "C3",
       "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
       "size": {
         "width": 230,
@@ -67,11 +67,11 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
-      "column_no": "TA-C33, TA-C36",
+      "column_no": "C4",
       "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
       "size": {
         "width": 230,
@@ -90,11 +90,11 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
-      "column_no": "TA-C29",
+      "column_no": "C5",
       "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
       "size": {
         "width": 230,
@@ -113,11 +113,11 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
-      "column_no": "TA-C5",
+      "column_no": "C6",
       "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
       "size": {
         "width": 230,
@@ -136,11 +136,11 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     },
     {
-      "column_no": "TA-C23",
+      "column_no": "C7",
       "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
       "size": {
         "width": 230,
@@ -159,7 +159,7 @@
           "100 C/C"
         ]
       },
-      "mix": "M-30",
+      "mix": "M30",
       "steel_grade": null
     }
   ]

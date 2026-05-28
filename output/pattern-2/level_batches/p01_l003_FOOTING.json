@@ -1,0 +1,279 @@
+{
+  "level": "FOOTING",
+  "columns": [
+    {
+      "column_no": "AC11,AC19,AC27,AC35",
+      "column_name": "FOOTING",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 230
+      },
+      "reinforcement": [
+        "4-T16"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "AC12,AC14,AC17,AC22,AC25,AC30,AC33,AC38",
+      "column_name": "FOOTING",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "4-T25",
+        "6-T20"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "AC13,AC37",
+      "column_name": "FOOTING",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 800
+      },
+      "reinforcement": [
+        "8-T25",
+        "8-T20"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "AC15,AC18,AC23,AC26,AC31,AC34,AC39",
+      "column_name": "FOOTING",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 300
+      },
+      "reinforcement": [
+        "4-T16",
+        "6-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "AC16,AC20,AC24,AC28,AC32,AC36",
+      "column_name": "FOOTING",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "4-T25",
+        "8-T20"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "AC21,AC29",
+      "column_name": "FOOTING",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1100
+      },
+      "reinforcement": [
+        "8-T25",
+        "14-T20"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "BC11,BC19,BC27,BC35",
+      "column_name": "FOOTING",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 230
+      },
+      "reinforcement": [
+        "4-T16"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "BC12,BC14,BC17,BC22,BC25,BC30,BC33,BC38",
+      "column_name": "FOOTING",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "4-T25",
+        "6-T20"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "BC13,BC37",
+      "column_name": "FOOTING",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 800
+      },
+      "reinforcement": [
+        "8-T25",
+        "8-T20"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "BC15,BC18,BC23,BC26,BC31,BC34,BC39",
+      "column_name": "FOOTING",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 300
+      },
+      "reinforcement": [
+        "4-T16",
+        "6-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "BC16,BC20,BC24,BC28,BC32,BC36",
+      "column_name": "FOOTING",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "4-T25",
+        "8-T20"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "BC21,BC29",
+      "column_name": "FOOTING",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1100
+      },
+      "reinforcement": [
+        "8-T25",
+        "14-T20"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    }
+  ]
+}

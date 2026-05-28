@@ -5,14 +5,14 @@
     "page_1.png__p01_groups_column_groups": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-14\\page_1.png",
-      "generated_at": "2026-05-27T12:13:08.094208+00:00",
+      "generated_at": "2026-05-28T09:13:21.517077+00:00",
       "think": {
         "image_quality": "good",
         "table_bounds": {
-          "x1": 0,
-          "y1": 900,
-          "x2": 1600,
-          "y2": 1000
+          "x1": 0.05,
+          "y1": 0.85,
+          "x2": 0.95,
+          "y2": 0.95
         },
         "column_headers": [
           "AC1,2,48,49",
@@ -35,255 +35,438 @@
             "region_id": "r1",
             "purpose": "row_label",
             "target": "COLUMN MARKED",
-            "reason": "Extract column groups"
+            "reason": "Extract column groups from COLUMN MARKED row"
           },
           {
             "region_id": "r2",
-            "purpose": "data_cell",
+            "purpose": "header",
             "target": "AC1,2,48,49",
-            "x1": 150,
-            "y1": 920,
-            "x2": 300,
-            "y2": 960,
-            "reason": "Confirm AC1,2,48,49"
+            "reason": "Extract first column group"
           },
           {
             "region_id": "r3",
-            "purpose": "data_cell",
+            "purpose": "header",
             "target": "AC3,5,6,9,10,42,43,44,46,47",
-            "x1": 310,
-            "y1": 920,
-            "x2": 460,
-            "y2": 960,
-            "reason": "Confirm AC3,5,6,9,10,42,43,44,46,47"
+            "reason": "Extract second column group"
           },
           {
             "region_id": "r4",
-            "purpose": "data_cell",
+            "purpose": "header",
             "target": "AC4,8,41,45",
-            "x1": 470,
-            "y1": 920,
-            "x2": 620,
-            "y2": 960,
-            "reason": "Confirm AC4,8,41,45"
+            "reason": "Extract third column group"
           },
           {
             "region_id": "r5",
-            "purpose": "data_cell",
+            "purpose": "header",
             "target": "AC7,40",
-            "x1": 630,
-            "y1": 920,
-            "x2": 780,
-            "y2": 960,
-            "reason": "Confirm AC7,40"
+            "reason": "Extract fourth column group"
           },
           {
             "region_id": "r6",
-            "purpose": "data_cell",
+            "purpose": "header",
             "target": "AC11,19,27,35",
-            "x1": 790,
-            "y1": 920,
-            "x2": 940,
-            "y2": 960,
-            "reason": "Confirm AC11,19,27,35"
+            "reason": "Extract fifth column group"
           },
           {
             "region_id": "r7",
-            "purpose": "data_cell",
+            "purpose": "header",
             "target": "BC1,2,48,49",
-            "x1": 950,
-            "y1": 920,
-            "x2": 1100,
-            "y2": 960,
-            "reason": "Confirm BC1,2,48,49"
+            "reason": "Extract sixth column group"
           },
           {
             "region_id": "r8",
-            "purpose": "data_cell",
+            "purpose": "header",
             "target": "BC3,5,6,9,10,42,43,44,46,47",
-            "x1": 1110,
-            "y1": 920,
-            "x2": 1260,
-            "y2": 960,
-            "reason": "Confirm BC3,5,6,9,10,42,43,44,46,47"
+            "reason": "Extract seventh column group"
           },
           {
             "region_id": "r9",
-            "purpose": "data_cell",
+            "purpose": "header",
             "target": "BC4,8,41,45",
-            "x1": 1270,
-            "y1": 920,
-            "x2": 1420,
-            "y2": 960,
-            "reason": "Confirm BC4,8,41,45"
+            "reason": "Extract eighth column group"
           },
           {
             "region_id": "r10",
-            "purpose": "data_cell",
+            "purpose": "header",
             "target": "BC7,40",
-            "x1": 1430,
-            "y1": 920,
-            "x2": 1580,
-            "y2": 960,
-            "reason": "Confirm BC7,40"
+            "reason": "Extract ninth column group"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "header",
+            "target": "BC11,19,27,35",
+            "reason": "Extract tenth column group"
           }
         ],
         "normalization_rules": [
-          "Expand prefixes AC and BC separately",
-          "Merge AC and BC if both exist in same vertical position",
+          "Expand AC and BC prefixes separately",
+          "Merge AC and BC groups if both exist in same vertical position",
           "Maintain left to right order",
-          "Return as JSON array of strings"
+          "Return as ordered list of column groups"
         ],
         "extraction_order": [
           "COLUMN MARKED"
         ]
       },
-      "zoom_regions": [
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
         {
-          "region_id": "r2",
-          "purpose": "data_cell",
-          "x1": 150.0,
-          "y1": 920.0,
-          "x2": 300.0,
-          "y2": 960.0,
-          "reason": "Confirm AC1,2,48,49"
+          "column_no": "AC1,2,48,49",
+          "column_name": "COLUMN MARKED",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
         },
         {
-          "region_id": "r3",
-          "purpose": "data_cell",
-          "x1": 310.0,
-          "y1": 920.0,
-          "x2": 460.0,
-          "y2": 960.0,
-          "reason": "Confirm AC3,5,6,9,10,42,43,44,46,47"
+          "column_no": "AC3,5,6,9,10,42,43,44,46,47",
+          "column_name": "COLUMN MARKED",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
         },
         {
-          "region_id": "r4",
-          "purpose": "data_cell",
-          "x1": 470.0,
-          "y1": 920.0,
-          "x2": 620.0,
-          "y2": 960.0,
-          "reason": "Confirm AC4,8,41,45"
+          "column_no": "AC4,8,41,45",
+          "column_name": "COLUMN MARKED",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
         },
         {
-          "region_id": "r5",
-          "purpose": "data_cell",
-          "x1": 630.0,
-          "y1": 920.0,
-          "x2": 780.0,
-          "y2": 960.0,
-          "reason": "Confirm AC7,40"
+          "column_no": "AC7,40",
+          "column_name": "COLUMN MARKED",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
         },
         {
-          "region_id": "r6",
-          "purpose": "data_cell",
-          "x1": 790.0,
-          "y1": 920.0,
-          "x2": 940.0,
-          "y2": 960.0,
-          "reason": "Confirm AC11,19,27,35"
+          "column_no": "AC11,19,27,35",
+          "column_name": "COLUMN MARKED",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
         },
         {
-          "region_id": "r7",
-          "purpose": "data_cell",
-          "x1": 950.0,
-          "y1": 920.0,
-          "x2": 1100.0,
-          "y2": 960.0,
-          "reason": "Confirm BC1,2,48,49"
+          "column_no": "BC1,2,48,49",
+          "column_name": "COLUMN MARKED",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
         },
         {
-          "region_id": "r8",
-          "purpose": "data_cell",
-          "x1": 1110.0,
-          "y1": 920.0,
-          "x2": 1260.0,
-          "y2": 960.0,
-          "reason": "Confirm BC3,5,6,9,10,42,43,44,46,47"
+          "column_no": "BC3,5,6,9,10,42,43,44,46,47",
+          "column_name": "COLUMN MARKED",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
         },
         {
-          "region_id": "r9",
-          "purpose": "data_cell",
-          "x1": 1270.0,
-          "y1": 920.0,
-          "x2": 1420.0,
-          "y2": 960.0,
-          "reason": "Confirm BC4,8,41,45"
+          "column_no": "BC4,8,41,45",
+          "column_name": "COLUMN MARKED",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
         },
         {
-          "region_id": "r10",
-          "purpose": "data_cell",
-          "x1": 1430.0,
-          "y1": 920.0,
-          "x2": 1580.0,
-          "y2": 960.0,
-          "reason": "Confirm BC7,40"
+          "column_no": "BC7,40",
+          "column_name": "COLUMN MARKED",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "BC11,19,27,35",
+          "column_name": "COLUMN MARKED",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
         }
       ],
-      "confirmed_reads": [
+      "added_records": [
         {
-          "region_id": "r2",
-          "text": "AC1,2,48,49",
-          "confidence": "high",
-          "applies_to": "COLUMN MARKED"
+          "record": {
+            "column_no": "AC1,2,48,49",
+            "column_name": "COLUMN MARKED",
+            "size": {
+              "width": null,
+              "depth": null,
+              "length": null
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
         },
         {
-          "region_id": "r3",
-          "text": "AC3,5,6,9,10,42,43,44,46,47",
-          "confidence": "high",
-          "applies_to": "COLUMN MARKED"
+          "record": {
+            "column_no": "AC3,5,6,9,10,42,43,44,46,47",
+            "column_name": "COLUMN MARKED",
+            "size": {
+              "width": null,
+              "depth": null,
+              "length": null
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
         },
         {
-          "region_id": "r4",
-          "text": "AC4,8,41,45",
-          "confidence": "high",
-          "applies_to": "COLUMN MARKED"
+          "record": {
+            "column_no": "AC4,8,41,45",
+            "column_name": "COLUMN MARKED",
+            "size": {
+              "width": null,
+              "depth": null,
+              "length": null
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
         },
         {
-          "region_id": "r5",
-          "text": "AC7,40",
-          "confidence": "high",
-          "applies_to": "COLUMN MARKED"
+          "record": {
+            "column_no": "AC7,40",
+            "column_name": "COLUMN MARKED",
+            "size": {
+              "width": null,
+              "depth": null,
+              "length": null
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
         },
         {
-          "region_id": "r6",
-          "text": "AC11,19,27,35",
-          "confidence": "high",
-          "applies_to": "COLUMN MARKED"
+          "record": {
+            "column_no": "AC11,19,27,35",
+            "column_name": "COLUMN MARKED",
+            "size": {
+              "width": null,
+              "depth": null,
+              "length": null
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
         },
         {
-          "region_id": "r7",
-          "text": "BC1,2,48,49",
-          "confidence": "high",
-          "applies_to": "COLUMN MARKED"
+          "record": {
+            "column_no": "BC1,2,48,49",
+            "column_name": "COLUMN MARKED",
+            "size": {
+              "width": null,
+              "depth": null,
+              "length": null
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
         },
         {
-          "region_id": "r8",
-          "text": "BC3,5,6,9,10,42,43,44,46,47",
-          "confidence": "high",
-          "applies_to": "COLUMN MARKED"
+          "record": {
+            "column_no": "BC3,5,6,9,10,42,43,44,46,47",
+            "column_name": "COLUMN MARKED",
+            "size": {
+              "width": null,
+              "depth": null,
+              "length": null
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
         },
         {
-          "region_id": "r9",
-          "text": "BC4,8,41,45",
-          "confidence": "high",
-          "applies_to": "COLUMN MARKED"
+          "record": {
+            "column_no": "BC4,8,41,45",
+            "column_name": "COLUMN MARKED",
+            "size": {
+              "width": null,
+              "depth": null,
+              "length": null
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
         },
         {
-          "region_id": "r10",
-          "text": "BC7,40",
-          "confidence": "high",
-          "applies_to": "COLUMN MARKED"
+          "record": {
+            "column_no": "BC7,40",
+            "column_name": "COLUMN MARKED",
+            "size": {
+              "width": null,
+              "depth": null,
+              "length": null
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "BC11,19,27,35",
+            "column_name": "COLUMN MARKED",
+            "size": {
+              "width": null,
+              "depth": null,
+              "length": null
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
         }
       ],
-      "records": [],
-      "added_records": [],
       "expected_count": 10,
-      "actual_count": 0,
-      "warnings": [
-        "expected 10 record(s), collected 0"
-      ]
+      "actual_count": 10,
+      "warnings": []
     },
     "page_1.png__p01_l001_ROOF_FLOOR": {
       "project": "column",
@@ -1981,10 +2164,9 @@
   },
   "summary": {
     "page_count": 4,
-    "record_count": 30,
-    "warning_count": 2,
+    "record_count": 40,
+    "warning_count": 1,
     "warnings": [
-      "expected 10 record(s), collected 0",
       "expected 5 record(s), collected 10"
     ]
   }

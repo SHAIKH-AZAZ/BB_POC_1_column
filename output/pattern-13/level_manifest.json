@@ -2,30 +2,14 @@
   "pattern": 13,
   "mode": "level_batches",
   "levels": [
-    "SIXTH TO SEVENTH",
-    "NINTH TO TENTH",
-    "THIRD TO FOURTH"
+    "NINTH TO TENTH"
   ],
   "batches": [
     {
       "id": "l001",
-      "level": "SIXTH TO SEVENTH",
-      "status": "done",
-      "file": "level_batches\\l001_SIXTH_TO_SEVENTH.json",
-      "error": null
-    },
-    {
-      "id": "l002",
       "level": "NINTH TO TENTH",
       "status": "done",
-      "file": "level_batches\\l002_NINTH_TO_TENTH.json",
-      "error": null
-    },
-    {
-      "id": "l003",
-      "level": "THIRD TO FOURTH",
-      "status": "done",
-      "file": "level_batches\\l003_THIRD_TO_FOURTH.json",
+      "file": "level_batches\\l001_NINTH_TO_TENTH.json",
       "error": null
     }
   ]

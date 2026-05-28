@@ -5,9 +5,9 @@
     "page_1.png__p01_page": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-5\\page_1.png",
-      "generated_at": "2026-05-27T12:17:19.049530+00:00",
+      "generated_at": "2026-05-28T09:17:29.130476+00:00",
       "think": {
-        "image_quality": "high resolution, clear, no skew",
+        "image_quality": "clear",
         "table_bounds": {
           "x1": 100,
           "y1": 100,
@@ -29,161 +29,65 @@
         "zoom_plan": [
           {
             "region_id": "r1",
-            "purpose": "header",
-            "target": "COLUMN ID header",
-            "x1": 150,
-            "y1": 150,
-            "x2": 300,
-            "y2": 200,
-            "reason": "read column ID header"
+            "purpose": "column_header",
+            "reason": "Confirm COLUMN ID header"
           },
           {
             "region_id": "r2",
-            "purpose": "header",
-            "target": "LENGTH (a) header",
-            "x1": 300,
-            "y1": 150,
-            "x2": 400,
-            "y2": 200,
-            "reason": "read length header"
+            "purpose": "row_label",
+            "reason": "Confirm first row COLUMN ID"
           },
           {
             "region_id": "r3",
-            "purpose": "header",
-            "target": "BREADTH (b) header",
-            "x1": 400,
-            "y1": 150,
-            "x2": 500,
-            "y2": 200,
-            "reason": "read breadth header"
+            "purpose": "data_cell",
+            "reason": "Confirm first row LENGTH (a)"
           },
           {
             "region_id": "r4",
-            "purpose": "header",
-            "target": "CROSS SECTION OF COLUMN (SECTION 1-1) header",
-            "x1": 500,
-            "y1": 150,
-            "x2": 700,
-            "y2": 200,
-            "reason": "read cross section header"
+            "purpose": "data_cell",
+            "reason": "Confirm first row BREADTH (b)"
           },
           {
             "region_id": "r5",
-            "purpose": "header",
-            "target": "LATERAL TIES header",
-            "x1": 700,
-            "y1": 150,
-            "x2": 900,
-            "y2": 200,
-            "reason": "read lateral ties header"
+            "purpose": "data_cell",
+            "reason": "Confirm first row reinforcement"
           },
           {
             "region_id": "r6",
-            "purpose": "row_label",
-            "target": "row 1 column ID",
-            "x1": 150,
-            "y1": 200,
-            "x2": 300,
-            "y2": 300,
-            "reason": "read first row column ID"
+            "purpose": "data_cell",
+            "reason": "Confirm first row stirrups"
           },
           {
             "region_id": "r7",
-            "purpose": "data_cell",
-            "target": "row 1 length",
-            "x1": 300,
-            "y1": 200,
-            "x2": 400,
-            "y2": 300,
-            "reason": "read first row length"
+            "purpose": "row_label",
+            "reason": "Confirm second row COLUMN ID"
           },
           {
             "region_id": "r8",
             "purpose": "data_cell",
-            "target": "row 1 breadth",
-            "x1": 400,
-            "y1": 200,
-            "x2": 500,
-            "y2": 300,
-            "reason": "read first row breadth"
+            "reason": "Confirm second row LENGTH (a)"
           },
           {
             "region_id": "r9",
             "purpose": "data_cell",
-            "target": "row 1 reinforcement",
-            "x1": 500,
-            "y1": 200,
-            "x2": 700,
-            "y2": 300,
-            "reason": "read first row reinforcement"
+            "reason": "Confirm second row BREADTH (b)"
           },
           {
             "region_id": "r10",
             "purpose": "data_cell",
-            "target": "row 1 stirrups",
-            "x1": 700,
-            "y1": 200,
-            "x2": 900,
-            "y2": 300,
-            "reason": "read first row stirrups"
+            "reason": "Confirm second row reinforcement"
           },
           {
             "region_id": "r11",
-            "purpose": "row_label",
-            "target": "row 2 column ID",
-            "x1": 150,
-            "y1": 300,
-            "x2": 300,
-            "y2": 400,
-            "reason": "read second row column ID"
-          },
-          {
-            "region_id": "r12",
             "purpose": "data_cell",
-            "target": "row 2 length",
-            "x1": 300,
-            "y1": 300,
-            "x2": 400,
-            "y2": 400,
-            "reason": "read second row length"
-          },
-          {
-            "region_id": "r13",
-            "purpose": "data_cell",
-            "target": "row 2 breadth",
-            "x1": 400,
-            "y1": 300,
-            "x2": 500,
-            "y2": 400,
-            "reason": "read second row breadth"
-          },
-          {
-            "region_id": "r14",
-            "purpose": "data_cell",
-            "target": "row 2 reinforcement",
-            "x1": 500,
-            "y1": 300,
-            "x2": 700,
-            "y2": 400,
-            "reason": "read second row reinforcement"
-          },
-          {
-            "region_id": "r15",
-            "purpose": "data_cell",
-            "target": "row 2 stirrups",
-            "x1": 700,
-            "y1": 300,
-            "x2": 900,
-            "y2": 400,
-            "reason": "read second row stirrups"
+            "reason": "Confirm second row stirrups"
           }
         ],
         "normalization_rules": [
           "For B x L sizes, width = LENGTH (a), length = BREADTH (b), depth = null",
-          "Reinforcement bars read exactly as written, multiple bars as list",
-          "Stirrups read as raw text lines, all zones combined in one list",
-          "Column ID read exactly as written",
-          "No mix or steel grade present, always null"
+          "Reinforcement and stirrups must be extracted exactly as written, multiple values as list",
+          "Mix and steel grade always null",
+          "Column name always empty string"
         ],
         "extraction_order": [
           "COLUMN ID",
@@ -193,8 +97,70 @@
           "LATERAL TIES"
         ]
       },
-      "zoom_regions": [],
-      "confirmed_reads": [],
+      "zoom_regions": [
+        {
+          "region_id": "r3",
+          "purpose": "data_cell",
+          "x1": 400.0,
+          "y1": 250.0,
+          "x2": 480.0,
+          "y2": 290.0,
+          "reason": "Confirm first row LENGTH (a)"
+        },
+        {
+          "region_id": "r4",
+          "purpose": "data_cell",
+          "x1": 480.0,
+          "y1": 250.0,
+          "x2": 560.0,
+          "y2": 290.0,
+          "reason": "Confirm first row BREADTH (b)"
+        },
+        {
+          "region_id": "r8",
+          "purpose": "data_cell",
+          "x1": 400.0,
+          "y1": 350.0,
+          "x2": 480.0,
+          "y2": 390.0,
+          "reason": "Confirm second row LENGTH (a)"
+        },
+        {
+          "region_id": "r9",
+          "purpose": "data_cell",
+          "x1": 480.0,
+          "y1": 350.0,
+          "x2": 560.0,
+          "y2": 390.0,
+          "reason": "Confirm second row BREADTH (b)"
+        }
+      ],
+      "confirmed_reads": [
+        {
+          "region_id": "r3",
+          "text": "600",
+          "confidence": "high",
+          "applies_to": "LENGTH (a) first row"
+        },
+        {
+          "region_id": "r4",
+          "text": "600",
+          "confidence": "high",
+          "applies_to": "BREADTH (b) first row"
+        },
+        {
+          "region_id": "r8",
+          "text": "450",
+          "confidence": "high",
+          "applies_to": "LENGTH (a) second row"
+        },
+        {
+          "region_id": "r9",
+          "text": "600",
+          "confidence": "high",
+          "applies_to": "BREADTH (b) second row"
+        }
+      ],
       "records": [
         {
           "column_no": "C1 & C3",
@@ -208,12 +174,8 @@
             "16-T16"
           ],
           "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-            ]
+            "dia": [],
+            "spacing": []
           },
           "mix": null,
           "steel_grade": null
@@ -230,12 +192,26 @@
             "14-T16"
           ],
           "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-            ]
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C3",
+          "column_name": "01",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "16-T16"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
           },
           "mix": null,
           "steel_grade": null
@@ -246,18 +222,14 @@
           "size": {
             "width": 450,
             "depth": null,
-            "length": 450
+            "length": 600
           },
           "reinforcement": [
-            "12-T16"
+            "14-T16"
           ],
           "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-            ]
+            "dia": [],
+            "spacing": []
           },
           "mix": null,
           "steel_grade": null
@@ -266,42 +238,16 @@
           "column_no": "C5",
           "column_name": "01",
           "size": {
-            "width": 300,
+            "width": 600,
             "depth": null,
-            "length": 300
+            "length": 600
           },
           "reinforcement": [
-            "8-T16"
+            "16-T16"
           ],
           "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-            ]
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "C6",
-          "column_name": "01",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 300
-          },
-          "reinforcement": [
-            "6-T16"
-          ],
-          "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-            ]
+            "dia": [],
+            "spacing": []
           },
           "mix": null,
           "steel_grade": null
@@ -318,12 +264,8 @@
             "16-T16"
           ],
           "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-            ]
+            "dia": [],
+            "spacing": []
           },
           "mix": null,
           "steel_grade": null
@@ -340,12 +282,26 @@
             "14-T16"
           ],
           "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-            ]
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C3",
+          "column_name": "02",
+          "size": {
+            "width": 600,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "16-T16"
+          ],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
           },
           "mix": null,
           "steel_grade": null
@@ -356,18 +312,14 @@
           "size": {
             "width": 450,
             "depth": null,
-            "length": 450
+            "length": 600
           },
           "reinforcement": [
-            "12-T16"
+            "14-T16"
           ],
           "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-            ]
+            "dia": [],
+            "spacing": []
           },
           "mix": null,
           "steel_grade": null
@@ -376,42 +328,16 @@
           "column_no": "C5",
           "column_name": "02",
           "size": {
-            "width": 300,
+            "width": 600,
             "depth": null,
-            "length": 300
+            "length": 600
           },
           "reinforcement": [
-            "8-T16"
+            "16-T16"
           ],
           "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-            ]
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "C6",
-          "column_name": "02",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 300
-          },
-          "reinforcement": [
-            "6-T16"
-          ],
-          "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-            ]
+            "dia": [],
+            "spacing": []
           },
           "mix": null,
           "steel_grade": null
@@ -431,12 +357,8 @@
               "16-T16"
             ],
             "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-              ]
+              "dia": [],
+              "spacing": []
             },
             "mix": null,
             "steel_grade": null
@@ -456,12 +378,29 @@
               "14-T16"
             ],
             "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-              ]
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C3",
+            "column_name": "01",
+            "size": {
+              "width": 600,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "16-T16"
+            ],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
             },
             "mix": null,
             "steel_grade": null
@@ -475,18 +414,14 @@
             "size": {
               "width": 450,
               "depth": null,
-              "length": 450
+              "length": 600
             },
             "reinforcement": [
-              "12-T16"
+              "14-T16"
             ],
             "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-              ]
+              "dia": [],
+              "spacing": []
             },
             "mix": null,
             "steel_grade": null
@@ -498,45 +433,16 @@
             "column_no": "C5",
             "column_name": "01",
             "size": {
-              "width": 300,
+              "width": 600,
               "depth": null,
-              "length": 300
+              "length": 600
             },
             "reinforcement": [
-              "8-T16"
+              "16-T16"
             ],
             "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-              ]
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "C6",
-            "column_name": "01",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 300
-            },
-            "reinforcement": [
-              "6-T16"
-            ],
-            "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-              ]
+              "dia": [],
+              "spacing": []
             },
             "mix": null,
             "steel_grade": null
@@ -556,12 +462,8 @@
               "16-T16"
             ],
             "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-              ]
+              "dia": [],
+              "spacing": []
             },
             "mix": null,
             "steel_grade": null
@@ -581,12 +483,29 @@
               "14-T16"
             ],
             "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-              ]
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C3",
+            "column_name": "02",
+            "size": {
+              "width": 600,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "16-T16"
+            ],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
             },
             "mix": null,
             "steel_grade": null
@@ -600,18 +519,14 @@
             "size": {
               "width": 450,
               "depth": null,
-              "length": 450
+              "length": 600
             },
             "reinforcement": [
-              "12-T16"
+              "14-T16"
             ],
             "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-              ]
+              "dia": [],
+              "spacing": []
             },
             "mix": null,
             "steel_grade": null
@@ -623,45 +538,16 @@
             "column_no": "C5",
             "column_name": "02",
             "size": {
-              "width": 300,
+              "width": 600,
               "depth": null,
-              "length": 300
+              "length": 600
             },
             "reinforcement": [
-              "8-T16"
+              "16-T16"
             ],
             "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-              ]
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "C6",
-            "column_name": "02",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 300
-            },
-            "reinforcement": [
-              "6-T16"
-            ],
-            "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-              ]
+              "dia": [],
+              "spacing": []
             },
             "mix": null,
             "steel_grade": null

@@ -5,40 +5,40 @@
     {
       "page": 1,
       "levels": [
-        "FIRST FLOOR TO ROOF LEVEL",
-        "GROUND FLOOR TO FIRST FLOOR",
-        "FOOTING TO GROUND FLOOR"
+        "FIRST FLOOR",
+        "GROUND FLOOR",
+        "FOOTING"
       ]
     }
   ],
   "levels": [
-    "FIRST FLOOR TO ROOF LEVEL",
-    "GROUND FLOOR TO FIRST FLOOR",
-    "FOOTING TO GROUND FLOOR"
+    "FIRST FLOOR",
+    "GROUND FLOOR",
+    "FOOTING"
   ],
   "batches": [
     {
       "id": "p01_l001",
       "page": 1,
-      "level": "FIRST FLOOR TO ROOF LEVEL",
+      "level": "FIRST FLOOR",
       "status": "done",
-      "file": "level_batches\\p01_l001_FIRST_FLOOR_TO_ROOF_LEVEL.json",
+      "file": "level_batches\\p01_l001_FIRST_FLOOR.json",
       "error": null
     },
     {
       "id": "p01_l002",
       "page": 1,
-      "level": "GROUND FLOOR TO FIRST FLOOR",
+      "level": "GROUND FLOOR",
       "status": "done",
-      "file": "level_batches\\p01_l002_GROUND_FLOOR_TO_FIRST_FLOOR.json",
+      "file": "level_batches\\p01_l002_GROUND_FLOOR.json",
       "error": null
     },
     {
       "id": "p01_l003",
       "page": 1,
-      "level": "FOOTING TO GROUND FLOOR",
+      "level": "FOOTING",
       "status": "done",
-      "file": "level_batches\\p01_l003_FOOTING_TO_GROUND_FLOOR.json",
+      "file": "level_batches\\p01_l003_FOOTING.json",
       "error": null
     }
   ]

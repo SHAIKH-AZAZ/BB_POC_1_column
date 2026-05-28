@@ -1,0 +1,142 @@
+{
+  "level": "GROUND FLOOR",
+  "columns": [
+    {
+      "column_no": "AC11,AC19,AC27,AC35,BC11,BC19,BC27,BC35",
+      "column_name": "GROUND FLOOR",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 200
+      },
+      "reinforcement": [
+        "4-T16"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "AC12,AC14,AC17,AC22,AC25,AC30,AC33,AC38,BC12,BC14,BC17,BC22,BC25,BC30,BC33,BC38",
+      "column_name": "GROUND FLOOR",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "4-T25",
+        "6-T20"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "AC13,AC37,BC13,BC37",
+      "column_name": "GROUND FLOOR",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 800
+      },
+      "reinforcement": [
+        "4-T25",
+        "12-T20"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "AC15,AC18,AC23,AC26,AC31,AC34,AC39,BC15,BC18,BC23,BC26,BC31,BC34,BC39",
+      "column_name": "GROUND FLOOR",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 230
+      },
+      "reinforcement": [
+        "4-T16",
+        "4-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "AC16,AC20,AC24,AC28,AC32,AC36,BC16,BC20,BC24,BC28,BC32,BC36",
+      "column_name": "GROUND FLOOR",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "4-T25",
+        "8-T20"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "AC21,AC29,BC21,BC29",
+      "column_name": "GROUND FLOOR",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1100
+      },
+      "reinforcement": [
+        "4-T25",
+        "16-T20"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C, 200 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    }
+  ]
+}

@@ -175,6 +175,102 @@
       },
       "mix": null,
       "steel_grade": null
+    },
+    {
+      "column_no": "PC17",
+      "column_name": "row5",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1200
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "PC18",
+      "column_name": "row6",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "PC19",
+      "column_name": "row7",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1420
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "PC20",
+      "column_name": "row8",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 900
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "PC21",
+      "column_name": "row9",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1000
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "PC22",
+      "column_name": "row10",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1000
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
     }
   ]
 }

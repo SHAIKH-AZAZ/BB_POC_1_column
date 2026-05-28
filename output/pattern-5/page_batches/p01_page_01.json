@@ -12,12 +12,8 @@
         "16-T16"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -34,12 +30,26 @@
         "14-T16"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-        ]
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "C3",
+      "column_name": "01",
+      "size": {
+        "width": 600,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "16-T16"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -50,18 +60,14 @@
       "size": {
         "width": 450,
         "depth": null,
-        "length": 450
+        "length": 600
       },
       "reinforcement": [
-        "12-T16"
+        "14-T16"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -70,42 +76,16 @@
       "column_no": "C5",
       "column_name": "01",
       "size": {
-        "width": 300,
+        "width": 600,
         "depth": null,
-        "length": 300
+        "length": 600
       },
       "reinforcement": [
-        "8-T16"
+        "16-T16"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-        ]
-      },
-      "mix": null,
-      "steel_grade": null
-    },
-    {
-      "column_no": "C6",
-      "column_name": "01",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 300
-      },
-      "reinforcement": [
-        "6-T16"
-      ],
-      "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -122,12 +102,8 @@
         "16-T16"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -144,12 +120,26 @@
         "14-T16"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-        ]
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "C3",
+      "column_name": "02",
+      "size": {
+        "width": 600,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "16-T16"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -160,18 +150,14 @@
       "size": {
         "width": 450,
         "depth": null,
-        "length": 450
+        "length": 600
       },
       "reinforcement": [
-        "12-T16"
+        "14-T16"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -180,42 +166,16 @@
       "column_no": "C5",
       "column_name": "02",
       "size": {
-        "width": 300,
+        "width": 600,
         "depth": null,
-        "length": 300
+        "length": 600
       },
       "reinforcement": [
-        "8-T16"
+        "16-T16"
       ],
       "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-        ]
-      },
-      "mix": null,
-      "steel_grade": null
-    },
-    {
-      "column_no": "C6",
-      "column_name": "02",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 300
-      },
-      "reinforcement": [
-        "6-T16"
-      ],
-      "stirrups": {
-        "dia": [
-          "T8"
-        ],
-        "spacing": [
-          "T8 AT 100 C/C, T8 AT 200 C/C, T8 AT 100 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null

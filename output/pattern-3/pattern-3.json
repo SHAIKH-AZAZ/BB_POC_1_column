@@ -117,7 +117,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": "100 C/C"
+            "spacing": "100 C/C, 150 C/C"
           },
           "mix": "M-35"
         },
@@ -133,7 +133,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": "100 C/C"
+            "spacing": "100 C/C, 150 C/C"
           },
           "mix": "M-35"
         },
@@ -145,11 +145,11 @@
             "length": 600
           },
           "reinforcement": [
-            "14-20T"
+            "12-20T"
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": "100 C/C"
+            "spacing": "100 C/C, 150 C/C"
           },
           "mix": "M-35"
         },
@@ -165,7 +165,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": "100 C/C"
+            "spacing": "100 C/C, 150 C/C"
           },
           "mix": "M-35"
         },
@@ -174,7 +174,7 @@
           "size": {
             "width": 450,
             "depth": null,
-            "length": 600
+            "length": 450
           },
           "reinforcement": [
             "4-20T",
@@ -182,7 +182,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": "100 C/C"
+            "spacing": "100 C/C, 150 C/C"
           },
           "mix": "M-35"
         },
@@ -198,7 +198,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": "100 C/C"
+            "spacing": "100 C/C, 150 C/C"
           },
           "mix": "M-35"
         }
@@ -315,7 +315,7 @@
       ],
       "stirrups": {
         "dia": "T8",
-        "spacing": "100 C/C"
+        "spacing": "100 C/C, 150 C/C"
       },
       "mix": "M-35"
     },
@@ -331,7 +331,7 @@
       ],
       "stirrups": {
         "dia": "T8",
-        "spacing": "100 C/C"
+        "spacing": "100 C/C, 150 C/C"
       },
       "mix": "M-35"
     },
@@ -343,11 +343,11 @@
         "length": 600
       },
       "reinforcement": [
-        "14-20T"
+        "12-20T"
       ],
       "stirrups": {
         "dia": "T8",
-        "spacing": "100 C/C"
+        "spacing": "100 C/C, 150 C/C"
       },
       "mix": "M-35"
     },
@@ -363,7 +363,7 @@
       ],
       "stirrups": {
         "dia": "T8",
-        "spacing": "100 C/C"
+        "spacing": "100 C/C, 150 C/C"
       },
       "mix": "M-35"
     },
@@ -372,7 +372,7 @@
       "size": {
         "width": 450,
         "depth": null,
-        "length": 600
+        "length": 450
       },
       "reinforcement": [
         "4-20T",
@@ -380,7 +380,7 @@
       ],
       "stirrups": {
         "dia": "T8",
-        "spacing": "100 C/C"
+        "spacing": "100 C/C, 150 C/C"
       },
       "mix": "M-35"
     },
@@ -396,7 +396,7 @@
       ],
       "stirrups": {
         "dia": "T8",
-        "spacing": "100 C/C"
+        "spacing": "100 C/C, 150 C/C"
       },
       "mix": "M-35"
     }

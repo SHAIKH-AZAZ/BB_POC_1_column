@@ -5,7 +5,7 @@ from tqdm import tqdm
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
-from pattern_batching import extract_levels_with_checkpoints
+from pattern_batching import extract_levels_with_checkpoints, upper_level_from_range
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -89,8 +89,13 @@ def process_pdf(pdf_path):
         pattern_number=6,
         output_folder=output_folder,
         prompt_context=(
-            "Read only visible horizontal band/row level labels. "
-            "Keep each label exactly as printed and preserve top-to-bottom order."
+            "Read only visible horizontal band/row level labels (rotated "
+            "text on the LEFT of each band). Preserve top-to-bottom order. "
+            "UPPER-LEVEL RULE: for any 'X TO Y' label, return only X — "
+            "the part BEFORE 'TO'. Examples: 'COLUMN FROM THIRD FLOOR "
+            "LVL. TO FOURTH FLOOR LVL.' -> 'COLUMN FROM THIRD FLOOR LVL.'; "
+            "'P06 TO ECO-DECK' -> 'P06'. Do NOT keep the 'TO ...' suffix. "
+            "Do NOT include the 'CONCRETE MIX – Mxx' sub-line."
         ),
     )
 
@@ -99,6 +104,9 @@ def process_pdf(pdf_path):
         if "size" in col and isinstance(col["size"], dict):
             col["size"]["depth"] = None
         col["stirrups"] = clean_stirrups(col.get("stirrups"))
+        # Upper-level rule (safety net): even if the model returned the
+        # full "X TO Y" string, collapse it to the X half here.
+        col["column_name"] = upper_level_from_range(col.get("column_name"))
         final_columns.append(col)
 
     final_output = reshape_columns_to_levels(final_columns)

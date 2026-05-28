@@ -5,7 +5,7 @@
     "page_1.png__p01_l001_COLUMN_FROM_THIRD_FLOOR_LVL_TO_FOURTH_FLOOR_LVL": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-6\\page_1.png",
-      "generated_at": "2026-05-27T12:27:40.008487+00:00",
+      "generated_at": "2026-05-27T13:06:50.198523+00:00",
       "think": {
         "image_quality": "high resolution, clear, no skew",
         "table_bounds": {
@@ -15,43 +15,645 @@
           "y2": 2048
         },
         "column_headers": [
-          "TA-C1, TA-C4",
-          "TA-C2, TA-C3",
-          "TA-C34, TA-C35",
-          "TA-C33, TA-C36",
-          "TA-C29",
-          "TA-C5",
-          "TA-C23"
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6"
         ],
         "storey_levels": [
           "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL."
         ],
-        "expected_count": 7,
-        "zoom_plan": [],
+        "expected_count": 6,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "data_cell",
+            "target": "C1 size",
+            "x1": 50,
+            "y1": 100,
+            "x2": 150,
+            "y2": 300,
+            "reason": "read size for C1"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "target": "C1 reinforcement",
+            "x1": 50,
+            "y1": 300,
+            "x2": 150,
+            "y2": 400,
+            "reason": "read reinforcement for C1"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "data_cell",
+            "target": "C1 stirrups",
+            "x1": 50,
+            "y1": 400,
+            "x2": 150,
+            "y2": 450,
+            "reason": "read stirrups for C1"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "target": "C1 mix",
+            "x1": 50,
+            "y1": 450,
+            "x2": 150,
+            "y2": 500,
+            "reason": "read mix for C1"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "data_cell",
+            "target": "C2 size",
+            "x1": 200,
+            "y1": 100,
+            "x2": 300,
+            "y2": 300,
+            "reason": "read size for C2"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "data_cell",
+            "target": "C2 reinforcement",
+            "x1": 200,
+            "y1": 300,
+            "x2": 300,
+            "y2": 400,
+            "reason": "read reinforcement for C2"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "data_cell",
+            "target": "C2 stirrups",
+            "x1": 200,
+            "y1": 400,
+            "x2": 300,
+            "y2": 450,
+            "reason": "read stirrups for C2"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "target": "C2 mix",
+            "x1": 200,
+            "y1": 450,
+            "x2": 300,
+            "y2": 500,
+            "reason": "read mix for C2"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "data_cell",
+            "target": "C3 size",
+            "x1": 350,
+            "y1": 100,
+            "x2": 450,
+            "y2": 300,
+            "reason": "read size for C3"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "data_cell",
+            "target": "C3 reinforcement",
+            "x1": 350,
+            "y1": 300,
+            "x2": 450,
+            "y2": 400,
+            "reason": "read reinforcement for C3"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "data_cell",
+            "target": "C3 stirrups",
+            "x1": 350,
+            "y1": 400,
+            "x2": 450,
+            "y2": 450,
+            "reason": "read stirrups for C3"
+          },
+          {
+            "region_id": "r12",
+            "purpose": "data_cell",
+            "target": "C3 mix",
+            "x1": 350,
+            "y1": 450,
+            "x2": 450,
+            "y2": 500,
+            "reason": "read mix for C3"
+          },
+          {
+            "region_id": "r13",
+            "purpose": "data_cell",
+            "target": "C4 size",
+            "x1": 500,
+            "y1": 100,
+            "x2": 600,
+            "y2": 300,
+            "reason": "read size for C4"
+          },
+          {
+            "region_id": "r14",
+            "purpose": "data_cell",
+            "target": "C4 reinforcement",
+            "x1": 500,
+            "y1": 300,
+            "x2": 600,
+            "y2": 400,
+            "reason": "read reinforcement for C4"
+          },
+          {
+            "region_id": "r15",
+            "purpose": "data_cell",
+            "target": "C4 stirrups",
+            "x1": 500,
+            "y1": 400,
+            "x2": 600,
+            "y2": 450,
+            "reason": "read stirrups for C4"
+          },
+          {
+            "region_id": "r16",
+            "purpose": "data_cell",
+            "target": "C4 mix",
+            "x1": 500,
+            "y1": 450,
+            "x2": 600,
+            "y2": 500,
+            "reason": "read mix for C4"
+          },
+          {
+            "region_id": "r17",
+            "purpose": "data_cell",
+            "target": "C5 size",
+            "x1": 650,
+            "y1": 100,
+            "x2": 750,
+            "y2": 300,
+            "reason": "read size for C5"
+          },
+          {
+            "region_id": "r18",
+            "purpose": "data_cell",
+            "target": "C5 reinforcement",
+            "x1": 650,
+            "y1": 300,
+            "x2": 750,
+            "y2": 400,
+            "reason": "read reinforcement for C5"
+          },
+          {
+            "region_id": "r19",
+            "purpose": "data_cell",
+            "target": "C5 stirrups",
+            "x1": 650,
+            "y1": 400,
+            "x2": 750,
+            "y2": 450,
+            "reason": "read stirrups for C5"
+          },
+          {
+            "region_id": "r20",
+            "purpose": "data_cell",
+            "target": "C5 mix",
+            "x1": 650,
+            "y1": 450,
+            "x2": 750,
+            "y2": 500,
+            "reason": "read mix for C5"
+          },
+          {
+            "region_id": "r21",
+            "purpose": "data_cell",
+            "target": "C6 size",
+            "x1": 800,
+            "y1": 100,
+            "x2": 900,
+            "y2": 300,
+            "reason": "read size for C6"
+          },
+          {
+            "region_id": "r22",
+            "purpose": "data_cell",
+            "target": "C6 reinforcement",
+            "x1": 800,
+            "y1": 300,
+            "x2": 900,
+            "y2": 400,
+            "reason": "read reinforcement for C6"
+          },
+          {
+            "region_id": "r23",
+            "purpose": "data_cell",
+            "target": "C6 stirrups",
+            "x1": 800,
+            "y1": 400,
+            "x2": 900,
+            "y2": 450,
+            "reason": "read stirrups for C6"
+          },
+          {
+            "region_id": "r24",
+            "purpose": "data_cell",
+            "target": "C6 mix",
+            "x1": 800,
+            "y1": 450,
+            "x2": 900,
+            "y2": 500,
+            "reason": "read mix for C6"
+          }
+        ],
         "normalization_rules": [
-          "Depth must always be null",
-          "Reinforcement from top-right corner only",
-          "Stirrups from bottom only",
-          "Size width from bottom horizontal dimension",
-          "Size length from left vertical dimension",
-          "Return null for empty cells",
-          "Mix M30 as M-30"
+          "Remove words like ALL, REST, nos from stirrup spacing",
+          "Keep stirrup diameter exactly as written (e.g. 8T not T8)",
+          "Remove duplicate stirrup spacings",
+          "Return stirrup spacing as comma separated values with C/C notation",
+          "Return size as width x length with depth null",
+          "Return reinforcement as list of strings exactly as written",
+          "Return null for missing values",
+          "Use exact level name as column_name"
         ],
         "extraction_order": [
-          "TA-C1, TA-C4:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
-          "TA-C2, TA-C3:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
-          "TA-C34, TA-C35:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
-          "TA-C33, TA-C36:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
-          "TA-C29:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
-          "TA-C5:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
-          "TA-C23:COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL."
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6"
         ]
       },
-      "zoom_regions": [],
-      "confirmed_reads": [],
+      "zoom_regions": [
+        {
+          "region_id": "r1",
+          "purpose": "data_cell",
+          "x1": 50.0,
+          "y1": 100.0,
+          "x2": 150.0,
+          "y2": 300.0,
+          "reason": "read size for C1"
+        },
+        {
+          "region_id": "r2",
+          "purpose": "data_cell",
+          "x1": 50.0,
+          "y1": 300.0,
+          "x2": 150.0,
+          "y2": 400.0,
+          "reason": "read reinforcement for C1"
+        },
+        {
+          "region_id": "r3",
+          "purpose": "data_cell",
+          "x1": 50.0,
+          "y1": 400.0,
+          "x2": 150.0,
+          "y2": 450.0,
+          "reason": "read stirrups for C1"
+        },
+        {
+          "region_id": "r4",
+          "purpose": "data_cell",
+          "x1": 50.0,
+          "y1": 450.0,
+          "x2": 150.0,
+          "y2": 500.0,
+          "reason": "read mix for C1"
+        },
+        {
+          "region_id": "r5",
+          "purpose": "data_cell",
+          "x1": 200.0,
+          "y1": 100.0,
+          "x2": 300.0,
+          "y2": 300.0,
+          "reason": "read size for C2"
+        },
+        {
+          "region_id": "r6",
+          "purpose": "data_cell",
+          "x1": 200.0,
+          "y1": 300.0,
+          "x2": 300.0,
+          "y2": 400.0,
+          "reason": "read reinforcement for C2"
+        },
+        {
+          "region_id": "r7",
+          "purpose": "data_cell",
+          "x1": 200.0,
+          "y1": 400.0,
+          "x2": 300.0,
+          "y2": 450.0,
+          "reason": "read stirrups for C2"
+        },
+        {
+          "region_id": "r8",
+          "purpose": "data_cell",
+          "x1": 200.0,
+          "y1": 450.0,
+          "x2": 300.0,
+          "y2": 500.0,
+          "reason": "read mix for C2"
+        },
+        {
+          "region_id": "r9",
+          "purpose": "data_cell",
+          "x1": 350.0,
+          "y1": 100.0,
+          "x2": 450.0,
+          "y2": 300.0,
+          "reason": "read size for C3"
+        },
+        {
+          "region_id": "r10",
+          "purpose": "data_cell",
+          "x1": 350.0,
+          "y1": 300.0,
+          "x2": 450.0,
+          "y2": 400.0,
+          "reason": "read reinforcement for C3"
+        },
+        {
+          "region_id": "r11",
+          "purpose": "data_cell",
+          "x1": 350.0,
+          "y1": 400.0,
+          "x2": 450.0,
+          "y2": 450.0,
+          "reason": "read stirrups for C3"
+        },
+        {
+          "region_id": "r12",
+          "purpose": "data_cell",
+          "x1": 350.0,
+          "y1": 450.0,
+          "x2": 450.0,
+          "y2": 500.0,
+          "reason": "read mix for C3"
+        },
+        {
+          "region_id": "r13",
+          "purpose": "data_cell",
+          "x1": 500.0,
+          "y1": 100.0,
+          "x2": 600.0,
+          "y2": 300.0,
+          "reason": "read size for C4"
+        },
+        {
+          "region_id": "r14",
+          "purpose": "data_cell",
+          "x1": 500.0,
+          "y1": 300.0,
+          "x2": 600.0,
+          "y2": 400.0,
+          "reason": "read reinforcement for C4"
+        },
+        {
+          "region_id": "r15",
+          "purpose": "data_cell",
+          "x1": 500.0,
+          "y1": 400.0,
+          "x2": 600.0,
+          "y2": 450.0,
+          "reason": "read stirrups for C4"
+        },
+        {
+          "region_id": "r16",
+          "purpose": "data_cell",
+          "x1": 500.0,
+          "y1": 450.0,
+          "x2": 600.0,
+          "y2": 500.0,
+          "reason": "read mix for C4"
+        },
+        {
+          "region_id": "r17",
+          "purpose": "data_cell",
+          "x1": 650.0,
+          "y1": 100.0,
+          "x2": 750.0,
+          "y2": 300.0,
+          "reason": "read size for C5"
+        },
+        {
+          "region_id": "r18",
+          "purpose": "data_cell",
+          "x1": 650.0,
+          "y1": 300.0,
+          "x2": 750.0,
+          "y2": 400.0,
+          "reason": "read reinforcement for C5"
+        },
+        {
+          "region_id": "r19",
+          "purpose": "data_cell",
+          "x1": 650.0,
+          "y1": 400.0,
+          "x2": 750.0,
+          "y2": 450.0,
+          "reason": "read stirrups for C5"
+        },
+        {
+          "region_id": "r20",
+          "purpose": "data_cell",
+          "x1": 650.0,
+          "y1": 450.0,
+          "x2": 750.0,
+          "y2": 500.0,
+          "reason": "read mix for C5"
+        },
+        {
+          "region_id": "r21",
+          "purpose": "data_cell",
+          "x1": 800.0,
+          "y1": 100.0,
+          "x2": 900.0,
+          "y2": 300.0,
+          "reason": "read size for C6"
+        },
+        {
+          "region_id": "r22",
+          "purpose": "data_cell",
+          "x1": 800.0,
+          "y1": 300.0,
+          "x2": 900.0,
+          "y2": 400.0,
+          "reason": "read reinforcement for C6"
+        },
+        {
+          "region_id": "r23",
+          "purpose": "data_cell",
+          "x1": 800.0,
+          "y1": 400.0,
+          "x2": 900.0,
+          "y2": 450.0,
+          "reason": "read stirrups for C6"
+        },
+        {
+          "region_id": "r24",
+          "purpose": "data_cell",
+          "x1": 800.0,
+          "y1": 450.0,
+          "x2": 900.0,
+          "y2": 500.0,
+          "reason": "read mix for C6"
+        }
+      ],
+      "confirmed_reads": [
+        {
+          "region_id": "r1",
+          "text": "230 x 1200",
+          "confidence": "high",
+          "applies_to": "C1 size"
+        },
+        {
+          "region_id": "r2",
+          "text": "20-20T, 4-16T",
+          "confidence": "high",
+          "applies_to": "C1 reinforcement"
+        },
+        {
+          "region_id": "r3",
+          "text": "8T@100 C/C",
+          "confidence": "high",
+          "applies_to": "C1 stirrups"
+        },
+        {
+          "region_id": "r4",
+          "text": "M30",
+          "confidence": "high",
+          "applies_to": "C1 mix"
+        },
+        {
+          "region_id": "r5",
+          "text": "530 x 1000",
+          "confidence": "high",
+          "applies_to": "C2 size"
+        },
+        {
+          "region_id": "r6",
+          "text": "20-16T, 6-12T",
+          "confidence": "high",
+          "applies_to": "C2 reinforcement"
+        },
+        {
+          "region_id": "r7",
+          "text": "8T@100 C/C",
+          "confidence": "high",
+          "applies_to": "C2 stirrups"
+        },
+        {
+          "region_id": "r8",
+          "text": "M30",
+          "confidence": "high",
+          "applies_to": "C2 mix"
+        },
+        {
+          "region_id": "r9",
+          "text": "230 x 1410",
+          "confidence": "high",
+          "applies_to": "C3 size"
+        },
+        {
+          "region_id": "r10",
+          "text": "8-20T, 20-16T",
+          "confidence": "high",
+          "applies_to": "C3 reinforcement"
+        },
+        {
+          "region_id": "r11",
+          "text": "8T@100 C/C",
+          "confidence": "high",
+          "applies_to": "C3 stirrups"
+        },
+        {
+          "region_id": "r12",
+          "text": "M30",
+          "confidence": "high",
+          "applies_to": "C3 mix"
+        },
+        {
+          "region_id": "r13",
+          "text": "230 x 1200",
+          "confidence": "high",
+          "applies_to": "C4 size"
+        },
+        {
+          "region_id": "r14",
+          "text": "8-20T, 16-16T",
+          "confidence": "high",
+          "applies_to": "C4 reinforcement"
+        },
+        {
+          "region_id": "r15",
+          "text": "8T@100 C/C",
+          "confidence": "high",
+          "applies_to": "C4 stirrups"
+        },
+        {
+          "region_id": "r16",
+          "text": "M30",
+          "confidence": "high",
+          "applies_to": "C4 mix"
+        },
+        {
+          "region_id": "r17",
+          "text": "230 x 1200",
+          "confidence": "high",
+          "applies_to": "C5 size"
+        },
+        {
+          "region_id": "r18",
+          "text": "8-25T, 16-20T",
+          "confidence": "high",
+          "applies_to": "C5 reinforcement"
+        },
+        {
+          "region_id": "r19",
+          "text": "8T@100 C/C",
+          "confidence": "high",
+          "applies_to": "C5 stirrups"
+        },
+        {
+          "region_id": "r20",
+          "text": "M30",
+          "confidence": "high",
+          "applies_to": "C5 mix"
+        },
+        {
+          "region_id": "r21",
+          "text": "230 x 1600",
+          "confidence": "high",
+          "applies_to": "C6 size"
+        },
+        {
+          "region_id": "r22",
+          "text": "4-25T, 16-20T",
+          "confidence": "high",
+          "applies_to": "C6 reinforcement"
+        },
+        {
+          "region_id": "r23",
+          "text": "8T@100 C/C",
+          "confidence": "high",
+          "applies_to": "C6 stirrups"
+        },
+        {
+          "region_id": "r24",
+          "text": "M30",
+          "confidence": "high",
+          "applies_to": "C6 mix"
+        }
+      ],
       "records": [
         {
-          "column_no": "TA-C1, TA-C4",
+          "column_no": "C1",
           "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
           "size": {
             "width": 230,
@@ -70,11 +672,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C2, TA-C3",
+          "column_no": "C2",
           "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
           "size": {
             "width": 530,
@@ -93,11 +695,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C34, TA-C35",
+          "column_no": "C3",
           "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
           "size": {
             "width": 230,
@@ -116,11 +718,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C33, TA-C36",
+          "column_no": "C4",
           "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
           "size": {
             "width": 230,
@@ -139,11 +741,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C29",
+          "column_no": "C5",
           "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
           "size": {
             "width": 230,
@@ -162,16 +764,16 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C5",
+          "column_no": "C6",
           "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
           "size": {
             "width": 230,
             "depth": null,
-            "length": 1000
+            "length": 1600
           },
           "reinforcement": [
             "4-25T",
@@ -185,37 +787,14 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
-          "steel_grade": null
-        },
-        {
-          "column_no": "TA-C23",
-          "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
-          "size": {
-            "width": 230,
-            "depth": null,
-            "length": 1600
-          },
-          "reinforcement": [
-            "4-16T",
-            "28-12T"
-          ],
-          "stirrups": {
-            "dia": [
-              "8T"
-            ],
-            "spacing": [
-              "100 C/C"
-            ]
-          },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         }
       ],
       "added_records": [
         {
           "record": {
-            "column_no": "TA-C1, TA-C4",
+            "column_no": "C1",
             "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
             "size": {
               "width": 230,
@@ -234,14 +813,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C2, TA-C3",
+            "column_no": "C2",
             "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
             "size": {
               "width": 530,
@@ -260,14 +839,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C34, TA-C35",
+            "column_no": "C3",
             "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
             "size": {
               "width": 230,
@@ -286,14 +865,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C33, TA-C36",
+            "column_no": "C4",
             "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
             "size": {
               "width": 230,
@@ -312,14 +891,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C29",
+            "column_no": "C5",
             "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
             "size": {
               "width": 230,
@@ -338,19 +917,19 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C5",
+            "column_no": "C6",
             "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
             "size": {
               "width": 230,
               "depth": null,
-              "length": 1000
+              "length": 1600
             },
             "reinforcement": [
               "4-25T",
@@ -364,87 +943,142 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "TA-C23",
-            "column_name": "COLUMN FROM THIRD FLOOR LVL. TO FOURTH FLOOR LVL.",
-            "size": {
-              "width": 230,
-              "depth": null,
-              "length": 1600
-            },
-            "reinforcement": [
-              "4-16T",
-              "28-12T"
-            ],
-            "stirrups": {
-              "dia": [
-                "8T"
-              ],
-              "spacing": [
-                "100 C/C"
-              ]
-            },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         }
       ],
-      "expected_count": 7,
-      "actual_count": 7,
+      "expected_count": 6,
+      "actual_count": 6,
       "warnings": []
     },
     "page_1.png__p01_l002_COLUMN_FROM_SECOND_FLOOR_LVL_TO_THIRD_FLOOR_LVL": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-6\\page_1.png",
-      "generated_at": "2026-05-27T12:19:11.639467+00:00",
+      "generated_at": "2026-05-27T13:05:24.450030+00:00",
       "think": {
-        "image_quality": "high resolution, clear, no skew",
+        "image_quality": "high resolution, clear",
         "table_bounds": {
           "x1": 0,
-          "y1": 512,
-          "x2": 2048,
-          "y2": 768
+          "y1": 300,
+          "x2": 1920,
+          "y2": 600
         },
         "column_headers": [
-          "TA-C1, TA-C4",
-          "TA-C2, TA-C3",
-          "TA-C34, TA-C35",
-          "TA-C33, TA-C36",
-          "TA-C29",
-          "TA-C5",
-          "TA-C23"
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7"
         ],
         "storey_levels": [
           "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL."
         ],
         "expected_count": 7,
-        "zoom_plan": [],
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "row_label",
+            "target": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
+            "reason": "Extract column_name from left side text"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "target": "C1 size and reinforcement and stirrups and mix",
+            "x1": 50,
+            "y1": 320,
+            "x2": 150,
+            "y2": 580,
+            "reason": "Extract size, reinforcement, stirrups, mix for C1"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "data_cell",
+            "target": "C2 size and reinforcement and stirrups and mix",
+            "x1": 250,
+            "y1": 320,
+            "x2": 350,
+            "y2": 580,
+            "reason": "Extract size, reinforcement, stirrups, mix for C2"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "target": "C3 size and reinforcement and stirrups and mix",
+            "x1": 450,
+            "y1": 320,
+            "x2": 550,
+            "y2": 580,
+            "reason": "Extract size, reinforcement, stirrups, mix for C3"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "data_cell",
+            "target": "C4 size and reinforcement and stirrups and mix",
+            "x1": 650,
+            "y1": 320,
+            "x2": 750,
+            "y2": 580,
+            "reason": "Extract size, reinforcement, stirrups, mix for C4"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "data_cell",
+            "target": "C5 size and reinforcement and stirrups and mix",
+            "x1": 850,
+            "y1": 320,
+            "x2": 950,
+            "y2": 580,
+            "reason": "Extract size, reinforcement, stirrups, mix for C5"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "data_cell",
+            "target": "C6 size and reinforcement and stirrups and mix",
+            "x1": 1050,
+            "y1": 320,
+            "x2": 1150,
+            "y2": 580,
+            "reason": "Extract size, reinforcement, stirrups, mix for C6"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "target": "C7 size and reinforcement and stirrups and mix",
+            "x1": 1250,
+            "y1": 320,
+            "x2": 1350,
+            "y2": 580,
+            "reason": "Extract size, reinforcement, stirrups, mix for C7"
+          }
+        ],
         "normalization_rules": [
-          "width = bottom horizontal dimension",
-          "length = vertical dimension line on left",
-          "depth = null",
-          "reinforcement from top-right corner text",
-          "stirrups from bottom text",
-          "keep reinforcement and stirrups text exact",
-          "empty cell = null values"
+          "Remove duplicate stirrup spacings",
+          "Keep stirrup diameter notation as is (e.g. 8T)",
+          "Remove words like ALL, REST, nos from stirrup spacing",
+          "Return null for missing size or reinforcement",
+          "Return empty array for missing reinforcement"
         ],
         "extraction_order": [
-          "left to right columns",
-          "bottom to top storey levels"
+          "row_label",
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7"
         ]
       },
       "zoom_regions": [],
       "confirmed_reads": [],
       "records": [
         {
-          "column_no": "TA-C1, TA-C4",
+          "column_no": "C1",
           "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
           "size": {
             "width": 230,
@@ -463,11 +1097,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C2, TA-C3",
+          "column_no": "C2",
           "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
           "size": {
             "width": 530,
@@ -486,11 +1120,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C34, TA-C35",
+          "column_no": "C3",
           "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
           "size": {
             "width": 230,
@@ -509,11 +1143,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C33, TA-C36",
+          "column_no": "C4",
           "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
           "size": {
             "width": 230,
@@ -532,11 +1166,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C29",
+          "column_no": "C5",
           "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
           "size": {
             "width": 230,
@@ -555,11 +1189,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C5",
+          "column_no": "C6",
           "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
           "size": {
             "width": 230,
@@ -578,11 +1212,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C23",
+          "column_no": "C7",
           "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
           "size": {
             "width": 230,
@@ -601,14 +1235,14 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         }
       ],
       "added_records": [
         {
           "record": {
-            "column_no": "TA-C1, TA-C4",
+            "column_no": "C1",
             "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
             "size": {
               "width": 230,
@@ -627,14 +1261,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C2, TA-C3",
+            "column_no": "C2",
             "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
             "size": {
               "width": 530,
@@ -653,14 +1287,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C34, TA-C35",
+            "column_no": "C3",
             "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
             "size": {
               "width": 230,
@@ -679,14 +1313,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C33, TA-C36",
+            "column_no": "C4",
             "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
             "size": {
               "width": 230,
@@ -705,14 +1339,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C29",
+            "column_no": "C5",
             "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
             "size": {
               "width": 230,
@@ -731,14 +1365,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C5",
+            "column_no": "C6",
             "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
             "size": {
               "width": 230,
@@ -757,14 +1391,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C23",
+            "column_no": "C7",
             "column_name": "COLUMN FROM SECOND FLOOR LVL. TO THIRD FLOOR LVL.",
             "size": {
               "width": 230,
@@ -783,7 +1417,7 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -796,14 +1430,14 @@
     "page_1.png__p01_l003_COLUMN_FROM_FIRST_FLOOR_LVL_TO_SECOND_FLOOR_LVL": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-6\\page_1.png",
-      "generated_at": "2026-05-27T12:27:31.191697+00:00",
+      "generated_at": "2026-05-27T13:08:18.609859+00:00",
       "think": {
         "image_quality": "high resolution, clear, no skew",
         "table_bounds": {
           "x1": 0,
-          "y1": 0,
-          "x2": 2048,
-          "y2": 1536
+          "y1": 600,
+          "x2": 1920,
+          "y2": 1200
         },
         "column_headers": [
           "TA-C1, TA-C4",
@@ -820,18 +1454,16 @@
         "expected_count": 7,
         "zoom_plan": [],
         "normalization_rules": [
-          "width = bottom horizontal dimension",
-          "length = vertical dimension line on left",
-          "depth = null always",
-          "reinforcement from top-right corner text",
-          "stirrups from bottom text",
-          "mix M30 = M-30",
-          "return null for empty cells"
+          "width and length from dimension lines near column sketch",
+          "reinforcement bars as quantity-Tdiameter",
+          "stirrups dia and spacing exact, remove duplicates, ignore words ALL, REST, nos",
+          "mix as M-xx text below diagram"
         ],
         "extraction_order": [
-          "bottom-to-top per strip",
-          "left-to-right per column group"
-        ]
+          "left to right across columns, then next storey level"
+        ],
+        "region_id": "full_table",
+        "reason": "Extract all columns for the target level only"
       },
       "zoom_regions": [],
       "confirmed_reads": [],
@@ -845,8 +1477,8 @@
             "length": 1200
           },
           "reinforcement": [
-            "20-20T",
-            "4-16T"
+            "18-25T",
+            "8-20T"
           ],
           "stirrups": {
             "dia": [
@@ -856,7 +1488,7 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
@@ -868,8 +1500,7 @@
             "length": 1000
           },
           "reinforcement": [
-            "20-16T",
-            "6-12T"
+            "36-20T"
           ],
           "stirrups": {
             "dia": [
@@ -879,7 +1510,7 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
@@ -888,11 +1519,11 @@
           "size": {
             "width": 230,
             "depth": null,
-            "length": 1410
+            "length": 900
           },
           "reinforcement": [
-            "8-20T",
-            "20-16T"
+            "14-25T",
+            "6-20T"
           ],
           "stirrups": {
             "dia": [
@@ -902,7 +1533,7 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
@@ -914,8 +1545,8 @@
             "length": 1200
           },
           "reinforcement": [
-            "8-20T",
-            "16-16T"
+            "6-25T",
+            "20-20T"
           ],
           "stirrups": {
             "dia": [
@@ -925,7 +1556,7 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
@@ -937,8 +1568,8 @@
             "length": 1200
           },
           "reinforcement": [
-            "8-25T",
-            "16-20T"
+            "18-25T",
+            "8-20T"
           ],
           "stirrups": {
             "dia": [
@@ -948,7 +1579,7 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
@@ -960,8 +1591,8 @@
             "length": 1000
           },
           "reinforcement": [
-            "4-25T",
-            "16-20T"
+            "14-25T",
+            "8-20T"
           ],
           "stirrups": {
             "dia": [
@@ -971,7 +1602,7 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
@@ -980,11 +1611,11 @@
           "size": {
             "width": 230,
             "depth": null,
-            "length": 1600
+            "length": 600
           },
           "reinforcement": [
-            "4-16T",
-            "28-12T"
+            "6-20T",
+            "30-16T"
           ],
           "stirrups": {
             "dia": [
@@ -994,7 +1625,7 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         }
       ],
@@ -1009,8 +1640,8 @@
               "length": 1200
             },
             "reinforcement": [
-              "20-20T",
-              "4-16T"
+              "18-25T",
+              "8-20T"
             ],
             "stirrups": {
               "dia": [
@@ -1020,7 +1651,7 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1035,8 +1666,7 @@
               "length": 1000
             },
             "reinforcement": [
-              "20-16T",
-              "6-12T"
+              "36-20T"
             ],
             "stirrups": {
               "dia": [
@@ -1046,7 +1676,7 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1058,11 +1688,11 @@
             "size": {
               "width": 230,
               "depth": null,
-              "length": 1410
+              "length": 900
             },
             "reinforcement": [
-              "8-20T",
-              "20-16T"
+              "14-25T",
+              "6-20T"
             ],
             "stirrups": {
               "dia": [
@@ -1072,7 +1702,7 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1087,8 +1717,8 @@
               "length": 1200
             },
             "reinforcement": [
-              "8-20T",
-              "16-16T"
+              "6-25T",
+              "20-20T"
             ],
             "stirrups": {
               "dia": [
@@ -1098,7 +1728,7 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1113,8 +1743,8 @@
               "length": 1200
             },
             "reinforcement": [
-              "8-25T",
-              "16-20T"
+              "18-25T",
+              "8-20T"
             ],
             "stirrups": {
               "dia": [
@@ -1124,7 +1754,7 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1139,8 +1769,8 @@
               "length": 1000
             },
             "reinforcement": [
-              "4-25T",
-              "16-20T"
+              "14-25T",
+              "8-20T"
             ],
             "stirrups": {
               "dia": [
@@ -1150,7 +1780,7 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1162,11 +1792,11 @@
             "size": {
               "width": 230,
               "depth": null,
-              "length": 1600
+              "length": 600
             },
             "reinforcement": [
-              "4-16T",
-              "28-12T"
+              "6-20T",
+              "30-16T"
             ],
             "stirrups": {
               "dia": [
@@ -1176,7 +1806,7 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1189,47 +1819,336 @@
     "page_1.png__p01_l004_COLUMN_FROM_GROUND_FLOOR_LVL_TO_FIRST_FLOOR_LVL": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-6\\page_1.png",
-      "generated_at": "2026-05-27T12:27:55.340662+00:00",
+      "generated_at": "2026-05-27T13:06:58.388009+00:00",
       "think": {
-        "image_quality": "high resolution, clear, no skew",
+        "image_quality": "high resolution, clear",
         "table_bounds": {
           "x1": 0,
-          "y1": 0,
-          "x2": 2048,
-          "y2": 2732
+          "y1": 720,
+          "x2": 1920,
+          "y2": 1080
         },
         "column_headers": [
-          "TA-C1, TA-C4",
-          "TA-C2, TA-C3",
-          "TA-C34, TA-C35",
-          "TA-C33, TA-C36",
-          "TA-C29",
-          "TA-C5",
-          "TA-C23"
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7"
         ],
         "storey_levels": [
           "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL."
         ],
         "expected_count": 7,
-        "zoom_plan": [],
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "data_cell",
+            "target": "C1 size",
+            "x1": 20,
+            "y1": 740,
+            "x2": 70,
+            "y2": 820,
+            "reason": "read size 300 x 1200"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "target": "C1 reinforcement",
+            "x1": 20,
+            "y1": 740,
+            "x2": 70,
+            "y2": 820,
+            "reason": "read reinforcement 18-25T, 8-20T"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "data_cell",
+            "target": "C1 stirrups",
+            "x1": 20,
+            "y1": 820,
+            "x2": 70,
+            "y2": 860,
+            "reason": "read stirrups 8T@100 C/C"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "target": "C1 mix",
+            "x1": 20,
+            "y1": 860,
+            "x2": 70,
+            "y2": 880,
+            "reason": "read mix M30"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "data_cell",
+            "target": "C2 size",
+            "x1": 100,
+            "y1": 740,
+            "x2": 150,
+            "y2": 820,
+            "reason": "read size 530 x 1000"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "data_cell",
+            "target": "C2 reinforcement",
+            "x1": 100,
+            "y1": 740,
+            "x2": 150,
+            "y2": 820,
+            "reason": "read reinforcement 36-20T"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "data_cell",
+            "target": "C2 stirrups",
+            "x1": 100,
+            "y1": 820,
+            "x2": 150,
+            "y2": 860,
+            "reason": "read stirrups 8T@100 C/C"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "target": "C2 mix",
+            "x1": 100,
+            "y1": 860,
+            "x2": 150,
+            "y2": 880,
+            "reason": "read mix M30"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "data_cell",
+            "target": "C3 size",
+            "x1": 180,
+            "y1": 740,
+            "x2": 230,
+            "y2": 820,
+            "reason": "read size 300 x 900"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "data_cell",
+            "target": "C3 reinforcement",
+            "x1": 180,
+            "y1": 740,
+            "x2": 230,
+            "y2": 820,
+            "reason": "read reinforcement 14-25T, 6-20T"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "data_cell",
+            "target": "C3 stirrups",
+            "x1": 180,
+            "y1": 820,
+            "x2": 230,
+            "y2": 860,
+            "reason": "read stirrups 8T@100 C/C"
+          },
+          {
+            "region_id": "r12",
+            "purpose": "data_cell",
+            "target": "C3 mix",
+            "x1": 180,
+            "y1": 860,
+            "x2": 230,
+            "y2": 880,
+            "reason": "read mix M30"
+          },
+          {
+            "region_id": "r13",
+            "purpose": "data_cell",
+            "target": "C4 size",
+            "x1": 260,
+            "y1": 740,
+            "x2": 310,
+            "y2": 820,
+            "reason": "read size 300 x 1200"
+          },
+          {
+            "region_id": "r14",
+            "purpose": "data_cell",
+            "target": "C4 reinforcement",
+            "x1": 260,
+            "y1": 740,
+            "x2": 310,
+            "y2": 820,
+            "reason": "read reinforcement 18-25T, 8-20T"
+          },
+          {
+            "region_id": "r15",
+            "purpose": "data_cell",
+            "target": "C4 stirrups",
+            "x1": 260,
+            "y1": 820,
+            "x2": 310,
+            "y2": 860,
+            "reason": "read stirrups 8T@100 C/C"
+          },
+          {
+            "region_id": "r16",
+            "purpose": "data_cell",
+            "target": "C4 mix",
+            "x1": 260,
+            "y1": 860,
+            "x2": 310,
+            "y2": 880,
+            "reason": "read mix M30"
+          },
+          {
+            "region_id": "r17",
+            "purpose": "data_cell",
+            "target": "C5 size",
+            "x1": 340,
+            "y1": 740,
+            "x2": 390,
+            "y2": 820,
+            "reason": "read size 300 x 1200"
+          },
+          {
+            "region_id": "r18",
+            "purpose": "data_cell",
+            "target": "C5 reinforcement",
+            "x1": 340,
+            "y1": 740,
+            "x2": 390,
+            "y2": 820,
+            "reason": "read reinforcement 14-25T, 8-20T"
+          },
+          {
+            "region_id": "r19",
+            "purpose": "data_cell",
+            "target": "C5 stirrups",
+            "x1": 340,
+            "y1": 820,
+            "x2": 390,
+            "y2": 860,
+            "reason": "read stirrups 8T@100 C/C"
+          },
+          {
+            "region_id": "r20",
+            "purpose": "data_cell",
+            "target": "C5 mix",
+            "x1": 340,
+            "y1": 860,
+            "x2": 390,
+            "y2": 880,
+            "reason": "read mix M30"
+          },
+          {
+            "region_id": "r21",
+            "purpose": "data_cell",
+            "target": "C6 size",
+            "x1": 420,
+            "y1": 740,
+            "x2": 470,
+            "y2": 820,
+            "reason": "read size 300 x 1000"
+          },
+          {
+            "region_id": "r22",
+            "purpose": "data_cell",
+            "target": "C6 reinforcement",
+            "x1": 420,
+            "y1": 740,
+            "x2": 470,
+            "y2": 820,
+            "reason": "read reinforcement 14-25T, 8-20T"
+          },
+          {
+            "region_id": "r23",
+            "purpose": "data_cell",
+            "target": "C6 stirrups",
+            "x1": 420,
+            "y1": 820,
+            "x2": 470,
+            "y2": 860,
+            "reason": "read stirrups 8T@100 C/C"
+          },
+          {
+            "region_id": "r24",
+            "purpose": "data_cell",
+            "target": "C6 mix",
+            "x1": 420,
+            "y1": 860,
+            "x2": 470,
+            "y2": 880,
+            "reason": "read mix M30"
+          },
+          {
+            "region_id": "r25",
+            "purpose": "data_cell",
+            "target": "C7 size",
+            "x1": 500,
+            "y1": 740,
+            "x2": 550,
+            "y2": 820,
+            "reason": "read size 300 x 1000"
+          },
+          {
+            "region_id": "r26",
+            "purpose": "data_cell",
+            "target": "C7 reinforcement",
+            "x1": 500,
+            "y1": 740,
+            "x2": 550,
+            "y2": 820,
+            "reason": "read reinforcement 14-25T, 8-20T"
+          },
+          {
+            "region_id": "r27",
+            "purpose": "data_cell",
+            "target": "C7 stirrups",
+            "x1": 500,
+            "y1": 820,
+            "x2": 550,
+            "y2": 860,
+            "reason": "read stirrups 8T@100 C/C"
+          },
+          {
+            "region_id": "r28",
+            "purpose": "data_cell",
+            "target": "C7 mix",
+            "x1": 500,
+            "y1": 860,
+            "x2": 550,
+            "y2": 880,
+            "reason": "read mix M30"
+          }
+        ],
         "normalization_rules": [
-          "depth always null",
-          "width from bottom horizontal dimension",
-          "length from vertical left dimension",
-          "reinforcement from top right corner",
-          "stirrups from bottom region",
-          "mix M30 as M-30"
+          "Remove duplicates in stirrups",
+          "Keep stirrup diameter exactly as written (e.g. 8T)",
+          "Remove words ALL, REST, nos from stirrups",
+          "Return stirrup spacing as '100 C/C' format",
+          "Return size as width x length, depth null",
+          "Return reinforcement as list of strings",
+          "Return null for missing values",
+          "Use exact column_name from left side text",
+          "Return only columns in target level"
         ],
         "extraction_order": [
-          "bottom to top per strip",
-          "left to right per column group"
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7"
         ]
       },
       "zoom_regions": [],
       "confirmed_reads": [],
       "records": [
         {
-          "column_no": "TA-C1, TA-C4",
+          "column_no": "C1",
           "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
           "size": {
             "width": 300,
@@ -1248,11 +2167,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C2, TA-C3",
+          "column_no": "C2",
           "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
           "size": {
             "width": 530,
@@ -1270,11 +2189,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C34, TA-C35",
+          "column_no": "C3",
           "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
           "size": {
             "width": 300,
@@ -1293,34 +2212,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C33, TA-C36",
-          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 1200
-          },
-          "reinforcement": [
-            "6-25T",
-            "20-20T"
-          ],
-          "stirrups": {
-            "dia": [
-              "8T"
-            ],
-            "spacing": [
-              "100 C/C"
-            ]
-          },
-          "mix": "M-30",
-          "steel_grade": null
-        },
-        {
-          "column_no": "TA-C29",
+          "column_no": "C4",
           "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
           "size": {
             "width": 300,
@@ -1339,11 +2235,34 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C5",
+          "column_no": "C5",
+          "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 1200
+          },
+          "reinforcement": [
+            "14-25T",
+            "8-20T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C6",
           "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
           "size": {
             "width": 300,
@@ -1362,11 +2281,11 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
-          "column_no": "TA-C23",
+          "column_no": "C7",
           "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
           "size": {
             "width": 300,
@@ -1374,8 +2293,8 @@
             "length": 1000
           },
           "reinforcement": [
-            "6-20T",
-            "16-16T"
+            "14-25T",
+            "8-20T"
           ],
           "stirrups": {
             "dia": [
@@ -1385,14 +2304,14 @@
               "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         }
       ],
       "added_records": [
         {
           "record": {
-            "column_no": "TA-C1, TA-C4",
+            "column_no": "C1",
             "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
             "size": {
               "width": 300,
@@ -1411,14 +2330,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C2, TA-C3",
+            "column_no": "C2",
             "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
             "size": {
               "width": 530,
@@ -1436,14 +2355,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C34, TA-C35",
+            "column_no": "C3",
             "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
             "size": {
               "width": 300,
@@ -1462,40 +2381,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C33, TA-C36",
-            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 1200
-            },
-            "reinforcement": [
-              "6-25T",
-              "20-20T"
-            ],
-            "stirrups": {
-              "dia": [
-                "8T"
-              ],
-              "spacing": [
-                "100 C/C"
-              ]
-            },
-            "mix": "M-30",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "TA-C29",
+            "column_no": "C4",
             "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
             "size": {
               "width": 300,
@@ -1514,14 +2407,40 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C5",
+            "column_no": "C5",
+            "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 1200
+            },
+            "reinforcement": [
+              "14-25T",
+              "8-20T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C6",
             "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
             "size": {
               "width": 300,
@@ -1540,14 +2459,14 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
         },
         {
           "record": {
-            "column_no": "TA-C23",
+            "column_no": "C7",
             "column_name": "COLUMN FROM GROUND FLOOR LVL. TO FIRST FLOOR LVL.",
             "size": {
               "width": 300,
@@ -1555,8 +2474,8 @@
               "length": 1000
             },
             "reinforcement": [
-              "6-20T",
-              "16-16T"
+              "14-25T",
+              "8-20T"
             ],
             "stirrups": {
               "dia": [
@@ -1566,7 +2485,7 @@
                 "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1579,14 +2498,14 @@
     "page_1.png__p01_l005_COLUMN_FROM_FOUNDATION_LVL_TO_GROUND_FLOOR_LVL": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-6\\page_1.png",
-      "generated_at": "2026-05-27T12:28:20.010076+00:00",
+      "generated_at": "2026-05-27T13:08:13.372678+00:00",
       "think": {
         "image_quality": "high resolution, clear, no skew",
         "table_bounds": {
           "x1": 0,
-          "y1": 0,
-          "x2": 2048,
-          "y2": 2732
+          "y1": 720,
+          "x2": 1920,
+          "y2": 1080
         },
         "column_headers": [
           "TA-C1, TA-C4",
@@ -1601,17 +2520,104 @@
           "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL."
         ],
         "expected_count": 7,
-        "zoom_plan": [],
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "row_label",
+            "target": "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+            "reason": "Extract column_name from left side text for this row"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "header",
+            "target": "TA-C1, TA-C4",
+            "x1": 100,
+            "y1": 1000,
+            "x2": 200,
+            "y2": 1050,
+            "reason": "Read column numbers in oval text"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "header",
+            "target": "TA-C2, TA-C3",
+            "x1": 300,
+            "y1": 1000,
+            "x2": 400,
+            "y2": 1050,
+            "reason": "Read column numbers in oval text"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "header",
+            "target": "TA-C34, TA-C35",
+            "x1": 500,
+            "y1": 1000,
+            "x2": 600,
+            "y2": 1050,
+            "reason": "Read column numbers in oval text"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "header",
+            "target": "TA-C33, TA-C36",
+            "x1": 700,
+            "y1": 1000,
+            "x2": 800,
+            "y2": 1050,
+            "reason": "Read column numbers in oval text"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "header",
+            "target": "TA-C29",
+            "x1": 900,
+            "y1": 1000,
+            "x2": 1000,
+            "y2": 1050,
+            "reason": "Read column numbers in oval text"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "header",
+            "target": "TA-C5",
+            "x1": 1100,
+            "y1": 1000,
+            "x2": 1200,
+            "y2": 1050,
+            "reason": "Read column numbers in oval text"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "header",
+            "target": "TA-C23",
+            "x1": 1300,
+            "y1": 1000,
+            "x2": 1400,
+            "y2": 1050,
+            "reason": "Read column numbers in oval text"
+          }
+        ],
         "normalization_rules": [
-          "Depth always null",
-          "Width is bottom horizontal dimension",
-          "Length is vertical dimension on left side",
-          "Reinforcement from top right corner",
-          "Stirrups from bottom region",
-          "Empty cells return null size and empty reinforcement"
+          "Remove duplicates in stirrups",
+          "Keep stirrup diameter notation exactly as is (e.g. 8T)",
+          "Remove words ALL, REST, nos from stirrups",
+          "Extract stirrup spacing as separate values",
+          "Return null for missing size or reinforcement values",
+          "Use exact column_no from oval text",
+          "Use exact column_name from left side text",
+          "Return reinforcement as list of strings",
+          "Return stirrups as object with dia and spacing strings"
         ],
         "extraction_order": [
-          "bottom to top per strip"
+          "COLUMN FROM FOUNDATION LVL. TO GROUND FLOOR LVL.",
+          "TA-C1, TA-C4",
+          "TA-C2, TA-C3",
+          "TA-C34, TA-C35",
+          "TA-C33, TA-C36",
+          "TA-C29",
+          "TA-C5",
+          "TA-C23"
         ]
       },
       "zoom_regions": [],
@@ -1631,17 +2637,13 @@
           ],
           "stirrups": {
             "dia": [
-              [
-                "8T"
-              ]
+              "8T"
             ],
             "spacing": [
-              [
-                "100 C/C"
-              ]
+              "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
@@ -1657,17 +2659,13 @@
           ],
           "stirrups": {
             "dia": [
-              [
-                "8T"
-              ]
+              "8T"
             ],
             "spacing": [
-              [
-                "100 C/C"
-              ]
+              "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
@@ -1684,17 +2682,13 @@
           ],
           "stirrups": {
             "dia": [
-              [
-                "8T"
-              ]
+              "8T"
             ],
             "spacing": [
-              [
-                "100 C/C"
-              ]
+              "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
@@ -1711,17 +2705,13 @@
           ],
           "stirrups": {
             "dia": [
-              [
-                "8T"
-              ]
+              "8T"
             ],
             "spacing": [
-              [
-                "100 C/C"
-              ]
+              "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
@@ -1738,17 +2728,13 @@
           ],
           "stirrups": {
             "dia": [
-              [
-                "8T"
-              ]
+              "8T"
             ],
             "spacing": [
-              [
-                "100 C/C"
-              ]
+              "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
@@ -1765,17 +2751,13 @@
           ],
           "stirrups": {
             "dia": [
-              [
-                "8T"
-              ]
+              "8T"
             ],
             "spacing": [
-              [
-                "100 C/C"
-              ]
+              "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         },
         {
@@ -1792,17 +2774,13 @@
           ],
           "stirrups": {
             "dia": [
-              [
-                "8T"
-              ]
+              "8T"
             ],
             "spacing": [
-              [
-                "100 C/C"
-              ]
+              "100 C/C"
             ]
           },
-          "mix": "M-30",
+          "mix": "M30",
           "steel_grade": null
         }
       ],
@@ -1822,17 +2800,13 @@
             ],
             "stirrups": {
               "dia": [
-                [
-                  "8T"
-                ]
+                "8T"
               ],
               "spacing": [
-                [
-                  "100 C/C"
-                ]
+                "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1851,17 +2825,13 @@
             ],
             "stirrups": {
               "dia": [
-                [
-                  "8T"
-                ]
+                "8T"
               ],
               "spacing": [
-                [
-                  "100 C/C"
-                ]
+                "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1881,17 +2851,13 @@
             ],
             "stirrups": {
               "dia": [
-                [
-                  "8T"
-                ]
+                "8T"
               ],
               "spacing": [
-                [
-                  "100 C/C"
-                ]
+                "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1911,17 +2877,13 @@
             ],
             "stirrups": {
               "dia": [
-                [
-                  "8T"
-                ]
+                "8T"
               ],
               "spacing": [
-                [
-                  "100 C/C"
-                ]
+                "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1941,17 +2903,13 @@
             ],
             "stirrups": {
               "dia": [
-                [
-                  "8T"
-                ]
+                "8T"
               ],
               "spacing": [
-                [
-                  "100 C/C"
-                ]
+                "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -1971,17 +2929,13 @@
             ],
             "stirrups": {
               "dia": [
-                [
-                  "8T"
-                ]
+                "8T"
               ],
               "spacing": [
-                [
-                  "100 C/C"
-                ]
+                "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -2001,17 +2955,13 @@
             ],
             "stirrups": {
               "dia": [
-                [
-                  "8T"
-                ]
+                "8T"
               ],
               "spacing": [
-                [
-                  "100 C/C"
-                ]
+                "100 C/C"
               ]
             },
-            "mix": "M-30",
+            "mix": "M30",
             "steel_grade": null
           },
           "source_region_ids": []
@@ -2024,7 +2974,7 @@
   },
   "summary": {
     "page_count": 5,
-    "record_count": 35,
+    "record_count": 34,
     "warning_count": 0,
     "warnings": []
   }
