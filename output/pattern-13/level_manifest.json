@@ -1,15 +1,161 @@
 {
   "pattern": 13,
+  "pdf": "pattern-13.pdf",
   "mode": "level_batches",
   "levels": [
-    "NINTH TO TENTH"
+    "TERRACE",
+    "FOURTEENTH",
+    "THIRTEENTH",
+    "TWELVETH",
+    "ELEVENTH",
+    "TENTH",
+    "NINTH",
+    "EIGHTH",
+    "SEVENTH",
+    "SIXTH",
+    "FIFTH",
+    "FOURTH",
+    "THIRD",
+    "SECOND",
+    "FIRST",
+    "GROUND",
+    "BASEMENT"
   ],
   "batches": [
     {
-      "id": "l001",
-      "level": "NINTH TO TENTH",
+      "id": "p01_l001",
+      "page": 1,
+      "level": "TERRACE",
       "status": "done",
-      "file": "level_batches\\l001_NINTH_TO_TENTH.json",
+      "file": "level_batches\\p01_l001_TERRACE.json",
+      "error": null
+    },
+    {
+      "id": "p01_l002",
+      "page": 1,
+      "level": "FOURTEENTH",
+      "status": "done",
+      "file": "level_batches\\p01_l002_FOURTEENTH.json",
+      "error": null
+    },
+    {
+      "id": "p01_l003",
+      "page": 1,
+      "level": "THIRTEENTH",
+      "status": "done",
+      "file": "level_batches\\p01_l003_THIRTEENTH.json",
+      "error": null
+    },
+    {
+      "id": "p01_l004",
+      "page": 1,
+      "level": "TWELVETH",
+      "status": "done",
+      "file": "level_batches\\p01_l004_TWELVETH.json",
+      "error": null
+    },
+    {
+      "id": "p01_l005",
+      "page": 1,
+      "level": "ELEVENTH",
+      "status": "done",
+      "file": "level_batches\\p01_l005_ELEVENTH.json",
+      "error": null
+    },
+    {
+      "id": "p01_l006",
+      "page": 1,
+      "level": "TENTH",
+      "status": "done",
+      "file": "level_batches\\p01_l006_TENTH.json",
+      "error": null
+    },
+    {
+      "id": "p01_l007",
+      "page": 1,
+      "level": "NINTH",
+      "status": "done",
+      "file": "level_batches\\p01_l007_NINTH.json",
+      "error": null
+    },
+    {
+      "id": "p01_l008",
+      "page": 1,
+      "level": "EIGHTH",
+      "status": "done",
+      "file": "level_batches\\p01_l008_EIGHTH.json",
+      "error": null
+    },
+    {
+      "id": "p01_l009",
+      "page": 1,
+      "level": "SEVENTH",
+      "status": "done",
+      "file": "level_batches\\p01_l009_SEVENTH.json",
+      "error": null
+    },
+    {
+      "id": "p01_l010",
+      "page": 1,
+      "level": "SIXTH",
+      "status": "done",
+      "file": "level_batches\\p01_l010_SIXTH.json",
+      "error": null
+    },
+    {
+      "id": "p01_l011",
+      "page": 1,
+      "level": "FIFTH",
+      "status": "done",
+      "file": "level_batches\\p01_l011_FIFTH.json",
+      "error": null
+    },
+    {
+      "id": "p01_l012",
+      "page": 1,
+      "level": "FOURTH",
+      "status": "done",
+      "file": "level_batches\\p01_l012_FOURTH.json",
+      "error": null
+    },
+    {
+      "id": "p01_l013",
+      "page": 1,
+      "level": "THIRD",
+      "status": "done",
+      "file": "level_batches\\p01_l013_THIRD.json",
+      "error": null
+    },
+    {
+      "id": "p01_l014",
+      "page": 1,
+      "level": "SECOND",
+      "status": "done",
+      "file": "level_batches\\p01_l014_SECOND.json",
+      "error": null
+    },
+    {
+      "id": "p01_l015",
+      "page": 1,
+      "level": "FIRST",
+      "status": "done",
+      "file": "level_batches\\p01_l015_FIRST.json",
+      "error": null
+    },
+    {
+      "id": "p01_l016",
+      "page": 1,
+      "level": "GROUND",
+      "status": "done",
+      "file": "level_batches\\p01_l016_GROUND.json",
+      "error": null
+    },
+    {
+      "id": "p01_l017",
+      "page": 1,
+      "level": "BASEMENT",
+      "status": "done",
+      "file": "level_batches\\p01_l017_BASEMENT.json",
       "error": null
     }
   ]

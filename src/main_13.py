@@ -1,1134 +1,600 @@
 """
-Generalized Column Schedule PDF Extraction Pipeline — PATTERN 13  (v2 — FIXED)
-===============================================================================
+main_13.py  —  Pattern 13 column schedule extractor (model-driven flow)
+=======================================================================
 
-Fixes vs v1
------------
-1. PIL.Image.MAX_IMAGE_PIXELS = None
-       Prevents the DecompressionBombWarning on large-format (A2) PDFs.
+NEW FLOW (no scipy, no OpenCV, no upfront line detection):
 
-2. Default DPI changed to 300
-       9925×14034 px at 600 DPI → manageable ~4962×7017 px at 300 DPI.
-       Pass --dpi 600 if you need higher resolution.
+  1. Pattern detection            (handled by auto_runner / pattern_detector)
+  2. Render PDF page to image
+  3. ★ Parallel level + column DETECTION  (one GPT call each)
+       - LEVELS  : list of {name, y_top, y_bottom} top-to-bottom
+       - COLUMNS : list of {column_no, x_left, x_right} left-to-right
+       - The model returns the UPPER part of any "X TO Y" level name
+         directly (e.g. "FOURTEENTH TO TERRACE" → "FOURTEENTH").
+         No Python TO-splitting helper.
+  4. Per-level horizontal-strip extraction  (parallel)
+       - Crop the strip [0, y_top*H, W, y_bottom*H]
+       - Send to extract_with_tools with the discovered column list
+         baked into the prompt
+       - Model uses zoom_region to drill into ambiguous cells
+  5. Manifest + atomic level-batch JSONs (resumable)
+  6. Final reshape → <pdf_stem>.json
 
-3. Adaptive coarse min_dist for horizontal-line detection
-       min_dist = max(H // 50, 60)
-       At 300 DPI that is ≈140 px; at 600 DPI ≈280 px.
-       Pattern-13 has TWO visual sub-rows per floor (structural drawing on
-       top + text-data on bottom). The fine divider between them is ~100 px
-       tall at 300 DPI — well below the adaptive threshold, so it is
-       automatically skipped. Only the FLOOR SEPARATOR lines (700+ px apart)
-       are kept, giving the correct ~17-row main grid.
-
-4. find_best_grid tolerance raised to 0.60
-       The TERRACE and BASEMENT rows are typically taller than the middle
-       floors; a 35% tolerance was too tight and failed to accept the full
-       run. 60% keeps them all in one grid.
-
-5. Grid selection: prefer LARGEST COVERAGE, require minimum avg_h
-       The loop now tracks best_coverage separately so it never regresses to
-       a smaller grid found at an earlier threshold, and skips any candidate
-       whose average row height is less than H/200 (clearly junk).
-
-6. Text-strip isolation per floor row
-       _find_text_strip_y() scans each floor row for the internal divider
-       between the structural drawing (upper, cyan) and the text data (lower,
-       black text). Only the text portion is sent to GPT-4o. Falls back to
-       the bottom 38% of the row if no divider is found.
-
-7. Updated GPT-4o prompts
-       Explicitly tell the model that a structural cross-section drawing may
-       occupy the upper portion of the image — it should focus only on the
-       tabular text in the lower area.
-
-JSON output schema — IDENTICAL to main_11.py
----------------------------------------------
-{
-  "document": "...",
-  "title": "Column Schedule",
-  "columns": [
-    {
-      "column_no":     "SW7",
-      "column_name":   "FOURTEENTH_TO_TERRACE",
-      "size":          {"width": ..., "depth": ..., "length": ...},
-      "reinforcement": [...],
-      "stirrups":      {"dia": [...], "spacing": [...]},
-      "mix":           "M30" | null,
-      "steel_grade":   null
-    },
-    ...
-  ]
-}
-
-USAGE
------
-    python src/main_13.py
-    python src/main_13.py --pdf pattern-13.pdf
-    python src/main_13.py --pdf pattern-13.pdf --dpi 300 --debug
-
-DEPENDENCIES
-------------
-    pip install pdf2image Pillow scipy numpy openai python-dotenv
-    sudo apt-get install poppler-utils
+Output schema = canonical project shape:
+  {
+    "levels": [
+      {"level": "FOURTEENTH", "columns": [
+         {"column_no": "SW1,SW2,SW3,SW4",
+          "size": {"width": 230, "depth": null, "length": 1500},
+          "reinforcement": [...],
+          "stirrups": {"dia": [...], "spacing": [...]}}
+      ]},
+      ...
+    ]
+  }
 """
 
-import argparse
-import base64
 import json
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from extraction_guard import reshape_columns_to_levels
-from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
-from pattern_batching import atomic_write_json, safe_filename
-from pattern_cleaners import standardize_records
 import os
 import re
-import sys
-from io import BytesIO
-from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# Cell-level parallelism for [6/6] data-cell extraction.
-# Each row's N cells are read concurrently via the Vision API.
-# Default 6 workers — override with PATTERN13_CELL_WORKERS env var.
-# Be mindful of your OpenAI rate limit if you raise this.
-MAX_CELL_WORKERS = max(1, int(os.getenv("PATTERN13_CELL_WORKERS", "6")))
+from tqdm import tqdm
 
-import numpy as np
-from PIL import Image, ImageDraw
-from pdf2image import convert_from_path
-from scipy.signal import find_peaks
-
-# ── Suppress PIL decompression-bomb error on large-format PDFs ────────────────
-Image.MAX_IMAGE_PIXELS = None
-
-# ── Project config ────────────────────────────────────────────────────────────
-sys.path.insert(0, str(Path(__file__).parent))
-from config import INPUT_DIR, OUTPUT_DIR, OPENAI_API_KEY
+from config import INPUT_DIR, OUTPUT_DIR
+from extraction_guard import clean_json_string, reshape_columns_to_levels
+from image_tools import crop_upscale_path
+from pattern_batching import atomic_write_json, safe_filename, trace_key_for
+from pattern_cleaners import standardize_records
+from pdf_to_images import convert_pdf_to_images
+from vision_extractor import extract_from_image, extract_with_tools
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# §1  PDF → Image
-# ══════════════════════════════════════════════════════════════════════════════
+# ════════════════════════════════════════════════════════════════════════════
+# §0  TUNABLES
+# ════════════════════════════════════════════════════════════════════════════
 
-def pdf_to_image(pdf_path: str, dpi: int = 300) -> Image.Image:
-    """Render the first page of a PDF at the given DPI."""
-    return convert_from_path(pdf_path, dpi=dpi)[0]
+# Render DPI for Pattern 13. 300 is enough for the model to read SW labels;
+# higher values mostly burn memory on A2 drawings.
+DPI = int(os.getenv("PATTERN13_DPI", "300"))
 
+# Parallel level workers — each level batch is one tool-protocol call.
+MAX_LEVEL_WORKERS = max(1, int(os.getenv("PATTERN13_LEVEL_WORKERS", "3")))
 
-# ══════════════════════════════════════════════════════════════════════════════
-# §2  Grid-Line Detection
-# ══════════════════════════════════════════════════════════════════════════════
-
-def _darkness_peaks(arr2d: np.ndarray, threshold: float, min_distance: int) -> list:
-    darkness = np.mean(arr2d < 100, axis=1)
-    peaks, _ = find_peaks(darkness, height=threshold, distance=min_distance)
-    return peaks.tolist()
+# Padding (in normalised image units) added to the level strip so we
+# don't slice through rotated text or thin borders.
+LEVEL_Y_PADDING = float(os.getenv("PATTERN13_LEVEL_PADDING", "0.005"))
 
 
-def _gradient_peaks(arr2d: np.ndarray, threshold: float, min_distance: int) -> list:
-    grad = np.mean(np.abs(np.diff(arr2d.astype(float), axis=0)), axis=1)
-    if grad.max() < 1e-6:
-        return []
-    norm_grad = grad / (grad.max() + 1e-9)
-    abs_thr   = max(threshold, norm_grad.mean() + norm_grad.std())
-    peaks, _  = find_peaks(norm_grad, height=abs_thr, distance=min_distance)
-    return peaks.tolist()
+# ════════════════════════════════════════════════════════════════════════════
+# §1  PROMPTS
+# ════════════════════════════════════════════════════════════════════════════
+
+# Level + bounds detection. The model returns ONLY the upper level name
+# (e.g. "FOURTEENTH" for "FOURTEENTH TO TERRACE") — no Python TO-splitting
+# happens anywhere downstream.
+LEVEL_DETECTION_PROMPT = """\
+You are reading a structural-engineering RCC COLUMN SCHEDULE drawing.
+
+TASK
+====
+List EVERY visible level / floor / storey row in the schedule, top to
+bottom, together with that row's vertical bounds in the image.
+
+LEVEL NAME RULE — VERY IMPORTANT
+================================
+A level cell may show a single name (e.g. "TERRACE", "GROUND",
+"BASEMENT") OR a range like "FOURTEENTH TO TERRACE" or "GF TO P01".
+
+For ANY range, return ONLY the FIRST / UPPER name — the part BEFORE the
+word "TO" — and never include "TO" or anything after it.
+Apply this regardless of capitalisation or formatting.
+
+Examples (return the right-hand side only):
+  "FOURTEENTH TO TERRACE"          -> "FOURTEENTH"
+  "GROUND TO FIRST"                -> "GROUND"
+  "P05 TO P06"                     -> "P05"
+  "BASE TO LG"                     -> "BASE"
+  "BASEMENT TO GROUND"             -> "BASEMENT"
+  "TERRACE"                        -> "TERRACE"  (no range, keep as-is)
+
+Y BOUNDS
+========
+For each level, give the top and bottom of the horizontal strip that
+holds that level's data, in NORMALISED coordinates (0.0 = top of image,
+1.0 = bottom). Bounds may slightly overlap is fine; never invent extra
+levels just to fill space.
+
+OUTPUT
+======
+Return ONLY strict JSON, no markdown, no code fences:
+
+{
+  "levels": [
+    {"name": "TERRACE",     "y_top": 0.06, "y_bottom": 0.10},
+    {"name": "FOURTEENTH",  "y_top": 0.10, "y_bottom": 0.16},
+    {"name": "THIRTEENTH",  "y_top": 0.16, "y_bottom": 0.22},
+    {"name": "GROUND",      "y_top": 0.85, "y_bottom": 0.91},
+    {"name": "BASEMENT",    "y_top": 0.91, "y_bottom": 0.97}
+  ]
+}
+"""
+
+# Column detection. Returns each visible column-ID group with its X bounds.
+COLUMN_DETECTION_PROMPT = """\
+You are reading a structural-engineering RCC COLUMN SCHEDULE drawing.
+
+TASK
+====
+List EVERY visible column-ID group along the schedule's column-header
+row (which may be at the TOP, BOTTOM, or both), together with each
+group's horizontal bounds in NORMALISED coordinates (0.0 = left edge of
+image, 1.0 = right edge).
+
+A column-ID group may be a single ID (e.g. "SW17") or a comma-joined
+group (e.g. "SW1,SW2,SW3,SW4" / "C1,C2" / "GC39" / "TA-C1,TA-C4").
+Preserve the prefix exactly (SW, C, GC, PC, TA-C, …) and case.
+
+Do NOT return:
+  - the words COLUMN, COLUMNS, MARK, MARKED, NOS, SIZE, REINF., STIRRUPS
+  - concrete grades like M30 / M-30
+  - TYPE-XX size codes
+  - row-label words like FLOOR, LEVEL, FOOTING, TERRACE, LMR
+
+Skip anything that is clearly not a structural column / shear-wall ID.
+
+OUTPUT
+======
+Return ONLY strict JSON, no markdown, no code fences:
+
+{
+  "columns": [
+    {"column_no": "SW1,SW2,SW3,SW4",  "x_left": 0.18, "x_right": 0.32},
+    {"column_no": "SW5,SW6,SW7,SW8",  "x_left": 0.32, "x_right": 0.45},
+    {"column_no": "SW17,SW18",        "x_left": 0.45, "x_right": 0.55}
+  ]
+}
+"""
 
 
-def detect_lines(img: Image.Image,
-                 y0: int = 0, y1: int = -1,
-                 x0: int = 0, x1: int = -1,
-                 h_thr: float = 0.15,
-                 v_thr: float = 0.15,
-                 min_dist: int = 30) -> tuple:
-    arr = np.array(img, dtype=float)
-    if y1 < 0: y1 = arr.shape[0]
-    if x1 < 0: x1 = arr.shape[1]
-    region = arr[y0:y1, x0:x1, :3]
-    gray   = np.mean(region, axis=2)
-    dark_h     = _darkness_peaks(gray,   h_thr, min_dist)
-    grad_h     = _gradient_peaks(gray,   h_thr, min_dist)
-    combined_h = cluster_lines(sorted(set(dark_h + grad_h)))
-    v_raw = _darkness_peaks(gray.T, v_thr, min_dist)
-    return [p + y0 for p in combined_h], [p + x0 for p in v_raw]
+def build_level_extraction_prompt(level_name, columns):
+    """Per-level extraction prompt fed to extract_with_tools.
 
-
-def cluster_lines(lines: list, gap: int = 12) -> list:
-    if not lines:
-        return []
-    lines = sorted(lines)
-    clusters, group = [], [lines[0]]
-    for x in lines[1:]:
-        if x - group[-1] <= gap:
-            group.append(x)
-        else:
-            clusters.append(int(round(np.mean(group))))
-            group = [x]
-    clusters.append(int(round(np.mean(group))))
-    return clusters
-
-
-def find_regular_grid(lines: list, tolerance: float = 0.35) -> list:
-    if len(lines) < 3:
-        return lines
-    lines = sorted(lines)
-    gaps  = [lines[i+1] - lines[i] for i in range(len(lines)-1)]
-    med   = float(np.median(gaps))
-    best_s, best_n = 0, 0
-    cur_s,  cur_n  = 0, 1
-    for i, g in enumerate(gaps):
-        if abs(g - med) / (med + 1e-9) <= tolerance:
-            cur_n += 1
-        else:
-            if cur_n > best_n:
-                best_s, best_n = cur_s, cur_n
-            cur_s, cur_n = i+1, 1
-    if cur_n > best_n:
-        best_s, best_n = cur_s, cur_n
-    return lines[best_s: best_s + best_n + 1]
-
-
-def find_best_grid(lines: list, min_rows: int = 3, tolerance: float = 0.60) -> list:
+    The strip image already covers ONE level. We list the discovered
+    column IDs in left-to-right order so the model knows what's in the
+    strip and can call zoom_region for any cell that's unclear.
     """
-    Find the grid scale that covers the MAXIMUM vertical span.
-    tolerance raised to 0.60 for pattern-13 (non-uniform floor heights).
-    """
-    if len(lines) < min_rows + 1:
-        return lines
-    lines = sorted(lines)
-    gaps  = [lines[i+1] - lines[i] for i in range(len(lines)-1)]
-    best_lines, best_coverage = [], 0
-
-    def _evaluate(s: int, n: int):
-        nonlocal best_lines, best_coverage
-        if n < min_rows: return
-        run      = lines[s: s+n]
-        coverage = run[-1] - run[0]
-        if coverage > best_coverage:
-            best_coverage = coverage
-            best_lines    = run
-
-    for target in set(gaps):
-        cur_s, cur_n = 0, 1
-        for i, g in enumerate(gaps):
-            if abs(g - target) / (target + 1e-9) <= tolerance:
-                cur_n += 1
-            else:
-                _evaluate(cur_s, cur_n)
-                cur_s, cur_n = i+1, 1
-        _evaluate(cur_s, cur_n)
-
-    return best_lines if best_lines else lines
-
-
-def extend_grid_with_trailing_lines(grid: list, all_lines: list,
-                                    max_extra_multiplier: float = 2.0) -> list:
-    if not grid or len(grid) < 2:
-        return grid
-    med_gap = np.median([grid[i+1] - grid[i] for i in range(len(grid)-1)])
-    last    = grid[-1]
-    extras  = sorted(x for x in all_lines
-                     if last < x <= last + max_extra_multiplier * med_gap)
-    return grid + extras
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# §3  Text-Strip Isolation  (NEW — pattern-13 specific)
-# ══════════════════════════════════════════════════════════════════════════════
-
-def _find_text_strip_y(img_arr: np.ndarray,
-                        y0: int, y1: int,
-                        x0: int, x1: int) -> int:
-    """
-    Each pattern-13 floor row has TWO visual sub-rows:
-      • UPPER  (~60-70 % of height): structural cross-section drawing in cyan.
-      • LOWER  (~30-40 % of height): tabular text data (SIZE, CONC MIX, etc.).
-
-    This function returns the Y coordinate of the DIVIDER between the two,
-    so callers can crop only the text portion for GPT-4o extraction.
-
-    Strategy:
-      1. Search for a horizontal line (darkness OR gradient peak) inside the
-         middle band of the row (40 %–88 % of height) — that is the divider.
-      2. If no clear line is found, fall back to 62 % of height from the top
-         (i.e. text starts at y0 + 0.62*(y1-y0)).
-
-    Returns an ABSOLUTE y coordinate (text_y0); text ends at y1.
-    """
-    row_h = y1 - y0
-    if row_h < 40:
-        return y0  # too small to split
-
-    region = img_arr[y0:y1, x0:x1, :3]
-    gray   = np.mean(region, axis=2)
-
-    # Search band: 40 %–88 % of row height
-    s_start = int(row_h * 0.40)
-    s_end   = int(row_h * 0.88)
-    if s_end - s_start < 5:
-        return y0 + int(row_h * 0.62)
-
-    band = gray[s_start:s_end]
-
-    # Darkness signal (dark = < 100 / 255)
-    darkness = np.mean(band < 100, axis=1)
-
-    # Gradient signal (detects even coloured lines like cyan)
-    grad = np.mean(np.abs(np.diff(band.astype(float), axis=0)), axis=1)
-    if grad.max() > 1e-6:
-        grad_n = grad / grad.max()
-    else:
-        grad_n = np.zeros(len(grad))
-
-    # Pad gradient to same length as darkness
-    if len(grad_n) < len(darkness):
-        grad_n = np.append(grad_n, 0.0)
-
-    combined = darkness + 0.5 * grad_n[:len(darkness)]
-
-    if combined.max() < 0.04:
-        return y0 + int(row_h * 0.62)  # fallback
-
-    local_y  = int(np.argmax(combined))
-    divider  = y0 + s_start + local_y
-    return divider
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# §4  Vision API (OpenAI / GPT-4o)
-# ══════════════════════════════════════════════════════════════════════════════
-
-def _to_b64(img: Image.Image) -> str:
-    buf = BytesIO()
-    img.save(buf, format="PNG")
-    return base64.b64encode(buf.getvalue()).decode()
-
-
-def get_client():
-    try:
-        from openai import OpenAI
-        return OpenAI(api_key=OPENAI_API_KEY)
-    except ImportError:
-        raise RuntimeError("Run: pip install openai")
-
-
-def call_vision(client, img: Image.Image, prompt: str, max_tokens: int = 500) -> str:
-    b64  = _to_b64(img)
-    resp = client.chat.completions.create(
-        model="gpt-4o",
-        max_tokens=max_tokens,
-        messages=[{"role": "user", "content": [
-            {"type": "image_url",
-             "image_url": {"url": f"data:image/png;base64,{b64}", "detail": "high"}},
-            {"type": "text", "text": prompt},
-        ]}],
+    column_list = "\n".join(
+        f"  - {c['column_no']}  (x_left={c['x_left']:.2f}, x_right={c['x_right']:.2f})"
+        for c in columns
     )
-    return resp.choices[0].message.content
+    return f"""\
+You are reading ONE horizontal strip from an RCC COLUMN SCHEDULE.
+
+LEVEL CONTEXT
+=============
+This strip contains data for level "{level_name}" only.
+Use storey_level = "{level_name}" for EVERY add_column call.
+Never invent or rename the level.
+
+COLUMNS IN THIS STRIP (left → right)
+====================================
+{column_list}
+
+Each column above corresponds to one cell in the strip. If a cell is
+visually empty (no text, no drawing data), still call add_column for
+it with size = null and reinforcement = []; do NOT borrow values from
+neighbouring cells.
+
+PER-CELL EXTRACTION
+===================
+For each column listed above, extract:
+
+  size            B x L format (project standard).
+                  width = first number, length = second number, depth = null.
+                  e.g. "230 X 1500" -> width=230, depth=null, length=1500.
+
+  reinforcement   Quantity-Tdiameter list, split on "+".
+                  e.g. "8-Y12 + 14-Y10" -> ["8-Y12", "14-Y10"].
+                  e.g. "16-T16"         -> ["16-T16"].
+
+  ties_dia        Stirrup bar diameter, e.g. "T8" or "Y8".
+  ties_spacing    Stirrup spacing, e.g. "200 C/C".
+                  If multiple zones, pick the most prominent; the model
+                  may also use confirm_read after a zoom_region call to
+                  capture additional zones.
+
+  mix             Concrete grade if visible (e.g. "M30", "M-30").
+                  Use null when not shown.
+
+  steel_grade     e.g. "Fe500". Use null when not shown.
+
+ZOOM USAGE
+==========
+The strip image is the FULL strip in normalised (0..1) coordinates.
+If any column's text is small or ambiguous, call zoom_region with
+normalised bounds INSIDE this strip to inspect it more closely, then
+call confirm_read with the exact text you saw, then call add_column.
+
+ENFORCED TOOL SEQUENCE
+======================
+1. think  (with column_headers = the column_no values listed above)
+2. (optional) zoom_region + confirm_read for any unclear cell
+3. add_column  — one call per column listed above, in left-to-right
+                  order, with column_no copied EXACTLY from the list.
+"""
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# §5  Label Extraction
-# ══════════════════════════════════════════════════════════════════════════════
-
-def _crop_upscale(img: Image.Image, x0: int, y0: int, x1: int, y1: int,
-                  upscale: int = 2) -> Image.Image:
-    cell = img.crop((x0, y0, x1, y1))
-    if upscale > 1:
-        cell = cell.resize(
-            (cell.width * upscale, cell.height * upscale), Image.LANCZOS)
-    return cell
+# ════════════════════════════════════════════════════════════════════════════
+# §2  Level / column detection
+# ════════════════════════════════════════════════════════════════════════════
 
 
-# ─── Column-label helpers ─────────────────────────────────────────────────────
-
-_COL_LABEL_RE = re.compile(r'^[A-Z]{1,3}\d{1,3}[A-Z]?$')
-
-_SKIP_LABEL_WORDS = frozenset({
-    "COL", "COLMARK", "COLMARKED", "COLNO", "COLUMN", "COLUMNS",
-    "MARKED", "MARK", "SIZE", "CONC", "MIX", "VERT", "REINF", "RING",
-    "NO", "NOTE", "NOTES", "SKIP", "NA", "NIA", "NIL",
-    "FLOOR", "TO", "TERRACE", "LMR", "GROUND", "BASEMENT",
-})
-
-
-def _normalize_col_label(raw: str) -> str | None:
-    if not raw:
-        return None
-    s = re.sub(r'[\s\u00a0]+', '', raw.strip()).upper().strip('.,;:-/\\()[]{}"\' ')
-    if not s:
-        return None
-    letter_part = re.sub(r'\d', '', s)
-    if letter_part in _SKIP_LABEL_WORDS:
-        return None
-    return s if _COL_LABEL_RE.match(s) else None
-
-
-def _split_label_group(text: str) -> list:
-    """'SW7, SW10, SW45, SW46' → ['SW7', 'SW10', 'SW45', 'SW46']"""
+def _parse_json_object(raw):
+    """Extract the first JSON object from a possibly-fenced model reply."""
+    text = clean_json_string(raw or "")
     if not text:
-        return []
-    raw_tokens = re.split(r'[\s,;/|]+', text.strip())
-    out, seen = [], set()
-    for tok in raw_tokens:
-        norm = _normalize_col_label(tok)
-        if norm and norm not in seen:
-            seen.add(norm); out.append(norm)
-    return out
-
-
-def extract_col_label_groups_strip(client, img, header_y0, header_y1,
-                                    data_col_x, upscale=2) -> list:
-    """Read ALL column-label groups from the header strip in one API call."""
-    n     = len(data_col_x) - 1
-    strip = _crop_upscale(img, data_col_x[0], header_y0,
-                          data_col_x[-1], header_y1, upscale)
-    prompt = (
-        f"This is the column-header row of a structural engineering "
-        f"shear-wall / column schedule. It has exactly {n} cells left to right.\n\n"
-        "Each cell lists ONE OR MORE wall/column labels, e.g.:\n"
-        "  SW1, SW2, SW3, SW4\n"
-        "  SW5, SW6, SW7, SW8\n"
-        "  SW17, SW18\n\n"
-        "Label format = 1-3 capital letters + 1-3 digits (optional suffix letter).\n\n"
-        f"Return EXACTLY {n} lines, one per cell, left to right. "
-        "Each line lists that cell's labels separated by commas. No other text.\n\n"
-        "Example output (3 cells):\n"
-        "SW1, SW2, SW3, SW4\n"
-        "SW5, SW6, SW7, SW8\n"
-        "SW9, SW10"
-    )
-    resp   = call_vision(client, strip, prompt, max_tokens=400).strip()
-    lines  = [ln.strip() for ln in resp.split("\n") if ln.strip()]
-    result = [_split_label_group(ln) for ln in lines[:n]]
-    while len(result) < n:
-        result.append([])
-    return result[:n]
-
-
-def extract_col_label_groups(client, img, header_y0, header_y1,
-                              data_col_x, upscale=2) -> list:
-    """Per-cell fallback."""
-    n      = len(data_col_x) - 1
-    result = []
-    for i in range(n):
-        cell   = _crop_upscale(img, data_col_x[i], header_y0,
-                                data_col_x[i+1], header_y1, upscale)
-        prompt = (
-            "This is a single header cell from a structural-engineering column schedule.\n"
-            "It may contain ONE OR MORE labels like 'SW1, SW2, SW3, SW4' or 'SW17, SW18'.\n"
-            f"Cell {i+1} of {n}. Format: 1-3 capital letters + 1-3 digits.\n"
-            "Return ONLY the labels, comma-separated. If none legible → 'SKIP'."
-        )
-        raw = call_vision(client, cell, prompt, max_tokens=60).strip().strip('"\'')
-        result.append([] if raw.upper() == "SKIP" else _split_label_group(raw))
-    return result
-
-
-# ─── Floor-label helpers ──────────────────────────────────────────────────────
-
-def extract_floor_labels(client, img, label_x0, label_x1,
-                          row_y, upscale=2) -> list:
-    """
-    Read the floor-range label for each row in the label column.
-    Returns N strings: label text | 'SKIP' | 'Floor_N' fallback.
-    """
-    prompt = (
-        "This is a single row-header cell from a structural engineering column schedule. "
-        "Text is usually printed VERTICALLY (rotated 90°) and describes a FLOOR RANGE.\n\n"
-        "Valid floor-range labels (any of these or similar):\n"
-        "  'TERRACE TO LMR', 'FOURTEENTH TO TERRACE', 'THIRTEENTH TO FOURTEENTH',\n"
-        "  'TWELVETH TO THIRTEENTH', 'ELEVENTH TO TWELVETH', 'TENTH TO ELEVENTH',\n"
-        "  'NINTH TO TENTH', 'EIGHTH TO NINTH', 'SEVENTH TO EIGHTH',\n"
-        "  'SIXTH TO SEVENTH', 'FIFTH TO SIXTH', 'FOURTH TO FIFTH',\n"
-        "  'THIRD TO FOURTH', 'SECOND TO THIRD', 'FIRST TO SECOND',\n"
-        "  'GROUND TO FIRST', 'BASEMENT TO GROUND'\n\n"
-        "NON-floor cells: 'FOOTING', 'COL. MARKED', 'SIZE', 'CONC. MIX', "
-        "'VERT. REINF.', 'RING', repeated header text, or blank.\n\n"
-        "If this IS a floor label → return the text EXACTLY as written.\n"
-        "If this is NOT → return exactly: SKIP\n"
-        "Return nothing else."
-    )
-    labels = []
-    for i in range(len(row_y) - 1):
-        cell = _crop_upscale(img, label_x0, row_y[i], label_x1, row_y[i+1], upscale)
-        raw  = call_vision(client, cell, prompt, max_tokens=60).strip().strip('"\'')
-        if raw.upper() == "SKIP":
-            labels.append("SKIP")
-        elif raw:
-            labels.append(raw)
-        else:
-            labels.append(f"Floor_{i+1}")
-    return labels
-
-
-# Escape hatch when the model returns "SKIP" for every row — typically
-# caused by grid detection picking the wrong table region or a label
-# column too narrow to OCR. Default behavior drops all SKIP rows. Set
-# PATTERN13_KEEP_SKIP_ROWS=1 to keep them with placeholder labels so
-# extraction can continue and you can inspect what was actually read.
-KEEP_SKIP_ROWS = os.getenv("PATTERN13_KEEP_SKIP_ROWS", "0").strip().lower() in {"1", "true", "yes", "on"}
-
-
-def filter_and_recheck_floor_rows(client, img, label_x0, label_x1,
-                                   h_grid, raw_labels, upscale=2) -> tuple:
-    """Drop SKIPs, re-query Floor_N fallbacks. Returns (row_bounds, labels)."""
-    row_bounds, floor_labels = [], []
-    skip_count = 0
-    for i, label in enumerate(raw_labels):
-        y0, y1 = h_grid[i], h_grid[i+1]
-        if label == "SKIP":
-            skip_count += 1
-            if KEEP_SKIP_ROWS:
-                placeholder = f"UNKNOWN_ROW_{i+1}"
-                print(
-                    f"       Row {i+1} ({y0}–{y1} px): kept as '{placeholder}' "
-                    "(PATTERN13_KEEP_SKIP_ROWS=1)"
-                )
-                row_bounds.append((y0, y1)); floor_labels.append(placeholder)
-            else:
-                print(f"       Row {i+1} ({y0}–{y1} px): excluded (non-floor)")
-            continue
-        if not label.startswith("Floor_"):
-            row_bounds.append((y0, y1)); floor_labels.append(label); continue
-
-        cell  = _crop_upscale(img, label_x0, y0, label_x1, y1, upscale)
-        check = call_vision(client, cell,
-            "Does this cell contain a floor/level name or range "
-            "(e.g. 'GROUND TO FIRST', 'TERRACE TO LMR', '7TH FLOOR')? YES or NO.",
-            max_tokens=5).strip().upper()
-
-        if "YES" not in check:
-            print(f"       Row {i+1} ({y0}–{y1} px): excluded (confirmed non-floor)")
-            continue
-
-        retry = call_vision(client, cell,
-            "Read the floor-range label in this cell (may be vertical). "
-            "E.g. 'TERRACE TO LMR', 'FOURTEENTH TO TERRACE', 'BASEMENT TO GROUND'. "
-            "Return ONLY the label text.",
-            max_tokens=60).strip().strip('"\'')
-        final = retry if retry and len(retry) < 80 else label
-        print(f"       Row {i+1} ({y0}–{y1} px): re-read as '{final}'")
-        row_bounds.append((y0, y1)); floor_labels.append(final)
-
-    # Diagnostic summary when filtering wiped out every row.
-    if not floor_labels and skip_count == len(raw_labels):
-        print(
-            "\n       ─────────────────────────────────────────────────────────\n"
-            f"       DIAGNOSTIC: All {skip_count} row(s) were tagged 'SKIP' by "
-            "the vision model.\n"
-            f"       Label column was X={label_x0}-{label_x1} ({label_x1-label_x0}px wide).\n"
-            "       Likely causes:\n"
-            "         1. Grid detection picked the wrong table region.\n"
-            "         2. The label column is too narrow to OCR (verify >80px).\n"
-            "         3. This PDF was misclassified as Pattern 13 by the\n"
-            "            vision detector and is actually a different pattern.\n"
-            "       Workarounds:\n"
-            "         • Re-run with --debug to save grid overlay PNG.\n"
-            "         • Set PATTERN13_KEEP_SKIP_ROWS=1 to keep all rows with\n"
-            "           placeholder labels and inspect the resulting JSON.\n"
-            "       ─────────────────────────────────────────────────────────"
-        )
-
-    return row_bounds, floor_labels
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# §6  Data Cell Extraction
-# ══════════════════════════════════════════════════════════════════════════════
-
-_EMPTY_CELL = {"SIZE": "---", "CONC_MIX": "---", "VERT_REINF": "---", "RING": "---"}
-
-# Updated prompts: explicitly tell GPT-4o to ignore structural drawings
-_DATA_PROMPT_TEMPLATE = (
-    "This image shows a cell from a structural-engineering shear-wall / column schedule.\n"
-    "Floor range: {floor}.  Wall/Column group: {column}.\n\n"
-    "IMPORTANT: The upper portion of the image may contain a structural "
-    "cross-section drawing (shapes, dots, reinforcement layout diagrams). "
-    "IGNORE that drawing completely.\n\n"
-    "Focus ONLY on the TABULAR TEXT in the lower portion of the image, "
-    "which contains these four fields:\n"
-    '  SIZE         (e.g. "230 X 1500", "230 X 1250", "300 X 900", "AS PER PLAN")\n'
-    '  CONC. MIX    (e.g. "M25", "M30", "M35")\n'
-    '  VERT. REINF. (e.g. "14-20 TOR + 6-16 TOR", "49-25 TOR", "8-16 TOR")\n'
-    '  RING         (e.g. "8 TOR 15 @ 75 + @ 150 + 15 @ 75 C/C, 4 SETS + 1 LINK")\n\n'
-    'Return ONLY a JSON object:\n'
-    '{{"SIZE":"...","CONC_MIX":"...","VERT_REINF":"...","RING":"..."}}\n'
-    'Use "---" for any field that is not visible or unreadable.'
-)
-
-_COMBINED_PROMPT_TEMPLATE = (
-    "This is a FULL-WIDTH row from a structural-engineering column schedule.\n"
-    "Floor range: {floor}.\n\n"
-    "IMPORTANT: Ignore any structural cross-section drawings in the upper portion. "
-    "Focus ONLY on the tabular text (SIZE, CONC. MIX, VERT. REINF., RING) "
-    "in the lower text band.\n\n"
-    "This row shows ONE shared specification for ALL columns.\n"
-    'Return ONLY a JSON object:\n'
-    '{{"SIZE":"...","CONC_MIX":"...","VERT_REINF":"...","RING":"..."}}\n'
-    'Use "---" for any field not visible or unreadable.'
-)
-
-
-def _parse_json_response(text: str) -> dict:
+        return {}
+    # Strip any leading prose before the first {
+    brace = text.find("{")
+    if brace > 0:
+        text = text[brace:]
     try:
-        m = re.search(r'\{[^{}]+\}', text, re.DOTALL)
-        if m:
-            return json.loads(m.group())
-    except (json.JSONDecodeError, AttributeError):
-        pass
-    return dict(_EMPTY_CELL)
+        return json.loads(text)
+    except json.JSONDecodeError:
+        return {}
 
 
-def extract_data_cell(client, img: Image.Image, floor: str, column: str) -> dict:
-    return _parse_json_response(
-        call_vision(client, img,
-                    _DATA_PROMPT_TEMPLATE.format(floor=floor, column=column),
-                    max_tokens=500))
+def detect_levels_with_bounds(image_path):
+    """Return [{"name": str, "y_top": float, "y_bottom": float}] top-to-bottom.
 
+    The model is instructed to return the upper part of any "X TO Y"
+    range directly, so no further Python normalisation is required.
+    """
+    print(f"  [LEVELS] Detecting levels in {os.path.basename(image_path)} …")
+    raw = extract_from_image(image_path, LEVEL_DETECTION_PROMPT)
+    data = _parse_json_object(raw)
 
-def extract_combined_row(client, img: Image.Image, floor: str) -> dict:
-    return _parse_json_response(
-        call_vision(client, img,
-                    _COMBINED_PROMPT_TEMPLATE.format(floor=floor),
-                    max_tokens=500))
-
-
-def _is_empty(cell_data: dict) -> bool:
-    return all(cell_data.get(k, "---") == "---" for k in _EMPTY_CELL)
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# §7  Output JSON Parsers  (identical schema to main_11)
-# ══════════════════════════════════════════════════════════════════════════════
-
-def parse_size(raw: str) -> dict:
-    empty = {"width": None, "depth": None, "length": None}
-    if not raw or raw.strip() in ("---", "", "N/A", "n/a"):
-        return empty
-    parts = re.split(r'\s*[xX×]\s*', raw.strip())
-    nums  = []
-    for p in parts:
-        try:    nums.append(int(float(p.strip())))
-        except: pass
-    if len(nums) == 2:  return {"width": nums[0], "depth": None,    "length": nums[1]}
-    if len(nums) >= 3:  return {"width": nums[0], "depth": nums[1], "length": nums[2]}
-    return empty
-
-
-def parse_reinforcement(raw: str) -> list:
-    if not raw or raw.strip() in ("---", ""):
-        return []
-    result = []
-    for part in re.split(r'\s*\+\s*', raw.strip()):
-        part = part.strip()
-        if not part: continue
-        m = re.match(r'(\d+)\s*[-–]\s*(\d+)\s*(?:TOR|T)\b', part, re.IGNORECASE)
-        if m:
-            result.append(f"{m.group(1)}-{m.group(2)}T")
-        else:
-            nums = re.findall(r'\d+', part)
-            if len(nums) >= 2:
-                result.append(f"{nums[0]}-{nums[1]}T")
-    return result
-
-
-def parse_stirrups(raw: str) -> dict:
-    empty = {"dia": [], "spacing": []}
-    if not raw or raw.strip() in ("---", ""):
-        return empty
-    primary = re.findall(r'(\d+)\s*(?:TOR|T)\s*(\d+)', raw, re.IGNORECASE)
-    dias    = [f"{m[0]}-T{m[1]}" for m in primary]
-    if not dias:
-        fallback = re.findall(r'(\d+)\s*TOR\b(?!\s*\d)', raw, re.IGNORECASE)
-        dias = [f"T{d}" for d in fallback]
-    seen, spacings = set(), []
-    for n in re.findall(r'(\d+)\s*C/C', raw, re.IGNORECASE):
-        if n not in seen: spacings.append(f"{n} C/C"); seen.add(n)
-    for n in re.findall(r'@\s*(\d+)', raw):
-        if n not in seen: spacings.append(f"{n} C/C"); seen.add(n)
-    return {"dia": dias, "spacing": spacings}
-
-
-def _build_entry(clabel: str, flabel: str, raw: dict, _to_key) -> dict:
-    mix_raw = raw.get("CONC_MIX", "---")
-    return {
-        "column_no":     clabel,
-        "column_name":   _to_key(flabel),
-        "size":          parse_size(raw.get("SIZE", "---")),
-        "reinforcement": parse_reinforcement(raw.get("VERT_REINF", "---")),
-        "stirrups":      parse_stirrups(raw.get("RING", "---")),
-        "mix":           mix_raw if mix_raw and mix_raw != "---" else None,
-        "steel_grade":   None,
-    }
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# §8  Debug Overlay
-# ══════════════════════════════════════════════════════════════════════════════
-
-def save_debug_overlay(img, h_grid, v_grid, header_band, label_band, out_path):
-    W, H    = img.size
-    rgba    = img.convert("RGBA")
-    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    dr      = ImageDraw.Draw(overlay)
-    for y in h_grid:
-        dr.line([(0, y), (W, y)], fill=(0, 220, 0, 200), width=3)
-    for x in v_grid:
-        dr.line([(x, 0), (x, H)], fill=(30, 120, 255, 200), width=3)
-    hy0, hy1 = header_band
-    dr.rectangle([0, hy0, W, hy1], fill=(255, 220, 0, 60))
-    lx0, lx1 = label_band
-    dr.rectangle([lx0, 0, lx1, H], fill=(255, 110, 0, 60))
-    Image.alpha_composite(rgba, overlay).convert("RGB").save(out_path)
-    print(f"       Debug overlay → {out_path}")
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# §9  Main Pipeline
-# ══════════════════════════════════════════════════════════════════════════════
-
-def extract_column_schedule(pdf_path:    str,
-                             output_path: str  = "output.json",
-                             dpi:         int  = 300,
-                             upscale:     int  = 2,
-                             debug:       bool = False) -> dict:
-    client = get_client()
-
-    # ── Step 1: Render ────────────────────────────────────────────────────────
-    print(f"\n[1/6] Rendering '{Path(pdf_path).name}' at {dpi} DPI …")
-    img     = pdf_to_image(pdf_path, dpi=dpi)
-    W, H    = img.size
-    img_arr = np.array(img, dtype=float)   # kept for sub-row detection
-    print(f"       Image: {W} × {H} px")
-
-    # ── Step 2: Adaptive COARSE horizontal-line detection ─────────────────────
-    #
-    # KEY FIX: Pattern-13 has two visual sub-rows per floor:
-    #   • Structural drawing row  (upper, ~65 % of floor height)
-    #   • Text-data row           (lower, ~35 % of floor height)
-    # The fine divider between them is ~100 px at 300 DPI.
-    # The floor separator lines are ~400 px apart at 300 DPI.
-    # By setting min_dist = max(H//50, 60) ≈ 140 px at 300 DPI we skip the
-    # fine dividers and detect only the main floor separator lines.
-    #
-    print("[2/6] Detecting horizontal grid lines (coarse, adaptive min_dist) …")
-
-    # FIX: sub-row dividers are ~H/46 px tall (151 px at 300 DPI).
-    # Using H//40 (~175 px) ensures they are filtered; floor separators
-    # (~H/22 = 318 px) are still easily detected.
-    MIN_DIST_H  = max(H // 40, 80)     # ← coarse; skips drawing/text sub-row dividers
-    H_THRESHOLDS = [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.50]
-    min_floor_h  = H / 50              # avg floor row ≥ H/50 px
-
-    h_all         = []
-    h_grid        = []
-    chosen_thr    = H_THRESHOLDS[0]
-    best_coverage = 0                  # ← track to avoid regression
-
-    for h_thr in H_THRESHOLDS:
-        h_raw, _ = detect_lines(img, h_thr=h_thr, v_thr=0.0, min_dist=MIN_DIST_H)
-        cand_all  = cluster_lines(sorted(h_raw))
-
-        if len(cand_all) < 4:
+    raw_levels = data.get("levels") or data.get("storey_levels") or []
+    cleaned = []
+    seen = set()
+    for entry in raw_levels:
+        if not isinstance(entry, dict):
             continue
-
-        # Raised tolerance = 0.60 handles non-uniform row heights (TERRACE,
-        # BASEMENT rows are taller / shorter than the typical middle floor).
-        cand_grid = find_best_grid(cand_all, min_rows=3, tolerance=0.60)
-        n_cand    = len(cand_grid) - 1
-        if n_cand < 3:
+        name = str(entry.get("name") or "").strip()
+        if not name:
             continue
-
-        avg_h    = (cand_grid[-1] - cand_grid[0]) / n_cand
-        coverage = cand_grid[-1] - cand_grid[0]
-
-        # Only update if this grid is LARGER (more coverage) and has a
-        # plausible row height (not junk sub-lines that slipped through).
-        if coverage > best_coverage and avg_h >= H / 200:
-            best_coverage = coverage
-            h_all         = cand_all
-            h_grid        = cand_grid
-            chosen_thr    = h_thr
-
-        if avg_h >= min_floor_h:
-            break                      # good enough — stop trying
-
-    print(f"       {len(h_all)} H-lines  (h_thr={chosen_thr}, min_dist={MIN_DIST_H})")
-
-    # Append any extra row-boundary lines just below the detected grid
-    if len(h_grid) >= 2:
-        med_row_h = float(np.median(
-            [h_grid[i+1] - h_grid[i] for i in range(len(h_grid)-1)]))
-        extra = sorted(y for y in h_all
-                       if h_grid[-1] < y <= h_grid[-1] + med_row_h * 1.5
-                       and y not in h_grid)
-        if extra:
-            print(f"       Appending {len(extra)} extra row-boundary line(s): y={extra}")
-            h_grid += extra
-
-    # ── Step 3: Validate row count ────────────────────────────────────────────
-    print("[3/6] Identifying data rows …")
-    if len(h_grid) < 3:
-        raise ValueError(
-            f"Only {len(h_grid)} consistent horizontal grid lines found "
-            f"(need ≥ 3). Try --dpi 300 or --debug to inspect.\n"
-            f"  H={H}, MIN_DIST_H={MIN_DIST_H}, h_thr={chosen_thr}"
-        )
-
-    n_rows = len(h_grid) - 1
-    print(f"       {n_rows} data rows  |  Y: {h_grid[0]} – {h_grid[-1]} px  "
-          f"|  avg row height: {(h_grid[-1]-h_grid[0])//n_rows} px")
-
-    # ── Step 4: Vertical lines scoped to the table's Y range ─────────────────
-    print("[4/6] Detecting vertical grid lines …")
-    # FIX: use darkness + gradient for vertical lines (detects coloured borders),
-    # and swap find_regular_grid → find_best_grid so we maximise horizontal SPAN
-    # (= the actual column boundaries) rather than the most uniform spacing
-    # (which often picks noisy internal drawing lines in a narrow range).
-    _h_lines_v, v_dark = detect_lines(
-        img, y0=h_grid[0], y1=h_grid[-1],
-        h_thr=0.0, v_thr=0.15, min_dist=30,
-    )
-    # Transpose region and run gradient peaks to also catch coloured/cyan borders
-    _arr_v = np.array(img, dtype=float)[h_grid[0]:h_grid[-1], :, :3]
-    _gray_v = np.mean(_arr_v, axis=2)
-    v_grad_raw = _gradient_peaks(_gray_v.T, threshold=0.15, min_distance=30)
-    v_raw_all  = cluster_lines(sorted(set(v_dark + v_grad_raw)))
-
-    v_all  = v_raw_all
-    # find_best_grid: picks the run with MAX X-span → the true column boundaries.
-    # Structural-drawing noise lines only span one cell width (~400 px);
-    # real column separators span the full table width (3 000–4 500 px).
-    v_core = find_best_grid(v_all, min_rows=3, tolerance=0.60)
-    v_grid = extend_grid_with_trailing_lines(v_core, v_all, max_extra_multiplier=3.0)
-    print(f"       {len(v_raw_all)} vertical lines after clustering  "
-          f"(darkness+gradient)  →  {len(v_core)} in regular grid  "
-          f"→  {len(v_grid)} after trailing extension")
-
-    if len(v_grid) < 3:
-        raise ValueError(
-            f"Only {len(v_grid)} vertical grid lines found (need ≥ 3). "
-            "Use --debug or try a different DPI."
-        )
-
-    # ── Step 5a: Identify label column + header band ──────────────────────────
-    typical_col_w = float(np.median(
-        [v_grid[i+1] - v_grid[i] for i in range(len(v_grid)-1)]))
-
-    if v_grid[0] <= int(typical_col_w * 0.5):
-        label_x0, label_x1, data_col_x = v_grid[0], v_grid[1], v_grid[1:]
-    else:
-        label_x1   = v_grid[0]
-        label_x0   = max(0, label_x1 - int(typical_col_w * 2.0))
-        data_col_x = v_grid
-
-    n_cols = len(data_col_x) - 1
-    if n_cols < 1:
-        raise ValueError("No data columns detected. Use --debug to inspect.")
-
-    print(f"       {n_cols} data column cells  |  X: {data_col_x[0]} – {data_col_x[-1]} px")
-
-    above_h = [y for y in h_all if y < h_grid[0]]
-    below_h = [y for y in h_all if y > h_grid[-1]]
-
-    header_y0 = above_h[-1] if above_h else max(0, h_grid[0]-(h_grid[1]-h_grid[0])//2)
-    header_y1 = h_grid[0]
-    footer_y0 = h_grid[-1] if below_h else None
-    footer_y1 = below_h[0]  if below_h else None
-
-    print(f"       Header Y: {header_y0}–{header_y1}  |  Label X: {label_x0}–{label_x1}")
-    if footer_y0:
-        print(f"       Footer Y: {footer_y0}–{footer_y1}")
-
-    if debug:
-        save_debug_overlay(img, h_grid, v_grid,
-                           (header_y0, header_y1), (label_x0, label_x1),
-                           str(Path(output_path).with_suffix(".debug.png")))
-
-    # ── Step 5b: Column-label groups ──────────────────────────────────────────
-    print("[5/6] Extracting column-label groups and floor labels …")
-
-    def _attempt_col_groups(y0, y1, name):
-        print(f"       [{name}] Y {y0}–{y1} …")
-        groups = extract_col_label_groups_strip(client, img, y0, y1, data_col_x, upscale)
-        while len(groups) < n_cols: groups.append([])
-        groups = groups[:n_cols]
-        empty_idxs = [i for i, g in enumerate(groups) if not g]
-        if empty_idxs:
-            print(f"         {len(empty_idxs)} empty → per-cell retry")
-            per_cell = extract_col_label_groups(client, img, y0, y1, data_col_x, upscale)
-            for idx in empty_idxs:
-                if idx < len(per_cell) and per_cell[idx]:
-                    groups[idx] = per_cell[idx]
-        fb = sum(1 for g in groups if not g)
-        for idx in range(n_cols):
-            if not groups[idx]:
-                groups[idx] = [f"COL_{idx+1}"]; fb += 1
-        total = sum(len(g) for g in groups)
-        print(f"         Result ({fb} fallback(s), {total} labels): {groups}")
-        return groups, fb
-
-    col_groups, fb = _attempt_col_groups(header_y0, header_y1, "header")
-
-    if footer_y0 is not None:
-        f_groups, f_fb = _attempt_col_groups(footer_y0, footer_y1, "footer")
-        h_total = sum(len(g) for g in col_groups)
-        f_total = sum(len(g) for g in f_groups)
-        if f_fb < fb or (f_fb == fb and f_total > h_total):
-            print("       Footer wins — using footer labels.")
-            col_groups, fb = f_groups, f_fb
-        else:
-            print("       Header kept.")
-
-    # ── Step 5c: Floor labels ─────────────────────────────────────────────────
-    raw_floor = extract_floor_labels(
-        client, img, label_x0, label_x1, h_grid, upscale)
-    print("       Validating floor rows …")
-    row_bounds, floor_labels = filter_and_recheck_floor_rows(
-        client, img, label_x0, label_x1, h_grid, raw_floor, upscale)
-
-    if not row_bounds:
-        raise ValueError("No valid floor rows found. Use --debug to inspect the grid.")
-
-    # Secondary label fallback
-    if fb > n_cols // 2 and row_bounds:
-        last_y1 = row_bounds[-1][1]
-        for i, lbl in enumerate(raw_floor):
-            if lbl == "SKIP" and h_grid[i] >= last_y1 - 50:
-                sg, sfb = _attempt_col_groups(h_grid[i], h_grid[i+1],
-                                              f"skip@{h_grid[i]}")
-                if sfb < fb:
-                    print(f"       SKIP row better ({sfb}) — using it.")
-                    col_groups, fb = sg, sfb
+        # Defensive: model occasionally still leaves "TO ..." in the name.
+        # Trim everything from " TO " onwards. NOT a split-helper function;
+        # this is just a one-line guard at the seam.
+        upper_idx = name.upper().find(" TO ")
+        if upper_idx > 0:
+            name = name[:upper_idx].strip()
+        try:
+            y_top = float(entry.get("y_top", 0.0))
+            y_bottom = float(entry.get("y_bottom", 0.0))
+        except (TypeError, ValueError):
+            continue
+        if y_bottom <= y_top:
+            continue
+        # Collapse duplicates with same name; keep the union of bounds.
+        if name in seen:
+            for prev in cleaned:
+                if prev["name"] == name:
+                    prev["y_top"] = min(prev["y_top"], y_top)
+                    prev["y_bottom"] = max(prev["y_bottom"], y_bottom)
                     break
+            continue
+        seen.add(name)
+        cleaned.append({
+            "name": name,
+            "y_top": max(0.0, y_top),
+            "y_bottom": min(1.0, y_bottom),
+        })
 
-    def _to_key(s): return re.sub(r"[^A-Za-z0-9]+", "_", s).strip("_")
+    cleaned.sort(key=lambda lv: lv["y_top"])
+    if not cleaned:
+        raise RuntimeError(
+            f"Level detection returned no valid entries for {image_path}."
+        )
+    print(f"  [LEVELS] Found {len(cleaned)}: " + ", ".join(lv["name"] for lv in cleaned))
+    return cleaned
 
-    total_labels = sum(len(g) for g in col_groups)
-    n_rows       = len(row_bounds)
-    print(f"       ✓ Cells({n_cols})  Labels({total_labels})  Floors({n_rows})")
 
-    # ── Step 6: Extract data cells ────────────────────────────────────────────
-    #
-    # PATTERN-13 CELL STRUCTURE:
-    #   Each floor row = drawing (top) + text data (bottom).
-    #   _find_text_strip_y() finds the divider so we only send GPT-4o
-    #   the text portion — faster, more accurate, fewer hallucinations.
-    #
-    total = n_rows * n_cols
-    print(f"[6/6] Extracting {total} data cells via Vision API …")
+def detect_columns_with_bounds(image_path):
+    """Return [{"column_no": str, "x_left": float, "x_right": float}] left-to-right."""
+    print(f"  [COLS]   Detecting columns in {os.path.basename(image_path)} …")
+    raw = extract_from_image(image_path, COLUMN_DETECTION_PROMPT)
+    data = _parse_json_object(raw)
 
-    result = {"document": Path(pdf_path).name, "title": "Column Schedule", "columns": []}
-    seen: set = set()
-    batch_folder_name = "level_batches"
-    batch_folder = os.path.join(os.path.dirname(output_path), batch_folder_name)
-    os.makedirs(batch_folder, exist_ok=True)
-    manifest = {
+    raw_cols = data.get("columns") or data.get("column_headers") or []
+    cleaned = []
+    for entry in raw_cols:
+        if not isinstance(entry, dict):
+            continue
+        column_no = str(entry.get("column_no") or "").strip()
+        if not column_no:
+            continue
+        try:
+            x_left = float(entry.get("x_left", 0.0))
+            x_right = float(entry.get("x_right", 0.0))
+        except (TypeError, ValueError):
+            continue
+        if x_right <= x_left:
+            continue
+        cleaned.append({
+            "column_no": column_no,
+            "x_left": max(0.0, x_left),
+            "x_right": min(1.0, x_right),
+        })
+
+    cleaned.sort(key=lambda c: c["x_left"])
+    if not cleaned:
+        raise RuntimeError(
+            f"Column detection returned no valid entries for {image_path}."
+        )
+    print(f"  [COLS]   Found {len(cleaned)}: " + ", ".join(c["column_no"] for c in cleaned))
+    return cleaned
+
+
+# ════════════════════════════════════════════════════════════════════════════
+# §3  Per-level extraction
+# ════════════════════════════════════════════════════════════════════════════
+
+
+def _crop_level_strip(image_path, level, output_dir, page_index, level_index):
+    """Crop the horizontal strip for one level and return its file path."""
+    y_top = max(0.0, level["y_top"] - LEVEL_Y_PADDING)
+    y_bottom = min(1.0, level["y_bottom"] + LEVEL_Y_PADDING)
+    out_path = os.path.join(
+        output_dir,
+        f"p{page_index + 1:02d}_l{level_index + 1:03d}_{safe_filename(level['name'])}.png",
+    )
+    crop_upscale_path(
+        image_path,
+        x1=0.0, y1=y_top,
+        x2=1.0, y2=y_bottom,
+        normalized=True,
+        min_longest=2400,        # plenty of resolution for column reads
+        out_path=out_path,
+    )
+    return out_path
+
+
+def extract_level_strip(strip_path, level_name, columns, trace_key=None):
+    """Run the tool-protocol extraction on one level strip.
+
+    Returns the parsed list of column records (one per discovered column)
+    after defensive normalisation.
+    """
+    prompt = build_level_extraction_prompt(level_name, columns)
+    raw = extract_with_tools(strip_path, prompt, trace_key=trace_key)
+    parsed = _parse_json_object(raw)
+    columns_out = parsed.get("columns", [])
+    if not isinstance(columns_out, list):
+        return []
+
+    expected_ids = [c["column_no"] for c in columns]
+    expected_set = {cid for cid in expected_ids}
+    fixed = []
+    for entry in columns_out:
+        if not isinstance(entry, dict):
+            continue
+        cno = str(entry.get("column_no") or "").strip()
+        if not cno:
+            continue
+        # Force column_name to the level we asked for, regardless of what
+        # the model wrote into storey_level.
+        entry["column_name"] = level_name
+        # If the model returned a column_no not in our discovered list,
+        # keep it but flag it. Most prompts behave; this is defensive.
+        if cno not in expected_set:
+            print(
+                f"    [WARN] '{level_name}': model returned unexpected "
+                f"column_no={cno!r} (not in discovered list)"
+            )
+        fixed.append(entry)
+    return fixed
+
+
+# ════════════════════════════════════════════════════════════════════════════
+# §4  Manifest scaffolding
+# ════════════════════════════════════════════════════════════════════════════
+
+
+def _build_manifest(file_name, jobs):
+    return {
         "pattern": 13,
+        "pdf": f"{file_name}.pdf",
         "mode": "level_batches",
-        "levels": floor_labels,
+        "levels": [job["level"] for job in jobs],
         "batches": [
             {
-                "id": f"l{r + 1:03d}",
-                "level": floor_labels[r],
+                "id": job["id"],
+                "page": job["page"],
+                "level": job["level"],
                 "status": "pending",
-                "file": os.path.join(
-                    batch_folder_name,
-                    f"l{r + 1:03d}_{safe_filename(floor_labels[r])}.json",
-                ),
+                "file": job["relative_file"],
                 "error": None,
             }
-            for r in range(n_rows)
+            for job in jobs
         ],
     }
-    manifest_path = os.path.join(os.path.dirname(output_path), "level_manifest.json")
+
+
+def _set_batch_status(manifest, batch_id, status, error=None):
+    for batch in manifest["batches"]:
+        if batch["id"] == batch_id:
+            batch["status"] = status
+            batch["error"] = error
+            return
+
+
+def _merge_done_batches(manifest, output_folder):
+    flat = []
+    for batch in manifest["batches"]:
+        if batch.get("status") != "done":
+            continue
+        path = os.path.join(output_folder, batch["file"])
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except OSError as exc:
+            print(f"  Could not read batch {path}: {exc}")
+            continue
+        cols = data.get("columns") or []
+        if isinstance(cols, list):
+            flat.extend(cols)
+    return flat
+
+
+# ════════════════════════════════════════════════════════════════════════════
+# §5  Main pipeline
+# ════════════════════════════════════════════════════════════════════════════
+
+
+def process_pdf(pdf_path):
+    file_name = os.path.splitext(os.path.basename(pdf_path))[0]
+    output_folder = os.path.join(OUTPUT_DIR, file_name)
+    os.makedirs(output_folder, exist_ok=True)
+
+    print(f"\n📄 Converting {file_name}.pdf to images at {DPI} DPI …")
+    image_paths = convert_pdf_to_images(pdf_path, output_folder, dpi=DPI)
+    if not image_paths:
+        print("⚠ No images rendered.")
+        return
+
+    batch_folder_name = "level_batches"
+    batch_folder = os.path.join(output_folder, batch_folder_name)
+    os.makedirs(batch_folder, exist_ok=True)
+    strip_folder = os.path.join(output_folder, "level_strips")
+    os.makedirs(strip_folder, exist_ok=True)
+
+    jobs = []
+
+    # ── Phase 1: parallel level + column detection per page ──────────────────
+    for page_index, img_path in enumerate(image_paths):
+        print(f"\n──── Page {page_index + 1}/{len(image_paths)} ────")
+
+        with ThreadPoolExecutor(max_workers=2) as ex:
+            f_levels = ex.submit(detect_levels_with_bounds, img_path)
+            f_cols = ex.submit(detect_columns_with_bounds, img_path)
+            try:
+                levels = f_levels.result()
+            except Exception as exc:
+                print(f"  ❌ Level detection failed on page {page_index + 1}: {exc}")
+                continue
+            try:
+                columns = f_cols.result()
+            except Exception as exc:
+                print(f"  ❌ Column detection failed on page {page_index + 1}: {exc}")
+                continue
+
+        # ── Phase 2: build per-level jobs ────────────────────────────────────
+        for level_index, level in enumerate(levels):
+            try:
+                strip_path = _crop_level_strip(
+                    img_path, level, strip_folder, page_index, level_index
+                )
+            except Exception as exc:
+                print(f"  ❌ Could not crop level '{level['name']}': {exc}")
+                continue
+
+            batch_id = f"p{page_index + 1:02d}_l{level_index + 1:03d}"
+            batch_file = f"{batch_id}_{safe_filename(level['name'])}.json"
+            jobs.append({
+                "id": batch_id,
+                "page": page_index + 1,
+                "page_index": page_index,
+                "level": level["name"],
+                "level_index": level_index,
+                "columns": columns,
+                "img_path": img_path,
+                "strip_path": strip_path,
+                "path": os.path.join(batch_folder, batch_file),
+                "relative_file": os.path.join(batch_folder_name, batch_file),
+                "trace_key": trace_key_for(img_path, batch_id, level["name"]),
+            })
+
+    if not jobs:
+        print("⚠ No level batches to extract.")
+        return
+
+    # ── Phase 3: parallel per-level extraction ──────────────────────────────
+    manifest = _build_manifest(file_name, jobs)
+    manifest_path = os.path.join(output_folder, "level_manifest.json")
     atomic_write_json(manifest_path, manifest)
 
-    def _set_batch_status(batch_id, status, error=None):
-        for batch in manifest["batches"]:
-            if batch["id"] == batch_id:
-                batch["status"] = status
-                batch["error"] = error
-                return
-
-    done = 0
-
-    for r in range(n_rows):
-        batch_id = f"l{r + 1:03d}"
-        _set_batch_status(batch_id, "running")
-        atomic_write_json(manifest_path, manifest)
-        y0, y1 = row_bounds[r]
-        flabel  = floor_labels[r]
-        row_raw = []
-
-        # Find text-strip Y for this floor row (shared across all columns)
-        text_y0 = _find_text_strip_y(img_arr, y0, y1, data_col_x[0], data_col_x[-1])
-        text_y1 = y1
-        strip_pct = int(100 * (text_y1 - text_y0) / max(y1 - y0, 1))
-        print(f"       Floor '{flabel}': text strip = rows {text_y0}–{text_y1} "
-              f"({strip_pct}% of row height)")
-
-        # ── Parallel cell extraction (cap = MAX_CELL_WORKERS) ────────────
-        # Crop every cell up-front (CPU-bound, fast), then submit all
-        # vision calls to a thread pool. Results stored by column index
-        # so row_raw preserves left-to-right order regardless of
-        # completion order.
-        cell_inputs = []
-        for c in range(n_cols):
-            x0, x1 = data_col_x[c], data_col_x[c + 1]
-            group = col_groups[c]
-            dlabel = group[0] if group else f"COL_{c + 1}"
-            cell = _crop_upscale(img, x0, text_y0, x1, text_y1, upscale)
-            cell_inputs.append((c, dlabel, cell))
-
-        row_raw = [None] * n_cols
-
-        def _extract_one(item):
-            c, dlabel, cell = item
-            raw = extract_data_cell(client, cell, flabel, dlabel)
-            return c, dlabel, raw
-
-        with ThreadPoolExecutor(max_workers=MAX_CELL_WORKERS) as ex:
-            futures = {ex.submit(_extract_one, item): item for item in cell_inputs}
-            for future in as_completed(futures):
-                try:
-                    c, dlabel, raw = future.result()
-                    row_raw[c] = raw
-                    done += 1
-                    print(
-                        f"       [{done:>3}/{total}]  {flabel} / {dlabel} ✓",
-                        flush=True,
-                    )
-                except Exception as exc:
-                    item = futures[future]
-                    c, dlabel, _ = item
-                    row_raw[c] = {}
-                    done += 1
-                    print(
-                        f"       [{done:>3}/{total}]  {flabel} / {dlabel} ✗ ({exc})",
-                        flush=True,
-                    )
-
-        # Combined-row fallback: > 50 % empty → re-read full text strip
-        empty_count = sum(1 for d in row_raw if _is_empty(d))
-        if empty_count > n_cols // 2:
-            print(f"       ↳ {empty_count}/{n_cols} empty — re-reading full width …",
-                  end=" ", flush=True)
-            full_row = _crop_upscale(img, data_col_x[0], text_y0,
-                                     data_col_x[-1], text_y1, upscale)
-            combined = extract_combined_row(client, full_row, flabel)
-            print("✓")
-            if not _is_empty(combined):
-                print(f"       ↳ Broadcasting to all {n_cols} cells.")
-                row_raw = [combined] * n_cols
-
-        # BROADCAST: one JSON entry per label in each cell's group
-        floor_key = _to_key(flabel)
-        row_entries = []
-        for c, raw in enumerate(row_raw):
-            group = col_groups[c] if col_groups[c] else [f"COL_{c+1}"]
-            for clabel in group:
-                key = (floor_key, clabel)
-                if key in seen: continue
-                seen.add(key)
-                row_entries.append(_build_entry(clabel, flabel, raw, _to_key))
-
-        result["columns"].extend(row_entries)
-        batch_path = os.path.join(
-            batch_folder,
-            f"{batch_id}_{safe_filename(flabel)}.json",
+    def _run(job):
+        records = extract_level_strip(
+            job["strip_path"],
+            job["level"],
+            job["columns"],
+            trace_key=job["trace_key"],
         )
-        atomic_write_json(batch_path, {"level": flabel, "columns": row_entries})
-        _set_batch_status(batch_id, "done")
+        atomic_write_json(
+            job["path"],
+            {"level": job["level"], "columns": records},
+        )
+        return job
+
+    with ThreadPoolExecutor(max_workers=MAX_LEVEL_WORKERS) as ex:
+        future_to_job = {}
+        for job in jobs:
+            print(f"  Queueing level batch -> {job['level']}")
+            _set_batch_status(manifest, job["id"], "running")
+            future_to_job[ex.submit(_run, job)] = job
         atomic_write_json(manifest_path, manifest)
 
-    # ── Save ──────────────────────────────────────────────────────────────────
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    with open(output_path, "w", encoding="utf-8") as f:
-        # Pattern 1 standardization: filter + canonical cleaners.
-        # Stirrups left untouched so Pattern 13's parse_stirrups()
-        # dict shape is preserved.
-        cleaned = standardize_records(result.get("columns", []), stirrups_cleaner=None)
-        result = reshape_columns_to_levels(cleaned)
-        json.dump(result, f, indent=2, ensure_ascii=False)
+        for future in tqdm(as_completed(future_to_job), total=len(future_to_job)):
+            job = future_to_job[future]
+            try:
+                future.result()
+                _set_batch_status(manifest, job["id"], "done", None)
+                print(f"  ✓ {job['level']}")
+            except Exception as exc:
+                _set_batch_status(manifest, job["id"], "failed", str(exc))
+                print(f"  ✗ {job['level']}: {exc}")
+            atomic_write_json(manifest_path, manifest)
 
-    print(f"\n✅  Done!  {len(result['columns'])} entries → {output_path}")
-    return result
+    # ── Phase 4: merge + reshape ────────────────────────────────────────────
+    flat = _merge_done_batches(manifest, output_folder)
 
-
-# ══════════════════════════════════════════════════════════════════════════════
-# §10  CLI
-# ══════════════════════════════════════════════════════════════════════════════
-
-def _build_output_path(pdf_path: str, output_dir: str) -> str:
-    stem = Path(pdf_path).stem
-    return os.path.join(output_dir, stem, f"{stem}.json")
-
-
-def process_pdf(pdf_path: str, dpi: int = 300, upscale: int = 2, debug: bool = False) -> dict:
-    """auto_runner entry point. Wraps extract_column_schedule with the
-    standard output path: <OUTPUT_DIR>/<pdf_stem>/<pdf_stem>.json."""
-    output_path = _build_output_path(pdf_path, OUTPUT_DIR)
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    return extract_column_schedule(
-        pdf_path=pdf_path,
-        output_path=output_path,
-        dpi=dpi,
-        upscale=upscale,
-        debug=debug,
+    # Standardise + reshape. apply_upper_level=False because the model
+    # already returned the upper part; we never had a "X TO Y" string.
+    cleaned = standardize_records(
+        flat,
+        stirrups_cleaner=None,
+        apply_column_filter=False,
+        apply_upper_level=False,
     )
+    final = reshape_columns_to_levels(cleaned)
+
+    output_file = os.path.join(output_folder, f"{file_name}.json")
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(final, f, indent=2, ensure_ascii=False)
+
+    total_cols = sum(len(lvl["columns"]) for lvl in final.get("levels", []))
+    print(
+        f"\n✅ Output saved to {output_file} "
+        f"({len(final.get('levels', []))} level(s), {total_cols} column entries)"
+    )
+
+
+# ════════════════════════════════════════════════════════════════════════════
+# §6  Entry point
+# ════════════════════════════════════════════════════════════════════════════
+
+
+def main():
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    pdf_files = [f for f in os.listdir(INPUT_DIR) if f.lower().endswith(".pdf")]
+    if not pdf_files:
+        print("⚠ No PDF files found.")
+        return
+    for pdf in pdf_files:
+        process_pdf(os.path.join(INPUT_DIR, pdf))
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(
-        description="Column Schedule Extractor — Pattern 13 (fixed for A2 drawing-+text cells)")
-    ap.add_argument("--pdf",        default=None,
-                    help="Single PDF filename or full path.")
-    ap.add_argument("--input-dir",  default=INPUT_DIR)
-    ap.add_argument("--output-dir", default=OUTPUT_DIR)
-    ap.add_argument("--dpi",        type=int, default=300,
-                    help="Render DPI (default 300; use 150 for faster test runs)")
-    ap.add_argument("--upscale",    type=int, default=2,
-                    help="Per-cell upscale factor for OCR clarity")
-    ap.add_argument("--debug",      action="store_true",
-                    help="Save colour-coded grid-overlay PNG")
-    args = ap.parse_args()
-
-    if args.pdf:
-        candidate = (args.pdf if os.path.isabs(args.pdf)
-                     else os.path.join(args.input_dir, args.pdf))
-        if not os.path.isfile(candidate):
-            print(f"ERROR: PDF not found → {candidate}", file=sys.stderr)
-            sys.exit(1)
-        pdf_files = [candidate]
-    else:
-        pdf_files = [str(p) for p in sorted(Path(args.input_dir).glob("*.pdf"))]
-        if not pdf_files:
-            print(f"No PDFs in {args.input_dir}", file=sys.stderr)
-            sys.exit(1)
-
-    os.makedirs(args.output_dir, exist_ok=True)
-    success, failed = [], []
-
-    print(f"\n{'='*60}")
-    print(f"  Column Schedule Extractor  (Pattern 13 — v2)")
-    print(f"  DPI: {args.dpi}  |  Upscale: {args.upscale}x")
-    print(f"{'='*60}")
-
-    for pdf_path in pdf_files:
-        out_path = _build_output_path(pdf_path, args.output_dir)
-        print(f"\n▶  {Path(pdf_path).name}  →  {Path(out_path).name}")
-        try:
-            extract_column_schedule(
-                pdf_path, out_path, args.dpi, args.upscale, args.debug)
-            success.append(Path(pdf_path).name)
-        except Exception as exc:
-            print(f"\n❌  {Path(pdf_path).name} — {exc}", file=sys.stderr)
-            import traceback; traceback.print_exc()
-            failed.append(Path(pdf_path).name)
-
-    print(f"\n{'='*60}")
-    print(f"  {len(success)} succeeded  |  {len(failed)} failed")
-    if success: print(f"  ✅  {', '.join(success)}")
-    if failed:  print(f"  ❌  {', '.join(failed)}")
-    print(f"{'='*60}\n")
-    sys.exit(0 if not failed else 1)
+    main()

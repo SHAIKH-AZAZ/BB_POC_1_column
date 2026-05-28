@@ -1,0 +1,295 @@
+{
+  "level": "MD MAIN LINKS",
+  "columns": [
+    {
+      "column_no": "SW1",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW2",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW3",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW4",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "10-100T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-40",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW5",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "10-100T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-40",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "OF1",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-8T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "OF2",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "OF6",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "OF7",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "125 C/C"
+        ]
+      },
+      "mix": "M-40",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "OF8",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-40",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "OF9",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "PC1",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "PC2",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "PC3",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "PC4",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "PC5",
+      "column_name": "MD_MAIN_LINKS",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    }
+  ]
+}

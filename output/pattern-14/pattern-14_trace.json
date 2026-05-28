@@ -5,14 +5,14 @@
     "page_1.png__p01_groups_column_groups": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-14\\page_1.png",
-      "generated_at": "2026-05-28T09:13:21.517077+00:00",
+      "generated_at": "2026-05-28T18:10:31.611612+00:00",
       "think": {
-        "image_quality": "good",
+        "image_quality": "clear",
         "table_bounds": {
-          "x1": 0.05,
-          "y1": 0.85,
-          "x2": 0.95,
-          "y2": 0.95
+          "x1": 0,
+          "y1": 900,
+          "x2": 1600,
+          "y2": 1000
         },
         "column_headers": [
           "AC1,2,48,49",
@@ -39,70 +39,109 @@
           },
           {
             "region_id": "r2",
-            "purpose": "header",
+            "purpose": "data_cell",
             "target": "AC1,2,48,49",
-            "reason": "Extract first column group"
+            "x1": 100,
+            "y1": 940,
+            "x2": 250,
+            "y2": 980,
+            "reason": "Extract AC1,2,48,49 group"
           },
           {
             "region_id": "r3",
-            "purpose": "header",
+            "purpose": "data_cell",
             "target": "AC3,5,6,9,10,42,43,44,46,47",
-            "reason": "Extract second column group"
+            "x1": 260,
+            "y1": 940,
+            "x2": 420,
+            "y2": 980,
+            "reason": "Extract AC3,5,6,9,10,42,43,44,46,47 group"
           },
           {
             "region_id": "r4",
-            "purpose": "header",
+            "purpose": "data_cell",
             "target": "AC4,8,41,45",
-            "reason": "Extract third column group"
+            "x1": 430,
+            "y1": 940,
+            "x2": 550,
+            "y2": 980,
+            "reason": "Extract AC4,8,41,45 group"
           },
           {
             "region_id": "r5",
-            "purpose": "header",
+            "purpose": "data_cell",
             "target": "AC7,40",
-            "reason": "Extract fourth column group"
+            "x1": 560,
+            "y1": 940,
+            "x2": 650,
+            "y2": 980,
+            "reason": "Extract AC7,40 group"
           },
           {
             "region_id": "r6",
-            "purpose": "header",
+            "purpose": "data_cell",
             "target": "AC11,19,27,35",
-            "reason": "Extract fifth column group"
+            "x1": 660,
+            "y1": 940,
+            "x2": 800,
+            "y2": 980,
+            "reason": "Extract AC11,19,27,35 group"
           },
           {
             "region_id": "r7",
-            "purpose": "header",
+            "purpose": "data_cell",
             "target": "BC1,2,48,49",
-            "reason": "Extract sixth column group"
+            "x1": 810,
+            "y1": 940,
+            "x2": 950,
+            "y2": 980,
+            "reason": "Extract BC1,2,48,49 group"
           },
           {
             "region_id": "r8",
-            "purpose": "header",
+            "purpose": "data_cell",
             "target": "BC3,5,6,9,10,42,43,44,46,47",
-            "reason": "Extract seventh column group"
+            "x1": 960,
+            "y1": 940,
+            "x2": 1120,
+            "y2": 980,
+            "reason": "Extract BC3,5,6,9,10,42,43,44,46,47 group"
           },
           {
             "region_id": "r9",
-            "purpose": "header",
+            "purpose": "data_cell",
             "target": "BC4,8,41,45",
-            "reason": "Extract eighth column group"
+            "x1": 1130,
+            "y1": 940,
+            "x2": 1250,
+            "y2": 980,
+            "reason": "Extract BC4,8,41,45 group"
           },
           {
             "region_id": "r10",
-            "purpose": "header",
+            "purpose": "data_cell",
             "target": "BC7,40",
-            "reason": "Extract ninth column group"
+            "x1": 1260,
+            "y1": 940,
+            "x2": 1340,
+            "y2": 980,
+            "reason": "Extract BC7,40 group"
           },
           {
             "region_id": "r11",
-            "purpose": "header",
+            "purpose": "data_cell",
             "target": "BC11,19,27,35",
-            "reason": "Extract tenth column group"
+            "x1": 1350,
+            "y1": 940,
+            "x2": 1500,
+            "y2": 980,
+            "reason": "Extract BC11,19,27,35 group"
           }
         ],
         "normalization_rules": [
-          "Expand AC and BC prefixes separately",
-          "Merge AC and BC groups if both exist in same vertical position",
-          "Maintain left to right order",
-          "Return as ordered list of column groups"
+          "Expand AC1,2 to AC1,AC2",
+          "Expand BC7,40 to BC7,BC40",
+          "Merge AC and BC groups if both exist in same vertical position"
         ],
         "extraction_order": [
           "COLUMN MARKED"

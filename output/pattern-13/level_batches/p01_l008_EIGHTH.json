@@ -1,0 +1,267 @@
+{
+  "level": "EIGHTH",
+  "columns": [
+    {
+      "column_no": "SW7, SW10, SW45, SW46",
+      "column_name": "EIGHTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-Y12",
+        "14-Y10"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW11, SW14, SW39, SW44",
+      "column_name": "EIGHTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-Y12",
+        "10-Y10"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW12, SW13, SW43, SW40",
+      "column_name": "EIGHTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-Y12",
+        "4-Y10",
+        "8-Y10"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW15, SW16, SW37, SW38",
+      "column_name": "EIGHTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "16-Y12",
+        "4-Y10",
+        "8-Y10"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW17, SW33",
+      "column_name": "EIGHTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-Y12",
+        "4-Y10",
+        "8-Y10"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW20, SW36",
+      "column_name": "EIGHTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-Y12",
+        "4-Y10",
+        "8-Y10"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW18, SW19, SW34, SW35",
+      "column_name": "EIGHTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-Y12",
+        "4-Y10",
+        "8-Y10"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW21, SW28",
+      "column_name": "EIGHTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-Y12",
+        "4-Y10",
+        "8-Y10"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW25, SW32",
+      "column_name": "EIGHTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-Y12",
+        "4-Y10",
+        "8-Y10"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW22, SW29",
+      "column_name": "EIGHTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-Y12",
+        "4-Y10",
+        "8-Y10"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW23, SW30",
+      "column_name": "EIGHTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-Y12",
+        "4-Y10",
+        "8-Y10"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M30",
+      "steel_grade": "Fe500"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "level": "THIRTEENTH TO FOURTEENTH",
+  "columns": [
+    {
+      "column_no": "SW9",
+      "column_name": "THIRTEENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW10",
+      "column_name": "THIRTEENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "10-100T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-40",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW10A",
+      "column_name": "THIRTEENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "10-100T"
+      ],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-40",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW11",
+      "column_name": "THIRTEENTH",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW12",
+      "column_name": "THIRTEENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "T10"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW12A",
+      "column_name": "THIRTEENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "T10"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW13",
+      "column_name": "THIRTEENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "T10"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW14",
+      "column_name": "THIRTEENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "125 C/C"
+        ]
+      },
+      "mix": "M-40",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW15",
+      "column_name": "THIRTEENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "T10"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": "M-40",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW16",
+      "column_name": "THIRTEENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "10-100T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW17",
+      "column_name": "THIRTEENTH",
+      "size": {
+        "width": null,
+        "depth": null,
+        "length": null
+      },
+      "reinforcement": [
+        "10-100T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    }
+  ]
+}

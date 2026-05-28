@@ -1,0 +1,2362 @@
+{
+  "level": "GROUND TO FIRST",
+  "columns": [
+    {
+      "column_no": "S1",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 800
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "S2",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 800
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "S3",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 800
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "S4",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 800
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "S5",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 800
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "S6",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 800
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "S7",
+      "column_name": "GROUND",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 350
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S8",
+      "column_name": "GROUND",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 350
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S9",
+      "column_name": "GROUND",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 350
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S10",
+      "column_name": "GROUND",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 350
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S11",
+      "column_name": "GROUND",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 350
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S12",
+      "column_name": "GROUND",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 350
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S13",
+      "column_name": "GROUND",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 350
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S14",
+      "column_name": "GROUND",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 350
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S15",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe415"
+    },
+    {
+      "column_no": "S16",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe415"
+    },
+    {
+      "column_no": "S17",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe415"
+    },
+    {
+      "column_no": "S18",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe415"
+    },
+    {
+      "column_no": "S19",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe415"
+    },
+    {
+      "column_no": "S20",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S21",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S22",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S23",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S24",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S25",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S26",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S27",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S28",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S29",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S30",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S31",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S32",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S33",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S34",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S35",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S36",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S37",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S38",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S39",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S40",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S41",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S42",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S43",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S44",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S45",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S46",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "C1",
+      "column_name": "GROUND",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "8-12T",
+        "6-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe550"
+    },
+    {
+      "column_no": "C2",
+      "column_name": "GROUND",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "8-12T",
+        "6-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe550"
+    },
+    {
+      "column_no": "C3",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "C4",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "C5",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "C6",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW17",
+      "column_name": "GROUND",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "SW18",
+      "column_name": "GROUND",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S49",
+      "column_name": "GROUND",
+      "size": {
+        "width": 500,
+        "depth": null,
+        "length": 1200
+      },
+      "reinforcement": [
+        "10-12T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-35",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S50",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-40",
+      "steel_grade": "Fe415"
+    },
+    {
+      "column_no": "S51",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "16-25T",
+        "8-12T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe415"
+    },
+    {
+      "column_no": "S52",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S53",
+      "column_name": "GROUND",
+      "size": {
+        "width": 180,
+        "depth": null,
+        "length": 500
+      },
+      "reinforcement": [
+        "9-16T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T10"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S54",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S55",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S56",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "8-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T10"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S57",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "20-12T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S58",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "12-20T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S59",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S60",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1200
+      },
+      "reinforcement": [
+        "8-10T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S61",
+      "column_name": "GROUND",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-12T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S62",
+      "column_name": "GROUND",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe550"
+    },
+    {
+      "column_no": "S63",
+      "column_name": "GROUND",
+      "size": {
+        "width": 400,
+        "depth": null,
+        "length": 1600
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S64",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S65",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S66",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "10-20T",
+        "20-12T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S67",
+      "column_name": "GROUND",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1500
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S68",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "6-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M4",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S69",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S70",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S71",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S72",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S73",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "16-12T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S74",
+      "column_name": "GROUND",
+      "size": {
+        "width": 230,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S75",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-40",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S76",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S77",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "8-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S78",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S79",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S80",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S81",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S82",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "1-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "180 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S83",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S84",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 400
+      },
+      "reinforcement": [
+        "6-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-200",
+      "steel_grade": "Fe415"
+    },
+    {
+      "column_no": "S85",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe550"
+    },
+    {
+      "column_no": "S86",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S87",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "S88",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S89",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S90",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-25",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S91",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S92",
+      "column_name": "GROUND",
+      "size": {
+        "width": 400,
+        "depth": null,
+        "length": 400
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S93",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S94",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "8-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S95",
+      "column_name": "GROUND",
+      "size": {
+        "width": 250,
+        "depth": null,
+        "length": 450
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S96",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S97",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S98",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [
+        "8-12T",
+        "14-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S99",
+      "column_name": "GROUND",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 1800
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [
+          "T15"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    },
+    {
+      "column_no": "S100",
+      "column_name": "GROUND",
+      "size": {
+        "width": 350,
+        "depth": null,
+        "length": 350
+      },
+      "reinforcement": [
+        "10-10T"
+      ],
+      "stirrups": {
+        "dia": [
+          "T10"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": "Fe500"
+    }
+  ]
+}
