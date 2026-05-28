@@ -20,7 +20,7 @@
           "100C/C"
         ]
       },
-      "mix": null,
+      "mix": "M-25",
       "steel_grade": null
     },
     {
@@ -40,10 +40,10 @@
           "T8"
         ],
         "spacing": [
-          "100C/C,200C/C"
+          "100C/C, 200C/C"
         ]
       },
-      "mix": null,
+      "mix": "M-25",
       "steel_grade": null
     },
     {
@@ -63,10 +63,10 @@
           "T8"
         ],
         "spacing": [
-          "100C/C,200C/C"
+          "100C/C, 200C/C"
         ]
       },
-      "mix": null,
+      "mix": "M-25",
       "steel_grade": null
     },
     {
@@ -86,10 +86,10 @@
           "T8"
         ],
         "spacing": [
-          "100C/C,200C/C"
+          "100C/C, 200C/C"
         ]
       },
-      "mix": null,
+      "mix": "M-25",
       "steel_grade": null
     },
     {
@@ -111,7 +111,7 @@
           "100C/C"
         ]
       },
-      "mix": null,
+      "mix": "M-25",
       "steel_grade": null
     }
   ]

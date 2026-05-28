@@ -49,8 +49,8 @@
         "length": 600
       },
       "reinforcement": [
-        "4-T25",
-        "6-T20"
+        "8-T20",
+        "2-T16"
       ],
       "stirrups": {
         "dia": [
@@ -67,12 +67,11 @@
       "column_no": "AC7,AC40,BC7,BC40",
       "column_name": "FIRST FLOOR",
       "size": {
-        "width": 200,
+        "width": 230,
         "depth": null,
-        "length": 600
+        "length": 230
       },
       "reinforcement": [
-        "8-T20",
         "4-T16"
       ],
       "stirrups": {
@@ -80,7 +79,7 @@
           "T8"
         ],
         "spacing": [
-          "100C/C, 200C/C"
+          "100C/C"
         ]
       },
       "mix": "M-25",
@@ -95,8 +94,7 @@
         "length": 600
       },
       "reinforcement": [
-        "8-T20",
-        "4-T16"
+        "10-T20"
       ],
       "stirrups": {
         "dia": [

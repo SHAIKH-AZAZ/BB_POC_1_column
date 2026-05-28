@@ -32,14 +32,25 @@ def load_prompt():
 
 def extract_column_groups(image_path, prompt, trace_key=None):
 
-    mode_prompt = prompt + "\n\nExtract ONLY COLUMN MARKED row."
+    mode_prompt = (
+        prompt
+        + "\n\nExtract ONLY COLUMN MARKED row.\n"
+        + "Return ONLY strict JSON of the form:\n"
+        + '{"column_groups": ["AC1,AC2,AC48,AC49", "AC3,AC5,AC6,...", ...]}\n'
+        + "Do not call add_column or any tool — return raw JSON only."
+    )
 
-    result = extract_with_tools(image_path, mode_prompt, trace_key=trace_key)
+    # Pass 1 returns a custom JSON shape ({"column_groups": [...]}) which
+    # the tool-protocol pipeline (extract_with_tools) cannot emit because
+    # its tool schema only has add_column. Use the free-form variant here.
+    result = extract_from_image(image_path, mode_prompt)
 
     try:
         parsed = json.loads(result)
-        return parsed.get("column_groups", [])
-    except:
+        groups = parsed.get("column_groups", [])
+        return [str(g).strip() for g in groups if str(g).strip()]
+    except (json.JSONDecodeError, TypeError):
+        print(f"  [WARN] Could not parse column_groups from response: {result!r}")
         return []
 
 

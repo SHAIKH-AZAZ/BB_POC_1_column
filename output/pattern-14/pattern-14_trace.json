@@ -510,14 +510,14 @@
     "page_1.png__p01_l001_ROOF_FLOOR": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-14\\page_1.png",
-      "generated_at": "2026-05-27T12:13:38.185688+00:00",
+      "generated_at": "2026-05-28T18:15:12.450418+00:00",
       "think": {
-        "image_quality": "clear, high resolution",
+        "image_quality": "good",
         "table_bounds": {
-          "x1": 0.1,
-          "y1": 0.9,
-          "x2": 0.9,
-          "y2": 0.95
+          "x1": 50,
+          "y1": 400,
+          "x2": 1900,
+          "y2": 1100
         },
         "column_headers": [
           "AC1,2,48,49",
@@ -527,13 +527,68 @@
           "AC11,19,27,35"
         ],
         "storey_levels": [
-          "COLUMN MARKED"
+          "ROOF FLOOR"
         ],
         "expected_count": 5,
-        "zoom_plan": [],
-        "normalization_rules": [],
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "data_cell",
+            "x1": 400,
+            "y1": 450,
+            "x2": 520,
+            "y2": 700,
+            "reason": "read reinforcement and size for first column roof floor"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "x1": 600,
+            "y1": 450,
+            "x2": 720,
+            "y2": 700,
+            "reason": "read reinforcement and size for second column roof floor"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "data_cell",
+            "x1": 800,
+            "y1": 450,
+            "x2": 920,
+            "y2": 700,
+            "reason": "read reinforcement and size for third column roof floor"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "x1": 1000,
+            "y1": 450,
+            "x2": 1120,
+            "y2": 700,
+            "reason": "read reinforcement and size for fourth column roof floor"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "data_cell",
+            "x1": 1200,
+            "y1": 450,
+            "x2": 1320,
+            "y2": 700,
+            "reason": "read reinforcement and size for fifth column roof floor"
+          }
+        ],
+        "normalization_rules": [
+          "Convert reinforcement counts and diameters to 'x-Ty' format",
+          "Split reinforcement by '+'",
+          "Extract stirrup dia and spacing uniquely",
+          "Convert mix M25 to M-25"
+        ],
         "extraction_order": [
-          "COLUMN MARKED"
+          "ROOF FLOOR, AC1,2,48,49",
+          "ROOF FLOOR, AC3,5,6,9,10,42,43,44,46,47",
+          "ROOF FLOOR, AC4,8,41,45",
+          "ROOF FLOOR, AC7,40",
+          "ROOF FLOOR, AC11,19,27,35"
         ]
       },
       "zoom_regions": [],
@@ -548,8 +603,12 @@
             "length": 600
           },
           "reinforcement": [
-            "8-T20",
-            "2-T16"
+            "2-T20",
+            "1-T16",
+            "2-T20",
+            "2-T20",
+            "2-T20",
+            "1-T16"
           ],
           "stirrups": {
             "dia": [
@@ -593,8 +652,11 @@
             "length": 600
           },
           "reinforcement": [
-            "8-T20",
-            "4-T16"
+            "2-T20",
+            "2-T16",
+            "2-T20",
+            "2-T20",
+            "2-T16"
           ],
           "stirrups": {
             "dia": [
@@ -651,8 +713,12 @@
               "length": 600
             },
             "reinforcement": [
-              "8-T20",
-              "2-T16"
+              "2-T20",
+              "1-T16",
+              "2-T20",
+              "2-T20",
+              "2-T20",
+              "1-T16"
             ],
             "stirrups": {
               "dia": [
@@ -702,8 +768,11 @@
               "length": 600
             },
             "reinforcement": [
-              "8-T20",
-              "4-T16"
+              "2-T20",
+              "2-T16",
+              "2-T20",
+              "2-T20",
+              "2-T16"
             ],
             "stirrups": {
               "dia": [
@@ -764,14 +833,14 @@
     "page_1.png__p01_l003_GROUND_FLOOR": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-14\\page_1.png",
-      "generated_at": "2026-05-27T12:13:53.201951+00:00",
+      "generated_at": "2026-05-28T18:15:49.001687+00:00",
       "think": {
-        "image_quality": "good, clear text, no skew",
+        "image_quality": "clear, high resolution",
         "table_bounds": {
-          "x1": 0,
-          "y1": 960,
-          "x2": 1600,
-          "y2": 1000
+          "x1": 1350,
+          "y1": 1150,
+          "x2": 2500,
+          "y2": 1200
         },
         "column_headers": [
           "BC1,2,48,49",
@@ -788,54 +857,54 @@
           {
             "region_id": "r6",
             "purpose": "data_cell",
-            "x1": 200,
-            "y1": 850,
-            "x2": 350,
-            "y2": 950,
-            "reason": "read size and reinforcement for first BC column GROUND FLOOR"
+            "x1": 1400,
+            "y1": 900,
+            "x2": 1600,
+            "y2": 1150,
+            "reason": "extract size, reinforcement, stirrups, mix for BC1,2,48,49 GROUND FLOOR"
           },
           {
             "region_id": "r7",
             "purpose": "data_cell",
-            "x1": 350,
-            "y1": 850,
-            "x2": 500,
-            "y2": 950,
-            "reason": "read size and reinforcement for second BC column GROUND FLOOR"
+            "x1": 1650,
+            "y1": 900,
+            "x2": 1850,
+            "y2": 1150,
+            "reason": "extract size, reinforcement, stirrups, mix for BC3,5,6,9,10,42,43,44,46,47 GROUND FLOOR"
           },
           {
             "region_id": "r8",
             "purpose": "data_cell",
-            "x1": 500,
-            "y1": 850,
-            "x2": 650,
-            "y2": 950,
-            "reason": "read size and reinforcement for third BC column GROUND FLOOR"
+            "x1": 1900,
+            "y1": 900,
+            "x2": 2100,
+            "y2": 1150,
+            "reason": "extract size, reinforcement, stirrups, mix for BC4,8,41,45 GROUND FLOOR"
           },
           {
             "region_id": "r9",
             "purpose": "data_cell",
-            "x1": 650,
-            "y1": 850,
-            "x2": 800,
-            "y2": 950,
-            "reason": "read size and reinforcement for fourth BC column GROUND FLOOR"
+            "x1": 2150,
+            "y1": 900,
+            "x2": 2350,
+            "y2": 1150,
+            "reason": "extract size, reinforcement, stirrups, mix for BC7,40 GROUND FLOOR"
           },
           {
             "region_id": "r10",
             "purpose": "data_cell",
-            "x1": 800,
-            "y1": 850,
-            "x2": 950,
-            "y2": 950,
-            "reason": "read size and reinforcement for fifth BC column GROUND FLOOR"
+            "x1": 2400,
+            "y1": 900,
+            "x2": 2600,
+            "y2": 1150,
+            "reason": "extract size, reinforcement, stirrups, mix for BC11,19,27,35 GROUND FLOOR"
           }
         ],
         "normalization_rules": [
-          "For B x L sizes, width = B, length = L, depth = null",
-          "Reinforcement format: '8NOS-T20' → '8-T20', split '+' into list",
-          "Stirrups format: 'T8@200C/C' → dia='T8', spacing='200C/C'",
-          "Mix format: 'M25' → 'M-25'"
+          "Convert reinforcement '8NOS-T20' to '8-T20'",
+          "Convert reinforcement '2NOS-T16' to '2-T16'",
+          "Convert mix 'M25' to 'M-25'",
+          "Extract stirrup dia and spacing uniquely"
         ],
         "extraction_order": [
           "BC1,2,48,49",
@@ -867,7 +936,7 @@
               "100C/C"
             ]
           },
-          "mix": null,
+          "mix": "M-25",
           "steel_grade": null
         },
         {
@@ -887,10 +956,10 @@
               "T8"
             ],
             "spacing": [
-              "100C/C,200C/C"
+              "100C/C, 200C/C"
             ]
           },
-          "mix": null,
+          "mix": "M-25",
           "steel_grade": null
         },
         {
@@ -910,10 +979,10 @@
               "T8"
             ],
             "spacing": [
-              "100C/C,200C/C"
+              "100C/C, 200C/C"
             ]
           },
-          "mix": null,
+          "mix": "M-25",
           "steel_grade": null
         },
         {
@@ -933,10 +1002,10 @@
               "T8"
             ],
             "spacing": [
-              "100C/C,200C/C"
+              "100C/C, 200C/C"
             ]
           },
-          "mix": null,
+          "mix": "M-25",
           "steel_grade": null
         },
         {
@@ -958,7 +1027,7 @@
               "100C/C"
             ]
           },
-          "mix": null,
+          "mix": "M-25",
           "steel_grade": null
         },
         {
@@ -980,7 +1049,7 @@
               "100C/C"
             ]
           },
-          "mix": null,
+          "mix": "M-25",
           "steel_grade": null
         },
         {
@@ -1000,10 +1069,10 @@
               "T8"
             ],
             "spacing": [
-              "100C/C,200C/C"
+              "100C/C, 200C/C"
             ]
           },
-          "mix": null,
+          "mix": "M-25",
           "steel_grade": null
         },
         {
@@ -1023,10 +1092,10 @@
               "T8"
             ],
             "spacing": [
-              "100C/C,200C/C"
+              "100C/C, 200C/C"
             ]
           },
-          "mix": null,
+          "mix": "M-25",
           "steel_grade": null
         },
         {
@@ -1046,10 +1115,10 @@
               "T8"
             ],
             "spacing": [
-              "100C/C,200C/C"
+              "100C/C, 200C/C"
             ]
           },
-          "mix": null,
+          "mix": "M-25",
           "steel_grade": null
         },
         {
@@ -1071,7 +1140,7 @@
               "100C/C"
             ]
           },
-          "mix": null,
+          "mix": "M-25",
           "steel_grade": null
         }
       ],
@@ -1096,12 +1165,10 @@
                 "100C/C"
               ]
             },
-            "mix": null,
+            "mix": "M-25",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r1"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1121,15 +1188,13 @@
                 "T8"
               ],
               "spacing": [
-                "100C/C,200C/C"
+                "100C/C, 200C/C"
               ]
             },
-            "mix": null,
+            "mix": "M-25",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r2"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1149,15 +1214,13 @@
                 "T8"
               ],
               "spacing": [
-                "100C/C,200C/C"
+                "100C/C, 200C/C"
               ]
             },
-            "mix": null,
+            "mix": "M-25",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r3"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1177,15 +1240,13 @@
                 "T8"
               ],
               "spacing": [
-                "100C/C,200C/C"
+                "100C/C, 200C/C"
               ]
             },
-            "mix": null,
+            "mix": "M-25",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r4"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1207,12 +1268,10 @@
                 "100C/C"
               ]
             },
-            "mix": null,
+            "mix": "M-25",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r5"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1234,12 +1293,10 @@
                 "100C/C"
               ]
             },
-            "mix": null,
+            "mix": "M-25",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r6"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1259,15 +1316,13 @@
                 "T8"
               ],
               "spacing": [
-                "100C/C,200C/C"
+                "100C/C, 200C/C"
               ]
             },
-            "mix": null,
+            "mix": "M-25",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r7"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1287,15 +1342,13 @@
                 "T8"
               ],
               "spacing": [
-                "100C/C,200C/C"
+                "100C/C, 200C/C"
               ]
             },
-            "mix": null,
+            "mix": "M-25",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r8"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1315,15 +1368,13 @@
                 "T8"
               ],
               "spacing": [
-                "100C/C,200C/C"
+                "100C/C, 200C/C"
               ]
             },
-            "mix": null,
+            "mix": "M-25",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r9"
-          ]
+          "source_region_ids": []
         },
         {
           "record": {
@@ -1345,12 +1396,10 @@
                 "100C/C"
               ]
             },
-            "mix": null,
+            "mix": "M-25",
             "steel_grade": null
           },
-          "source_region_ids": [
-            "r10"
-          ]
+          "source_region_ids": []
         }
       ],
       "expected_count": 5,
@@ -1362,252 +1411,253 @@
     "page_1.png__p01_l002_FIRST_FLOOR": {
       "project": "column",
       "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-14\\page_1.png",
-      "generated_at": "2026-05-27T12:13:59.583583+00:00",
+      "generated_at": "2026-05-28T18:15:53.060471+00:00",
       "think": {
-        "image_quality": "clear, high resolution",
+        "image_quality": "good",
         "table_bounds": {
           "x1": 0,
           "y1": 0,
-          "x2": 1200,
-          "y2": 900
+          "x2": 1920,
+          "y2": 1080
         },
         "column_headers": [
-          "AC1,2,48,49",
-          "AC3,5,6,9,10,42,43,44,46,47",
-          "AC4,8,41,45",
-          "AC7,40",
-          "AC11,19,27,35"
+          "AC1,2,48,49\nAC1,2,48,49",
+          "AC3,5,6,9,10,42,43,44,46,47\nBC3,5,6,9,10,42,43,44,46,47",
+          "AC4,8,41,45\nBC4,8,41,45",
+          "AC7,40\nBC7,40",
+          "AC11,19,27,35\nBC11,19,27,35"
         ],
         "storey_levels": [
           "ROOF FLOOR",
           "FIRST FLOOR",
           "GROUND FLOOR"
         ],
-        "expected_count": 15,
+        "expected_count": 18,
         "zoom_plan": [
           {
             "region_id": "r1",
-            "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC1,2,48,49, SIZE",
-            "reason": "extract size width and length"
+            "purpose": "row_label",
+            "target": "FIRST FLOOR",
+            "reason": "Confirm floor label text"
           },
           {
             "region_id": "r2",
-            "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC1,2,48,49, REINFORCEMENT",
-            "reason": "extract reinforcement bars"
+            "purpose": "header",
+            "target": "AC1,2,48,49",
+            "x1": 100,
+            "y1": 950,
+            "x2": 300,
+            "y2": 1000,
+            "reason": "Confirm first column group header"
           },
           {
             "region_id": "r3",
-            "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC1,2,48,49, STIRRUPS",
-            "reason": "extract stirrups dia and spacing"
+            "purpose": "header",
+            "target": "AC3,5,6,9,10,42,43,44,46,47\nBC3,5,6,9,10,42,43,44,46,47",
+            "x1": 310,
+            "y1": 950,
+            "x2": 600,
+            "y2": 1000,
+            "reason": "Confirm second column group header"
           },
           {
             "region_id": "r4",
-            "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC3,5,6,9,10,42,43,44,46,47, SIZE",
-            "reason": "extract size width and length"
+            "purpose": "header",
+            "target": "AC4,8,41,45\nBC4,8,41,45",
+            "x1": 610,
+            "y1": 950,
+            "x2": 800,
+            "y2": 1000,
+            "reason": "Confirm third column group header"
           },
           {
             "region_id": "r5",
-            "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC3,5,6,9,10,42,43,44,46,47, REINFORCEMENT",
-            "reason": "extract reinforcement bars"
+            "purpose": "header",
+            "target": "AC7,40\nBC7,40",
+            "x1": 810,
+            "y1": 950,
+            "x2": 1000,
+            "y2": 1000,
+            "reason": "Confirm fourth column group header"
           },
           {
             "region_id": "r6",
-            "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC3,5,6,9,10,42,43,44,46,47, STIRRUPS",
-            "reason": "extract stirrups dia and spacing"
+            "purpose": "header",
+            "target": "AC11,19,27,35\nBC11,19,27,35",
+            "x1": 1010,
+            "y1": 950,
+            "x2": 1200,
+            "y2": 1000,
+            "reason": "Confirm fifth column group header"
           },
           {
             "region_id": "r7",
             "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC4,8,41,45, SIZE",
-            "reason": "extract size width and length"
+            "target": "FIRST FLOOR, AC1,2,48,49 SIZE",
+            "x1": 100,
+            "y1": 700,
+            "x2": 300,
+            "y2": 850,
+            "reason": "Extract size for FIRST FLOOR, first column group"
           },
           {
             "region_id": "r8",
             "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC4,8,41,45, REINFORCEMENT",
-            "reason": "extract reinforcement bars"
+            "target": "FIRST FLOOR, AC1,2,48,49 REINFORCEMENT",
+            "x1": 100,
+            "y1": 850,
+            "x2": 300,
+            "y2": 900,
+            "reason": "Extract reinforcement for FIRST FLOOR, first column group"
           },
           {
             "region_id": "r9",
             "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC4,8,41,45, STIRRUPS",
-            "reason": "extract stirrups dia and spacing"
+            "target": "FIRST FLOOR, AC1,2,48,49 STIRRUPS",
+            "x1": 100,
+            "y1": 650,
+            "x2": 300,
+            "y2": 700,
+            "reason": "Extract stirrups for FIRST FLOOR, first column group"
           },
           {
             "region_id": "r10",
             "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC7,40, SIZE",
-            "reason": "extract size width and length"
+            "target": "FIRST FLOOR, AC3,5,6,9,10,42,43,44,46,47 SIZE",
+            "x1": 310,
+            "y1": 700,
+            "x2": 600,
+            "y2": 850,
+            "reason": "Extract size for FIRST FLOOR, second column group"
           },
           {
             "region_id": "r11",
             "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC7,40, REINFORCEMENT",
-            "reason": "extract reinforcement bars"
+            "target": "FIRST FLOOR, AC3,5,6,9,10,42,43,44,46,47 REINFORCEMENT",
+            "x1": 310,
+            "y1": 850,
+            "x2": 600,
+            "y2": 900,
+            "reason": "Extract reinforcement for FIRST FLOOR, second column group"
           },
           {
             "region_id": "r12",
             "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC7,40, STIRRUPS",
-            "reason": "extract stirrups dia and spacing"
+            "target": "FIRST FLOOR, AC3,5,6,9,10,42,43,44,46,47 STIRRUPS",
+            "x1": 310,
+            "y1": 650,
+            "x2": 600,
+            "y2": 700,
+            "reason": "Extract stirrups for FIRST FLOOR, second column group"
           },
           {
             "region_id": "r13",
             "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC11,19,27,35, SIZE",
-            "reason": "extract size width and length"
+            "target": "FIRST FLOOR, AC4,8,41,45 SIZE",
+            "x1": 610,
+            "y1": 700,
+            "x2": 800,
+            "y2": 850,
+            "reason": "Extract size for FIRST FLOOR, third column group"
           },
           {
             "region_id": "r14",
             "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC11,19,27,35, REINFORCEMENT",
-            "reason": "extract reinforcement bars"
+            "target": "FIRST FLOOR, AC4,8,41,45 REINFORCEMENT",
+            "x1": 610,
+            "y1": 850,
+            "x2": 800,
+            "y2": 900,
+            "reason": "Extract reinforcement for FIRST FLOOR, third column group"
           },
           {
             "region_id": "r15",
             "purpose": "data_cell",
-            "target": "FIRST FLOOR, AC11,19,27,35, STIRRUPS",
-            "reason": "extract stirrups dia and spacing"
+            "target": "FIRST FLOOR, AC4,8,41,45 STIRRUPS",
+            "x1": 610,
+            "y1": 650,
+            "x2": 800,
+            "y2": 700,
+            "reason": "Extract stirrups for FIRST FLOOR, third column group"
+          },
+          {
+            "region_id": "r16",
+            "purpose": "data_cell",
+            "target": "FIRST FLOOR, AC7,40 SIZE",
+            "x1": 810,
+            "y1": 700,
+            "x2": 1000,
+            "y2": 850,
+            "reason": "Extract size for FIRST FLOOR, fourth column group"
+          },
+          {
+            "region_id": "r17",
+            "purpose": "data_cell",
+            "target": "FIRST FLOOR, AC7,40 REINFORCEMENT",
+            "x1": 810,
+            "y1": 850,
+            "x2": 1000,
+            "y2": 900,
+            "reason": "Extract reinforcement for FIRST FLOOR, fourth column group"
+          },
+          {
+            "region_id": "r18",
+            "purpose": "data_cell",
+            "target": "FIRST FLOOR, AC7,40 STIRRUPS",
+            "x1": 810,
+            "y1": 650,
+            "x2": 1000,
+            "y2": 700,
+            "reason": "Extract stirrups for FIRST FLOOR, fourth column group"
+          },
+          {
+            "region_id": "r19",
+            "purpose": "data_cell",
+            "target": "FIRST FLOOR, AC11,19,27,35 SIZE",
+            "x1": 1010,
+            "y1": 700,
+            "x2": 1200,
+            "y2": 850,
+            "reason": "Extract size for FIRST FLOOR, fifth column group"
+          },
+          {
+            "region_id": "r20",
+            "purpose": "data_cell",
+            "target": "FIRST FLOOR, AC11,19,27,35 REINFORCEMENT",
+            "x1": 1010,
+            "y1": 850,
+            "x2": 1200,
+            "y2": 900,
+            "reason": "Extract reinforcement for FIRST FLOOR, fifth column group"
+          },
+          {
+            "region_id": "r21",
+            "purpose": "data_cell",
+            "target": "FIRST FLOOR, AC11,19,27,35 STIRRUPS",
+            "x1": 1010,
+            "y1": 650,
+            "x2": 1200,
+            "y2": 700,
+            "reason": "Extract stirrups for FIRST FLOOR, fifth column group"
           }
         ],
         "normalization_rules": [
-          "Convert reinforcement format '8NOS-T20' to '8-T20'",
-          "Split reinforcement by '+' sign into list",
-          "Extract size as width and length for B x L format, depth=null",
-          "Extract stirrups diameter and spacing, keep unique spacing values",
-          "Extract mix as 'M-25' from vertical text near floor"
+          "Convert reinforcement 'NOS' to '-' format",
+          "Split reinforcement '+' into list",
+          "Convert mix M25 to M-25",
+          "Extract stirrup dia and unique spacing"
         ],
         "extraction_order": [
           "AC1,2,48,49",
-          "AC3,5,6,9,10,42,43,44,46,47",
-          "AC4,8,41,45",
-          "AC7,40",
-          "AC11,19,27,35"
+          "AC3,5,6,9,10,42,43,44,46,47,BC3,5,6,9,10,42,43,44,46,47",
+          "AC4,8,41,45,BC4,8,41,45",
+          "AC7,40,BC7,40",
+          "AC11,19,27,35,BC11,19,27,35"
         ]
       },
       "zoom_regions": [],
       "confirmed_reads": [],
       "records": [
-        {
-          "column_no": "AC1,2,48,49",
-          "column_name": "FIRST FLOOR",
-          "size": {
-            "width": 200,
-            "depth": null,
-            "length": 600
-          },
-          "reinforcement": [
-            "8-T20",
-            "2-T16"
-          ],
-          "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "100C/C, 200C/C"
-            ]
-          },
-          "mix": "M-25",
-          "steel_grade": null
-        },
-        {
-          "column_no": "AC3,5,6,9,10,42,43,44,46,47",
-          "column_name": "FIRST FLOOR",
-          "size": {
-            "width": 200,
-            "depth": null,
-            "length": 600
-          },
-          "reinforcement": [
-            "4-T25",
-            "6-T20"
-          ],
-          "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "100C/C, 200C/C"
-            ]
-          },
-          "mix": "M-25",
-          "steel_grade": null
-        },
-        {
-          "column_no": "AC4,8,41,45",
-          "column_name": "FIRST FLOOR",
-          "size": {
-            "width": 200,
-            "depth": null,
-            "length": 600
-          },
-          "reinforcement": [
-            "8-T20",
-            "4-T16"
-          ],
-          "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "100C/C, 200C/C"
-            ]
-          },
-          "mix": "M-25",
-          "steel_grade": null
-        },
-        {
-          "column_no": "AC7,40",
-          "column_name": "FIRST FLOOR",
-          "size": {
-            "width": 200,
-            "depth": null,
-            "length": 600
-          },
-          "reinforcement": [
-            "8-T20",
-            "4-T16"
-          ],
-          "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "100C/C, 200C/C"
-            ]
-          },
-          "mix": "M-25",
-          "steel_grade": null
-        },
-        {
-          "column_no": "AC11,19,27,35",
-          "column_name": "FIRST FLOOR",
-          "size": {
-            "width": 230,
-            "depth": null,
-            "length": 230
-          },
-          "reinforcement": [
-            "4-T16"
-          ],
-          "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "100C/C"
-            ]
-          },
-          "mix": "M-25",
-          "steel_grade": null
-        },
         {
           "column_no": "AC1,2,48,49",
           "column_name": "ROOF FLOOR",
@@ -1632,7 +1682,52 @@
           "steel_grade": null
         },
         {
-          "column_no": "AC3,5,6,9,10,42,43,44,46,47",
+          "column_no": "AC1,2,48,49",
+          "column_name": "FIRST FLOOR",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T20",
+            "2-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "100C/C, 200C/C"
+            ]
+          },
+          "mix": "M-25",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC1,2,48,49",
+          "column_name": "GROUND FLOOR",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 230
+          },
+          "reinforcement": [
+            "4-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "100C/C"
+            ]
+          },
+          "mix": "M-25",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC3,5,6,9,10,42,43,44,46,47,BC3,5,6,9,10,42,43,44,46,47",
           "column_name": "ROOF FLOOR",
           "size": {
             "width": 200,
@@ -1654,16 +1749,16 @@
           "steel_grade": null
         },
         {
-          "column_no": "AC4,8,41,45",
-          "column_name": "ROOF FLOOR",
+          "column_no": "AC3,5,6,9,10,42,43,44,46,47,BC3,5,6,9,10,42,43,44,46,47",
+          "column_name": "FIRST FLOOR",
           "size": {
             "width": 200,
             "depth": null,
             "length": 600
           },
           "reinforcement": [
-            "8-T20",
-            "2-T16"
+            "4-T25",
+            "6-T20"
           ],
           "stirrups": {
             "dia": [
@@ -1677,84 +1772,7 @@
           "steel_grade": null
         },
         {
-          "column_no": "AC7,40",
-          "column_name": "ROOF FLOOR",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": "M-25",
-          "steel_grade": null
-        },
-        {
-          "column_no": "AC11,19,27,35",
-          "column_name": "ROOF FLOOR",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": "M-25",
-          "steel_grade": null
-        },
-        {
-          "column_no": "AC1,2,48,49",
-          "column_name": "GROUND FLOOR",
-          "size": {
-            "width": 230,
-            "depth": null,
-            "length": 230
-          },
-          "reinforcement": [
-            "4-T16"
-          ],
-          "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "100C/C"
-            ]
-          },
-          "mix": "M-25",
-          "steel_grade": null
-        },
-        {
-          "column_no": "AC3,5,6,9,10,42,43,44,46,47",
-          "column_name": "GROUND FLOOR",
-          "size": {
-            "width": 200,
-            "depth": null,
-            "length": 600
-          },
-          "reinforcement": [
-            "8-T20",
-            "2-T16"
-          ],
-          "stirrups": {
-            "dia": [
-              "T8"
-            ],
-            "spacing": [
-              "100C/C, 200C/C"
-            ]
-          },
-          "mix": "M-25",
-          "steel_grade": null
-        },
-        {
-          "column_no": "AC4,8,41,45",
+          "column_no": "AC3,5,6,9,10,42,43,44,46,47,BC3,5,6,9,10,42,43,44,46,47",
           "column_name": "GROUND FLOOR",
           "size": {
             "width": 200,
@@ -1777,7 +1795,53 @@
           "steel_grade": null
         },
         {
-          "column_no": "AC7,40",
+          "column_no": "AC4,8,41,45,BC4,8,41,45",
+          "column_name": "ROOF FLOOR",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T20",
+            "4-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "100C/C, 200C/C"
+            ]
+          },
+          "mix": "M-25",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC4,8,41,45,BC4,8,41,45",
+          "column_name": "FIRST FLOOR",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T20",
+            "4-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "100C/C, 200C/C"
+            ]
+          },
+          "mix": "M-25",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC4,8,41,45,BC4,8,41,45",
           "column_name": "GROUND FLOOR",
           "size": {
             "width": 200,
@@ -1800,7 +1864,114 @@
           "steel_grade": null
         },
         {
-          "column_no": "AC11,19,27,35",
+          "column_no": "AC7,40,BC7,40",
+          "column_name": "ROOF FLOOR",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T20",
+            "2-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "100C/C, 200C/C"
+            ]
+          },
+          "mix": "M-25",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC7,40,BC7,40",
+          "column_name": "FIRST FLOOR",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T20",
+            "4-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "100C/C, 200C/C"
+            ]
+          },
+          "mix": "M-25",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC7,40,BC7,40",
+          "column_name": "GROUND FLOOR",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T20",
+            "4-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "100C/C, 200C/C"
+            ]
+          },
+          "mix": "M-25",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC11,19,27,35,BC11,19,27,35",
+          "column_name": "ROOF FLOOR",
+          "size": {
+            "width": null,
+            "depth": null,
+            "length": null
+          },
+          "reinforcement": [],
+          "stirrups": {
+            "dia": [],
+            "spacing": []
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC11,19,27,35,BC11,19,27,35",
+          "column_name": "FIRST FLOOR",
+          "size": {
+            "width": 230,
+            "depth": null,
+            "length": 230
+          },
+          "reinforcement": [
+            "4-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "100C/C"
+            ]
+          },
+          "mix": "M-25",
+          "steel_grade": null
+        },
+        {
+          "column_no": "AC11,19,27,35,BC11,19,27,35",
           "column_name": "GROUND FLOOR",
           "size": {
             "width": 230,
@@ -1823,135 +1994,6 @@
         }
       ],
       "added_records": [
-        {
-          "record": {
-            "column_no": "AC1,2,48,49",
-            "column_name": "FIRST FLOOR",
-            "size": {
-              "width": 200,
-              "depth": null,
-              "length": 600
-            },
-            "reinforcement": [
-              "8-T20",
-              "2-T16"
-            ],
-            "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "100C/C, 200C/C"
-              ]
-            },
-            "mix": "M-25",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "AC3,5,6,9,10,42,43,44,46,47",
-            "column_name": "FIRST FLOOR",
-            "size": {
-              "width": 200,
-              "depth": null,
-              "length": 600
-            },
-            "reinforcement": [
-              "4-T25",
-              "6-T20"
-            ],
-            "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "100C/C, 200C/C"
-              ]
-            },
-            "mix": "M-25",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "AC4,8,41,45",
-            "column_name": "FIRST FLOOR",
-            "size": {
-              "width": 200,
-              "depth": null,
-              "length": 600
-            },
-            "reinforcement": [
-              "8-T20",
-              "4-T16"
-            ],
-            "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "100C/C, 200C/C"
-              ]
-            },
-            "mix": "M-25",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "AC7,40",
-            "column_name": "FIRST FLOOR",
-            "size": {
-              "width": 200,
-              "depth": null,
-              "length": 600
-            },
-            "reinforcement": [
-              "8-T20",
-              "4-T16"
-            ],
-            "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "100C/C, 200C/C"
-              ]
-            },
-            "mix": "M-25",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "AC11,19,27,35",
-            "column_name": "FIRST FLOOR",
-            "size": {
-              "width": 230,
-              "depth": null,
-              "length": 230
-            },
-            "reinforcement": [
-              "4-T16"
-            ],
-            "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "100C/C"
-              ]
-            },
-            "mix": "M-25",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
         {
           "record": {
             "column_no": "AC1,2,48,49",
@@ -1980,7 +2022,58 @@
         },
         {
           "record": {
-            "column_no": "AC3,5,6,9,10,42,43,44,46,47",
+            "column_no": "AC1,2,48,49",
+            "column_name": "FIRST FLOOR",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T20",
+              "2-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "100C/C, 200C/C"
+              ]
+            },
+            "mix": "M-25",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC1,2,48,49",
+            "column_name": "GROUND FLOOR",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 230
+            },
+            "reinforcement": [
+              "4-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "100C/C"
+              ]
+            },
+            "mix": "M-25",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC3,5,6,9,10,42,43,44,46,47,BC3,5,6,9,10,42,43,44,46,47",
             "column_name": "ROOF FLOOR",
             "size": {
               "width": 200,
@@ -2005,16 +2098,16 @@
         },
         {
           "record": {
-            "column_no": "AC4,8,41,45",
-            "column_name": "ROOF FLOOR",
+            "column_no": "AC3,5,6,9,10,42,43,44,46,47,BC3,5,6,9,10,42,43,44,46,47",
+            "column_name": "FIRST FLOOR",
             "size": {
               "width": 200,
               "depth": null,
               "length": 600
             },
             "reinforcement": [
-              "8-T20",
-              "2-T16"
+              "4-T25",
+              "6-T20"
             ],
             "stirrups": {
               "dia": [
@@ -2031,96 +2124,7 @@
         },
         {
           "record": {
-            "column_no": "AC7,40",
-            "column_name": "ROOF FLOOR",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": "M-25",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "AC11,19,27,35",
-            "column_name": "ROOF FLOOR",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": "M-25",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "AC1,2,48,49",
-            "column_name": "GROUND FLOOR",
-            "size": {
-              "width": 230,
-              "depth": null,
-              "length": 230
-            },
-            "reinforcement": [
-              "4-T16"
-            ],
-            "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "100C/C"
-              ]
-            },
-            "mix": "M-25",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "AC3,5,6,9,10,42,43,44,46,47",
-            "column_name": "GROUND FLOOR",
-            "size": {
-              "width": 200,
-              "depth": null,
-              "length": 600
-            },
-            "reinforcement": [
-              "8-T20",
-              "2-T16"
-            ],
-            "stirrups": {
-              "dia": [
-                "T8"
-              ],
-              "spacing": [
-                "100C/C, 200C/C"
-              ]
-            },
-            "mix": "M-25",
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "AC4,8,41,45",
+            "column_no": "AC3,5,6,9,10,42,43,44,46,47,BC3,5,6,9,10,42,43,44,46,47",
             "column_name": "GROUND FLOOR",
             "size": {
               "width": 200,
@@ -2146,7 +2150,59 @@
         },
         {
           "record": {
-            "column_no": "AC7,40",
+            "column_no": "AC4,8,41,45,BC4,8,41,45",
+            "column_name": "ROOF FLOOR",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T20",
+              "4-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "100C/C, 200C/C"
+              ]
+            },
+            "mix": "M-25",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC4,8,41,45,BC4,8,41,45",
+            "column_name": "FIRST FLOOR",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T20",
+              "4-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "100C/C, 200C/C"
+              ]
+            },
+            "mix": "M-25",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC4,8,41,45,BC4,8,41,45",
             "column_name": "GROUND FLOOR",
             "size": {
               "width": 200,
@@ -2172,7 +2228,129 @@
         },
         {
           "record": {
-            "column_no": "AC11,19,27,35",
+            "column_no": "AC7,40,BC7,40",
+            "column_name": "ROOF FLOOR",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T20",
+              "2-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "100C/C, 200C/C"
+              ]
+            },
+            "mix": "M-25",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC7,40,BC7,40",
+            "column_name": "FIRST FLOOR",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T20",
+              "4-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "100C/C, 200C/C"
+              ]
+            },
+            "mix": "M-25",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC7,40,BC7,40",
+            "column_name": "GROUND FLOOR",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T20",
+              "4-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "100C/C, 200C/C"
+              ]
+            },
+            "mix": "M-25",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC11,19,27,35,BC11,19,27,35",
+            "column_name": "ROOF FLOOR",
+            "size": {
+              "width": null,
+              "depth": null,
+              "length": null
+            },
+            "reinforcement": [],
+            "stirrups": {
+              "dia": [],
+              "spacing": []
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC11,19,27,35,BC11,19,27,35",
+            "column_name": "FIRST FLOOR",
+            "size": {
+              "width": 230,
+              "depth": null,
+              "length": 230
+            },
+            "reinforcement": [
+              "4-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "100C/C"
+              ]
+            },
+            "mix": "M-25",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "AC11,19,27,35,BC11,19,27,35",
             "column_name": "GROUND FLOOR",
             "size": {
               "width": 230,
@@ -2196,17 +2374,20 @@
           "source_region_ids": []
         }
       ],
-      "expected_count": 15,
+      "expected_count": 18,
       "actual_count": 15,
-      "warnings": []
+      "warnings": [
+        "expected 18 record(s), collected 15"
+      ]
     }
   },
   "summary": {
     "page_count": 4,
     "record_count": 40,
-    "warning_count": 1,
+    "warning_count": 2,
     "warnings": [
-      "expected 5 record(s), collected 10"
+      "expected 5 record(s), collected 10",
+      "expected 18 record(s), collected 15"
     ]
   }
 }
