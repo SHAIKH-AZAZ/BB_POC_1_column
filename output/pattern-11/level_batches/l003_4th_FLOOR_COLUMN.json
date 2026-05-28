@@ -158,7 +158,7 @@
       ],
       "stirrups": {
         "dia": [
-          "T8"
+          "8-T125"
         ],
         "spacing": [
           "125 C/C"
@@ -247,44 +247,28 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": [
-        "14-25T",
-        "6-20T"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     },
     {
       "column_no": "C11",
       "column_name": "4th_FLOOR_COLUMN",
       "size": {
-        "width": 230,
+        "width": null,
         "depth": null,
-        "length": 1220
+        "length": null
       },
-      "reinforcement": [
-        "6-20T",
-        "10-16T"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     }
   ]

@@ -47,7 +47,7 @@ _STEEL_RE = re.compile(r"\d+-T\d+",    re.IGNORECASE)   # "4-T16"
 _TYPE_RE  = re.compile(r"\(TYPE-\d+\)", re.IGNORECASE)   # "(TYPE-26)"
 _MIX_RE   = re.compile(r"^M\d+$",      re.IGNORECASE)   # "M40"
 X_SHIFT = 9
-PATTERN10_EXTRACTION_MODE = os.getenv("PATTERN10_EXTRACTION_MODE", "text").strip().lower()
+PATTERN10_EXTRACTION_MODE = os.getenv("PATTERN10_EXTRACTION_MODE", "precrop").strip().lower()
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Shared utilities  (identical to pattern-9)
@@ -799,8 +799,8 @@ def process_pdf(pdf_path: str):
     doc = fitz.open(pdf_path)
     mode = PATTERN10_EXTRACTION_MODE
     if mode not in {"text", "tools", "precrop", "precrop_tools"}:
-        print(f"  ⚠️  Unknown PATTERN10_EXTRACTION_MODE={mode!r}; using 'text'.")
-        mode = "text"
+        print(f"  ⚠️  Unknown PATTERN10_EXTRACTION_MODE={mode!r}; using 'precrop'.")
+        mode = "precrop"
 
     print(f"\n🔍 Detecting layout from '{file_name}' …")
     print(f"  Pattern-10 extraction mode: {mode}")
@@ -825,6 +825,7 @@ def process_pdf(pdf_path: str):
     manifest = {
         "pattern": 10,
         "mode": "page_batches",
+        "extraction_mode": mode,
         "batches": [
             {
                 "id": f"p{page_no + 1:02d}",

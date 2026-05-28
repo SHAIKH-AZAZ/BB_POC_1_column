@@ -29,16 +29,24 @@
       "column_no": "C2",
       "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
-        "width": null,
+        "width": 350,
         "depth": null,
-        "length": null
+        "length": 850
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "10-20T",
+        "4-16T"
+      ],
       "stirrups": {
-        "dia": [],
-        "spacing": []
+        "dia": [
+          "8-T12"
+        ],
+        "spacing": [
+          "75 C/C",
+          "150 C/C"
+        ]
       },
-      "mix": null,
+      "mix": "M30",
       "steel_grade": null
     },
     {
@@ -61,46 +69,32 @@
       "column_no": "C3",
       "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
-        "width": 350,
+        "width": null,
         "depth": null,
-        "length": 850
+        "length": null
       },
-      "reinforcement": [
-        "14-20T"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
-      "mix": "M30",
+      "mix": null,
       "steel_grade": null
     },
     {
       "column_no": "C4",
       "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
-        "width": 350,
+        "width": null,
         "depth": null,
-        "length": 850
+        "length": null
       },
-      "reinforcement": [
-        "8-25T",
-        "8-20T"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": [
-          "8-T12"
-        ],
-        "spacing": [
-          "75 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
-      "mix": "M30",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -152,16 +146,24 @@
       "column_no": "C7",
       "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
-        "width": null,
+        "width": 230,
         "depth": null,
-        "length": null
+        "length": 1075
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "8-25T",
+        "8-20T"
+      ],
       "stirrups": {
-        "dia": [],
-        "spacing": []
+        "dia": [
+          "10-T15"
+        ],
+        "spacing": [
+          "75 C/C",
+          "115 C/C"
+        ]
       },
-      "mix": null,
+      "mix": "M30",
       "steel_grade": null
     },
     {
@@ -188,19 +190,12 @@
         "depth": null,
         "length": null
       },
-      "reinforcement": [
-        "27-20T"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "150 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
-      "mix": "M30",
+      "mix": null,
       "steel_grade": null
     },
     {
@@ -230,23 +225,16 @@
       "column_no": "C11",
       "column_name": "GROUND_FLOOR_COLUMN",
       "size": {
-        "width": 230,
+        "width": null,
         "depth": null,
-        "length": 1220
+        "length": null
       },
-      "reinforcement": [
-        "16-20T"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": [
-          "10-T15"
-        ],
-        "spacing": [
-          "75 C/C",
-          "115 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
-      "mix": "M25",
+      "mix": null,
       "steel_grade": null
     }
   ]

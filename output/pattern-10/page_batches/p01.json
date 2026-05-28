@@ -30,8 +30,8 @@
       "column_name": "P06",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1515
+        "depth": 1515,
+        "length": null
       },
       "reinforcement": [
         "10-T16",
@@ -54,14 +54,23 @@
       "column_no": "GC31",
       "column_name": "P06",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -76,8 +85,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -86,14 +95,23 @@
       "column_no": "GC30",
       "column_name": "P06",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -158,8 +176,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -174,8 +192,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -185,8 +203,8 @@
       "column_name": "P06",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1975
+        "depth": 1975,
+        "length": null
       },
       "reinforcement": [
         "14-T16",
@@ -209,14 +227,23 @@
       "column_no": "GC9",
       "column_name": "P06",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -275,14 +302,23 @@
       "column_no": "GC31",
       "column_name": "P05",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -291,14 +327,23 @@
       "column_no": "GC12",
       "column_name": "P05",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -313,8 +358,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -379,8 +424,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -389,14 +434,23 @@
       "column_no": "GC28",
       "column_name": "P05",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -430,14 +484,23 @@
       "column_no": "GC9",
       "column_name": "P05",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -496,14 +559,23 @@
       "column_no": "GC31",
       "column_name": "P04",
       "size": {
-        "width": null,
+        "width": 400,
         "depth": null,
-        "length": null
+        "length": 1500
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -512,14 +584,23 @@
       "column_no": "GC12",
       "column_name": "P04",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -534,8 +615,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -600,8 +681,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -610,14 +691,23 @@
       "column_no": "GC28",
       "column_name": "P04",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -657,8 +747,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -668,8 +758,8 @@
       "column_name": "P03",
       "size": {
         "width": 400,
-        "depth": null,
-        "length": 1500
+        "depth": 1500,
+        "length": null
       },
       "reinforcement": [
         "16-T16",
@@ -717,14 +807,23 @@
       "column_no": "GC31",
       "column_name": "P03",
       "size": {
-        "width": null,
+        "width": 400,
         "depth": null,
-        "length": null
+        "length": 1500
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -733,14 +832,23 @@
       "column_no": "GC12",
       "column_name": "P03",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -755,8 +863,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -791,8 +899,8 @@
       "column_name": "P03",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1515
+        "depth": 1515,
+        "length": null
       },
       "reinforcement": [
         "10-T16",
@@ -815,14 +923,23 @@
       "column_no": "GC29",
       "column_name": "P03",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -831,14 +948,23 @@
       "column_no": "GC28",
       "column_name": "P03",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -848,8 +974,8 @@
       "column_name": "P03",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1975
+        "depth": 1975,
+        "length": null
       },
       "reinforcement": [
         "14-T16",
@@ -878,8 +1004,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -938,14 +1064,23 @@
       "column_no": "GC31",
       "column_name": "P02",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -954,14 +1089,23 @@
       "column_no": "GC12",
       "column_name": "P02",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -970,14 +1114,23 @@
       "column_no": "GC30",
       "column_name": "P02",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -987,8 +1140,8 @@
       "column_name": "P02",
       "size": {
         "width": 400,
-        "depth": null,
-        "length": 1500
+        "depth": 1500,
+        "length": null
       },
       "reinforcement": [
         "16-T16",
@@ -1036,14 +1189,23 @@
       "column_no": "GC29",
       "column_name": "P02",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -1052,14 +1214,23 @@
       "column_no": "GC28",
       "column_name": "P02",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 400,
+        "depth": 1500,
         "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null
@@ -1099,8 +1270,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -1159,17 +1330,14 @@
       "column_no": "GC31",
       "column_name": "P01",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 300,
+        "depth": 1150,
         "length": null
       },
-      "reinforcement": [
-        "4-T16",
-        "18-T12"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -1178,17 +1346,14 @@
       "column_no": "GC12",
       "column_name": "P01",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 500,
+        "depth": 750,
         "length": null
       },
-      "reinforcement": [
-        "12-T16",
-        "8-T12"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -1197,17 +1362,14 @@
       "column_no": "GC30",
       "column_name": "P01",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 300,
+        "depth": 1150,
         "length": null
       },
-      "reinforcement": [
-        "4-T16",
-        "18-T12"
-      ],
+      "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -1266,20 +1428,14 @@
       "column_no": "GC29",
       "column_name": "P01",
       "size": {
-        "width": null,
-        "depth": null,
+        "width": 300,
+        "depth": 1150,
         "length": null
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": null,
       "steel_grade": null
@@ -1287,123 +1443,117 @@
     {
       "column_no": "GC28",
       "column_name": "P01",
-      "size": {
-        "width": null,
-        "depth": null,
-        "length": null
-      },
-      "reinforcement": [
-        "4-T16",
-        "18-T12"
-      ],
-      "stirrups": {
-        "dia": "",
-        "spacing": ""
-      },
-      "mix": null,
-      "steel_grade": null
-    },
-    {
-      "column_no": "PC148",
-      "column_name": "P01",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 1975
-      },
-      "reinforcement": [
-        "14-T16",
-        "20-T12"
-      ],
-      "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
-      },
-      "mix": null,
-      "steel_grade": null
-    },
-    {
-      "column_no": "GC9",
-      "column_name": "P01",
-      "size": {
-        "width": null,
-        "depth": null,
-        "length": null
-      },
-      "reinforcement": [
-        "12-T16",
-        "8-T12"
-      ],
-      "stirrups": {
-        "dia": "",
-        "spacing": ""
-      },
-      "mix": null,
-      "steel_grade": null
-    },
-    {
-      "column_no": "PC157",
-      "column_name": "GF",
-      "size": {
-        "width": 400,
-        "depth": null,
-        "length": 1500
-      },
-      "reinforcement": [
-        "24-T16",
-        "6-T12"
-      ],
-      "stirrups": {
-        "dia": [
-          "T10",
-          "T8"
-        ],
-        "spacing": [
-          "100 C/C",
-          "150 C/C"
-        ]
-      },
-      "mix": null,
-      "steel_grade": null
-    },
-    {
-      "column_no": "PC154",
-      "column_name": "GF",
-      "size": {
-        "width": 300,
-        "depth": null,
-        "length": 1515
-      },
-      "reinforcement": [
-        "10-T16",
-        "16-T12"
-      ],
-      "stirrups": {
-        "dia": [
-          "T12",
-          "T8"
-        ],
-        "spacing": [
-          "125 C/C",
-          "150 C/C"
-        ]
-      },
-      "mix": null,
-      "steel_grade": null
-    },
-    {
-      "column_no": "GC31",
-      "column_name": "GF",
       "size": {
         "width": 300,
         "depth": null,
         "length": 1150
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "PC148",
+      "column_name": "P01",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1975
+      },
+      "reinforcement": [
+        "14-T16",
+        "20-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "GC9",
+      "column_name": "P01",
+      "size": {
+        "width": 500,
+        "depth": 750,
+        "length": null
+      },
+      "reinforcement": [],
+      "stirrups": {
+        "dia": [],
+        "spacing": []
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "PC157",
+      "column_name": "GF",
+      "size": {
+        "width": 400,
+        "depth": 1500,
+        "length": null
+      },
+      "reinforcement": [
+        "16-T16",
+        "14-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "T10",
+          "T8"
+        ],
+        "spacing": [
+          "100 C/C",
+          "150 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": "GF"
+    },
+    {
+      "column_no": "PC154",
+      "column_name": "GF",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 1515
+      },
+      "reinforcement": [
+        "10-T16",
+        "16-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "T12",
+          "T8"
+        ],
+        "spacing": [
+          "125 C/C",
+          "150 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "GC31",
+      "column_name": "GF",
+      "size": {
+        "width": 300,
+        "depth": 1150,
+        "length": null
       },
       "reinforcement": [
         "4-T16",
@@ -1427,8 +1577,8 @@
       "column_name": "GF",
       "size": {
         "width": 500,
-        "depth": null,
-        "length": 750
+        "depth": 750,
+        "length": null
       },
       "reinforcement": [
         "12-T16",
@@ -1452,8 +1602,8 @@
       "column_name": "GF",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1150
+        "depth": 1150,
+        "length": null
       },
       "reinforcement": [
         "4-T16",
@@ -1477,12 +1627,12 @@
       "column_name": "GF",
       "size": {
         "width": 400,
-        "depth": null,
-        "length": 1500
+        "depth": 1500,
+        "length": null
       },
       "reinforcement": [
-        "24-T16",
-        "6-T12"
+        "16-T16",
+        "14-T12"
       ],
       "stirrups": {
         "dia": [
@@ -1495,15 +1645,15 @@
         ]
       },
       "mix": null,
-      "steel_grade": null
+      "steel_grade": "GF"
     },
     {
       "column_no": "PC153",
       "column_name": "GF",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1515
+        "depth": 1515,
+        "length": null
       },
       "reinforcement": [
         "10-T16",
@@ -1530,16 +1680,15 @@
         "depth": null,
         "length": 1150
       },
-      "reinforcement": [
-        "4-T16",
-        "18-T12"
-      ],
+      "reinforcement": [],
       "stirrups": {
         "dia": [
+          "T10",
           "T8"
         ],
         "spacing": [
-          "50 C/C"
+          "100 C/C",
+          "150 C/C"
         ]
       },
       "mix": null,
@@ -1550,8 +1699,8 @@
       "column_name": "GF",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1150
+        "depth": 1150,
+        "length": null
       },
       "reinforcement": [
         "4-T16",
@@ -1600,8 +1749,8 @@
       "column_name": "GF",
       "size": {
         "width": 500,
-        "depth": null,
-        "length": 750
+        "depth": 750,
+        "length": null
       },
       "reinforcement": [
         "12-T16",
@@ -1675,8 +1824,8 @@
       "column_name": "LG",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1150
+        "depth": 1150,
+        "length": null
       },
       "reinforcement": [
         "4-T16",
@@ -1700,8 +1849,8 @@
       "column_name": "LG",
       "size": {
         "width": 500,
-        "depth": null,
-        "length": 750
+        "depth": 750,
+        "length": null
       },
       "reinforcement": [
         "12-T16",
@@ -1725,8 +1874,8 @@
       "column_name": "LG",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1150
+        "depth": 1150,
+        "length": null
       },
       "reinforcement": [
         "4-T16",
@@ -1800,8 +1949,8 @@
       "column_name": "LG",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1150
+        "depth": 1150,
+        "length": null
       },
       "reinforcement": [
         "4-T16",
@@ -1825,8 +1974,8 @@
       "column_name": "LG",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1150
+        "depth": 1150,
+        "length": null
       },
       "reinforcement": [
         "4-T16",
@@ -1875,8 +2024,8 @@
       "column_name": "LG",
       "size": {
         "width": 500,
-        "depth": null,
-        "length": 750
+        "depth": 750,
+        "length": null
       },
       "reinforcement": [
         "12-T16",
@@ -1900,10 +2049,13 @@
       "column_name": "BASE",
       "size": {
         "width": 450,
-        "depth": null,
-        "length": 1500
+        "depth": 1500,
+        "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "24-T16",
+        "6-T12"
+      ],
       "stirrups": {
         "dia": [
           "T10",
@@ -1925,7 +2077,10 @@
         "depth": null,
         "length": 1515
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "10-T16",
+        "16-T12"
+      ],
       "stirrups": {
         "dia": [
           "T12",
@@ -1944,10 +2099,13 @@
       "column_name": "BASE",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1150
+        "depth": 1150,
+        "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "4-T16",
+        "18-T12"
+      ],
       "stirrups": {
         "dia": [
           "T10",
@@ -1966,10 +2124,13 @@
       "column_name": "BASE",
       "size": {
         "width": 500,
-        "depth": null,
-        "length": 750
+        "depth": 750,
+        "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "12-T16",
+        "8-T12"
+      ],
       "stirrups": {
         "dia": [
           "T10",
@@ -1988,10 +2149,13 @@
       "column_name": "BASE",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1150
+        "depth": 1150,
+        "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "4-T16",
+        "18-T12"
+      ],
       "stirrups": {
         "dia": [
           "T10",
@@ -2013,7 +2177,10 @@
         "depth": null,
         "length": 1500
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "24-T16",
+        "6-T12"
+      ],
       "stirrups": {
         "dia": [
           "T10",
@@ -2032,10 +2199,13 @@
       "column_name": "BASE",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1515
+        "depth": 1515,
+        "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "10-T16",
+        "16-T12"
+      ],
       "stirrups": {
         "dia": [
           "T12",
@@ -2054,10 +2224,13 @@
       "column_name": "BASE",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1150
+        "depth": 1150,
+        "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "4-T16",
+        "18-T12"
+      ],
       "stirrups": {
         "dia": [
           "T10",
@@ -2076,10 +2249,13 @@
       "column_name": "BASE",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1150
+        "depth": 1150,
+        "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "4-T16",
+        "18-T12"
+      ],
       "stirrups": {
         "dia": [
           "T10",
@@ -2098,10 +2274,13 @@
       "column_name": "BASE",
       "size": {
         "width": 300,
-        "depth": null,
-        "length": 1975
+        "depth": 1975,
+        "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "14-T16",
+        "20-T12"
+      ],
       "stirrups": {
         "dia": [
           "T10",
@@ -2120,10 +2299,13 @@
       "column_name": "BASE",
       "size": {
         "width": 500,
-        "depth": null,
-        "length": 750
+        "depth": 750,
+        "length": null
       },
-      "reinforcement": [],
+      "reinforcement": [
+        "12-T16",
+        "8-T12"
+      ],
       "stirrups": {
         "dia": [
           "T10",

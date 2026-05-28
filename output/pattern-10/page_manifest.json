@@ -1,6 +1,7 @@
 {
   "pattern": 10,
   "mode": "page_batches",
+  "extraction_mode": "precrop",
   "batches": [
     {
       "id": "p01",
