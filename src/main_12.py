@@ -30,6 +30,7 @@ DEPENDENCIES
 
 import json
 from extraction_guard import reshape_columns_to_levels
+from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pattern_batching import atomic_write_json
 from pattern_cleaners import standardize_records
 import os

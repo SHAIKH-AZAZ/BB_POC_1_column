@@ -33,7 +33,8 @@ import fitz  # PyMuPDF
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
-from pattern_batching import atomic_write_json, upper_levels
+from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
+from pattern_batching import atomic_write_json, parse_json_result, safe_filename, upper_levels
 from pattern_cleaners import standardize_records
 from vision_extractor import extract_from_image, extract_with_tools
 
@@ -46,10 +47,20 @@ _STEEL_RE = re.compile(r"\d+-T\d+",    re.IGNORECASE)   # "4-T16"
 _TYPE_RE  = re.compile(r"\(TYPE-\d+\)", re.IGNORECASE)   # "(TYPE-26)"
 _MIX_RE   = re.compile(r"^M\d+$",      re.IGNORECASE)   # "M40"
 X_SHIFT = 9
+PATTERN10_EXTRACTION_MODE = os.getenv("PATTERN10_EXTRACTION_MODE", "text").strip().lower()
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Shared utilities  (identical to pattern-9)
 # ─────────────────────────────────────────────────────────────────────────────
+
+def load_prompt():
+    with open(
+        os.path.join(os.path.dirname(__file__), "prompt_10.txt"),
+        "r",
+        encoding="utf-8",
+    ) as f:
+        return f.read()
+
 
 def cluster_1d(positions: list) -> list:
     """Ratio-jump clustering — same algorithm as pattern-9."""
@@ -183,12 +194,12 @@ def parse_links(txt: str) -> dict:
                     and falls in the range 50–500
                     (the LAST match avoids catching T12 in "-T12-125")
     """
-    segments  = re.split(r"\bAND\b", txt, flags=re.IGNORECASE)
+    segments  = re.split(r"\b(?:AND|ANO|&)\b|\+", txt, flags=re.IGNORECASE)
     dias: list     = []
     spacings: list = []
     for seg in segments:
         # ── Diameter ─────────────────────────────────────────────────────────
-        dm = re.search(r"T(\d+)", seg, re.IGNORECASE)
+        dm = re.search(r"T\s*(\d+)", seg, re.IGNORECASE)
         if dm:
             t = f"T{dm.group(1)}"
             if t not in dias:
@@ -197,13 +208,82 @@ def parse_links(txt: str) -> dict:
         # ── Spacing — find ALL candidate matches, take the LAST one ──────────
         # Pattern: dash or @, optional spaces, 2-4 digits NOT followed by digit
         # extract ALL valid spacings (robust)
-        for m in re.finditer(r"(?<!T)(?:-|@)\s*(\d{2,4})", seg):
+        for m in re.finditer(r"(?:-|@)\s*(\d{2,4})", seg):
             val = int(m.group(1))
             if 50 <= val <= 500:
                 sp = f"{val} C/C"
                 if sp not in spacings:
                     spacings.append(sp)
     return {"dia": dias, "spacing": spacings}
+
+
+def _normalise_model_cell_payload(payload) -> dict:
+    if isinstance(payload, dict) and "columns" in payload:
+        columns = payload.get("columns") or []
+        payload = columns[0] if columns and isinstance(columns[0], dict) else {}
+    if not isinstance(payload, dict):
+        payload = {}
+
+    size = payload.get("size") if isinstance(payload.get("size"), dict) else {}
+    if not size:
+        raw_size = payload.get("size") or payload.get("SIZE") or ""
+        size = parse_size_10(str(raw_size))
+
+    reinforcement = payload.get("reinforcement") or payload.get("steel") or payload.get("STEEL") or []
+    if isinstance(reinforcement, str):
+        reinforcement = parse_reinforcement(reinforcement)
+
+    stirrups = payload.get("stirrups") or payload.get("links") or payload.get("LINKS") or {}
+    if isinstance(stirrups, str):
+        stirrups = parse_links(stirrups)
+    elif not isinstance(stirrups, dict):
+        stirrups = {"dia": [], "spacing": []}
+
+    return {
+        "size": size or {"width": None, "depth": None, "length": None},
+        "reinforcement": reinforcement or [],
+        "stirrups": stirrups,
+        "mix": payload.get("mix"),
+        "steel_grade": payload.get("steel_grade"),
+    }
+
+
+def _pattern10_cell_prompt(column_no: str, level: str) -> str:
+    return f"""\
+Read this single Pattern-10 column schedule cell.
+
+Column: {column_no}
+Level: {level}
+
+The cell has up to three sub-rows:
+SIZE  e.g. "400 X 1500 (TYPE-10)"
+STEEL e.g. "16-T16 + 14-T12"
+LINKS e.g. "LOC 1:-T10-100 AND LOC 2:-T8-150"
+
+LINKS row means STIRRUPS. Always extract LINKS as stirrups:
+"LOC 1:-T10-100 AND LOC 2:-T8-150" -> dia ["T10","T8"], spacing ["100 C/C","150 C/C"]
+"LOC 1:-T12-125 AND LOC 2:-T8-150" -> dia ["T12","T8"], spacing ["125 C/C","150 C/C"]
+
+Return ONLY raw JSON:
+{{
+  "size": {{"width": null, "depth": null, "length": null}},
+  "reinforcement": [],
+  "stirrups": {{"dia": [], "spacing": []}},
+  "mix": null,
+  "steel_grade": null
+}}
+"""
+
+
+def _cell_bbox_for_layout(layout: dict, ri: int, ci: int) -> tuple:
+    cx = layout["col_centres"][ci]
+    cy = layout["row_centres"][ri]
+    return (
+        cx - layout["col_half"] + X_SHIFT,
+        (cy - layout["y_half"] * 0.5) + layout["y_shift"],
+        cx + layout["col_half"] + X_SHIFT,
+        (cy + layout["y_half"] * 2.5) + layout["y_shift"],
+    )
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -495,7 +575,12 @@ def extract_from_pdf_page_10(page: fitz.Page, layout: dict) -> list:
                     reinf_acc[key] = r
 
         # LINKS  (check before standalone STEEL to avoid "1:-T10" mis-match)
-        elif "LOC" in lu or "AND" in lu:
+        elif (
+            "LOC" in lu
+            or "AND" in lu
+            or "ANO" in lu
+            or re.search(r"T\s*\d+\s*(?:-|@)\s*\d{2,4}", lu)
+        ):
             links_acc[key].append(line_text)
 
         # Standalone STEEL
@@ -529,6 +614,71 @@ def extract_from_pdf_page_10(page: fitz.Page, layout: dict) -> list:
             })
 
     return records
+
+
+def extract_from_pdf_page_10_precrop(
+    page: fitz.Page,
+    layout: dict,
+    image_path: str,
+    output_folder: str,
+    page_no: int,
+    *,
+    use_tools: bool = False,
+) -> list:
+    records = []
+    n_cols = len(layout["col_names"])
+    n_rows = len(layout["row_names"])
+    page_w = float(page.rect.width)
+    page_h = float(page.rect.height)
+    crop_folder = os.path.join(output_folder, "cell_crops")
+
+    for ri in range(n_rows):
+        for ci in range(n_cols):
+            column_no = layout["col_names"][ci]
+            level = layout["row_names"][ri]
+            x0, y0, x1, y1 = _cell_bbox_for_layout(layout, ri, ci)
+            bbox = (
+                max(0.0, x0 / page_w),
+                max(0.0, y0 / page_h),
+                min(1.0, x1 / page_w),
+                min(1.0, y1 / page_h),
+            )
+            crop_name = (
+                f"p{page_no + 1:02d}_r{ri + 1:02d}_c{ci + 1:02d}_"
+                f"{safe_filename(level)}_{safe_filename(column_no)}.png"
+            )
+            crop_path = os.path.join(crop_folder, crop_name)
+            payload = zoom_and_extract(
+                image_path,
+                bbox,
+                _pattern10_cell_prompt(column_no, level),
+                normalized=True,
+                padding=12,
+                use_tools=use_tools,
+                trace_key=f"pattern10_cell_p{page_no + 1:02d}_r{ri + 1:02d}_c{ci + 1:02d}",
+                crop_out_path=crop_path,
+            )
+            cell = _normalise_model_cell_payload(payload)
+            records.append({
+                "column_no": column_no,
+                "column_name": level,
+                "size": cell["size"],
+                "reinforcement": cell["reinforcement"],
+                "stirrups": cell["stirrups"],
+                "mix": cell["mix"],
+                "steel_grade": cell["steel_grade"],
+            })
+    return records
+
+
+def extract_from_image_page_10_tools(image_path: str, prompt: str, page_no: int) -> list:
+    raw = extract_with_tools(
+        image_path,
+        prompt,
+        trace_key=f"pattern10_full_page_p{page_no + 1:02d}",
+    )
+    data = parse_json_result(raw)
+    return data.get("columns", []) if isinstance(data, dict) else []
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -630,8 +780,13 @@ def process_pdf(pdf_path: str):
     os.makedirs(output_folder, exist_ok=True)
 
     doc = fitz.open(pdf_path)
+    mode = PATTERN10_EXTRACTION_MODE
+    if mode not in {"text", "tools", "precrop", "precrop_tools"}:
+        print(f"  ⚠️  Unknown PATTERN10_EXTRACTION_MODE={mode!r}; using 'text'.")
+        mode = "text"
 
     print(f"\n🔍 Detecting layout from '{file_name}' …")
+    print(f"  Pattern-10 extraction mode: {mode}")
     layout = detect_layout_10(doc, pdf_path)
 
     if not layout:
@@ -640,6 +795,12 @@ def process_pdf(pdf_path: str):
 
     print(f"  Columns ({len(layout['col_names'])}): {layout['col_names']}")
     print(f"  Rows    ({len(layout['row_names'])}): {layout['row_names']}")
+    image_paths = []
+    prompt = ""
+    if mode in {"tools", "precrop", "precrop_tools"}:
+        image_paths = convert_pdf_to_images(pdf_path, output_folder, dpi=700)
+    if mode == "tools":
+        prompt = load_prompt()
 
     batch_folder_name = "page_batches"
     batch_folder = os.path.join(output_folder, batch_folder_name)
@@ -668,7 +829,19 @@ def process_pdf(pdf_path: str):
         atomic_write_json(manifest_path, manifest)
         page    = doc[page_no]
         # draw_debug_cells(page, layout, page_no, output_folder)
-        records = extract_from_pdf_page_10(page, layout)
+        if mode == "tools":
+            records = extract_from_image_page_10_tools(image_paths[page_no], prompt, page_no)
+        elif mode in {"precrop", "precrop_tools"}:
+            records = extract_from_pdf_page_10_precrop(
+                page,
+                layout,
+                image_paths[page_no],
+                output_folder,
+                page_no,
+                use_tools=(mode == "precrop_tools"),
+            )
+        else:
+            records = extract_from_pdf_page_10(page, layout)
         status  = f"✅ {len(records)} records" if records else "⚠️  no records"
         tqdm.write(f"  Page {page_no + 1}: {status}")
         all_records.extend(records)

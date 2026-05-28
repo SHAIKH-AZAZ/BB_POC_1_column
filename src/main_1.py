@@ -8,6 +8,7 @@ from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
 from extraction_guard import _coerce_stirrups_to_strings
+from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pattern1_cell_verifier import (
     detect_pattern1_grid,
     detect_levels_from_pattern1_label_crop,

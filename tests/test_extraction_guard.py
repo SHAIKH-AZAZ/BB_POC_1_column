@@ -9,6 +9,7 @@ if SRC_DIR not in sys.path:
 
 from extraction_guard import (  # noqa: E402
     ExtractionState,
+    _coerce_stirrups_to_strings,
     build_column_record,
     build_footing_record,
     build_slab_record,
@@ -99,6 +100,13 @@ class ExtractionGuardTests(unittest.TestCase):
             record["size"],
             {"width": 200, "depth": None, "length": 600},
         )
+
+    def test_stirrups_string_coercion_preserves_multiple_diameters(self):
+        stirrups = _coerce_stirrups_to_strings(
+            {"dia": ["T10", "T8"], "spacing": ["100 C/C", "150 C/C"]}
+        )
+        self.assertEqual(stirrups["dia"], "T10, T8")
+        self.assertEqual(stirrups["spacing"], "100 C/C, 150 C/C")
 
     def test_slab_schema_builder(self):
         record = build_slab_record(

@@ -71,6 +71,11 @@ Split on " + ". If blank → [].
 -----------------------------------------------------
 stirrups
 -----------------------------------------------------
+LINKS row = STIRRUPS (same meaning). Always extract stirrups from LINKS text.
+
+"LOC 1:-T10-100 AND LOC 2:-T8-150"
+→ dia: ["T10", "T8"], spacing: ["100 C/C", "150 C/C"]
+
 "LOC 1:-T10 -100 AND LOC 2:-T8 -150"
 → dia: ["T10", "T8"], spacing: ["100 C/C", "150 C/C"]
 
@@ -79,6 +84,10 @@ stirrups
 
 "LOC 1:-T8 -100 AND LOC 2:-T8 -150"
 → dia: ["T8"], spacing: ["100 C/C", "150 C/C"]
+
+Also accept equivalent separators/typos in LINKS:
+- "AND", "ANO", "&", "+"
+- no-space forms like "T12-125" or "@125"
 
 If blank → dia: [], spacing: [].
 

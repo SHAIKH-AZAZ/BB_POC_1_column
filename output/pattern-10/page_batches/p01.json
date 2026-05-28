@@ -1726,8 +1726,12 @@
         "18-T12"
       ],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "50 C/C"
+        ]
       },
       "mix": null,
       "steel_grade": null

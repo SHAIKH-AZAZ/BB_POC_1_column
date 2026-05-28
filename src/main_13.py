@@ -77,6 +77,7 @@ import base64
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from extraction_guard import reshape_columns_to_levels
+from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pattern_batching import atomic_write_json, safe_filename
 from pattern_cleaners import standardize_records
 import os

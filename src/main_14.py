@@ -7,6 +7,7 @@ from tqdm import tqdm
 from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
+from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pattern_batching import MAX_LEVEL_WORKERS, atomic_write_json, safe_filename, trace_key_for
 from pattern_cleaners import standardize_records
 from vision_extractor import detect_levels_from_image, extract_from_image, extract_with_tools

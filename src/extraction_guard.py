@@ -474,20 +474,25 @@ def _coerce_stirrups_to_strings(stirrups):
         raw_dia = ""
         raw_sp = str(stirrups)
 
-    # Flatten list-valued dia/spacing
+    # Flatten list-valued dia/spacing. Keep multi-zone diameters; Pattern 10
+    # links can legitimately be ["T10", "T8"] for one cell.
     if isinstance(raw_dia, list):
-        raw_dia = raw_dia[0] if raw_dia else ""
+        raw_dia = ", ".join(str(d).strip() for d in raw_dia if d)
     if isinstance(raw_sp, list):
         raw_sp = ", ".join(str(s).strip() for s in raw_sp if s)
 
-    dia = str(raw_dia).strip().upper().replace(" ", "")
-    # Normalize "8T" -> "T8" (Pattern 6 notation -> Pattern 2 notation)
-    m = re.match(r"^(\d+)([TYHRD#])$", dia)
-    if m:
-        dia = f"{m.group(2)}{m.group(1)}"
+    dia_parts = []
+    for part in re.split(r"\s*,\s*", str(raw_dia).strip().upper()):
+        part = part.replace(" ", "")
+        # Normalize "8T" -> "T8" (Pattern 6 notation -> Pattern 2 notation)
+        m = re.match(r"^(\d+)([TYHRD#])$", part)
+        if m:
+            part = f"{m.group(2)}{m.group(1)}"
+        if part and part not in dia_parts:
+            dia_parts.append(part)
 
     return {
-        "dia": dia,
+        "dia": ", ".join(dia_parts),
         "spacing": str(raw_sp).strip(),
     }
 

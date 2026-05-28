@@ -5,6 +5,7 @@ from tqdm import tqdm
 from PIL import Image
 
 from config import INPUT_DIR, OUTPUT_DIR
+from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
 from pattern_batching import extract_pages_with_checkpoints
