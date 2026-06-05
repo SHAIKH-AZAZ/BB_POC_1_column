@@ -30,6 +30,7 @@ from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noq
 from pattern_batching import extract_levels_with_checkpoints, upper_level_from_range
 from pattern_cleaners import standardize_records
 from pdf_to_images import convert_pdf_to_images
+from quality_pipeline import run_quality_pipeline
 
 
 # ==============================
@@ -102,6 +103,14 @@ def process_pdf(pdf_path):
         raw_columns,
         stirrups_cleaner=None,
         apply_column_filter=False,
+    )
+
+    # Hook point: deterministic rules + confidence metadata after standardize_records.
+    final_columns, _quality = run_quality_pipeline(
+        final_columns,
+        pattern_number=9,
+        output_folder=output_folder,
+        file_stem=file_name,
     )
 
     final_output = reshape_columns_to_levels(final_columns)

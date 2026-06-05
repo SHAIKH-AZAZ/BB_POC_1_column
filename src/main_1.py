@@ -16,6 +16,7 @@ from pattern1_cell_verifier import (
     verify_level_columns_with_crops,
 )
 from pdf_to_images import convert_pdf_to_images
+from quality_pipeline import run_quality_pipeline
 from vision_extractor import detect_levels_from_image, extract_with_tools
 
 MAX_LEVEL_WORKERS = 3
@@ -508,6 +509,33 @@ def process_pdf(pdf_path):
             atomic_write_json(manifest_path, manifest)
 
     output_data = merge_done_level_batches(manifest, output_folder)
+
+    # Hook point: deterministic rules + confidence metadata before final write.
+    flat_columns = []
+    for level_block in output_data.get("levels", []):
+        level_name = level_block.get("level")
+        for col in level_block.get("columns", []):
+            row = dict(col)
+            row["column_name"] = level_name
+            flat_columns.append(row)
+    scored_columns, _quality = run_quality_pipeline(
+        flat_columns,
+        pattern_number=1,
+        output_folder=output_folder,
+        file_stem=file_name,
+    )
+    rebuilt_levels = {}
+    for row in scored_columns:
+        level_name = row.get("column_name") or "UNKNOWN"
+        clean_row = dict(row)
+        clean_row.pop("column_name", None)
+        rebuilt_levels.setdefault(level_name, []).append(clean_row)
+    output_data = {
+        "levels": [
+            {"level": level, "columns": cols}
+            for level, cols in rebuilt_levels.items()
+        ]
+    }
 
     output_file = os.path.join(output_folder, f"{file_name}.json")
     atomic_write_json(output_file, output_data)

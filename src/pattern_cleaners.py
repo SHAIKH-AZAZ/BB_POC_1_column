@@ -32,6 +32,7 @@ without touching its bespoke extraction flow (fitz / OpenCV / 2-pass).
 
 import re
 
+from knowledge_loader import apply_ocr_normalization_to_record
 from pattern_batching import filter_valid_columns, upper_level_from_range
 
 
@@ -390,7 +391,7 @@ def standardize_records(
         if not isinstance(record, dict):
             continue
         # shallow copy so we never mutate the caller's dict
-        item = dict(record)
+        item = apply_ocr_normalization_to_record(record)
 
         if apply_column_no:
             item["column_no"] = clean_column_no(item.get("column_no"))

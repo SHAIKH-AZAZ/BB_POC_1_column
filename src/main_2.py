@@ -10,6 +10,7 @@ from extraction_guard import _coerce_stirrups_to_strings
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pdf_to_images import convert_pdf_to_images
 from pattern_batching import env_enabled, extract_levels_with_checkpoints, upper_level_from_range
+from quality_pipeline import run_quality_pipeline
 from vision_extractor import extract_from_image, extract_with_tools
 
 # ==============================
@@ -373,6 +374,14 @@ def process_pdf(pdf_path):
 
     if env_enabled("PATTERN2_SIZE_LOOKUP", default=False):
         final_columns = reconcile_pattern_2_sizes(final_columns)
+
+    # Hook point: deterministic rules + confidence metadata before reshape.
+    final_columns, _quality = run_quality_pipeline(
+        final_columns,
+        pattern_number=2,
+        output_folder=output_folder,
+        file_stem=file_name,
+    )
 
     final_output = reshape_to_levels(final_columns)
 

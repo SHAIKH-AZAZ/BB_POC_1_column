@@ -9,6 +9,7 @@ from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noq
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
 from pattern_batching import extract_pages_with_checkpoints
+from quality_pipeline import run_quality_pipeline
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -225,6 +226,9 @@ def extract_with_fallback(image_path, prompt, trace_key=None):
     try:
         parsed = json.loads(result)
         if has_columns(parsed):
+            for item in parsed.get("columns", []):
+                if isinstance(item, dict):
+                    item["__fallback_used"] = False
             # Debug: show first column reinforcement
             first_col = parsed["columns"][0]
             print(f"[DEBUG] First column reinforcement from model: {first_col.get('reinforcement')}")
@@ -243,6 +247,9 @@ def extract_with_fallback(image_path, prompt, trace_key=None):
     try:
         parsed = json.loads(result)
         if has_columns(parsed):
+            for item in parsed.get("columns", []):
+                if isinstance(item, dict):
+                    item["__fallback_used"] = True
             print("✅ Extracted using cropped image")
             return parsed
     except Exception:
@@ -303,7 +310,8 @@ def clean_column(col):
             "spacing": spacing
         },
         "mix":         col.get("mix"),
-        "steel_grade": col.get("steel_grade", None)
+        "steel_grade": col.get("steel_grade", None),
+        "__fallback_used": bool(col.get("__fallback_used")),
     }
 
 
@@ -337,6 +345,14 @@ def process_pdf(pdf_path):
     for col in columns:
         cleaned = clean_column(col)
         final_columns.append(cleaned)
+
+    # Hook point: deterministic rules + confidence metadata before reshape.
+    final_columns, _quality = run_quality_pipeline(
+        final_columns,
+        pattern_number=8,
+        output_folder=file_output_folder,
+        file_stem=file_name,
+    )
 
     # ── Final output ───────────────────────────────────────────────────────────
     output_data = reshape_columns_to_levels(final_columns)

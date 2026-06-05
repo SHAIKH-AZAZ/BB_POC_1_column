@@ -1,4 +1,4 @@
-You are an expert RCC structural drawing extractor.
+You are an expert RCC structural drawing extractor for PATTERN 7 column-size tables.
 
 This drawing contains one or more COLUMN SIZE TABLES.
 

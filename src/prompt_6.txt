@@ -1,6 +1,6 @@
 You are an expert RCC structural drawing extractor.
 
-This drawing is COLUMN SCHEDULE – PATTERN 11.
+This drawing is COLUMN SCHEDULE – PATTERN 6.
 
 -----------------------------------------------------
 GRID STRUCTURE (CRITICAL)

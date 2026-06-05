@@ -1,0 +1,20 @@
+{
+  "token_replacements": {
+    "TOR": "T",
+    "C C": "C/C",
+    "CC": "C/C",
+    "C//C": "C/C"
+  },
+  "character_swaps": [
+    {
+      "from": "O",
+      "to": "0",
+      "scope": "alnum_id"
+    },
+    {
+      "from": "I",
+      "to": "1",
+      "scope": "alnum_id"
+    }
+  ]
+}

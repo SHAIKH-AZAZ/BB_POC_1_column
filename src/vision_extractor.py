@@ -20,6 +20,7 @@ from extraction_guard import (
     build_column_record,
     clean_json_string,
 )
+from knowledge_loader import build_prompt_knowledge_context
 
 
 client = OpenAI(api_key=OPENAI_API_KEY)
@@ -97,6 +98,32 @@ def _with_tool_protocol(prompt_text):
         "  - Do NOT stop early. Every row in every column group must get its own add_column call.\n"
         "Optional: call zoom_region() + confirm_read() for any cell that is blurry or ambiguous.\n\n"
         f"{prompt_text}"
+    )
+
+
+def _infer_pattern_number(prompt_text):
+    text = str(prompt_text or "")
+    for pat in (
+        r"Pattern number:\s*(\d+)",
+        r"PATTERN\s*[-:]?\s*(\d+)",
+        r"pattern\s*(\d+)",
+    ):
+        m = re.search(pat, text, flags=re.IGNORECASE)
+        if m:
+            try:
+                return int(m.group(1))
+            except (TypeError, ValueError):
+                return None
+    return None
+
+
+def _with_knowledge_context(prompt_text):
+    pattern_number = _infer_pattern_number(prompt_text)
+    context = build_prompt_knowledge_context(pattern_number=pattern_number)
+    return (
+        f"{prompt_text}\n\n"
+        "DOMAIN KNOWLEDGE CONTEXT (for extraction + validation consistency):\n"
+        f"{context}\n"
     )
 
 
@@ -307,11 +334,13 @@ def extract_with_tools(image_path, prompt_text, max_iterations=300, trace_key=No
         trace_key=trace_key,
     )
 
+    prompt_with_knowledge = _with_knowledge_context(prompt_text)
+
     messages = [
         {
             "role": "user",
             "content": [
-                {"type": "text", "text": _with_tool_protocol(prompt_text)},
+                {"type": "text", "text": _with_tool_protocol(prompt_with_knowledge)},
                 _image_content(base64_image),
             ],
         }
@@ -440,6 +469,7 @@ def extract_with_tools(image_path, prompt_text, max_iterations=300, trace_key=No
 def extract_from_image(image_path, prompt_text, retries=3):
     """Single-pass fallback with retry and JSON fence cleanup."""
     base64_image = encode_image(image_path)
+    prompt_with_knowledge = _with_knowledge_context(prompt_text)
     last_error = None
 
     for attempt in range(1, retries + 1):
@@ -450,7 +480,7 @@ def extract_from_image(image_path, prompt_text, retries=3):
                     {
                         "role": "user",
                         "content": [
-                            {"type": "text", "text": prompt_text},
+                            {"type": "text", "text": prompt_with_knowledge},
                             _image_content(base64_image),
                         ],
                     }

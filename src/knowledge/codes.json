@@ -1,0 +1,15 @@
+{
+  "standards": {
+    "IS_456": {
+      "column_reinforcement_ratio_min": 0.008,
+      "column_reinforcement_ratio_max": 0.06,
+      "max_tie_spacing_mm": 300
+    },
+    "IS_13920": {
+      "seismic_max_tie_spacing_mm": 150
+    },
+    "IS_875": {
+      "load_combination_note": "Use governing load combinations for project context checks."
+    }
+  }
+}

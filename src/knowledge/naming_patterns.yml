@@ -1,0 +1,19 @@
+{
+  "global": {
+    "allowed_regexes": [
+      "^[A-Za-z]{1,4}-?\\d+[A-Za-z]?(?:-\\d+)?$",
+      "^T[A-Za-z]-[A-Za-z]\\d+[A-Za-z]?(?:-\\d+)?$"
+    ]
+  },
+  "families": [
+    "AC",
+    "BC",
+    "CP",
+    "SW",
+    "TA",
+    "TB",
+    "TC",
+    "PC",
+    "GC"
+  ]
+}

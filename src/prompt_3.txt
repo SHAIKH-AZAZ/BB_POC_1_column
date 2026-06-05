@@ -1,6 +1,6 @@
 You are an expert RCC structural drawing extractor specialized in COLUMN SCHEDULE TABLES.
 
-This drawing is COLUMN SCHEDULE – PATTERN 6.
+This drawing is COLUMN SCHEDULE – PATTERN 3.
 
 -----------------------------------------------------
 
