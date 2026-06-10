@@ -1,0 +1,119 @@
+{
+  "level": "FOUNDATION TO FIRST FLOOR LEVEL",
+  "columns": [
+    {
+      "column_no": "SW4",
+      "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 2400
+      },
+      "reinforcement": [
+        "24-T16",
+        "18-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW5",
+      "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 2400
+      },
+      "reinforcement": [
+        "12-T16",
+        "4-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW6",
+      "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 2400
+      },
+      "reinforcement": [
+        "8-T16",
+        "8-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW7",
+      "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 2400
+      },
+      "reinforcement": [
+        "16-T16"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "SW8",
+      "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 200,
+        "depth": null,
+        "length": 2400
+      },
+      "reinforcement": [
+        "24-T16",
+        "15-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "T8"
+        ],
+        "spacing": [
+          "200 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    }
+  ]
+}

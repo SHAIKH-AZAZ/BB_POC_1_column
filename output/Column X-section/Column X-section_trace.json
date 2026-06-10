@@ -1,0 +1,4858 @@
+{
+  "project": "column",
+  "pdf_stem": "Column X-section",
+  "pages": {
+    "page_1.png__p01_l001_FOUNDATION_TO_FIRST_FLOOR_LEVEL": {
+      "project": "column",
+      "image_path": "/home/azaz/Desktop/code/POC ZIP FILES/POC-1/BB_POC_1_column/output/Column X-section/page_1.png",
+      "generated_at": "2026-06-10T09:06:10.760857+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 1200,
+          "y1": 1200,
+          "x2": 3500,
+          "y2": 3200
+        },
+        "column_headers": [
+          "SW4",
+          "SW5",
+          "SW6",
+          "SW7",
+          "SW8"
+        ],
+        "storey_levels": [
+          "FOUNDATION TO FIRST FLOOR LEVEL"
+        ],
+        "expected_count": 5,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "row_label",
+            "target": "SW4 label near left side",
+            "reason": "Confirm SW column ID label"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "target": "SW4 FOUNDATION TO FIRST FLOOR LEVEL cell",
+            "reason": "Extract size, reinforcement, stirrups, mix"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "row_label",
+            "target": "SW5 label near left side",
+            "reason": "Confirm SW column ID label"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "target": "SW5 FOUNDATION TO FIRST FLOOR LEVEL cell",
+            "reason": "Extract size, reinforcement, stirrups, mix"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "row_label",
+            "target": "SW6 label near left side",
+            "reason": "Confirm SW column ID label"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "data_cell",
+            "target": "SW6 FOUNDATION TO FIRST FLOOR LEVEL cell",
+            "reason": "Extract size, reinforcement, stirrups, mix"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "row_label",
+            "target": "SW7 label near left side",
+            "reason": "Confirm SW column ID label"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "target": "SW7 FOUNDATION TO FIRST FLOOR LEVEL cell",
+            "reason": "Extract size, reinforcement, stirrups, mix"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "row_label",
+            "target": "SW8 label near left side",
+            "reason": "Confirm SW column ID label"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "data_cell",
+            "target": "SW8 FOUNDATION TO FIRST FLOOR LEVEL cell",
+            "reason": "Extract size, reinforcement, stirrups, mix"
+          }
+        ],
+        "normalization_rules": [
+          "Use only SW column IDs",
+          "Use full floor level name",
+          "Width is smaller dimension, length is larger dimension",
+          "Depth is null for shear walls",
+          "Split reinforcement bars by '+'",
+          "Extract stirrup diameter and spacing separately",
+          "Return null or empty if data missing"
+        ],
+        "extraction_order": [
+          "SW4 FOUNDATION TO FIRST FLOOR LEVEL",
+          "SW5 FOUNDATION TO FIRST FLOOR LEVEL",
+          "SW6 FOUNDATION TO FIRST FLOOR LEVEL",
+          "SW7 FOUNDATION TO FIRST FLOOR LEVEL",
+          "SW8 FOUNDATION TO FIRST FLOOR LEVEL"
+        ]
+      },
+      "zoom_regions": [
+        {
+          "region_id": "r1",
+          "purpose": "row_label",
+          "x1": 1220.0,
+          "y1": 1250.0,
+          "x2": 1280.0,
+          "y2": 1300.0,
+          "reason": "Confirm SW4 label"
+        },
+        {
+          "region_id": "r2",
+          "purpose": "data_cell",
+          "x1": 1300.0,
+          "y1": 1300.0,
+          "x2": 1600.0,
+          "y2": 1600.0,
+          "reason": "Extract SW4 FOUNDATION TO FIRST FLOOR LEVEL data"
+        },
+        {
+          "region_id": "r3",
+          "purpose": "row_label",
+          "x1": 1650.0,
+          "y1": 1250.0,
+          "x2": 1710.0,
+          "y2": 1300.0,
+          "reason": "Confirm SW5 label"
+        },
+        {
+          "region_id": "r4",
+          "purpose": "data_cell",
+          "x1": 1750.0,
+          "y1": 1300.0,
+          "x2": 2050.0,
+          "y2": 1600.0,
+          "reason": "Extract SW5 FOUNDATION TO FIRST FLOOR LEVEL data"
+        },
+        {
+          "region_id": "r5",
+          "purpose": "row_label",
+          "x1": 2100.0,
+          "y1": 1250.0,
+          "x2": 2160.0,
+          "y2": 1300.0,
+          "reason": "Confirm SW6 label"
+        },
+        {
+          "region_id": "r6",
+          "purpose": "data_cell",
+          "x1": 2200.0,
+          "y1": 1300.0,
+          "x2": 2500.0,
+          "y2": 1600.0,
+          "reason": "Extract SW6 FOUNDATION TO FIRST FLOOR LEVEL data"
+        },
+        {
+          "region_id": "r7",
+          "purpose": "row_label",
+          "x1": 2550.0,
+          "y1": 1250.0,
+          "x2": 2610.0,
+          "y2": 1300.0,
+          "reason": "Confirm SW7 label"
+        },
+        {
+          "region_id": "r8",
+          "purpose": "data_cell",
+          "x1": 2650.0,
+          "y1": 1300.0,
+          "x2": 2950.0,
+          "y2": 1600.0,
+          "reason": "Extract SW7 FOUNDATION TO FIRST FLOOR LEVEL data"
+        },
+        {
+          "region_id": "r9",
+          "purpose": "row_label",
+          "x1": 3000.0,
+          "y1": 1250.0,
+          "x2": 3060.0,
+          "y2": 1300.0,
+          "reason": "Confirm SW8 label"
+        },
+        {
+          "region_id": "r10",
+          "purpose": "data_cell",
+          "x1": 3100.0,
+          "y1": 1300.0,
+          "x2": 3400.0,
+          "y2": 1600.0,
+          "reason": "Extract SW8 FOUNDATION TO FIRST FLOOR LEVEL data"
+        }
+      ],
+      "confirmed_reads": [
+        {
+          "region_id": "r1",
+          "text": "SW4",
+          "confidence": "high",
+          "applies_to": "row_label"
+        },
+        {
+          "region_id": "r2",
+          "text": "FOUNDATION TO FIRST FLOOR LEVEL\n200 x 2400\n24-T16 + 18-T12\nT8 @ 200 C/C\nM-30",
+          "confidence": "high",
+          "applies_to": "data_cell"
+        },
+        {
+          "region_id": "r3",
+          "text": "SW5",
+          "confidence": "high",
+          "applies_to": "row_label"
+        },
+        {
+          "region_id": "r4",
+          "text": "FOUNDATION TO FIRST FLOOR LEVEL\n200 x 2400\n12-T16 + 4-T12\nT8 @ 200 C/C\nM-30",
+          "confidence": "high",
+          "applies_to": "data_cell"
+        },
+        {
+          "region_id": "r5",
+          "text": "SW6",
+          "confidence": "high",
+          "applies_to": "row_label"
+        },
+        {
+          "region_id": "r6",
+          "text": "FOUNDATION TO FIRST FLOOR LEVEL\n200 x 2400\n8-T16 + 8-T12\nT8 @ 200 C/C\nM-30",
+          "confidence": "high",
+          "applies_to": "data_cell"
+        },
+        {
+          "region_id": "r7",
+          "text": "SW7",
+          "confidence": "high",
+          "applies_to": "row_label"
+        },
+        {
+          "region_id": "r8",
+          "text": "FOUNDATION TO FIRST FLOOR LEVEL\n200 x 2400\n16-T16\nT8 @ 200 C/C\nM-30",
+          "confidence": "high",
+          "applies_to": "data_cell"
+        },
+        {
+          "region_id": "r9",
+          "text": "SW8",
+          "confidence": "high",
+          "applies_to": "row_label"
+        },
+        {
+          "region_id": "r10",
+          "text": "FOUNDATION TO FIRST FLOOR LEVEL\n200 x 2400\n24-T16 + 15-T12\nT8 @ 200 C/C\nM-30",
+          "confidence": "high",
+          "applies_to": "data_cell"
+        }
+      ],
+      "records": [
+        {
+          "column_no": "SW4",
+          "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 2400
+          },
+          "reinforcement": [
+            "24-T16",
+            "18-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "SW5",
+          "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 2400
+          },
+          "reinforcement": [
+            "12-T16",
+            "4-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "SW6",
+          "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 2400
+          },
+          "reinforcement": [
+            "8-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "SW7",
+          "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 2400
+          },
+          "reinforcement": [
+            "16-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "SW8",
+          "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 2400
+          },
+          "reinforcement": [
+            "24-T16",
+            "15-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "SW4",
+            "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 2400
+            },
+            "reinforcement": [
+              "24-T16",
+              "18-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r2"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "SW5",
+            "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 2400
+            },
+            "reinforcement": [
+              "12-T16",
+              "4-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r4"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "SW6",
+            "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 2400
+            },
+            "reinforcement": [
+              "8-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r6"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "SW7",
+            "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 2400
+            },
+            "reinforcement": [
+              "16-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r8"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "SW8",
+            "column_name": "FOUNDATION TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 2400
+            },
+            "reinforcement": [
+              "24-T16",
+              "15-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r10"
+          ]
+        }
+      ],
+      "expected_count": 5,
+      "actual_count": 5,
+      "warnings": []
+    },
+    "page_1.png__p01_l003_THIRD_FLOOR_TO_TERRACE_LEVEL": {
+      "project": "column",
+      "image_path": "/home/azaz/Desktop/code/POC ZIP FILES/POC-1/BB_POC_1_column/output/Column X-section/page_1.png",
+      "generated_at": "2026-06-10T09:06:15.580555+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "left_section": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 600,
+            "y2": 1200
+          },
+          "right_section": {
+            "x1": 600,
+            "y1": 0,
+            "x2": 1800,
+            "y2": 1200
+          }
+        },
+        "column_headers": [
+          "FOUNDATION TO FIRST FLOOR LEVEL",
+          "FIRST FLOOR TO THIRD FLOOR LEVEL",
+          "THIRD FLOOR TO TERRACE LEVEL"
+        ],
+        "storey_levels": [
+          "SW4",
+          "SW5",
+          "SW6",
+          "SW7",
+          "SW8"
+        ],
+        "expected_count": 15,
+        "zoom_plan": [
+          {
+            "region_id": "left_SW4_THIRD",
+            "purpose": "data_cell",
+            "x1": 50,
+            "y1": 900,
+            "x2": 250,
+            "y2": 1050,
+            "reason": "extract SW4 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "left_SW5_THIRD",
+            "purpose": "data_cell",
+            "x1": 250,
+            "y1": 900,
+            "x2": 450,
+            "y2": 1050,
+            "reason": "extract SW5 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "left_SW6_THIRD",
+            "purpose": "data_cell",
+            "x1": 450,
+            "y1": 900,
+            "x2": 650,
+            "y2": 1050,
+            "reason": "extract SW6 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "right_SW4_THIRD",
+            "purpose": "data_cell",
+            "x1": 650,
+            "y1": 900,
+            "x2": 850,
+            "y2": 1050,
+            "reason": "extract SW4 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "right_SW5_THIRD",
+            "purpose": "data_cell",
+            "x1": 850,
+            "y1": 900,
+            "x2": 1050,
+            "y2": 1050,
+            "reason": "extract SW5 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "right_SW6_THIRD",
+            "purpose": "data_cell",
+            "x1": 1050,
+            "y1": 900,
+            "x2": 1250,
+            "y2": 1050,
+            "reason": "extract SW6 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "right_SW7_THIRD",
+            "purpose": "data_cell",
+            "x1": 1250,
+            "y1": 900,
+            "x2": 1450,
+            "y2": 1050,
+            "reason": "extract SW7 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "right_SW8_THIRD",
+            "purpose": "data_cell",
+            "x1": 1450,
+            "y1": 900,
+            "x2": 1650,
+            "y2": 1050,
+            "reason": "extract SW8 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+          }
+        ],
+        "normalization_rules": [
+          "Use only SW column IDs: SW4, SW5, SW6, SW7, SW8",
+          "Use full floor level name: THIRD FLOOR TO TERRACE LEVEL",
+          "Size format: width x length, depth=null",
+          "Reinforcement split by '+'",
+          "Stirrups dia and spacing from stirrup notes",
+          "Mix label if present, else null"
+        ],
+        "extraction_order": [
+          "SW4",
+          "SW5",
+          "SW6",
+          "SW7",
+          "SW8"
+        ]
+      },
+      "zoom_regions": [
+        {
+          "region_id": "left_SW4_THIRD",
+          "purpose": "data_cell",
+          "x1": 50.0,
+          "y1": 900.0,
+          "x2": 250.0,
+          "y2": 1050.0,
+          "reason": "extract SW4 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+        },
+        {
+          "region_id": "left_SW5_THIRD",
+          "purpose": "data_cell",
+          "x1": 250.0,
+          "y1": 900.0,
+          "x2": 450.0,
+          "y2": 1050.0,
+          "reason": "extract SW5 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+        },
+        {
+          "region_id": "left_SW6_THIRD",
+          "purpose": "data_cell",
+          "x1": 450.0,
+          "y1": 900.0,
+          "x2": 650.0,
+          "y2": 1050.0,
+          "reason": "extract SW6 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+        },
+        {
+          "region_id": "right_SW4_THIRD",
+          "purpose": "data_cell",
+          "x1": 650.0,
+          "y1": 900.0,
+          "x2": 850.0,
+          "y2": 1050.0,
+          "reason": "extract SW4 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+        },
+        {
+          "region_id": "right_SW5_THIRD",
+          "purpose": "data_cell",
+          "x1": 850.0,
+          "y1": 900.0,
+          "x2": 1050.0,
+          "y2": 1050.0,
+          "reason": "extract SW5 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+        },
+        {
+          "region_id": "right_SW6_THIRD",
+          "purpose": "data_cell",
+          "x1": 1050.0,
+          "y1": 900.0,
+          "x2": 1250.0,
+          "y2": 1050.0,
+          "reason": "extract SW6 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+        },
+        {
+          "region_id": "right_SW7_THIRD",
+          "purpose": "data_cell",
+          "x1": 1250.0,
+          "y1": 900.0,
+          "x2": 1450.0,
+          "y2": 1050.0,
+          "reason": "extract SW7 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+        },
+        {
+          "region_id": "right_SW8_THIRD",
+          "purpose": "data_cell",
+          "x1": 1450.0,
+          "y1": 900.0,
+          "x2": 1650.0,
+          "y2": 1050.0,
+          "reason": "extract SW8 size and reinforcement at THIRD FLOOR TO TERRACE LEVEL"
+        }
+      ],
+      "confirmed_reads": [
+        {
+          "region_id": "left_SW4_THIRD",
+          "text": "200 x 2400\n24-T16 + 18-T12\nT8@200c/c\nM-30",
+          "confidence": "high",
+          "applies_to": "left_SW4_THIRD"
+        },
+        {
+          "region_id": "left_SW5_THIRD",
+          "text": "200 x 2400\n24-T16 + 18-T12\nT8@200c/c\nM-30",
+          "confidence": "high",
+          "applies_to": "left_SW5_THIRD"
+        },
+        {
+          "region_id": "left_SW6_THIRD",
+          "text": "200 x 2400\n24-T16 + 18-T12\nT8@200c/c\nM-30",
+          "confidence": "high",
+          "applies_to": "left_SW6_THIRD"
+        },
+        {
+          "region_id": "right_SW4_THIRD",
+          "text": "200 x 2400\n24-T16 + 18-T12\nT8@200c/c\nM-30",
+          "confidence": "high",
+          "applies_to": "right_SW4_THIRD"
+        },
+        {
+          "region_id": "right_SW5_THIRD",
+          "text": "200 x 2400\n24-T16 + 18-T12\nT8@200c/c\nM-30",
+          "confidence": "high",
+          "applies_to": "right_SW5_THIRD"
+        },
+        {
+          "region_id": "right_SW6_THIRD",
+          "text": "200 x 2400\n24-T16 + 18-T12\nT8@200c/c\nM-30",
+          "confidence": "high",
+          "applies_to": "right_SW6_THIRD"
+        },
+        {
+          "region_id": "right_SW7_THIRD",
+          "text": "200 x 2400\n24-T16 + 18-T12\nT8@200c/c\nM-30",
+          "confidence": "high",
+          "applies_to": "right_SW7_THIRD"
+        },
+        {
+          "region_id": "right_SW8_THIRD",
+          "text": "200 x 2400\n24-T16 + 18-T12\nT8@200c/c\nM-30",
+          "confidence": "high",
+          "applies_to": "right_SW8_THIRD"
+        }
+      ],
+      "records": [
+        {
+          "column_no": "SW4",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 2400
+          },
+          "reinforcement": [
+            "24-T16",
+            "18-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "SW5",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 2400
+          },
+          "reinforcement": [
+            "24-T16",
+            "18-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "SW6",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 2400
+          },
+          "reinforcement": [
+            "24-T16",
+            "18-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "SW7",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 2400
+          },
+          "reinforcement": [
+            "24-T16",
+            "18-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "SW8",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 200,
+            "depth": null,
+            "length": 2400
+          },
+          "reinforcement": [
+            "24-T16",
+            "18-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "SW4",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 2400
+            },
+            "reinforcement": [
+              "24-T16",
+              "18-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "left_SW4_THIRD",
+            "right_SW4_THIRD"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "SW5",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 2400
+            },
+            "reinforcement": [
+              "24-T16",
+              "18-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "left_SW5_THIRD",
+            "right_SW5_THIRD"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "SW6",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 2400
+            },
+            "reinforcement": [
+              "24-T16",
+              "18-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "left_SW6_THIRD",
+            "right_SW6_THIRD"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "SW7",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 2400
+            },
+            "reinforcement": [
+              "24-T16",
+              "18-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "right_SW7_THIRD"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "SW8",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 200,
+              "depth": null,
+              "length": 2400
+            },
+            "reinforcement": [
+              "24-T16",
+              "18-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "right_SW8_THIRD"
+          ]
+        }
+      ],
+      "expected_count": 15,
+      "actual_count": 5,
+      "warnings": [
+        "expected 15 record(s), collected 5"
+      ]
+    },
+    "page_1.png__p01_l002_FIRST_FLOOR_TO_THIRD_FLOOR_LEVEL": {
+      "project": "column",
+      "image_path": "/home/azaz/Desktop/code/POC ZIP FILES/POC-1/BB_POC_1_column/output/Column X-section/page_1.png",
+      "generated_at": "2026-06-10T09:08:52.251801+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 100,
+          "y1": 300,
+          "x2": 1200,
+          "y2": 900
+        },
+        "column_headers": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7",
+          "C8"
+        ],
+        "storey_levels": [
+          "FIRST FLOOR TO THIRD FLOOR LEVEL"
+        ],
+        "expected_count": 8,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "data_cell",
+            "target": "C1 FIRST FLOOR TO THIRD FLOOR LEVEL size",
+            "reason": "read size 300x750"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "target": "C1 FIRST FLOOR TO THIRD FLOOR LEVEL reinforcement",
+            "reason": "read reinforcement 4-16 + 9-12"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "data_cell",
+            "target": "C1 FIRST FLOOR TO THIRD FLOOR LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "target": "C1 FIRST FLOOR TO THIRD FLOOR LEVEL mix",
+            "reason": "read mix M-30"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "data_cell",
+            "target": "C2 FIRST FLOOR TO THIRD FLOOR LEVEL size",
+            "reason": "read size 300x600"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "data_cell",
+            "target": "C2 FIRST FLOOR TO THIRD FLOOR LEVEL reinforcement",
+            "reason": "read reinforcement 12-10T"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "data_cell",
+            "target": "C2 FIRST FLOOR TO THIRD FLOOR LEVEL stirrups",
+            "reason": "read stirrups 8T@150c/c"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "target": "C2 FIRST FLOOR TO THIRD FLOOR LEVEL mix",
+            "reason": "read mix M-30"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "data_cell",
+            "target": "C3 FIRST FLOOR TO THIRD FLOOR LEVEL size",
+            "reason": "read size 300x600"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "data_cell",
+            "target": "C3 FIRST FLOOR TO THIRD FLOOR LEVEL reinforcement",
+            "reason": "read reinforcement 4-16 + 12-12"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "data_cell",
+            "target": "C3 FIRST FLOOR TO THIRD FLOOR LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r12",
+            "purpose": "data_cell",
+            "target": "C3 FIRST FLOOR TO THIRD FLOOR LEVEL mix",
+            "reason": "read mix M-30"
+          },
+          {
+            "region_id": "r13",
+            "purpose": "data_cell",
+            "target": "C4 FIRST FLOOR TO THIRD FLOOR LEVEL size",
+            "reason": "read size 300x600"
+          },
+          {
+            "region_id": "r14",
+            "purpose": "data_cell",
+            "target": "C4 FIRST FLOOR TO THIRD FLOOR LEVEL reinforcement",
+            "reason": "read reinforcement 5-16 + 8-12"
+          },
+          {
+            "region_id": "r15",
+            "purpose": "data_cell",
+            "target": "C4 FIRST FLOOR TO THIRD FLOOR LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r16",
+            "purpose": "data_cell",
+            "target": "C4 FIRST FLOOR TO THIRD FLOOR LEVEL mix",
+            "reason": "read mix M-30"
+          },
+          {
+            "region_id": "r17",
+            "purpose": "data_cell",
+            "target": "C5 FIRST FLOOR TO THIRD FLOOR LEVEL size",
+            "reason": "read size 300x600"
+          },
+          {
+            "region_id": "r18",
+            "purpose": "data_cell",
+            "target": "C5 FIRST FLOOR TO THIRD FLOOR LEVEL reinforcement",
+            "reason": "read reinforcement 8-16 + 8-12"
+          },
+          {
+            "region_id": "r19",
+            "purpose": "data_cell",
+            "target": "C5 FIRST FLOOR TO THIRD FLOOR LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r20",
+            "purpose": "data_cell",
+            "target": "C5 FIRST FLOOR TO THIRD FLOOR LEVEL mix",
+            "reason": "read mix M-30"
+          },
+          {
+            "region_id": "r21",
+            "purpose": "data_cell",
+            "target": "C6 FIRST FLOOR TO THIRD FLOOR LEVEL size",
+            "reason": "read size 300x600"
+          },
+          {
+            "region_id": "r22",
+            "purpose": "data_cell",
+            "target": "C6 FIRST FLOOR TO THIRD FLOOR LEVEL reinforcement",
+            "reason": "read reinforcement 8-16 + 8-12"
+          },
+          {
+            "region_id": "r23",
+            "purpose": "data_cell",
+            "target": "C6 FIRST FLOOR TO THIRD FLOOR LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r24",
+            "purpose": "data_cell",
+            "target": "C6 FIRST FLOOR TO THIRD FLOOR LEVEL mix",
+            "reason": "read mix M-30"
+          },
+          {
+            "region_id": "r25",
+            "purpose": "data_cell",
+            "target": "C7 FIRST FLOOR TO THIRD FLOOR LEVEL size",
+            "reason": "read size 300x600"
+          },
+          {
+            "region_id": "r26",
+            "purpose": "data_cell",
+            "target": "C7 FIRST FLOOR TO THIRD FLOOR LEVEL reinforcement",
+            "reason": "read reinforcement 8-16 + 8-12"
+          },
+          {
+            "region_id": "r27",
+            "purpose": "data_cell",
+            "target": "C7 FIRST FLOOR TO THIRD FLOOR LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r28",
+            "purpose": "data_cell",
+            "target": "C7 FIRST FLOOR TO THIRD FLOOR LEVEL mix",
+            "reason": "read mix M-30"
+          },
+          {
+            "region_id": "r29",
+            "purpose": "data_cell",
+            "target": "C8 FIRST FLOOR TO THIRD FLOOR LEVEL size",
+            "reason": "read size 300x600"
+          },
+          {
+            "region_id": "r30",
+            "purpose": "data_cell",
+            "target": "C8 FIRST FLOOR TO THIRD FLOOR LEVEL reinforcement",
+            "reason": "read reinforcement 8-16 + 8-12"
+          },
+          {
+            "region_id": "r31",
+            "purpose": "data_cell",
+            "target": "C8 FIRST FLOOR TO THIRD FLOOR LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r32",
+            "purpose": "data_cell",
+            "target": "C8 FIRST FLOOR TO THIRD FLOOR LEVEL mix",
+            "reason": "read mix M-30"
+          }
+        ],
+        "normalization_rules": [
+          "Remove duplicates in stirrups",
+          "Keep stirrup diameter as written (e.g. 8T)",
+          "Remove words ALL, REST, nos from stirrups",
+          "Return null for missing values",
+          "Use exact column_no from ovals",
+          "Use exact level name from left side text",
+          "Return reinforcement as list of strings",
+          "Return stirrups as object with dia and spacing strings",
+          "Return mix as string or null"
+        ],
+        "extraction_order": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7",
+          "C8"
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "C1",
+          "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-16",
+            "9-12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C2",
+          "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "12-10T"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "150 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C3",
+          "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "4-16",
+            "12-12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C4",
+          "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "5-16",
+            "8-12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C5",
+          "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-16",
+            "8-12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C6",
+          "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-16",
+            "8-12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C7",
+          "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-16",
+            "8-12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C8",
+          "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-16",
+            "8-12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "C1",
+            "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-16",
+              "9-12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C2",
+            "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "12-10T"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "150 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C3",
+            "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "4-16",
+              "12-12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C4",
+            "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "5-16",
+              "8-12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C5",
+            "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-16",
+              "8-12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C6",
+            "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-16",
+              "8-12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C7",
+            "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-16",
+              "8-12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C8",
+            "column_name": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-16",
+              "8-12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        }
+      ],
+      "expected_count": 8,
+      "actual_count": 8,
+      "warnings": []
+    },
+    "page_1.png__p01_l004_FOUNDATION_LEVEL": {
+      "project": "column",
+      "image_path": "/home/azaz/Desktop/code/POC ZIP FILES/POC-1/BB_POC_1_column/output/Column X-section/page_1.png",
+      "generated_at": "2026-06-10T09:09:51.945654+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 1200,
+          "y1": 1200,
+          "x2": 3500,
+          "y2": 3200
+        },
+        "column_headers": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7",
+          "C8"
+        ],
+        "storey_levels": [
+          "FOUNDATION LEVEL"
+        ],
+        "expected_count": 8,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "data_cell",
+            "target": "C1 FOUNDATION LEVEL size",
+            "reason": "read size 300x750"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "target": "C1 FOUNDATION LEVEL reinforcement",
+            "reason": "read reinforcement 24-T16"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "data_cell",
+            "target": "C1 FOUNDATION LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "target": "C2 FOUNDATION LEVEL size",
+            "reason": "read size 400x400"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "data_cell",
+            "target": "C2 FOUNDATION LEVEL reinforcement",
+            "reason": "read reinforcement 16-T16"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "data_cell",
+            "target": "C2 FOUNDATION LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "data_cell",
+            "target": "C3 FOUNDATION LEVEL size",
+            "reason": "read size 400x400"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "target": "C3 FOUNDATION LEVEL reinforcement",
+            "reason": "read reinforcement 16-T16"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "data_cell",
+            "target": "C3 FOUNDATION LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "data_cell",
+            "target": "C4 FOUNDATION LEVEL size",
+            "reason": "read size 400x400"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "data_cell",
+            "target": "C4 FOUNDATION LEVEL reinforcement",
+            "reason": "read reinforcement 16-T16"
+          },
+          {
+            "region_id": "r12",
+            "purpose": "data_cell",
+            "target": "C4 FOUNDATION LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r13",
+            "purpose": "data_cell",
+            "target": "C5 FOUNDATION LEVEL size",
+            "reason": "read size 400x400"
+          },
+          {
+            "region_id": "r14",
+            "purpose": "data_cell",
+            "target": "C5 FOUNDATION LEVEL reinforcement",
+            "reason": "read reinforcement 16-T16"
+          },
+          {
+            "region_id": "r15",
+            "purpose": "data_cell",
+            "target": "C5 FOUNDATION LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r16",
+            "purpose": "data_cell",
+            "target": "C6 FOUNDATION LEVEL size",
+            "reason": "read size 400x400"
+          },
+          {
+            "region_id": "r17",
+            "purpose": "data_cell",
+            "target": "C6 FOUNDATION LEVEL reinforcement",
+            "reason": "read reinforcement 16-T16"
+          },
+          {
+            "region_id": "r18",
+            "purpose": "data_cell",
+            "target": "C6 FOUNDATION LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r19",
+            "purpose": "data_cell",
+            "target": "C7 FOUNDATION LEVEL size",
+            "reason": "read size 400x400"
+          },
+          {
+            "region_id": "r20",
+            "purpose": "data_cell",
+            "target": "C7 FOUNDATION LEVEL reinforcement",
+            "reason": "read reinforcement 16-T16"
+          },
+          {
+            "region_id": "r21",
+            "purpose": "data_cell",
+            "target": "C7 FOUNDATION LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          },
+          {
+            "region_id": "r22",
+            "purpose": "data_cell",
+            "target": "C8 FOUNDATION LEVEL size",
+            "reason": "read size 400x400"
+          },
+          {
+            "region_id": "r23",
+            "purpose": "data_cell",
+            "target": "C8 FOUNDATION LEVEL reinforcement",
+            "reason": "read reinforcement 16-T16"
+          },
+          {
+            "region_id": "r24",
+            "purpose": "data_cell",
+            "target": "C8 FOUNDATION LEVEL stirrups",
+            "reason": "read stirrups 8T@100c/c"
+          }
+        ],
+        "normalization_rules": [
+          "Remove duplicates in stirrups",
+          "Keep stirrup diameter as written (e.g. 8T)",
+          "Convert spacing notation to 'C/C' format",
+          "Return null for missing values",
+          "Use exact column_no from ovals",
+          "Use exact level name from left side text"
+        ],
+        "extraction_order": [
+          "C1 FOUNDATION LEVEL",
+          "C2 FOUNDATION LEVEL",
+          "C3 FOUNDATION LEVEL",
+          "C4 FOUNDATION LEVEL",
+          "C5 FOUNDATION LEVEL",
+          "C6 FOUNDATION LEVEL",
+          "C7 FOUNDATION LEVEL",
+          "C8 FOUNDATION LEVEL"
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "C1",
+          "column_name": "FOUNDATION LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "24-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C2",
+          "column_name": "FOUNDATION LEVEL",
+          "size": {
+            "width": 400,
+            "depth": null,
+            "length": 400
+          },
+          "reinforcement": [
+            "16-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C3",
+          "column_name": "FOUNDATION LEVEL",
+          "size": {
+            "width": 400,
+            "depth": null,
+            "length": 400
+          },
+          "reinforcement": [
+            "16-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C4",
+          "column_name": "FOUNDATION LEVEL",
+          "size": {
+            "width": 400,
+            "depth": null,
+            "length": 400
+          },
+          "reinforcement": [
+            "16-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C5",
+          "column_name": "FOUNDATION LEVEL",
+          "size": {
+            "width": 400,
+            "depth": null,
+            "length": 400
+          },
+          "reinforcement": [
+            "16-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C6",
+          "column_name": "FOUNDATION LEVEL",
+          "size": {
+            "width": 400,
+            "depth": null,
+            "length": 400
+          },
+          "reinforcement": [
+            "16-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C7",
+          "column_name": "FOUNDATION LEVEL",
+          "size": {
+            "width": 400,
+            "depth": null,
+            "length": 400
+          },
+          "reinforcement": [
+            "16-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": null,
+          "steel_grade": null
+        },
+        {
+          "column_no": "C8",
+          "column_name": "FOUNDATION LEVEL",
+          "size": {
+            "width": 400,
+            "depth": null,
+            "length": 400
+          },
+          "reinforcement": [
+            "16-T16"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "100 C/C"
+            ]
+          },
+          "mix": null,
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "C1",
+            "column_name": "FOUNDATION LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "24-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r1",
+            "r2",
+            "r3"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C2",
+            "column_name": "FOUNDATION LEVEL",
+            "size": {
+              "width": 400,
+              "depth": null,
+              "length": 400
+            },
+            "reinforcement": [
+              "16-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r4",
+            "r5",
+            "r6"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C3",
+            "column_name": "FOUNDATION LEVEL",
+            "size": {
+              "width": 400,
+              "depth": null,
+              "length": 400
+            },
+            "reinforcement": [
+              "16-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r7",
+            "r8",
+            "r9"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C4",
+            "column_name": "FOUNDATION LEVEL",
+            "size": {
+              "width": 400,
+              "depth": null,
+              "length": 400
+            },
+            "reinforcement": [
+              "16-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r10",
+            "r11",
+            "r12"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C5",
+            "column_name": "FOUNDATION LEVEL",
+            "size": {
+              "width": 400,
+              "depth": null,
+              "length": 400
+            },
+            "reinforcement": [
+              "16-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r13",
+            "r14",
+            "r15"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C6",
+            "column_name": "FOUNDATION LEVEL",
+            "size": {
+              "width": 400,
+              "depth": null,
+              "length": 400
+            },
+            "reinforcement": [
+              "16-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r16",
+            "r17",
+            "r18"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C7",
+            "column_name": "FOUNDATION LEVEL",
+            "size": {
+              "width": 400,
+              "depth": null,
+              "length": 400
+            },
+            "reinforcement": [
+              "16-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r19",
+            "r20",
+            "r21"
+          ]
+        },
+        {
+          "record": {
+            "column_no": "C8",
+            "column_name": "FOUNDATION LEVEL",
+            "size": {
+              "width": 400,
+              "depth": null,
+              "length": 400
+            },
+            "reinforcement": [
+              "16-T16"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "100 C/C"
+              ]
+            },
+            "mix": null,
+            "steel_grade": null
+          },
+          "source_region_ids": [
+            "r22",
+            "r23",
+            "r24"
+          ]
+        }
+      ],
+      "expected_count": 8,
+      "actual_count": 8,
+      "warnings": []
+    },
+    "page_1.png__p01_l001_THIRD_FLOOR_TO_TERRACE_LEVEL": {
+      "project": "column",
+      "image_path": "/home/azaz/Desktop/code/POC ZIP FILES/POC-1/BB_POC_1_column/output/Column X-section/page_1.png",
+      "generated_at": "2026-06-10T09:09:53.806774+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 4096,
+          "y2": 2048
+        },
+        "column_headers": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7",
+          "C8",
+          "C9",
+          "C10",
+          "C11",
+          "C12",
+          "C13",
+          "C14",
+          "C15",
+          "C16",
+          "C17",
+          "C18",
+          "C19",
+          "C20",
+          "C21",
+          "C22",
+          "C23",
+          "C24"
+        ],
+        "storey_levels": [
+          "THIRD FLOOR TO TERRACE LEVEL"
+        ],
+        "expected_count": 24,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "data_cell",
+            "x1": 120,
+            "y1": 120,
+            "x2": 200,
+            "y2": 200,
+            "reason": "read size and reinforcement for C1 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "x1": 300,
+            "y1": 120,
+            "x2": 380,
+            "y2": 200,
+            "reason": "read size and reinforcement for C2 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "data_cell",
+            "x1": 480,
+            "y1": 120,
+            "x2": 560,
+            "y2": 200,
+            "reason": "read size and reinforcement for C3 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "x1": 660,
+            "y1": 120,
+            "x2": 740,
+            "y2": 200,
+            "reason": "read size and reinforcement for C4 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "data_cell",
+            "x1": 840,
+            "y1": 120,
+            "x2": 920,
+            "y2": 200,
+            "reason": "read size and reinforcement for C5 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "data_cell",
+            "x1": 1020,
+            "y1": 120,
+            "x2": 1100,
+            "y2": 200,
+            "reason": "read size and reinforcement for C6 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "data_cell",
+            "x1": 1200,
+            "y1": 120,
+            "x2": 1280,
+            "y2": 200,
+            "reason": "read size and reinforcement for C7 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "x1": 1380,
+            "y1": 120,
+            "x2": 1460,
+            "y2": 200,
+            "reason": "read size and reinforcement for C8 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "data_cell",
+            "x1": 1560,
+            "y1": 120,
+            "x2": 1640,
+            "y2": 200,
+            "reason": "read size and reinforcement for C9 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "data_cell",
+            "x1": 1740,
+            "y1": 120,
+            "x2": 1820,
+            "y2": 200,
+            "reason": "read size and reinforcement for C10 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "data_cell",
+            "x1": 1920,
+            "y1": 120,
+            "x2": 2000,
+            "y2": 200,
+            "reason": "read size and reinforcement for C11 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r12",
+            "purpose": "data_cell",
+            "x1": 2100,
+            "y1": 120,
+            "x2": 2180,
+            "y2": 200,
+            "reason": "read size and reinforcement for C12 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r13",
+            "purpose": "data_cell",
+            "x1": 2280,
+            "y1": 120,
+            "x2": 2360,
+            "y2": 200,
+            "reason": "read size and reinforcement for C13 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r14",
+            "purpose": "data_cell",
+            "x1": 2460,
+            "y1": 120,
+            "x2": 2540,
+            "y2": 200,
+            "reason": "read size and reinforcement for C14 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r15",
+            "purpose": "data_cell",
+            "x1": 2640,
+            "y1": 120,
+            "x2": 2720,
+            "y2": 200,
+            "reason": "read size and reinforcement for C15 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r16",
+            "purpose": "data_cell",
+            "x1": 2820,
+            "y1": 120,
+            "x2": 2900,
+            "y2": 200,
+            "reason": "read size and reinforcement for C16 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r17",
+            "purpose": "data_cell",
+            "x1": 3000,
+            "y1": 120,
+            "x2": 3080,
+            "y2": 200,
+            "reason": "read size and reinforcement for C17 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r18",
+            "purpose": "data_cell",
+            "x1": 3180,
+            "y1": 120,
+            "x2": 3260,
+            "y2": 200,
+            "reason": "read size and reinforcement for C18 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r19",
+            "purpose": "data_cell",
+            "x1": 3360,
+            "y1": 120,
+            "x2": 3440,
+            "y2": 200,
+            "reason": "read size and reinforcement for C19 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r20",
+            "purpose": "data_cell",
+            "x1": 3540,
+            "y1": 120,
+            "x2": 3620,
+            "y2": 200,
+            "reason": "read size and reinforcement for C20 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r21",
+            "purpose": "data_cell",
+            "x1": 3720,
+            "y1": 120,
+            "x2": 3800,
+            "y2": 200,
+            "reason": "read size and reinforcement for C21 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r22",
+            "purpose": "data_cell",
+            "x1": 3900,
+            "y1": 120,
+            "x2": 3980,
+            "y2": 200,
+            "reason": "read size and reinforcement for C22 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r23",
+            "purpose": "data_cell",
+            "x1": 4080,
+            "y1": 120,
+            "x2": 4160,
+            "y2": 200,
+            "reason": "read size and reinforcement for C23 at THIRD FLOOR TO TERRACE LEVEL"
+          },
+          {
+            "region_id": "r24",
+            "purpose": "data_cell",
+            "x1": 4260,
+            "y1": 120,
+            "x2": 4340,
+            "y2": 200,
+            "reason": "read size and reinforcement for C24 at THIRD FLOOR TO TERRACE LEVEL"
+          }
+        ],
+        "normalization_rules": [
+          "Remove duplicates in stirrups",
+          "Keep stirrup diameter exactly as written (e.g. 8T)",
+          "Remove words ALL, REST, nos from stirrups",
+          "Return stirrup spacing as '100 C/C' format",
+          "Return null for missing values",
+          "Return empty array for missing reinforcement",
+          "Use exact column_no from ovals",
+          "Use exact level name from left side text",
+          "Return width and length for size, depth null",
+          "Split reinforcement by '-' and 'T' notation, keep exact format"
+        ],
+        "extraction_order": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7",
+          "C8",
+          "C9",
+          "C10",
+          "C11",
+          "C12",
+          "C13",
+          "C14",
+          "C15",
+          "C16",
+          "C17",
+          "C18",
+          "C19",
+          "C20",
+          "C21",
+          "C22",
+          "C23",
+          "C24"
+        ]
+      },
+      "zoom_regions": [],
+      "confirmed_reads": [],
+      "records": [
+        {
+          "column_no": "C1",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C2",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C3",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C4",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C5",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C6",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C7",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C8",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C9",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C10",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C11",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C12",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C13",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C14",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C15",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C16",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C17",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C18",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C19",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C20",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C21",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C22",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C23",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C24",
+          "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 750
+          },
+          "reinforcement": [
+            "4-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "T8"
+            ],
+            "spacing": [
+              "200 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "C1",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C2",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C3",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C4",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C5",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C6",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C7",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C8",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C9",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C10",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C11",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C12",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C13",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C14",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C15",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C16",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C17",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C18",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C19",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C20",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C21",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C22",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C23",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C24",
+            "column_name": "THIRD FLOOR TO TERRACE LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 750
+            },
+            "reinforcement": [
+              "4-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "T8"
+              ],
+              "spacing": [
+                "200 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        }
+      ],
+      "expected_count": 24,
+      "actual_count": 24,
+      "warnings": []
+    },
+    "page_1.png__p01_l003_GROUND_FLOOR_TO_FIRST_FLOOR_LEVEL": {
+      "project": "column",
+      "image_path": "/home/azaz/Desktop/code/POC ZIP FILES/POC-1/BB_POC_1_column/output/Column X-section/page_1.png",
+      "generated_at": "2026-06-10T09:10:07.620029+00:00",
+      "think": {
+        "image_quality": "high resolution, clear, no skew",
+        "table_bounds": {
+          "x1": 50,
+          "y1": 400,
+          "x2": 1200,
+          "y2": 900
+        },
+        "column_headers": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7",
+          "C8"
+        ],
+        "storey_levels": [
+          "GROUND FLOOR TO FIRST FLOOR LEVEL"
+        ],
+        "expected_count": 8,
+        "zoom_plan": [
+          {
+            "region_id": "r1",
+            "purpose": "row_label",
+            "target": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+            "reason": "Extract level name on left side"
+          },
+          {
+            "region_id": "r2",
+            "purpose": "data_cell",
+            "target": "C1 size and reinforcement",
+            "x1": 100,
+            "y1": 420,
+            "x2": 200,
+            "y2": 480,
+            "reason": "Extract size and reinforcement for C1"
+          },
+          {
+            "region_id": "r3",
+            "purpose": "data_cell",
+            "target": "C1 stirrups",
+            "x1": 100,
+            "y1": 480,
+            "x2": 200,
+            "y2": 520,
+            "reason": "Extract stirrups for C1"
+          },
+          {
+            "region_id": "r4",
+            "purpose": "data_cell",
+            "target": "C1 mix",
+            "x1": 100,
+            "y1": 520,
+            "x2": 200,
+            "y2": 540,
+            "reason": "Extract concrete mix for C1"
+          },
+          {
+            "region_id": "r5",
+            "purpose": "data_cell",
+            "target": "C2 size and reinforcement",
+            "x1": 210,
+            "y1": 420,
+            "x2": 310,
+            "y2": 480,
+            "reason": "Extract size and reinforcement for C2"
+          },
+          {
+            "region_id": "r6",
+            "purpose": "data_cell",
+            "target": "C2 stirrups",
+            "x1": 210,
+            "y1": 480,
+            "x2": 310,
+            "y2": 520,
+            "reason": "Extract stirrups for C2"
+          },
+          {
+            "region_id": "r7",
+            "purpose": "data_cell",
+            "target": "C2 mix",
+            "x1": 210,
+            "y1": 520,
+            "x2": 310,
+            "y2": 540,
+            "reason": "Extract concrete mix for C2"
+          },
+          {
+            "region_id": "r8",
+            "purpose": "data_cell",
+            "target": "C3 size and reinforcement",
+            "x1": 320,
+            "y1": 420,
+            "x2": 420,
+            "y2": 480,
+            "reason": "Extract size and reinforcement for C3"
+          },
+          {
+            "region_id": "r9",
+            "purpose": "data_cell",
+            "target": "C3 stirrups",
+            "x1": 320,
+            "y1": 480,
+            "x2": 420,
+            "y2": 520,
+            "reason": "Extract stirrups for C3"
+          },
+          {
+            "region_id": "r10",
+            "purpose": "data_cell",
+            "target": "C3 mix",
+            "x1": 320,
+            "y1": 520,
+            "x2": 420,
+            "y2": 540,
+            "reason": "Extract concrete mix for C3"
+          },
+          {
+            "region_id": "r11",
+            "purpose": "data_cell",
+            "target": "C4 size and reinforcement",
+            "x1": 430,
+            "y1": 420,
+            "x2": 530,
+            "y2": 480,
+            "reason": "Extract size and reinforcement for C4"
+          },
+          {
+            "region_id": "r12",
+            "purpose": "data_cell",
+            "target": "C4 stirrups",
+            "x1": 430,
+            "y1": 480,
+            "x2": 530,
+            "y2": 520,
+            "reason": "Extract stirrups for C4"
+          },
+          {
+            "region_id": "r13",
+            "purpose": "data_cell",
+            "target": "C4 mix",
+            "x1": 430,
+            "y1": 520,
+            "x2": 530,
+            "y2": 540,
+            "reason": "Extract concrete mix for C4"
+          },
+          {
+            "region_id": "r14",
+            "purpose": "data_cell",
+            "target": "C5 size and reinforcement",
+            "x1": 540,
+            "y1": 420,
+            "x2": 640,
+            "y2": 480,
+            "reason": "Extract size and reinforcement for C5"
+          },
+          {
+            "region_id": "r15",
+            "purpose": "data_cell",
+            "target": "C5 stirrups",
+            "x1": 540,
+            "y1": 480,
+            "x2": 640,
+            "y2": 520,
+            "reason": "Extract stirrups for C5"
+          },
+          {
+            "region_id": "r16",
+            "purpose": "data_cell",
+            "target": "C5 mix",
+            "x1": 540,
+            "y1": 520,
+            "x2": 640,
+            "y2": 540,
+            "reason": "Extract concrete mix for C5"
+          },
+          {
+            "region_id": "r17",
+            "purpose": "data_cell",
+            "target": "C6 size and reinforcement",
+            "x1": 650,
+            "y1": 420,
+            "x2": 750,
+            "y2": 480,
+            "reason": "Extract size and reinforcement for C6"
+          },
+          {
+            "region_id": "r18",
+            "purpose": "data_cell",
+            "target": "C6 stirrups",
+            "x1": 650,
+            "y1": 480,
+            "x2": 750,
+            "y2": 520,
+            "reason": "Extract stirrups for C6"
+          },
+          {
+            "region_id": "r19",
+            "purpose": "data_cell",
+            "target": "C6 mix",
+            "x1": 650,
+            "y1": 520,
+            "x2": 750,
+            "y2": 540,
+            "reason": "Extract concrete mix for C6"
+          },
+          {
+            "region_id": "r20",
+            "purpose": "data_cell",
+            "target": "C7 size and reinforcement",
+            "x1": 760,
+            "y1": 420,
+            "x2": 860,
+            "y2": 480,
+            "reason": "Extract size and reinforcement for C7"
+          },
+          {
+            "region_id": "r21",
+            "purpose": "data_cell",
+            "target": "C7 stirrups",
+            "x1": 760,
+            "y1": 480,
+            "x2": 860,
+            "y2": 520,
+            "reason": "Extract stirrups for C7"
+          },
+          {
+            "region_id": "r22",
+            "purpose": "data_cell",
+            "target": "C7 mix",
+            "x1": 760,
+            "y1": 520,
+            "x2": 860,
+            "y2": 540,
+            "reason": "Extract concrete mix for C7"
+          },
+          {
+            "region_id": "r23",
+            "purpose": "data_cell",
+            "target": "C8 size and reinforcement",
+            "x1": 870,
+            "y1": 420,
+            "x2": 970,
+            "y2": 480,
+            "reason": "Extract size and reinforcement for C8"
+          },
+          {
+            "region_id": "r24",
+            "purpose": "data_cell",
+            "target": "C8 stirrups",
+            "x1": 870,
+            "y1": 480,
+            "x2": 970,
+            "y2": 520,
+            "reason": "Extract stirrups for C8"
+          },
+          {
+            "region_id": "r25",
+            "purpose": "data_cell",
+            "target": "C8 mix",
+            "x1": 870,
+            "y1": 520,
+            "x2": 970,
+            "y2": 540,
+            "reason": "Extract concrete mix for C8"
+          }
+        ],
+        "normalization_rules": [
+          "Remove words like ALL, REST, nos from stirrups",
+          "Keep stirrup diameter notation exactly as is (e.g. 8T)",
+          "Extract multiple stirrup spacings if present",
+          "Return null for missing size or reinforcement",
+          "Use exact level name from left side for column_name",
+          "Return reinforcement as list of strings",
+          "Return stirrups as object with dia and spacing strings",
+          "Ignore footing and RCC size tables",
+          "Extract only from the specified level"
+        ],
+        "extraction_order": [
+          "GROUND FLOOR TO FIRST FLOOR LEVEL",
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7",
+          "C8"
+        ]
+      },
+      "zoom_regions": [
+        {
+          "region_id": "r1",
+          "purpose": "row_label",
+          "x1": 50.0,
+          "y1": 400.0,
+          "x2": 150.0,
+          "y2": 440.0,
+          "reason": "Extract level name on left side for GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r2",
+          "purpose": "data_cell",
+          "x1": 100.0,
+          "y1": 420.0,
+          "x2": 200.0,
+          "y2": 480.0,
+          "reason": "Extract size and reinforcement for C1 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r3",
+          "purpose": "data_cell",
+          "x1": 100.0,
+          "y1": 480.0,
+          "x2": 200.0,
+          "y2": 520.0,
+          "reason": "Extract stirrups for C1 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r4",
+          "purpose": "data_cell",
+          "x1": 100.0,
+          "y1": 520.0,
+          "x2": 200.0,
+          "y2": 540.0,
+          "reason": "Extract concrete mix for C1 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r5",
+          "purpose": "data_cell",
+          "x1": 210.0,
+          "y1": 420.0,
+          "x2": 310.0,
+          "y2": 480.0,
+          "reason": "Extract size and reinforcement for C2 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r6",
+          "purpose": "data_cell",
+          "x1": 210.0,
+          "y1": 480.0,
+          "x2": 310.0,
+          "y2": 520.0,
+          "reason": "Extract stirrups for C2 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r7",
+          "purpose": "data_cell",
+          "x1": 210.0,
+          "y1": 520.0,
+          "x2": 310.0,
+          "y2": 540.0,
+          "reason": "Extract concrete mix for C2 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r8",
+          "purpose": "data_cell",
+          "x1": 320.0,
+          "y1": 420.0,
+          "x2": 420.0,
+          "y2": 480.0,
+          "reason": "Extract size and reinforcement for C3 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r9",
+          "purpose": "data_cell",
+          "x1": 320.0,
+          "y1": 480.0,
+          "x2": 420.0,
+          "y2": 520.0,
+          "reason": "Extract stirrups for C3 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r10",
+          "purpose": "data_cell",
+          "x1": 320.0,
+          "y1": 520.0,
+          "x2": 420.0,
+          "y2": 540.0,
+          "reason": "Extract concrete mix for C3 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r11",
+          "purpose": "data_cell",
+          "x1": 430.0,
+          "y1": 420.0,
+          "x2": 530.0,
+          "y2": 480.0,
+          "reason": "Extract size and reinforcement for C4 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r12",
+          "purpose": "data_cell",
+          "x1": 430.0,
+          "y1": 480.0,
+          "x2": 530.0,
+          "y2": 520.0,
+          "reason": "Extract stirrups for C4 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r13",
+          "purpose": "data_cell",
+          "x1": 430.0,
+          "y1": 520.0,
+          "x2": 530.0,
+          "y2": 540.0,
+          "reason": "Extract concrete mix for C4 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r14",
+          "purpose": "data_cell",
+          "x1": 540.0,
+          "y1": 420.0,
+          "x2": 640.0,
+          "y2": 480.0,
+          "reason": "Extract size and reinforcement for C5 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r15",
+          "purpose": "data_cell",
+          "x1": 540.0,
+          "y1": 480.0,
+          "x2": 640.0,
+          "y2": 520.0,
+          "reason": "Extract stirrups for C5 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r16",
+          "purpose": "data_cell",
+          "x1": 540.0,
+          "y1": 520.0,
+          "x2": 640.0,
+          "y2": 540.0,
+          "reason": "Extract concrete mix for C5 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r17",
+          "purpose": "data_cell",
+          "x1": 650.0,
+          "y1": 420.0,
+          "x2": 750.0,
+          "y2": 480.0,
+          "reason": "Extract size and reinforcement for C6 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r18",
+          "purpose": "data_cell",
+          "x1": 650.0,
+          "y1": 480.0,
+          "x2": 750.0,
+          "y2": 520.0,
+          "reason": "Extract stirrups for C6 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r19",
+          "purpose": "data_cell",
+          "x1": 650.0,
+          "y1": 520.0,
+          "x2": 750.0,
+          "y2": 540.0,
+          "reason": "Extract concrete mix for C6 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r20",
+          "purpose": "data_cell",
+          "x1": 760.0,
+          "y1": 420.0,
+          "x2": 860.0,
+          "y2": 480.0,
+          "reason": "Extract size and reinforcement for C7 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r21",
+          "purpose": "data_cell",
+          "x1": 760.0,
+          "y1": 480.0,
+          "x2": 860.0,
+          "y2": 520.0,
+          "reason": "Extract stirrups for C7 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r22",
+          "purpose": "data_cell",
+          "x1": 760.0,
+          "y1": 520.0,
+          "x2": 860.0,
+          "y2": 540.0,
+          "reason": "Extract concrete mix for C7 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r23",
+          "purpose": "data_cell",
+          "x1": 870.0,
+          "y1": 420.0,
+          "x2": 970.0,
+          "y2": 480.0,
+          "reason": "Extract size and reinforcement for C8 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r24",
+          "purpose": "data_cell",
+          "x1": 870.0,
+          "y1": 480.0,
+          "x2": 970.0,
+          "y2": 520.0,
+          "reason": "Extract stirrups for C8 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        },
+        {
+          "region_id": "r25",
+          "purpose": "data_cell",
+          "x1": 870.0,
+          "y1": 520.0,
+          "x2": 970.0,
+          "y2": 540.0,
+          "reason": "Extract concrete mix for C8 at GROUND FLOOR TO FIRST FLOOR LEVEL"
+        }
+      ],
+      "confirmed_reads": [
+        {
+          "region_id": "r1",
+          "text": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+          "confidence": "high",
+          "applies_to": "row_label"
+        },
+        {
+          "region_id": "r2",
+          "text": "300 x 600\n8 - T16 + 8 - T12\n(300x600)",
+          "confidence": "high",
+          "applies_to": "C1 size and reinforcement"
+        },
+        {
+          "region_id": "r3",
+          "text": "8T @ 150 c/c",
+          "confidence": "high",
+          "applies_to": "C1 stirrups"
+        },
+        {
+          "region_id": "r4",
+          "text": "M-30",
+          "confidence": "high",
+          "applies_to": "C1 mix"
+        },
+        {
+          "region_id": "r5",
+          "text": "300 x 600\n8 - T16 + 8 - T12\n(300x600)",
+          "confidence": "high",
+          "applies_to": "C2 size and reinforcement"
+        },
+        {
+          "region_id": "r6",
+          "text": "8T @ 150 c/c",
+          "confidence": "high",
+          "applies_to": "C2 stirrups"
+        },
+        {
+          "region_id": "r7",
+          "text": "M-30",
+          "confidence": "high",
+          "applies_to": "C2 mix"
+        },
+        {
+          "region_id": "r8",
+          "text": "300 x 600\n8 - T16 + 8 - T12\n(300x600)",
+          "confidence": "high",
+          "applies_to": "C3 size and reinforcement"
+        },
+        {
+          "region_id": "r9",
+          "text": "8T @ 150 c/c",
+          "confidence": "high",
+          "applies_to": "C3 stirrups"
+        },
+        {
+          "region_id": "r10",
+          "text": "M-30",
+          "confidence": "high",
+          "applies_to": "C3 mix"
+        },
+        {
+          "region_id": "r11",
+          "text": "300 x 600\n8 - T16 + 8 - T12\n(300x600)",
+          "confidence": "high",
+          "applies_to": "C4 size and reinforcement"
+        },
+        {
+          "region_id": "r12",
+          "text": "8T @ 150 c/c",
+          "confidence": "high",
+          "applies_to": "C4 stirrups"
+        },
+        {
+          "region_id": "r13",
+          "text": "M-30",
+          "confidence": "high",
+          "applies_to": "C4 mix"
+        },
+        {
+          "region_id": "r14",
+          "text": "300 x 600\n8 - T16 + 8 - T12\n(300x600)",
+          "confidence": "high",
+          "applies_to": "C5 size and reinforcement"
+        },
+        {
+          "region_id": "r15",
+          "text": "8T @ 150 c/c",
+          "confidence": "high",
+          "applies_to": "C5 stirrups"
+        },
+        {
+          "region_id": "r16",
+          "text": "M-30",
+          "confidence": "high",
+          "applies_to": "C5 mix"
+        },
+        {
+          "region_id": "r17",
+          "text": "300 x 600\n8 - T16 + 8 - T12\n(300x600)",
+          "confidence": "high",
+          "applies_to": "C6 size and reinforcement"
+        },
+        {
+          "region_id": "r18",
+          "text": "8T @ 150 c/c",
+          "confidence": "high",
+          "applies_to": "C6 stirrups"
+        },
+        {
+          "region_id": "r19",
+          "text": "M-30",
+          "confidence": "high",
+          "applies_to": "C6 mix"
+        },
+        {
+          "region_id": "r20",
+          "text": "300 x 600\n8 - T16 + 8 - T12\n(300x600)",
+          "confidence": "high",
+          "applies_to": "C7 size and reinforcement"
+        },
+        {
+          "region_id": "r21",
+          "text": "8T @ 150 c/c",
+          "confidence": "high",
+          "applies_to": "C7 stirrups"
+        },
+        {
+          "region_id": "r22",
+          "text": "M-30",
+          "confidence": "high",
+          "applies_to": "C7 mix"
+        },
+        {
+          "region_id": "r23",
+          "text": "300 x 600\n8 - T16 + 8 - T12\n(300x600)",
+          "confidence": "high",
+          "applies_to": "C8 size and reinforcement"
+        },
+        {
+          "region_id": "r24",
+          "text": "8T @ 150 c/c",
+          "confidence": "high",
+          "applies_to": "C8 stirrups"
+        },
+        {
+          "region_id": "r25",
+          "text": "M-30",
+          "confidence": "high",
+          "applies_to": "C8 mix"
+        }
+      ],
+      "records": [
+        {
+          "column_no": "C1",
+          "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "150 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C2",
+          "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "150 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C3",
+          "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "150 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C4",
+          "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "150 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C5",
+          "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "150 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C6",
+          "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "150 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C7",
+          "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "150 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        },
+        {
+          "column_no": "C8",
+          "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+          "size": {
+            "width": 300,
+            "depth": null,
+            "length": 600
+          },
+          "reinforcement": [
+            "8-T16",
+            "8-T12"
+          ],
+          "stirrups": {
+            "dia": [
+              "8T"
+            ],
+            "spacing": [
+              "150 C/C"
+            ]
+          },
+          "mix": "M-30",
+          "steel_grade": null
+        }
+      ],
+      "added_records": [
+        {
+          "record": {
+            "column_no": "C1",
+            "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "150 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C2",
+            "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "150 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C3",
+            "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "150 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C4",
+            "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "150 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C5",
+            "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "150 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C6",
+            "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "150 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C7",
+            "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "150 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        },
+        {
+          "record": {
+            "column_no": "C8",
+            "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+            "size": {
+              "width": 300,
+              "depth": null,
+              "length": 600
+            },
+            "reinforcement": [
+              "8-T16",
+              "8-T12"
+            ],
+            "stirrups": {
+              "dia": [
+                "8T"
+              ],
+              "spacing": [
+                "150 C/C"
+              ]
+            },
+            "mix": "M-30",
+            "steel_grade": null
+          },
+          "source_region_ids": []
+        }
+      ],
+      "expected_count": 8,
+      "actual_count": 8,
+      "warnings": []
+    }
+  },
+  "summary": {
+    "page_count": 6,
+    "record_count": 58,
+    "warning_count": 1,
+    "warnings": [
+      "expected 15 record(s), collected 5"
+    ]
+  }
+}

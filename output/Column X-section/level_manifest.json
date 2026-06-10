@@ -1,0 +1,55 @@
+{
+  "pattern": 3,
+  "mode": "level_batches",
+  "pages": [
+    {
+      "page": 1,
+      "levels": [
+        "THIRD FLOOR TO TERRACE LEVEL",
+        "FIRST FLOOR TO THIRD FLOOR LEVEL",
+        "GROUND FLOOR TO FIRST FLOOR LEVEL",
+        "FOUNDATION LEVEL"
+      ]
+    }
+  ],
+  "levels": [
+    "THIRD FLOOR TO TERRACE LEVEL",
+    "FIRST FLOOR TO THIRD FLOOR LEVEL",
+    "GROUND FLOOR TO FIRST FLOOR LEVEL",
+    "FOUNDATION LEVEL"
+  ],
+  "batches": [
+    {
+      "id": "p01_l001",
+      "page": 1,
+      "level": "THIRD FLOOR TO TERRACE LEVEL",
+      "status": "done",
+      "file": "level_batches/p01_l001_THIRD_FLOOR_TO_TERRACE_LEVEL.json",
+      "error": null
+    },
+    {
+      "id": "p01_l002",
+      "page": 1,
+      "level": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+      "status": "done",
+      "file": "level_batches/p01_l002_FIRST_FLOOR_TO_THIRD_FLOOR_LEVEL.json",
+      "error": null
+    },
+    {
+      "id": "p01_l003",
+      "page": 1,
+      "level": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+      "status": "done",
+      "file": "level_batches/p01_l003_GROUND_FLOOR_TO_FIRST_FLOOR_LEVEL.json",
+      "error": null
+    },
+    {
+      "id": "p01_l004",
+      "page": 1,
+      "level": "FOUNDATION LEVEL",
+      "status": "done",
+      "file": "level_batches/p01_l004_FOUNDATION_LEVEL.json",
+      "error": null
+    }
+  ]
+}

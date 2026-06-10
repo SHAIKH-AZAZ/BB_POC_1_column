@@ -1,0 +1,181 @@
+{
+  "level": "FOUNDATION LEVEL",
+  "columns": [
+    {
+      "column_no": "C1",
+      "column_name": "FOUNDATION LEVEL",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 750
+      },
+      "reinforcement": [
+        "24-T16"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "C2",
+      "column_name": "FOUNDATION LEVEL",
+      "size": {
+        "width": 400,
+        "depth": null,
+        "length": 400
+      },
+      "reinforcement": [
+        "16-T16"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "C3",
+      "column_name": "FOUNDATION LEVEL",
+      "size": {
+        "width": 400,
+        "depth": null,
+        "length": 400
+      },
+      "reinforcement": [
+        "16-T16"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "C4",
+      "column_name": "FOUNDATION LEVEL",
+      "size": {
+        "width": 400,
+        "depth": null,
+        "length": 400
+      },
+      "reinforcement": [
+        "16-T16"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "C5",
+      "column_name": "FOUNDATION LEVEL",
+      "size": {
+        "width": 400,
+        "depth": null,
+        "length": 400
+      },
+      "reinforcement": [
+        "16-T16"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "C6",
+      "column_name": "FOUNDATION LEVEL",
+      "size": {
+        "width": 400,
+        "depth": null,
+        "length": 400
+      },
+      "reinforcement": [
+        "16-T16"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "C7",
+      "column_name": "FOUNDATION LEVEL",
+      "size": {
+        "width": 400,
+        "depth": null,
+        "length": 400
+      },
+      "reinforcement": [
+        "16-T16"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    },
+    {
+      "column_no": "C8",
+      "column_name": "FOUNDATION LEVEL",
+      "size": {
+        "width": 400,
+        "depth": null,
+        "length": 400
+      },
+      "reinforcement": [
+        "16-T16"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "100 C/C"
+        ]
+      },
+      "mix": null,
+      "steel_grade": null
+    }
+  ]
+}

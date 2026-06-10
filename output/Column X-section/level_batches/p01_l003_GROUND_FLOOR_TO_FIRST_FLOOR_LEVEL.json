@@ -1,0 +1,189 @@
+{
+  "level": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+  "columns": [
+    {
+      "column_no": "C1",
+      "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "8-T16",
+        "8-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "C2",
+      "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "8-T16",
+        "8-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "C3",
+      "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "8-T16",
+        "8-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "C4",
+      "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "8-T16",
+        "8-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "C5",
+      "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "8-T16",
+        "8-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "C6",
+      "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "8-T16",
+        "8-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "C7",
+      "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "8-T16",
+        "8-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    },
+    {
+      "column_no": "C8",
+      "column_name": "GROUND FLOOR TO FIRST FLOOR LEVEL",
+      "size": {
+        "width": 300,
+        "depth": null,
+        "length": 600
+      },
+      "reinforcement": [
+        "8-T16",
+        "8-T12"
+      ],
+      "stirrups": {
+        "dia": [
+          "8T"
+        ],
+        "spacing": [
+          "150 C/C"
+        ]
+      },
+      "mix": "M-30",
+      "steel_grade": null
+    }
+  ]
+}

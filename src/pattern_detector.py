@@ -336,6 +336,31 @@ def detect_pattern(pdf_path, temp_folder):
     → RETURN 14
 
 
+    --- PATTERN 15: DUAL-SECTION COLUMN SCHEDULE — C COLUMNS (LEFT) + SW COLUMNS (RIGHT) ---
+
+    Visual structure:
+    - Page shows TWO separate column schedule sections placed SIDE BY SIDE on one drawing sheet
+    - LEFT SECTION: Regular rectangular columns labeled C1, C2, C3... up to C24 or more
+      • Grid: rows = floor levels, cells = cross-section drawings with rebar dots
+      • Column marks in oval/ellipse shapes near drawings
+    - RIGHT SECTION: Shear wall columns labeled SW4, SW5, SW6, SW7, SW8 (SW-prefix)
+      • Same 3 floor levels as left section (FOUNDATION TO FIRST, FIRST TO THIRD, THIRD TO TERRACE)
+      • SW7 appears as a LARGE complex cross-section (U-shape, C-shape, or double-rectangular)
+      • SW columns have varying sizes (some 300x750, 450x450, 300x300, etc.)
+    - Both sections share the same 3 floor level row structure
+    - NO summary table at the bottom with d1, d2, PEDESTAL rows
+
+    Key identifiers:
+    ✓ Two visually distinct drawing sections side by side (not a single grid)
+    ✓ Left section has regular C-type column marks (C1-C24 or similar)
+    ✓ Right section has SW-prefix column marks (SW4, SW5, SW6, SW7, SW8)
+    ✓ At least one LARGE complex cross-section (U-shape or double-rectangle) for SW7
+    ✓ Both sections share the same 3 floor-level rows
+    ✓ NO d1/d2/PEDESTAL summary table at bottom
+
+    → RETURN 15
+
+
     =====================================================================
     DECISION RULES — APPLY IN THIS EXACT ORDER
     =====================================================================
@@ -357,6 +382,9 @@ def detect_pattern(pdf_path, temp_folder):
 
     STEP 6: Does the LEFT SIDE contain "COLUMN FROM ... TO ..." labels with elevation drawings (not cross-sections)?
     → YES → RETURN 6
+
+    STEP 6a: Does the page show TWO separate drawing sections side by side, where the LEFT section has regular rectangular C-type columns (C1, C2, C3...) AND the RIGHT section has SW-prefix shear wall columns (SW4, SW5, SW6, SW7, SW8) with at least one large complex cross-section, sharing the same 3 floor levels?
+    → YES → RETURN 15
 
     STEP 7: Are there cross-section drawings AND the summary table at the bottom contains d1, d2, PEDESTAL rows?
     → YES → RETURN 3
