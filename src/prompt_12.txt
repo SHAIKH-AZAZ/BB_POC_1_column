@@ -74,9 +74,10 @@ KEY RULE: ANY text label on the left-side row that contains a floor reference
 is a valid floor row — regardless of capitalisation, ordinal spacing, or font.
 
 Bottom of grid → column mark labels (magenta/pink text):
-  Each column position has a mark label, possibly grouped.
-  e.g.  C1,C18  |  C2,C9  |  C3,C17  |  C4,C14  |  C5  |  C7,C16  |
-        C8  |  C10  |  C11,C19  |  C12  |  C15
+  Each column position has a mark label, possibly grouped. Read them EXACTLY
+  as printed, LEFT to RIGHT. A mark is a letter+number like "C5"; a grouped
+  mark joins two, like "C1,C18" (format only — read the real marks from the
+  drawing, do not reuse these examples).
 
 Each CELL in the main grid shows a cross-section box with:
   • Width  = horizontal dimension annotated beside the box (mm).
@@ -93,8 +94,8 @@ OUTPUT FORMAT  — return ONLY valid raw JSON, no markdown, no explanation
 {
   "columns": [
     {
-      "column_no":   "C1,C18",
-      "column_name": "12TH FLOOR COLUMN",
+      "column_no":   "<column mark, e.g. grouped C1,C18>",
+      "column_name": "<floor row, normalised>",
       "size": {
         "width":  300,
         "depth":  null,

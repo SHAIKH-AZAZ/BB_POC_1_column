@@ -1,8 +1,16 @@
 import os
 import importlib
 
-from config import INPUT_DIR, OUTPUT_DIR
+from config import INPUT_DIR, OUTPUT_DIR, PATTERN_OVERRIDES
 from pattern_detector import detect_pattern
+
+
+def _override_pattern(pdf_name):
+    """Return a pinned pattern number for this PDF name, or None to auto-detect."""
+    for name, pattern in PATTERN_OVERRIDES.items():
+        if name.lower() == pdf_name.lower():
+            return pattern
+    return None
 
 
 def run_pattern(pattern_number, pdf_path):
@@ -41,10 +49,15 @@ def main():
 
         os.makedirs(temp_folder, exist_ok=True)
 
-        print(f"\n📄 Detecting pattern for {pdf}...")
+        override = _override_pattern(pdf_name)
 
         try:
-            pattern_number = detect_pattern(pdf_path, temp_folder)
+            if override is not None:
+                print(f"\n📌 Using PATTERN OVERRIDE for {pdf}: Pattern {override} (skipping auto-detect)")
+                pattern_number = override
+            else:
+                print(f"\n📄 Detecting pattern for {pdf}...")
+                pattern_number = detect_pattern(pdf_path, temp_folder)
             run_pattern(pattern_number, pdf_path)
         except Exception as e:
             print(f"❌ Pattern detection failed: {e}")

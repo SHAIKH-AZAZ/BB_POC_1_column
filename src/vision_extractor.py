@@ -578,3 +578,133 @@ Additional pattern context:
         )
 
     return levels
+
+
+# ============================================================
+# LABEL READING BY CROP
+#   locate each ID cell -> crop + upscale it -> read ONLY that cell.
+#   Reading a tiny upscaled crop avoids the full-page failure where the
+#   model invents COLUMN1/C1 sequences from the words "COLUMN MARKED".
+# ============================================================
+
+_LABEL_LOCATE_PROMPT = """You are looking at a structural COLUMN SCHEDULE drawing.
+
+Near the BOTTOM of each column there is a small row labelled "COLUMN MARKED"
+followed by that column's ID code (examples of such codes: SW1, SW7, C12,
+TA-C1, PC206-12). The codes are small/rotated — DO NOT try to read them now.
+
+Your ONLY job is to LOCATE every ID cell. For each column, return the bounding
+box of the cell that HOLDS the code — the wide cell directly NEXT TO the words
+"COLUMN MARKED" (not the words themselves).
+
+Return STRICT JSON ONLY:
+{"boxes": [{"x1": 0.0, "y1": 0.0, "x2": 0.0, "y2": 0.0}]}
+
+- Coordinates are normalized 0.0-1.0 (x left->right, y top->bottom).
+- One box per ID cell. Cover ALL columns, including any lower or side blocks.
+- Order boxes left-to-right, then top-to-bottom.
+"""
+
+_LABEL_LOCATE_RETRY = _LABEL_LOCATE_PROMPT + (
+    "\nThe previous attempt found no usable cells. Look again across the WHOLE "
+    "sheet for every 'COLUMN MARKED' row and return one box per ID cell.\n"
+)
+
+_LABEL_READ_PROMPT = """This image is ONE small cell cropped from a column schedule.
+It contains a SINGLE column ID code, for example: SW1, SW7, C12, TA-C1,
+PC206-12, W23a, LW1, (SW1+SW1A).
+
+Read that code EXACTLY as printed.
+
+CRITICAL: if the words "COLUMN" or "MARKED" appear, IGNORE them — they are a
+table heading, NOT the code. Never answer "COLUMN", "COLUMN1", "MARKED", or a
+made-up C1/C2 sequence. Read only the real printed code.
+
+Return STRICT JSON ONLY: {"label": "<code>"}
+If you genuinely cannot read any code, return {"label": null}.
+"""
+
+
+def _chat_json(image_b64, instruction, retries=3):
+    """One-shot chat call with an inline (already-encoded) image; returns cleaned JSON text."""
+    last_error = None
+    for attempt in range(1, retries + 1):
+        try:
+            response = client.chat.completions.create(
+                model=OPENAI_MODEL,
+                messages=[
+                    {
+                        "role": "user",
+                        "content": [
+                            {"type": "text", "text": instruction},
+                            _image_content(image_b64),
+                        ],
+                    }
+                ],
+                temperature=0,
+            )
+            return clean_json_string(response.choices[0].message.content)
+        except Exception as exc:
+            last_error = exc
+            if attempt < retries:
+                time.sleep(3)
+    raise RuntimeError(f"_chat_json failed after {retries} retries: {last_error}")
+
+
+def _parse_boxes(raw):
+    try:
+        data = json.loads(raw)
+    except (ValueError, TypeError):
+        return []
+    boxes = data.get("boxes", []) if isinstance(data, dict) else data
+    out = []
+    for b in boxes if isinstance(boxes, list) else []:
+        if not isinstance(b, dict):
+            continue
+        try:
+            x1, y1 = float(b["x1"]), float(b["y1"])
+            x2, y2 = float(b["x2"]), float(b["y2"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        if x2 < x1:
+            x1, x2 = x2, x1
+        if y2 < y1:
+            y1, y2 = y2, y1
+        out.append((x1, y1, x2, y2))
+    return out
+
+
+def _read_one_label(image_path, box, margin=0.004):
+    """Crop+upscale a single ID cell and read just its code."""
+    x1, y1, x2, y2 = box
+    crop_b64 = _crop_image_b64(image_path, x1 - margin, y1 - margin, x2 + margin, y2 + margin)
+    try:
+        data = json.loads(_chat_json(crop_b64, _LABEL_READ_PROMPT))
+    except Exception:
+        return None
+    lab = data.get("label") if isinstance(data, dict) else None
+    if lab is None:
+        return None
+    lab = str(lab).strip()
+    return lab or None
+
+
+def read_labels_by_crop(image_path):
+    """Locate each column-ID cell, crop+upscale it, and read ONLY that cell.
+
+    Returns a list of raw label strings (caller validates/cleans). Robust against
+    the full-page hallucination (COLUMN1/C1...) because each tiny cell is
+    upscaled to a legible size before being read.
+    """
+    for prompt in (_LABEL_LOCATE_PROMPT, _LABEL_LOCATE_RETRY):
+        boxes = _parse_boxes(extract_from_image(image_path, prompt))
+        print(f"  [LABEL] located {len(boxes)} ID cell(s)")
+        labels = []
+        for i, box in enumerate(boxes, 1):
+            lab = _read_one_label(image_path, box)
+            if lab:
+                print(f"  [LABEL] cell {i}: '{lab}'")
+                labels.append(lab)
+        if labels:
+            return labels
+    return []

@@ -7,7 +7,20 @@ from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
 from pattern_batching import extract_levels_with_checkpoints
-from vision_extractor import extract_from_image, detect_levels_from_image
+from vision_extractor import detect_levels_from_image, read_labels_by_crop
+
+
+# ==============================
+# CONSTANTS
+# ==============================
+
+# Label format derived from real-world examples (C34, SW1, TA-C1, PC206-12,
+# (SW1+SW1A), W23a, ...). Used to validate what the crop reader returns.
+_LABEL_PART = r"[A-Za-z]{1,4}(?:-?[A-Za-z]{1,4})?-?\d+[A-Za-z]?(?:-\d+[A-Za-z]?)?"
+_LABEL_RE = re.compile(rf"^\(?{_LABEL_PART}(?:\+{_LABEL_PART})?\)?$")
+
+# Words that mean the model put a level/heading where the label should be.
+_NOT_A_LABEL = re.compile(r"LEVEL|FLOOR|FOUNDATION|TERRACE|MARKED|SCHEDULE", re.I)
 
 
 # ==============================
@@ -83,16 +96,14 @@ def clean_stirrups(stirrups):
 # ==============================
 
 _PATTERN15_LEVEL_CONTEXT = (
-    "This page is a SHEAR WALL (SW) column schedule. "
-    "There are EXACTLY 3 floor levels. "
-    "Return the FULL range name for each level — do NOT truncate. "
-    "Expected levels (in visible order): "
-    "'FOUNDATION TO FIRST FLOOR LEVEL', "
-    "'FIRST FLOOR TO THIRD FLOOR LEVEL', "
-    "'THIRD FLOOR TO TERRACE LEVEL'. "
-    "Do NOT return partial names like 'THIRD FLOOR' or hallucinated names like 'HIGH FLOOR LEVEL'. "
+    "This page is a column/shear-wall schedule. "
     "Read the floor level labels from the column headers (TOP of the right grid) "
-    "or from the row labels in the left section."
+    "or from the row labels in the left section, EXACTLY as printed. "
+    "Levels are usually RANGE names like 'FOUNDATION TO FIRST FLOOR LEVEL' or "
+    "'THIRD FLOOR TO TERRACE LEVEL'. "
+    "Return the FULL range name for each level — do NOT truncate "
+    "(e.g. 'THIRD FLOOR TO TERRACE LEVEL', NOT 'THIRD FLOOR'). "
+    "Do NOT invent levels that are not printed in the drawing."
 )
 
 
@@ -103,6 +114,125 @@ def _detect_levels_p15(img_path, page_index):
         pattern_number=15,
         prompt_context=_PATTERN15_LEVEL_CONTEXT,
     )
+
+
+# ==============================
+# DETECT COLUMN LABELS (CROP + UPSCALE READER — read from the image, not hardcoded)
+# ==============================
+
+def _clean_label_list(labels):
+    """Validate/dedup raw label strings read from the cropped ID cells.
+
+    Dedup is case-insensitive (so 'SW7' and 'sw7' collapse) but the first-seen
+    casing is preserved (so mixed-case IDs like 'W23a' survive intact).
+    """
+    cleaned = []
+    seen = set()
+    for lab in labels or []:
+        lab = re.sub(r"\s+", "", str(lab))
+        if not lab or not re.search(r"\d", lab) or _NOT_A_LABEL.search(lab):
+            continue
+        # Explicit guard against the "COLUMN MARKED" confabulation.
+        if re.match(r"^COLUMN\d+$", lab, re.IGNORECASE):
+            print(f"  [LABEL] rejecting confabulated '{lab}'")
+            continue
+        if not _LABEL_RE.match(lab):
+            print(f"  [ODD-LABEL] '{lab}' kept as-is")
+        key = lab.lower()
+        if key not in seen:
+            seen.add(key)
+            cleaned.append(lab)
+    return cleaned
+
+
+def _looks_like_invented_sequence(labels):
+    """True when labels are one prefix numbered exactly 1..n (n>=6) — the
+    classic hallucination signature (C1, C2, C3, ...)."""
+    if len(labels) < 6:
+        return False
+    parsed = []
+    for lab in labels:
+        m = re.match(r"^([A-Za-z]+)-?(\d+)$", lab)
+        if not m:
+            return False
+        parsed.append((m.group(1).upper(), int(m.group(2))))
+    prefixes = {p for p, _ in parsed}
+    nums = sorted(n for _, n in parsed)
+    return len(prefixes) == 1 and nums == list(range(1, len(nums) + 1))
+
+
+def _detect_labels(img_path):
+    """Read the real column IDs via the locate -> crop+upscale -> read reader."""
+    labels = _clean_label_list(read_labels_by_crop(img_path))
+    if _looks_like_invented_sequence(labels):
+        print(f"  [LABEL] WARNING result still looks invented: {labels[:4]}...")
+    return labels
+
+
+# ==============================
+# VERIFY COLUMN LABELS
+# ==============================
+
+def _verify_labels(job, columns):
+    """
+    Post-extraction guardrail (per batch / per floor level), driven by the
+    labels detected from the image itself (job["allowed_labels"]):
+      1. Entries whose label is in the detected set → kept as-is.
+      2. Entries with any other label (e.g. hallucinated C1, C2...) → remapped
+         positionally to the first MISSING detected label (extraction order
+         matches visual order, so position is reliable).
+      3. Extras beyond the detected labels are dropped.
+    If no labels were detected for the page, falls back to format validation
+    (drop empty/heading-like labels, dedup).
+    """
+    if not columns:
+        return columns
+
+    level = job.get("level", "?")
+    allowed = job.get("allowed_labels") or []
+
+    if allowed:
+        canon = {lab.lower(): lab for lab in allowed}  # case-insensitive match
+        correct = {}
+        wrong = []
+        for col in columns:
+            cno = re.sub(r"\s+", "", str(col.get("column_no", "")))
+            key = canon.get(cno.lower())
+            if key is not None and key not in correct:
+                col = dict(col)
+                col["column_no"] = key  # canonicalize to the verified casing
+                correct[key] = col
+            else:
+                wrong.append(col)
+
+        missing = [lab for lab in allowed if lab not in correct]
+        for col, lab in zip(wrong, missing):
+            print(f"  [FIX-ID] '{col.get('column_no')}' → '{lab}' (level: {level})")
+            col = dict(col)
+            col["column_no"] = lab
+            correct[lab] = col
+
+        dropped = len(wrong) - len(missing)
+        if dropped > 0:
+            print(f"  [DROP] {dropped} extra entry(ies) beyond detected labels (level: {level})")
+
+        return [correct[lab] for lab in allowed if lab in correct]
+
+    # Fallback: no detected labels — keep what looks like a real label.
+    seen = set()
+    result = []
+    for col in columns:
+        cno = re.sub(r"\s+", "", str(col.get("column_no", "")))
+        if not cno or not re.search(r"\d", cno) or _NOT_A_LABEL.search(cno):
+            print(f"  [DROP-LABEL] '{col.get('column_no')}' (level: {level})")
+            continue
+        if cno in seen:
+            continue
+        seen.add(cno)
+        col = dict(col)
+        col["column_no"] = cno
+        result.append(col)
+    return result
 
 
 # ==============================
@@ -119,6 +249,38 @@ def process_pdf(pdf_path):
 
     prompt = load_prompt()
 
+    # --------------------------
+    # PASS 1: detect the column labels actually printed on each page
+    # --------------------------
+    page_labels = {}
+    for page_index, img_path in enumerate(image_paths):
+        print(f"  Detecting column labels -> {img_path}")
+        labels = _detect_labels(img_path)
+        page_labels[page_index] = labels
+        print(f"  Detected {len(labels)} label(s): {', '.join(labels) or '(none)'}")
+
+    all_labels = []
+    for labels in page_labels.values():
+        for lab in labels:
+            if lab not in all_labels:
+                all_labels.append(lab)
+
+    if all_labels:
+        prompt += (
+            "\n\n=====================================================\n"
+            "LABELS VERIFIED ON THIS PAGE (from a prior reading pass)\n"
+            "=====================================================\n\n"
+            f"The column labels printed on this page are EXACTLY:\n"
+            f"  {', '.join(all_labels)}\n\n"
+            "Every add_column() column_no MUST be one of these exact labels.\n"
+            "think() column_headers MUST be exactly this list.\n"
+            f"Expected entries per floor level: {len(all_labels)} "
+            "(one per label). Do NOT add more.\n"
+        )
+
+    def _attach_labels(job):
+        return {"allowed_labels": page_labels.get(job["page_index"], [])}
+
     all_columns = extract_levels_with_checkpoints(
         image_paths,
         prompt,
@@ -126,6 +288,8 @@ def process_pdf(pdf_path):
         output_folder=output_folder,
         prompt_context=_PATTERN15_LEVEL_CONTEXT,
         detect_levels_fn=_detect_levels_p15,
+        verify_cells_fn=_verify_labels,   # <-- label validation hook
+        job_decorator=_attach_labels,     # <-- per-page detected labels
     )
 
     # ==========================

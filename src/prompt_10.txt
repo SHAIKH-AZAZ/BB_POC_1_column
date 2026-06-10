@@ -25,8 +25,9 @@ STEP 1 — READ ALL COLUMN NUMBERS (BOTTOM ROW)
 =====================================================
 
 Read the COLUMN NUMBERS row at the very bottom, left to right.
-Extract every ID exactly as written (e.g. GC39, PC174, GC38, PC171,
-GC19, GC18, GC37, PC169, PC170A, GC36, GC16).
+Extract every ID EXACTLY as written. IDs are a letter prefix + digits
+(format only, e.g. "GC39" or "PC174" — do NOT output these example IDs;
+read the real ones from the drawing).
 Do not invent IDs.
 
 =====================================================
@@ -34,8 +35,8 @@ STEP 2 — READ ALL LEVEL RANGES (LEFT COLUMN)
 =====================================================
 
 Read all row labels top to bottom. Extract ALL present.
-Common ranges: P06 TO ECO-DECK, P05 TO P06, P04 TO P05, P03 TO P04,
-P02 TO P03, P01 TO P02, GF TO P01, LG TO GF, BASE TO LG.
+Ranges look like "<UPPER> TO <LOWER>" (format only, e.g. "P05 TO P06" or
+"GF TO P01" — read the actual ranges from the drawing, do not reuse examples).
 
 =====================================================
 STEP 3 — EXTRACT EVERY CELL
@@ -111,7 +112,7 @@ Return ONLY raw JSON. No markdown. No code fences.
 {
   "columns": [
     {
-      "column_no": "GC39",
+      "column_no": "<column ID read from drawing>",
       "column_name": "BASE TO LG",
       "size": { "width": 300, "depth": null, "length": 1150 },
       "reinforcement": ["4-T16", "18-T12"],
@@ -120,7 +121,7 @@ Return ONLY raw JSON. No markdown. No code fences.
       "steel_grade": null
     },
     {
-      "column_no": "GC39",
+      "column_no": "<column ID read from drawing>",
       "column_name": "P01 TO P02",
       "size": { "width": null, "depth": null, "length": null },
       "reinforcement": [],

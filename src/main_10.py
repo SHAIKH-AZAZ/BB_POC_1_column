@@ -305,7 +305,8 @@ This image shows a structural COLUMN SCHEDULE table from a construction drawing.
 Read two things:
 
 1. COLUMN HEADERS — labels at the TOP or BOTTOM of each data column.
-   Format: two letters + digits, e.g. "GC39", "PC174", "GC38", "PC171".
+   Format: two letters + digits (e.g. "GC39" or "PC174" — these show the
+   FORMAT only; read the real headers from the drawing, do not reuse them).
    List them LEFT to RIGHT as they appear.
 
 2. FLOOR RANGE LABELS — labels on the LEFT side of the table, one per row.
@@ -323,10 +324,11 @@ Rules:
   • Include ALL column headers (there may be 10+ of them).
   • Include ALL floor range rows.
 
-Return ONLY raw JSON, no markdown, no code fences:
+Return ONLY raw JSON, no markdown, no code fences. Replace the placeholders with
+what you ACTUALLY read — do NOT output the example values:
 {
-  "col_headers":  ["GC39", "PC174", "GC38"],
-  "floor_ranges": ["P06", "P05", "P04", "P03", "P02", "P01", "GF", "LG", "BASE"]
+  "col_headers":  ["<header 1 (leftmost)>", "<header 2>", "<header 3>"],
+  "floor_ranges": ["<upper level of row 1>", "<upper level of row 2>"]
 }
 """
 

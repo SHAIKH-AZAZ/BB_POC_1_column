@@ -28,28 +28,25 @@ Index alignment is STRICT.
 
 COLUMN GROUP RULE (MODE 1)
 
-Under "COLUMN MARKED" there are vertical column groups.
+Under "COLUMN MARKED" there are vertical column groups. Read each EXACTLY as
+printed, LEFT TO RIGHT. Do NOT invent prefixes or numbers — copy what you see.
 
-Each vertical position may contain:
+Expand comma shorthand against the visible prefix. These are FORMAT
+illustrations only (use the real codes you read, never these examples):
 
-AC1,2,48,49
-BC1,2,48,49
+  IF a position shows "AC1,2,48,49"  →  output "AC1,AC2,AC48,AC49"
+  IF a position shows "BC7,40"        →  output "BC7,BC40"
 
-Expand prefixes correctly:
-
-AC1,2 → AC1,AC2
-BC7,40 → BC7,BC40
-
-If both AC and BC exist in same vertical position,
+If both an AC group and a BC group share the same vertical position,
 merge them into one string.
 
-Return JSON format:
+Return JSON in this SHAPE (replace placeholders with the codes you actually
+read, keep LEFT TO RIGHT order):
 
 {
   "column_groups": [
-    "AC1,AC2,AC48,AC49,BC1,BC2,BC48,BC49",
-    "AC3,...,BC3,...",
-    ...
+    "<group 1 exactly as read, expanded>",
+    "<group 2 exactly as read, expanded>"
   ]
 }
 

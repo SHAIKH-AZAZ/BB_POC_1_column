@@ -291,17 +291,20 @@ You are reading a strip cut from the BOTTOM of a structural column schedule draw
 It shows a row labelled "COLUMN MARK" with individual column codes written in magenta
 or pink text — one code per column, left to right.
 
-Column codes look like:
-  • Single marks:    C5, C8, C10, C12, C15
-  • Combined marks:  C1,C18  or  C2,C9  or  C7,C16  (two columns sharing one schedule)
+Column codes are a letter prefix + number (FORMAT only — read the REAL ones
+from the image, never reuse these examples):
+  • Single mark   →  looks like  "C5"
+  • Combined mark →  two codes sharing one schedule, e.g.  "C1,C18"
 
 Rules:
-  • Read every mark STRICTLY left to right.
-  • Keep combined marks together exactly as written (e.g. "C1,C18").
+  • Read every mark STRICTLY left to right, EXACTLY as printed.
+  • Keep combined marks together as one string (do not split "C1,C18").
   • Ignore any text that is NOT a column mark (headers, notes, dimension numbers).
+  • Do NOT output the example codes above — report only what you actually read.
 
-Return ONLY valid raw JSON — no markdown fences, no explanation:
-{"column_marks": ["C1,C18", "C2,C9", "C3,C17", "C4,C14", "C5", "C7,C16", "C8", "C10", "C11,C13", "C12", "C15"]}
+Return ONLY valid raw JSON in this SHAPE (replace placeholders with the marks
+you read, left to right):
+{"column_marks": ["<mark 1>", "<mark 2>", "<mark 3>"]}
 """
 
 _PROMPT_ALL_FLOORS = """\
