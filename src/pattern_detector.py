@@ -1,9 +1,68 @@
 import json
+import re
+
 from pdf_to_images import convert_pdf_to_images
 from vision_extractor import extract_from_image
 
 
+def _pattern15_from_text(pdf_path):
+    """Deterministic, STRUCTURE-based Pattern-15 detector (label/value-agnostic).
+
+    Pattern 15 is a "COLUMN MARKED" cross-section schedule whose column marks and
+    floor levels are real TEXT, but whose cell DATA (size / reinforcement /
+    stirrups) is drawn as GRAPHICS — it is NOT in the text layer. That is exactly
+    the condition under which the pdfplumber + crop extractor (main_15) applies.
+
+    It does NOT depend on the mark prefix (SW / LW / C / AC ...), the values, the
+    level names, or the orientation. Validated against the pattern-N.pdf samples:
+      - Pattern 3  -> rejected (has a PEDESTAL footing table)
+      - Patterns 2 / 14 -> rejected (size/steel/reinforcement DATA is in the text)
+      - Pattern 13 / scanned sheets -> rejected (no text layer) -> vision decides
+    Returns True only on a confident match; everything else falls through to the
+    vision classifier.
+    """
+    try:
+        import pdfplumber
+        with pdfplumber.open(pdf_path) as pdf:
+            tokens = [w["text"] for w in pdf.pages[0].extract_words(x_tolerance=2, y_tolerance=2)]
+    except Exception:
+        return False
+
+    if not tokens:
+        return False  # no text layer -> let the vision classifier decide
+
+    upper = [t.upper() for t in tokens]
+    uset = set(upper)
+
+    # 1) Is it a "COLUMN MARKED" / "COLUMN MKD." schedule?
+    has_column_marked = "COLUMN" in uset and any("MARK" in t or t.startswith("MKD") for t in upper)
+    if not has_column_marked:
+        return False
+
+    # 2) A PEDESTAL / footing summary table means Pattern 3 / 8, not 15.
+    if "PEDESTAL" in uset:
+        return False
+
+    # 3) In Pattern 15 the cell DATA is graphics, so size / reinforcement / stirrup
+    #    tokens are essentially absent from the text. Patterns 2 / 14 put that data
+    #    in the text, so they fail this test.
+    data_tokens = sum(
+        1 for t in upper
+        if re.search(r"@\s*\d+", t)      # stirrup spacing   e.g. T8@100C/C
+        or re.search(r"\d+\s*NOS", t)    # bar count         e.g. 4NOS-T16
+        or re.search(r"\d+-T\d+", t)     # reinforcement     e.g. 4-T25
+        or re.search(r"\d+-\d+T", t)     # reinforcement     e.g. 14-20T
+        or t == "X"                      # split size sep    e.g. 200 X 800
+    )
+    return data_tokens < 3
+
+
 def detect_pattern(pdf_path, temp_folder):
+
+    # Deterministic fast path: shear-wall schedule recognisable from PDF text.
+    if _pattern15_from_text(pdf_path):
+        print("  Detected Pattern 15 from PDF text (SW marks + COLUMN MARKED, no pedestal table).")
+        return 15
 
     image_paths = convert_pdf_to_images(pdf_path, temp_folder)
 
@@ -336,36 +395,34 @@ def detect_pattern(pdf_path, temp_folder):
     → RETURN 14
 
 
-    --- PATTERN 15: SHEAR-WALL (SW) COLUMN SCHEDULE — 3 FLOOR LEVELS, NO d1/d2/PEDESTAL TABLE ---
+    --- PATTERN 15: SHEAR-WALL (SW) SCHEDULE WITH "COLUMN MARKED" LABELS, NO d1/d2/PEDESTAL TABLE ---
 
     Visual structure:
-    - This is a SHEAR WALL column schedule. ALL column marks are SW-prefixed
-      (e.g. SW1, SW2, SW4, SW5, SW6, SW7, SW8). There are NO regular C-type
-      columns (no C1/C2/C3) anywhere on the page.
-    - The cross-section drawings are SHEAR WALLS: WIDE, FLAT rectangles
-      (width much greater than height, e.g. 200 x 2400, 200 x 800, 300 x 1200),
-      each packed with many reinforcement bars in long rows. This is different
-      from the near-square cross-sections of regular columns.
-    - Exactly 3 floor levels, written as RANGES:
-        • FOUNDATION (LEVEL) TO FIRST FLOOR LEVEL
-        • FIRST FLOOR TO THIRD FLOOR LEVEL
-        • THIRD FLOOR TO TERRACE LEVEL
-    - Layout: a LEFT section (one shear wall stacked over the 3 levels) plus a
-      RIGHT grid (rows = SW marks, columns = the 3 floor levels). "COLUMN MARKED"
-      labels appear near the sections.
+    - This is a SHEAR WALL column schedule. The column marks are SHEAR-WALL IDs,
+      almost always SW-prefixed (SW1, SW2, SW7...). There are NO regular
+      rectangular C-type columns (no C1/C2/C3).
+    - Each column carries a "COLUMN MARKED" label with its shear-wall ID.
+    - The cross-section drawings are SHEAR WALLS: WIDE, FLAT rectangles (width
+      much greater than height, e.g. 200 x 800, 200 x 2400) packed with
+      reinforcement bars in long rows — unlike the near-square sections of
+      regular columns. Some may be L / U / T shaped.
+    - Floor levels are written as RANGES (e.g. "FOUNDATION TO FIRST FLOOR LEVEL").
+      The NUMBER of levels and the exact ID list VARY between drawings — do NOT
+      rely on a fixed count or fixed names.
     - There is NO summary table at the bottom with d1, d2, PEDESTAL rows.
 
     Key identifiers:
-    ✓ EVERY column mark is SW-prefixed (shear walls) — no C1/C2/C3 columns at all
-    ✓ Wide, flat shear-wall cross-sections (width >> height, e.g. 200 x 2400)
-    ✓ Exactly 3 floor-level RANGES (FOUNDATION→FIRST, FIRST→THIRD, THIRD→TERRACE)
+    ✓ Column marks are SHEAR-WALL IDs (SW-prefixed) — not C1/C2/C3 columns
+    ✓ "COLUMN MARKED" label next to each shear-wall ID
+    ✓ Wide / irregular (L/U/T) shear-wall cross-section drawings
     ✓ NO d1 / d2 / PEDESTAL summary table at the bottom
 
     Distinguish from:
     - Pattern 3: has a bottom summary table with literal "d1", "d2", "PEDESTAL"
-      rows. Pattern 15 has NO such table and its marks are SW shear walls.
-    - Pattern 13: a large dense grid spanning MANY floor levels
-      (basement … 14th … terrace). Pattern 15 has only 3 floor levels.
+      rows and regular columns. Pattern 15 has NO such table and SW shear-wall marks.
+    - Pattern 13: a single large DENSE uniform grid of SW cross-sections.
+      Pattern 15 is a per-column "COLUMN MARKED" schedule (each shear wall with its
+      own labelled cells), not one uniform grid.
 
     → RETURN 15
 
@@ -392,7 +449,7 @@ def detect_pattern(pdf_path, temp_folder):
     STEP 6: Does the LEFT SIDE contain "COLUMN FROM ... TO ..." labels with elevation drawings (not cross-sections)?
     → YES → RETURN 6
 
-    STEP 6a: Are ALL the column marks SW-prefixed shear walls (SW1, SW4, SW5...) with NO regular C-type columns, drawn as WIDE FLAT cross-sections, with exactly 3 floor-level ranges (FOUNDATION→FIRST FLOOR, FIRST→THIRD FLOOR, THIRD→TERRACE), and NO bottom summary table containing d1/d2/PEDESTAL rows?
+    STEP 6a: Are the column marks SHEAR-WALL IDs (SW-prefixed, e.g. SW1/SW2/SW7) shown with "COLUMN MARKED" labels and wide / irregular (L/U/T) cross-section drawings, and is there NO bottom summary table containing d1/d2/PEDESTAL rows? (The number of floor levels and the ID list may VARY — do not require any specific count or names.)
     → YES → RETURN 15
 
     STEP 7: Are there cross-section drawings AND a summary table at the bottom that LITERALLY contains rows labeled "d1", "d2", and "PEDESTAL"?
