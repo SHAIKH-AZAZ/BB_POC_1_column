@@ -14,7 +14,7 @@ import time
 from PIL import Image
 from openai import OpenAI
 
-from config import OPENAI_API_KEY, OPENAI_IMAGE_DETAIL, OPENAI_MODEL, OPENAI_TEMPERATURE
+from config import OPENAI_API_KEY, OPENAI_IMAGE_DETAIL, OPENAI_MODEL, openai_request_kwargs
 from extraction_guard import (
     ExtractionState,
     build_column_record,
@@ -23,10 +23,6 @@ from extraction_guard import (
 
 
 client = OpenAI(api_key=OPENAI_API_KEY)
-
-# Pass temperature only when the model supports a non-default value (gpt-5 rejects
-# anything but its default, so OPENAI_TEMPERATURE is None there -> omit the param).
-_TEMP = {} if OPENAI_TEMPERATURE is None else {"temperature": OPENAI_TEMPERATURE}
 
 
 def encode_image(image_path):
@@ -329,7 +325,7 @@ def extract_with_tools(image_path, prompt_text, max_iterations=300, trace_key=No
             messages=messages,
             tools=COLUMN_TOOLS,
             tool_choice="auto",
-            **_TEMP,
+            **openai_request_kwargs(),
         )
 
         msg = response.choices[0].message
@@ -459,7 +455,7 @@ def extract_from_image(image_path, prompt_text, retries=3):
                         ],
                     }
                 ],
-                **_TEMP,
+                **openai_request_kwargs(),
             )
             return clean_json_string(response.choices[0].message.content)
         except Exception as exc:
@@ -645,7 +641,7 @@ def _chat_json(image_b64, instruction, retries=3):
                         ],
                     }
                 ],
-                **_TEMP,
+                **openai_request_kwargs(),
             )
             return clean_json_string(response.choices[0].message.content)
         except Exception as exc:

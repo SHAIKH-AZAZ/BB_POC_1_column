@@ -1,0 +1,72 @@
+{
+  "pattern": 11,
+  "mode": "level_batches",
+  "levels": [
+    "8th FLOOR COLUMN",
+    "5th FLOOR COLUMN",
+    "4th FLOOR COLUMN",
+    "3rd FLOOR COLUMN",
+    "2nd FLOOR COLUMN",
+    "1st FLOOR COLUMN",
+    "GROUND FLOOR COLUMN",
+    "BASE. FLOOR COLUMN"
+  ],
+  "batches": [
+    {
+      "id": "l001",
+      "level": "8th FLOOR COLUMN",
+      "status": "done",
+      "file": "level_batches/l001_8th_FLOOR_COLUMN.json",
+      "error": null
+    },
+    {
+      "id": "l002",
+      "level": "5th FLOOR COLUMN",
+      "status": "done",
+      "file": "level_batches/l002_5th_FLOOR_COLUMN.json",
+      "error": null
+    },
+    {
+      "id": "l003",
+      "level": "4th FLOOR COLUMN",
+      "status": "done",
+      "file": "level_batches/l003_4th_FLOOR_COLUMN.json",
+      "error": null
+    },
+    {
+      "id": "l004",
+      "level": "3rd FLOOR COLUMN",
+      "status": "done",
+      "file": "level_batches/l004_3rd_FLOOR_COLUMN.json",
+      "error": null
+    },
+    {
+      "id": "l005",
+      "level": "2nd FLOOR COLUMN",
+      "status": "done",
+      "file": "level_batches/l005_2nd_FLOOR_COLUMN.json",
+      "error": null
+    },
+    {
+      "id": "l006",
+      "level": "1st FLOOR COLUMN",
+      "status": "done",
+      "file": "level_batches/l006_1st_FLOOR_COLUMN.json",
+      "error": null
+    },
+    {
+      "id": "l007",
+      "level": "GROUND FLOOR COLUMN",
+      "status": "done",
+      "file": "level_batches/l007_GROUND_FLOOR_COLUMN.json",
+      "error": null
+    },
+    {
+      "id": "l008",
+      "level": "BASE. FLOOR COLUMN",
+      "status": "done",
+      "file": "level_batches/l008_BASE_FLOOR_COLUMN.json",
+      "error": null
+    }
+  ]
+}

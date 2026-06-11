@@ -78,7 +78,7 @@ MAX_CELL_WORKERS = max(1, int(os.getenv("PATTERN11_CELL_WORKERS", "6")))
 # ── Project config ────────────────────────────────────────────────────────────
 # Allows running from the project root as:  python src/main_11.py
 sys.path.insert(0, str(Path(__file__).parent))
-from config import INPUT_DIR, OPENAI_API_KEY, OPENAI_MODEL, OUTPUT_DIR, max_output_tokens_kwargs
+from config import INPUT_DIR, OPENAI_API_KEY, OPENAI_MODEL, OUTPUT_DIR, openai_request_kwargs
 
 # ══════════════════════════════════════════════════════════════════════════════
 # §1  PDF → Image
@@ -320,7 +320,7 @@ def call_vision(client, img: Image.Image, prompt: str,
         try:
             resp = client.chat.completions.create(
                 model=OPENAI_MODEL,
-                **max_output_tokens_kwargs(max_tokens),
+                **openai_request_kwargs(max_tokens),
                 messages=[
                     {
                         "role": "user",

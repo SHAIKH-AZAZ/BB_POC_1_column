@@ -47,7 +47,7 @@ from pdf2image import convert_from_path
 from scipy.signal import find_peaks
 
 sys.path.insert(0, str(Path(__file__).parent))
-from config import INPUT_DIR, OUTPUT_DIR, OPENAI_API_KEY, OPENAI_MODEL, max_output_tokens_kwargs   # noqa: E402
+from config import INPUT_DIR, OUTPUT_DIR, OPENAI_API_KEY, OPENAI_MODEL, openai_request_kwargs   # noqa: E402
 from pattern_batching import load_prompt
 
 
@@ -247,7 +247,7 @@ def call_vision(client, img: Image.Image, prompt: str,
         try:
             resp = client.chat.completions.create(
                 model=OPENAI_MODEL,
-                **max_output_tokens_kwargs(max_tokens),
+                **openai_request_kwargs(max_tokens),
                 messages=[{
                     "role": "user",
                     "content": [
