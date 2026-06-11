@@ -21,10 +21,14 @@ from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from vision_extractor import extract_from_image
 from pattern15_pdf_grid import build_pattern15_cells, crop_cell_image
+from pattern_batching import extract_levels_with_checkpoints, upper_level_from_range
 
 MAX_WORKERS = 4
 
-# Canonical top-to-bottom level order for this pattern.
+# Canonical top-to-bottom level order for this pattern. These are the RANGE labels
+# as printed; the final JSON level is reduced to the leading (upper) floor of each
+# range via upper_level_from_range (Pattern-1's rule), e.g.
+#   "THIRD FLOOR TO TERRACE LEVEL" -> "THIRD FLOOR".
 _LEVEL_ORDER = [
     "THIRD FLOOR TO TERRACE LEVEL",
     "FIRST FLOOR TO THIRD FLOOR LEVEL",
@@ -61,13 +65,25 @@ def clean_reinforcement(values):
 def clean_stirrups(stirrups):
     if not isinstance(stirrups, dict):
         return {"dia": "", "spacing": ""}
-    dia = str(stirrups.get("dia") or "").upper().strip()
-    text = str(stirrups.get("spacing") or "").upper()
-    spacing = sorted(
-        {f"{n} C/C" for n in re.findall(r"(\d+)\s*C/?C", text)},
-        key=lambda x: int(x.split()[0]),
-    )
-    return {"dia": dia, "spacing": ", ".join(spacing)}
+    dia_raw = stirrups.get("dia")
+    if isinstance(dia_raw, list):
+        dia_raw = " ".join(str(d) for d in dia_raw)
+    dia_text = str(dia_raw or "").upper()
+    spc_text = str(stirrups.get("spacing") or "").upper()
+    # A links table can list several link types with DIFFERENT diameters
+    # (e.g. T10@100, T8@200), so collect every distinct diameter, in order.
+    dias = []
+    for d in re.findall(r"T\s*\d+", dia_text):
+        d = d.replace(" ", "")
+        if d not in dias:
+            dias.append(d)
+    # Spacing may be written "75 C/C" or just "@75" / "@200c/c" -> capture both.
+    nums = {a or b for a, b in re.findall(r"@\s*(\d+)|(\d+)\s*C/?C", spc_text) if a or b}
+    spacing = sorted((f"{n} C/C" for n in nums), key=lambda x: int(x.split()[0]))
+    return {
+        "dia": ", ".join(dias) if dias else dia_text.strip(),
+        "spacing": ", ".join(spacing),
+    }
 
 
 def _sw_num(label):
@@ -91,8 +107,13 @@ For EACH cell read ONLY the printed annotations (never invent values):
         (the larger), depth=null. If the cell shows "AS/PLAN" or a complex shape
         with no plain WxL, use null for width and length.
 - reinforcement: like "4-T16 + 8-T12" -> ["4-T16", "8-T12"]. Split on "+".
-- stirrups: link notes like "T8@75c/c" or "T8@200c/c" -> dia "T8", and spacing the
-        number(s) before c/c (e.g. "75 C/C, 200 C/C").
+- stirrups: the cell usually has a LINKS TABLE across its TOP with one or more
+        labelled columns (for example "BE MAIN LINKS", "BE OTHERS", "MID MAIN LINKS",
+        "MID OTHER LINKS" -- these header names are EXAMPLES, read whatever is printed).
+        Each gives a link note like "T10@100c/c" or "T8@200c/c". Read EVERY note,
+        including any drawn beside the cross-section. Put ALL distinct diameters in
+        "dia" (e.g. "T10, T8") and ALL distinct spacings in "spacing"
+        (e.g. "100 C/C, 200 C/C"). Keep the diameter style exactly as printed (T8 stays T8).
 - mix: a concrete grade like "M-30" if printed, else null.
 
 Do NOT output the column id or the level name — those are already known.
@@ -116,9 +137,11 @@ Return STRICT JSON with EXACTLY {n} cell(s), in the SAME top-to-bottom order:
 def _reshape(records):
     from collections import OrderedDict
 
-    by_level = OrderedDict((lv, []) for lv in _LEVEL_ORDER)
+    # Reduce each range label to its leading (upper) floor: Pattern-1's rule,
+    # "THIRD FLOOR TO TERRACE LEVEL" -> "THIRD FLOOR".
+    by_level = OrderedDict((upper_level_from_range(lv), []) for lv in _LEVEL_ORDER)
     for rec in records:
-        by_level.setdefault(rec["column_name"], []).append(rec)
+        by_level.setdefault(upper_level_from_range(rec["column_name"]), []).append(rec)
 
     levels = []
     for level, cols in by_level.items():
@@ -169,26 +192,68 @@ def process_pdf(pdf_path):
             cell = cells[i] if i < len(cells) and isinstance(cells[i], dict) else {}
             out.append({
                 "column_no": job["label"],
-                "column_name": level,
+                # reduce the range label to its leading floor (Pattern-1 rule)
+                "column_name": upper_level_from_range(level),
                 "size": clean_size(cell.get("size")),
                 "reinforcement": clean_reinforcement(cell.get("reinforcement")),
                 "stirrups": clean_stirrups(cell.get("stirrups")),
                 "mix": cell.get("mix"),
+                "_crop": os.path.relpath(crop_path, output_folder),
             })
         print(f"  ✓ {job['label']} ({len(job['levels'])} level(s))")
         return out
 
+    # Deterministic extraction first (SW labels + levels from PDF text, data read
+    # from tight crops) — no label hallucination.
     records = []
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         futures = [executor.submit(run, job) for job in jobs]
         for future in as_completed(futures):
             records.extend(future.result())
 
-    final_output = _reshape(records)
+    # Group the deterministic records by leading-floor level, then drive the SHARED
+    # pattern-9 engine via hooks so we emit the canonical level_batches/ +
+    # level_manifest.json layout WITHOUT replacing the deterministic detector.
+    from collections import OrderedDict
+    by_level = OrderedDict()
+    for rec in records:
+        by_level.setdefault(rec["column_name"], []).append(rec)
+
+    canonical = [upper_level_from_range(lv) for lv in _LEVEL_ORDER]
+    ordered_levels = [lv for lv in canonical if lv in by_level] + \
+                     [lv for lv in by_level if lv not in canonical]
+
+    def _det_levels(img_path, page_index):
+        return ordered_levels or ["UNKNOWN"]
+
+    def _det_extractor(job, _prompt):
+        cols = [dict(c) for c in by_level.get(job["level"], [])]
+        for c in cols:
+            c.pop("_crop", None)
+        return {"columns": cols}
+
+    engine_records = extract_levels_with_checkpoints(
+        image_paths,
+        prompt="",  # unused: the extractor returns pre-computed deterministic rows
+        pattern_number=15,
+        output_folder=output_folder,
+        prompt_context="Pattern 15 shear-wall floor ranges (deterministic).",
+        filter_columns=False,
+        detect_levels_fn=_det_levels,
+        extractor=_det_extractor,
+    )
+
+    final_output = _reshape(engine_records)
 
     output_file = os.path.join(output_folder, f"{file_name}.json")
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(final_output, f, indent=2, ensure_ascii=False)
+
+    # Deterministic trace (per-cell crops + reads) to match the canonical layout.
+    trace_path = os.path.join(output_folder, f"{file_name}_trace.json")
+    with open(trace_path, "w", encoding="utf-8") as f:
+        json.dump({"pattern": 15, "render": os.path.basename(render_path),
+                   "cells": records}, f, indent=2, ensure_ascii=False)
 
     print(f"✅ Output saved to {output_file}")
     print(

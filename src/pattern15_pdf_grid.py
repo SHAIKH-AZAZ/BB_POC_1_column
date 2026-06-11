@@ -50,6 +50,10 @@ _COL_MIN_W = 420       # min column crop width (px)
 _COL_MAX_W = 1150      # max column crop width (px)
 _CLUSTER_GAP = 400     # vertical gap (px) that marks a cell-block boundary
 _LABEL_GAP = 60        # ignore level tokens nearer than this to the SW label
+_RULE_BUCKET = 12      # vertical tolerance (px) for grouping collinear h-edges
+_RULE_COVER = 0.5      # an h-edge group is a cell border if it spans >= this
+                       # fraction of the cell width
+_HEADER_MARGIN = 25    # extra px kept above a detected cell-top border
 
 
 def _prefix(text):
@@ -153,6 +157,87 @@ def _single_cell_level(token, width, level_tokens):
     return _LVL_MIDDLE
 
 
+def _build_h_rules(page, sx, sy):
+    """Merge the page's horizontal vector edges into table RULES (in px).
+
+    The cross-section linework explodes into tens of thousands of tiny edges, so
+    we keep only horizontal ones, bucket them by y, and union their x-intervals.
+    Returns a list of (top_px, [(x0,x1), ...]) sorted top-to-bottom — used to find
+    a cell's top border so the crop can include the links/stirrup HEADER table
+    that sits above the cross-section (and is drawn as graphics, not text)."""
+    buckets = {}
+    for e in page.edges:
+        if e.get("orientation") != "h":
+            continue
+        top = e["top"] * sy
+        key = round(top / _RULE_BUCKET)
+        buckets.setdefault(key, []).append(
+            (min(e["x0"], e["x1"]) * sx, max(e["x0"], e["x1"]) * sx)
+        )
+
+    rules = []
+    for key, spans in buckets.items():
+        spans.sort()
+        merged = []
+        for x0, x1 in spans:
+            if merged and x0 <= merged[-1][1] + 2:
+                merged[-1] = (merged[-1][0], max(merged[-1][1], x1))
+            else:
+                merged.append((x0, x1))
+        rules.append((key * _RULE_BUCKET, merged))
+    rules.sort()
+    return rules
+
+
+def _cell_coverage(merged, x0, x1):
+    """Total width of `merged` x-intervals that overlaps [x0, x1]."""
+    return sum(max(0, min(x1, b) - max(x0, a)) for a, b in merged)
+
+
+def _block_top(blocks_px, cx, content_top):
+    """Top (px) of the bordered block that contains this cell, else 0.
+
+    blocks_px = [(x0, top, x1, bottom), ...] from the page's large rects."""
+    best = 0
+    for bx0, btop, bx1, bbot in blocks_px:
+        if bx0 <= cx <= bx1 and btop <= content_top <= bbot:
+            best = max(best, btop)
+    return best
+
+
+def _header_floor(box, mark_tokens, block_top):
+    """Lowest the crop top may rise to: the block top, but never past the BOTTOM
+    of the nearest cell directly above this one (so the header capture can't
+    swallow a neighbouring cell). The cell above is another mark whose label sits
+    in this cell's x-span, above its content."""
+    x0, content_top, x1 = box[0], box[1], box[2]
+    floor = block_top
+    for m in mark_tokens:
+        if x0 <= m["cx"] <= x1 and m["bottom"] < content_top - 10:
+            floor = max(floor, m["bottom"])
+    return floor
+
+
+def _header_top(box, rules, floor):
+    """Extend a single cell's crop upward to include its header (links) table.
+
+    Snap the crop top to the HIGHEST horizontal rule that (a) spans most of the
+    cell's width, (b) sits above the current content top, and (c) is not above
+    `floor` (the cell's own top boundary). That rule is the cell's top edge; the
+    links/stirrup table lives just below it. Falls back to the original top."""
+    x0, content_top, x1 = box[0], box[1], box[2]
+    cell_w = x1 - x0
+    best = None
+    for top, merged in rules:
+        if top >= content_top - 5 or top < floor - _HEADER_MARGIN:
+            continue
+        if _cell_coverage(merged, x0, x1) >= _RULE_COVER * cell_w:
+            best = top if best is None else min(best, top)
+    if best is None:
+        return content_top
+    return int(max(0, best - _HEADER_MARGIN))
+
+
 def _crop_box(token, sw_tokens, level_tokens, single_cell):
     """Deterministic crop box for one SW label.
 
@@ -196,14 +281,22 @@ def build_pattern15_cells(pdf_path, render_path):
         page = pdf.pages[0]
         pw, ph = page.width, page.height
         words = page.extract_words(x_tolerance=2, y_tolerance=2)
-
-    sx, sy = rw / pw, rh / ph
+        sx, sy = rw / pw, rh / ph
+        h_rules = _build_h_rules(page, sx, sy)
+        # The large bordered rects are the table BLOCKS; bound header capture to
+        # them so a cell never reaches up into an unrelated cell above it.
+        blocks_px = [
+            (r["x0"] * sx, r["top"] * sy, r["x1"] * sx, r["bottom"] * sy)
+            for r in page.rects
+            if r["width"] * sx > 0.15 * rw and r["height"] * sy > 0.15 * rh
+        ]
 
     def to_px(word):
         return {
             "text": word["text"],
             "cx": (word["x0"] + word["x1"]) / 2 * sx,
             "top": word["top"] * sy,
+            "bottom": word["bottom"] * sy,
         }
 
     sw_tokens = [to_px(w) for w in _find_mark_words(words)]
@@ -222,6 +315,12 @@ def build_pattern15_cells(pdf_path, render_path):
         if box is None:
             continue
         if single_cell:
+            # Extend the crop up to the cell's top border so the links/stirrup
+            # HEADER table (above the cross-section) is captured, without rising
+            # into the cell above.
+            block_top = _block_top(blocks_px, token["cx"], box[1])
+            floor = _header_floor(box, sw_tokens, block_top)
+            box = (box[0], _header_top(box, h_rules, floor), box[2], box[3])
             # one repeated cell -> identify its single level from its own keywords
             width = _column_width(token, sw_tokens)
             levels = [_single_cell_level(token, width, level_tokens)]

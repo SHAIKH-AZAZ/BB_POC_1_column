@@ -31,7 +31,7 @@ DEPENDENCIES
 import json
 from extraction_guard import reshape_columns_to_levels
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
-from pattern_batching import atomic_write_json
+from pattern_batching import atomic_write_json, extract_levels_with_checkpoints
 from pattern_cleaners import standardize_records
 import os
 import re
@@ -47,7 +47,7 @@ from pdf2image import convert_from_path
 from scipy.signal import find_peaks
 
 sys.path.insert(0, str(Path(__file__).parent))
-from config import INPUT_DIR, OUTPUT_DIR, OPENAI_API_KEY, OPENAI_MODEL   # noqa: E402
+from config import INPUT_DIR, OUTPUT_DIR, OPENAI_API_KEY, OPENAI_MODEL, max_output_tokens_kwargs   # noqa: E402
 
 
 # ═══════════════════════════════════════════════════════════════════
@@ -246,7 +246,7 @@ def call_vision(client, img: Image.Image, prompt: str,
         try:
             resp = client.chat.completions.create(
                 model=OPENAI_MODEL,
-                max_tokens=max_tokens,
+                **max_output_tokens_kwargs(max_tokens),
                 messages=[{
                     "role": "user",
                     "content": [
@@ -743,6 +743,12 @@ def process_page(img_path: str, client) -> list:
 #  §12  PDF PROCESSOR
 # ═══════════════════════════════════════════════════════════════════
 
+def load_prompt_12():
+    with open(os.path.join(os.path.dirname(__file__), "prompt_12.txt"),
+              "r", encoding="utf-8") as f:
+        return f.read()
+
+
 def process_pdf(pdf_path: str) -> None:
     stem    = os.path.splitext(os.path.basename(pdf_path))[0]
     out_dir = os.path.join(OUTPUT_DIR, stem)
@@ -750,84 +756,25 @@ def process_pdf(pdf_path: str) -> None:
 
     print(f"\n{'═'*60}\n  PDF: {stem}.pdf\n{'═'*60}")
 
-    client      = _get_client()
     image_paths = render_pdf(pdf_path, out_dir, dpi=600)
 
-    batch_folder_name = "page_batches"
-    batch_folder = os.path.join(out_dir, batch_folder_name)
-    os.makedirs(batch_folder, exist_ok=True)
-
-    fresh_manifest = {
-        "pattern": 12,
-        "mode": "page_batches",
-        "batches": [
-            {
-                "id": f"p{idx + 1:02d}",
-                "page": idx + 1,
-                "status": "pending",
-                "file": os.path.join(batch_folder_name, f"p{idx + 1:02d}.json"),
-                "error": None,
-            }
-            for idx in range(len(image_paths))
-        ],
-    }
-    manifest_path = os.path.join(out_dir, "page_manifest.json")
-
-    # ── Resume: load existing manifest so completed pages are skipped ──────────
-    manifest = fresh_manifest
-    if os.path.exists(manifest_path):
-        try:
-            with open(manifest_path, "r", encoding="utf-8") as _mf:
-                loaded = json.load(_mf)
-            # Only reuse if it belongs to the same pattern and page count
-            if (loaded.get("pattern") == 12
-                    and len(loaded.get("batches", [])) == len(image_paths)):
-                manifest = loaded
-                done_count = sum(1 for b in manifest["batches"] if b.get("status") == "done")
-                if done_count:
-                    print(f"  ♻  Resuming — {done_count}/{len(image_paths)} page(s) already done")
-        except Exception as _e:
-            print(f"  ⚠  Could not read existing manifest ({_e}); starting fresh")
-
-    atomic_write_json(manifest_path, manifest)
-
-    def _set_batch_status(batch_id, status, error=None):
-        for batch in manifest["batches"]:
-            if batch["id"] == batch_id:
-                batch["status"] = status
-                batch["error"] = error
-                return
-
-    raw_cols = []
-    for page_index, img_path in enumerate(image_paths):
-        batch_id = f"p{page_index + 1:02d}"
-
-        # ── Skip already-completed pages ──────────────────────────────────────
-        batch_status = next(
-            (b["status"] for b in manifest["batches"] if b["id"] == batch_id),
-            "pending",
-        )
-        if batch_status == "done":
-            cached_path = os.path.join(batch_folder, f"{batch_id}.json")
-            if os.path.exists(cached_path):
-                try:
-                    with open(cached_path, "r", encoding="utf-8") as _cf:
-                        page_cols = json.load(_cf).get("columns", [])
-                    raw_cols.extend(page_cols)
-                    print(f"\n  ♻  Page {page_index + 1} already done — "
-                          f"loaded {len(page_cols)} entries from cache")
-                    continue
-                except Exception as _e:
-                    print(f"  ⚠  Cache read failed ({_e}); re-processing page {page_index + 1}")
-
-        _set_batch_status(batch_id, "running")
-        atomic_write_json(manifest_path, manifest)
-        print(f"\n  ── Page: {os.path.basename(img_path)} ──")
-        page_cols = process_page(img_path, client)
-        raw_cols.extend(page_cols)
-        atomic_write_json(os.path.join(batch_folder, f"{batch_id}.json"), {"columns": page_cols})
-        _set_batch_status(batch_id, "done")
-        atomic_write_json(manifest_path, manifest)
+    # Pattern-9 procedure: detect floor levels first, then extract per level via the
+    # shared engine (emits level_batches/ + level_manifest.json + trace). NOTE: this
+    # replaces main_12's bespoke whole-page green-text pipeline (process_page / _get_client
+    # remain in the file but are no longer used) — spot-check extraction quality.
+    prompt = load_prompt_12()
+    raw_cols = extract_levels_with_checkpoints(
+        image_paths,
+        prompt,
+        pattern_number=12,
+        output_folder=out_dir,
+        prompt_context=(
+            "Pattern 12 stacks floors VERTICALLY; the LEFT side labels each floor row, "
+            "e.g. '16TH FLOOR ROOFTOP (MIX: M250)', '11TH FLOOR COLUMN', "
+            "'GROUND FLOOR COLUMN'. Read them top-to-bottom; keep the floor text as printed."
+        ),
+        filter_columns=False,
+    )
 
     # ── Expand combined marks ("C1,C18" → C1 + C18 with identical data) ──────
     expanded = []

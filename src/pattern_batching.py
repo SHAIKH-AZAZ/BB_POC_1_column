@@ -71,6 +71,15 @@ def upper_levels(labels):
     return [upper_level_from_range(lbl) for lbl in (labels or [])]
 
 
+def single_level(label="ALL"):
+    """A `detect_levels_fn` that forces exactly ONE synthetic level.
+
+    Use for floor-less schedules (COLUMN MARK | SIZES, COLUMN ID tables, ...) so the
+    shared level engine still emits the standard `level_batches/` layout with a single
+    batch instead of letting vision invent spurious floor levels."""
+    return lambda img_path, page_index: [label]
+
+
 def is_valid_column_no(value):
     text = str(value or "").strip()
     if not text:
@@ -277,6 +286,7 @@ def extract_levels_with_checkpoints(
     detect_levels_fn=None,
     verify_cells_fn=None,
     job_decorator=None,
+    extractor=None,
 ):
     batch_folder = os.path.join(output_folder, batch_folder_name)
     os.makedirs(batch_folder, exist_ok=True)
@@ -355,8 +365,11 @@ def extract_levels_with_checkpoints(
             job["levels"],
             pattern_number,
         )
-        raw = extract_with_tools(job["img_path"], batch_prompt, trace_key=job["trace_key"])
-        parsed = parse_json_result(raw)
+        if extractor is not None:
+            parsed = extractor(job, batch_prompt)
+        else:
+            raw = extract_with_tools(job["img_path"], batch_prompt, trace_key=job["trace_key"])
+            parsed = parse_json_result(raw)
         columns = parsed.get("columns", []) if isinstance(parsed, dict) else []
         if not isinstance(columns, list):
             columns = []

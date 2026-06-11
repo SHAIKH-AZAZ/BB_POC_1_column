@@ -34,7 +34,14 @@ from config import INPUT_DIR, OUTPUT_DIR
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
-from pattern_batching import atomic_write_json, parse_json_result, safe_filename, upper_levels
+from pattern_batching import (
+    atomic_write_json,
+    extract_levels_with_checkpoints,
+    parse_json_result,
+    safe_filename,
+    upper_level_from_range,
+    upper_levels,
+)
 from pattern_cleaners import standardize_records
 from vision_extractor import extract_from_image, extract_with_tools
 
@@ -799,83 +806,42 @@ def process_pdf(pdf_path: str):
     os.makedirs(output_folder, exist_ok=True)
 
     doc = fitz.open(pdf_path)
-    mode = PATTERN10_EXTRACTION_MODE
-    if mode not in {"text", "tools", "precrop", "precrop_tools"}:
-        print(f"  ⚠️  Unknown PATTERN10_EXTRACTION_MODE={mode!r}; using 'precrop'.")
-        mode = "precrop"
 
     print(f"\n🔍 Detecting layout from '{file_name}' …")
-    print(f"  Pattern-10 extraction mode: {mode}")
     layout = detect_layout_10(doc, pdf_path)
-
     if not layout:
         print("  ❌  Layout detection failed.")
         return
-
     print(f"  Columns ({len(layout['col_names'])}): {layout['col_names']}")
     print(f"  Rows    ({len(layout['row_names'])}): {layout['row_names']}")
-    image_paths = []
-    prompt = ""
-    if mode in {"tools", "precrop", "precrop_tools"}:
-        image_paths = convert_pdf_to_images(pdf_path, output_folder, dpi=700)
-    if mode == "tools":
-        prompt = load_prompt()
 
-    batch_folder_name = "page_batches"
-    batch_folder = os.path.join(output_folder, batch_folder_name)
-    os.makedirs(batch_folder, exist_ok=True)
-    manifest = {
-        "pattern": 10,
-        "mode": "page_batches",
-        "extraction_mode": mode,
-        "batches": [
-            {
-                "id": f"p{page_no + 1:02d}",
-                "page": page_no + 1,
-                "status": "pending",
-                "file": os.path.join(batch_folder_name, f"p{page_no + 1:02d}.json"),
-                "error": None,
-            }
-            for page_no in range(len(doc))
-        ],
-    }
-    manifest_path = os.path.join(output_folder, "page_manifest.json")
-    atomic_write_json(manifest_path, manifest)
+    image_paths = convert_pdf_to_images(pdf_path, output_folder, dpi=600)
+    prompt = load_prompt()
 
-    all_records: list = []
-    for page_no in tqdm(range(len(doc)), desc=f"Processing {file_name}"):
-        batch_id = f"p{page_no + 1:02d}"
-        _update_manifest_status(manifest, batch_id, "running")
-        atomic_write_json(manifest_path, manifest)
-        page    = doc[page_no]
-        # draw_debug_cells(page, layout, page_no, output_folder)
-        if mode == "tools":
-            records = extract_from_image_page_10_tools(image_paths[page_no], prompt, page_no)
-        elif mode in {"precrop", "precrop_tools"}:
-            records = extract_from_pdf_page_10_precrop(
-                page,
-                layout,
-                image_paths[page_no],
-                output_folder,
-                page_no,
-                use_tools=(mode == "precrop_tools"),
-            )
-        else:
-            records = extract_from_pdf_page_10(page, layout)
-        status  = f"✅ {len(records)} records" if records else "⚠️  no records"
-        tqdm.write(f"  Page {page_no + 1}: {status}")
-        all_records.extend(records)
-        atomic_write_json(os.path.join(batch_folder, f"{batch_id}.json"), {"columns": records})
-        _update_manifest_status(manifest, batch_id, "done")
-        atomic_write_json(manifest_path, manifest)
+    # Pattern-9 procedure: reuse main_10's accurate floor detection (layout row_names)
+    # as the level list, then extract per level via the shared engine -> level_batches/
+    # + level_manifest.json + trace. (This also retires the old page_batches path and
+    # its dpi=700 page_1.png failure.)
+    floors = [str(r) for r in layout.get("row_names") or []] or ["ALL"]
+    raw = extract_levels_with_checkpoints(
+        image_paths,
+        prompt,
+        pattern_number=10,
+        output_folder=output_folder,
+        prompt_context=(
+            "Pattern 10 floor spans label the LEFT side, e.g. 'P05 TO P06', "
+            "'P06 TO ECO-DECK', 'BASE TO LG', 'LG TO GF'. Read top-to-bottom; "
+            "keep the floor text exactly as printed."
+        ),
+        filter_columns=False,
+        detect_levels_fn=lambda img_path, page_index: floors,
+    )
 
-    final = _sort_records(_merge_pages(all_records), layout)
-    _report(final, layout)
+    for col in raw:
+        if isinstance(col, dict):
+            col["column_name"] = upper_level_from_range(col.get("column_name"))
 
-    # Pattern 1 standardization: filter non-column rows + apply canonical
-    # size/reinforcement/mix cleaners. Stirrups left untouched so
-    # Pattern 10's own parse_links() shape is preserved.
-    final = standardize_records(final, stirrups_cleaner=None)
+    final = standardize_records(raw, stirrups_cleaner=None)
 
     output_file = os.path.join(output_folder, f"{file_name}.json")
     with open(output_file, "w", encoding="utf-8") as f:

@@ -4,41 +4,88 @@
   "pages": {
     "page_1.png__p01_page": {
       "project": "column",
-      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-7\\page_1.png",
-      "generated_at": "2026-05-28T09:21:09.334968+00:00",
+      "image_path": "/home/azaz/Desktop/code/POC ZIP FILES/POC-1/BB_POC_1_column/output/pattern-7/page_1.png",
+      "generated_at": "2026-06-11T06:47:53.863574+00:00",
       "think": {
-        "image_quality": "good",
+        "image_quality": "high - clear, good contrast",
         "table_bounds": {
-          "x1": 0,
-          "y1": 1600,
-          "x2": 1200,
-          "y2": 3200
+          "top": 10,
+          "left": 10,
+          "right": 1400,
+          "bottom": 1060
         },
         "column_headers": [
           "COLUMN MARK",
           "SIZES"
         ],
         "storey_levels": [
-          "row1",
-          "row2",
-          "row3",
-          "row4",
-          "row5",
-          "row6",
-          "row7",
-          "row8",
-          "row9",
-          "row10"
+          "TC-C1, TC-C4, TC-C5, TC-C6, TC-C7, TC-C14, TC-C16, TC-C17, TC-C18, TC-C20, TC-C21, TC-C22, TC-C23, TC-C28, TC-C31, TC-C32, TC-C33, TC-C36",
+          "TC-C8, TC-C9, TC-C10, TC-C11, TC-C12, TC-C24, TC-C25, TC-C26, TC-C27, TC-C29, TC-C30",
+          "TC-C2, TC-C3",
+          "TC-C13",
+          "TC-C15, TC-C19",
+          "TC-C34, TC-C35",
+          "TC-SW1",
+          "PC1 TO PC8, PC11 TO PC13, PC17 TO PC45",
+          "PC9, PC10, PC15",
+          "PC14",
+          "PC16"
         ],
-        "expected_count": 10,
-        "zoom_plan": [],
+        "expected_count": 11,
+        "zoom_plan": [
+          {
+            "region_id": "r-header",
+            "purpose": "header",
+            "target": "COLUMN SIZES (BLOCK - C) header",
+            "reason": "capture table title and column headers"
+          },
+          {
+            "region_id": "r-row1",
+            "purpose": "row_label",
+            "target": "first large TC group left cell",
+            "x1": 20,
+            "y1": 120,
+            "x2": 1000,
+            "y2": 280,
+            "reason": "ensure full list of TC column marks are read"
+          },
+          {
+            "region_id": "r-row2",
+            "purpose": "row_label",
+            "target": "second TC group left cell",
+            "x1": 20,
+            "y1": 290,
+            "x2": 1000,
+            "y2": 440,
+            "reason": "confirm TC list"
+          },
+          {
+            "region_id": "r-row7",
+            "purpose": "row_label",
+            "target": "TC-SW1 left cell",
+            "x1": 20,
+            "y1": 740,
+            "x2": 1000,
+            "y2": 840,
+            "reason": "capture AS PER SHAPE text association"
+          },
+          {
+            "region_id": "r-non-tower",
+            "purpose": "global_note",
+            "target": "start of NON-TOWER table",
+            "reason": "capture ranges in PC rows for expansion"
+          }
+        ],
         "normalization_rules": [
-          "Expand ranges fully",
-          "Extract width and length from sizes",
-          "If size is 'AS PER SHAPE' then width,length,depth=null"
+          "Expand ranges 'PC1 TO PC8' into PC1,PC2,...PC8",
+          "Strip spaces around commas in output column_no (use comma-separated string)",
+          "Parse sizes 'W X L' where W and L are integers; set depth=null",
+          "If size text is 'AS PER SHAPE' set width=null,length=null,depth=null"
         ],
         "extraction_order": [
-          "top-to-bottom"
+          "Top table rows from top to bottom",
+          "Then second table (NON-TOWER) rows from top to bottom",
+          "For each row, read left cell (column marks) and right cell (size)"
         ]
       },
       "zoom_regions": [],
@@ -46,7 +93,7 @@
       "records": [
         {
           "column_no": "TC-C1,TC-C4,TC-C5,TC-C6,TC-C7,TC-C14,TC-C16,TC-C17,TC-C18,TC-C20,TC-C21,TC-C22,TC-C23,TC-C28,TC-C31,TC-C32,TC-C33,TC-C36",
-          "column_name": "row1",
+          "column_name": "TC-C1, TC-C4, TC-C5, TC-C6, TC-C7, TC-C14, TC-C16, TC-C17, TC-C18, TC-C20, TC-C21, TC-C22, TC-C23, TC-C28, TC-C31, TC-C32, TC-C33, TC-C36",
           "size": {
             "width": 300,
             "depth": null,
@@ -62,7 +109,7 @@
         },
         {
           "column_no": "TC-C8,TC-C9,TC-C10,TC-C11,TC-C12,TC-C24,TC-C25,TC-C26,TC-C27,TC-C29,TC-C30",
-          "column_name": "row2",
+          "column_name": "TC-C8, TC-C9, TC-C10, TC-C11, TC-C12, TC-C24, TC-C25, TC-C26, TC-C27, TC-C29, TC-C30",
           "size": {
             "width": 300,
             "depth": null,
@@ -78,7 +125,7 @@
         },
         {
           "column_no": "TC-C2,TC-C3",
-          "column_name": "row3",
+          "column_name": "TC-C2, TC-C3",
           "size": {
             "width": 530,
             "depth": null,
@@ -94,7 +141,7 @@
         },
         {
           "column_no": "TC-C13",
-          "column_name": "row4",
+          "column_name": "TC-C13",
           "size": {
             "width": 300,
             "depth": null,
@@ -110,7 +157,7 @@
         },
         {
           "column_no": "TC-C15,TC-C19",
-          "column_name": "row5",
+          "column_name": "TC-C15, TC-C19",
           "size": {
             "width": 300,
             "depth": null,
@@ -126,7 +173,7 @@
         },
         {
           "column_no": "TC-C34,TC-C35",
-          "column_name": "row6",
+          "column_name": "TC-C34, TC-C35",
           "size": {
             "width": 300,
             "depth": null,
@@ -142,215 +189,7 @@
         },
         {
           "column_no": "TC-SW1",
-          "column_name": "row7",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "COLUMN MARK",
-          "column_name": "row8",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "SIZES",
-          "column_name": "row9",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "COLUMN MARK",
-          "column_name": "row10",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "SIZES",
-          "column_name": "row11",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "COLUMN MARK",
-          "column_name": "row12",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "SIZES",
-          "column_name": "row13",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "COLUMN MARK",
-          "column_name": "row14",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "SIZES",
-          "column_name": "row15",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "COLUMN MARK",
-          "column_name": "row16",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "SIZES",
-          "column_name": "row17",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "COLUMN MARK",
-          "column_name": "row18",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "SIZES",
-          "column_name": "row19",
-          "size": {
-            "width": null,
-            "depth": null,
-            "length": null
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "COLUMN MARK",
-          "column_name": "row20",
+          "column_name": "TC-SW1",
           "size": {
             "width": null,
             "depth": null,
@@ -366,7 +205,7 @@
         },
         {
           "column_no": "PC1,PC2,PC3,PC4,PC5,PC6,PC7,PC8,PC11,PC12,PC13,PC17,PC18,PC19,PC20,PC21,PC22,PC23,PC24,PC25,PC26,PC27,PC28,PC29,PC30,PC31,PC32,PC33,PC34,PC35,PC36,PC37,PC38,PC39,PC40,PC41,PC42,PC43,PC44,PC45",
-          "column_name": "row1",
+          "column_name": "PC1 TO PC8, PC11 TO PC13, PC17 TO PC45",
           "size": {
             "width": 350,
             "depth": null,
@@ -382,7 +221,7 @@
         },
         {
           "column_no": "PC9,PC10,PC15",
-          "column_name": "row2",
+          "column_name": "PC9, PC10, PC15",
           "size": {
             "width": 300,
             "depth": null,
@@ -398,7 +237,7 @@
         },
         {
           "column_no": "PC14",
-          "column_name": "row3",
+          "column_name": "PC14",
           "size": {
             "width": 350,
             "depth": null,
@@ -414,107 +253,11 @@
         },
         {
           "column_no": "PC16",
-          "column_name": "row4",
+          "column_name": "PC16",
           "size": {
             "width": 300,
             "depth": null,
             "length": 935
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "PC17",
-          "column_name": "row5",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 1200
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "PC18",
-          "column_name": "row6",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 1500
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "PC19",
-          "column_name": "row7",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 1420
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "PC20",
-          "column_name": "row8",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 900
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "PC21",
-          "column_name": "row9",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 1000
-          },
-          "reinforcement": [],
-          "stirrups": {
-            "dia": [],
-            "spacing": []
-          },
-          "mix": null,
-          "steel_grade": null
-        },
-        {
-          "column_no": "PC22",
-          "column_name": "row10",
-          "size": {
-            "width": 300,
-            "depth": null,
-            "length": 1000
           },
           "reinforcement": [],
           "stirrups": {
@@ -529,7 +272,7 @@
         {
           "record": {
             "column_no": "TC-C1,TC-C4,TC-C5,TC-C6,TC-C7,TC-C14,TC-C16,TC-C17,TC-C18,TC-C20,TC-C21,TC-C22,TC-C23,TC-C28,TC-C31,TC-C32,TC-C33,TC-C36",
-            "column_name": "row1",
+            "column_name": "TC-C1, TC-C4, TC-C5, TC-C6, TC-C7, TC-C14, TC-C16, TC-C17, TC-C18, TC-C20, TC-C21, TC-C22, TC-C23, TC-C28, TC-C31, TC-C32, TC-C33, TC-C36",
             "size": {
               "width": 300,
               "depth": null,
@@ -543,12 +286,14 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
+          "source_region_ids": [
+            "r-row1"
+          ]
         },
         {
           "record": {
             "column_no": "TC-C8,TC-C9,TC-C10,TC-C11,TC-C12,TC-C24,TC-C25,TC-C26,TC-C27,TC-C29,TC-C30",
-            "column_name": "row2",
+            "column_name": "TC-C8, TC-C9, TC-C10, TC-C11, TC-C12, TC-C24, TC-C25, TC-C26, TC-C27, TC-C29, TC-C30",
             "size": {
               "width": 300,
               "depth": null,
@@ -562,12 +307,14 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
+          "source_region_ids": [
+            "r-row2"
+          ]
         },
         {
           "record": {
             "column_no": "TC-C2,TC-C3",
-            "column_name": "row3",
+            "column_name": "TC-C2, TC-C3",
             "size": {
               "width": 530,
               "depth": null,
@@ -581,12 +328,14 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
+          "source_region_ids": [
+            "r-row2"
+          ]
         },
         {
           "record": {
             "column_no": "TC-C13",
-            "column_name": "row4",
+            "column_name": "TC-C13",
             "size": {
               "width": 300,
               "depth": null,
@@ -600,12 +349,14 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
+          "source_region_ids": [
+            "r-row3"
+          ]
         },
         {
           "record": {
             "column_no": "TC-C15,TC-C19",
-            "column_name": "row5",
+            "column_name": "TC-C15, TC-C19",
             "size": {
               "width": 300,
               "depth": null,
@@ -619,12 +370,14 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
+          "source_region_ids": [
+            "r-row4"
+          ]
         },
         {
           "record": {
             "column_no": "TC-C34,TC-C35",
-            "column_name": "row6",
+            "column_name": "TC-C34, TC-C35",
             "size": {
               "width": 300,
               "depth": null,
@@ -638,12 +391,14 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
+          "source_region_ids": [
+            "r-row5"
+          ]
         },
         {
           "record": {
             "column_no": "TC-SW1",
-            "column_name": "row7",
+            "column_name": "TC-SW1",
             "size": {
               "width": null,
               "depth": null,
@@ -657,259 +412,14 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "COLUMN MARK",
-            "column_name": "row8",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "SIZES",
-            "column_name": "row9",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "COLUMN MARK",
-            "column_name": "row10",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "SIZES",
-            "column_name": "row11",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "COLUMN MARK",
-            "column_name": "row12",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "SIZES",
-            "column_name": "row13",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "COLUMN MARK",
-            "column_name": "row14",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "SIZES",
-            "column_name": "row15",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "COLUMN MARK",
-            "column_name": "row16",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "SIZES",
-            "column_name": "row17",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "COLUMN MARK",
-            "column_name": "row18",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "SIZES",
-            "column_name": "row19",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "COLUMN MARK",
-            "column_name": "row20",
-            "size": {
-              "width": null,
-              "depth": null,
-              "length": null
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
+          "source_region_ids": [
+            "r-row7"
+          ]
         },
         {
           "record": {
             "column_no": "PC1,PC2,PC3,PC4,PC5,PC6,PC7,PC8,PC11,PC12,PC13,PC17,PC18,PC19,PC20,PC21,PC22,PC23,PC24,PC25,PC26,PC27,PC28,PC29,PC30,PC31,PC32,PC33,PC34,PC35,PC36,PC37,PC38,PC39,PC40,PC41,PC42,PC43,PC44,PC45",
-            "column_name": "row1",
+            "column_name": "PC1 TO PC8, PC11 TO PC13, PC17 TO PC45",
             "size": {
               "width": 350,
               "depth": null,
@@ -923,12 +433,14 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
+          "source_region_ids": [
+            "r-non-tower"
+          ]
         },
         {
           "record": {
             "column_no": "PC9,PC10,PC15",
-            "column_name": "row2",
+            "column_name": "PC9, PC10, PC15",
             "size": {
               "width": 300,
               "depth": null,
@@ -942,12 +454,14 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
+          "source_region_ids": [
+            "r-non-tower"
+          ]
         },
         {
           "record": {
             "column_no": "PC14",
-            "column_name": "row3",
+            "column_name": "PC14",
             "size": {
               "width": 350,
               "depth": null,
@@ -961,12 +475,14 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
+          "source_region_ids": [
+            "r-non-tower"
+          ]
         },
         {
           "record": {
             "column_no": "PC16",
-            "column_name": "row4",
+            "column_name": "PC16",
             "size": {
               "width": 300,
               "depth": null,
@@ -980,136 +496,20 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "PC17",
-            "column_name": "row5",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 1200
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "PC18",
-            "column_name": "row6",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 1500
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "PC19",
-            "column_name": "row7",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 1420
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "PC20",
-            "column_name": "row8",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 900
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "PC21",
-            "column_name": "row9",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 1000
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
-        },
-        {
-          "record": {
-            "column_no": "PC22",
-            "column_name": "row10",
-            "size": {
-              "width": 300,
-              "depth": null,
-              "length": 1000
-            },
-            "reinforcement": [],
-            "stirrups": {
-              "dia": [],
-              "spacing": []
-            },
-            "mix": null,
-            "steel_grade": null
-          },
-          "source_region_ids": []
+          "source_region_ids": [
+            "r-non-tower"
+          ]
         }
       ],
-      "expected_count": 10,
-      "actual_count": 30,
-      "warnings": [
-        "expected 10 record(s), collected 30"
-      ]
+      "expected_count": 11,
+      "actual_count": 11,
+      "warnings": []
     }
   },
   "summary": {
     "page_count": 1,
-    "record_count": 30,
-    "warning_count": 1,
-    "warnings": [
-      "expected 10 record(s), collected 30"
-    ]
+    "record_count": 11,
+    "warning_count": 0,
+    "warnings": []
   }
 }

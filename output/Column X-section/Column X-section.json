@@ -1,7 +1,7 @@
 {
   "levels": [
     {
-      "level": "THIRD FLOOR TO TERRACE LEVEL",
+      "level": "THIRD FLOOR",
       "columns": [
         {
           "column_no": "SW1",
@@ -16,7 +16,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": "75 C/C"
+            "spacing": "75 C/C, 200 C/C"
           },
           "mix": null
         },
@@ -84,7 +84,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": ""
+            "spacing": "75 C/C"
           },
           "mix": null
         },
@@ -118,8 +118,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": "",
-            "spacing": ""
+            "dia": "T8",
+            "spacing": "75 C/C, 200 C/C, 600 C/C"
           },
           "mix": null
         },
@@ -136,7 +136,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": "75 C/C"
+            "spacing": "75 C/C, 200 C/C, 600 C/C"
           },
           "mix": null
         },
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "level": "FIRST FLOOR TO THIRD FLOOR LEVEL",
+      "level": "FIRST FLOOR",
       "columns": [
         {
           "column_no": "SW1",
@@ -175,7 +175,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": "75 C/C"
+            "spacing": "75 C/C, 200 C/C"
           },
           "mix": null
         },
@@ -243,7 +243,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": ""
+            "spacing": "75 C/C"
           },
           "mix": null
         },
@@ -267,9 +267,9 @@
         {
           "column_no": "SW7",
           "size": {
-            "width": null,
+            "width": 160,
             "depth": null,
-            "length": null
+            "length": 1920
           },
           "reinforcement": [
             "52-T20",
@@ -277,8 +277,8 @@
             "16-T12"
           ],
           "stirrups": {
-            "dia": "",
-            "spacing": ""
+            "dia": "T8",
+            "spacing": "75 C/C, 200 C/C, 600 C/C"
           },
           "mix": null
         },
@@ -295,7 +295,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": "75 C/C"
+            "spacing": "75 C/C, 200 C/C, 600 C/C"
           },
           "mix": null
         },
@@ -319,7 +319,7 @@
       ]
     },
     {
-      "level": "FOUNDATION TO FIRST FLOOR LEVEL",
+      "level": "FOUNDATION",
       "columns": [
         {
           "column_no": "SW1",
@@ -401,7 +401,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": ""
+            "spacing": "75 C/C"
           },
           "mix": null
         },
@@ -433,8 +433,8 @@
             "12-T12"
           ],
           "stirrups": {
-            "dia": "",
-            "spacing": ""
+            "dia": "T10, T8",
+            "spacing": "100 C/C, 200 C/C"
           },
           "mix": null
         },
@@ -451,7 +451,7 @@
           ],
           "stirrups": {
             "dia": "T8",
-            "spacing": "75 C/C"
+            "spacing": "75 C/C, 200 C/C, 600 C/C"
           },
           "mix": null
         },

@@ -9,3 +9,4 @@ pydantic
 scipy
 numpy
 pdf2image
+opencv-python-headless

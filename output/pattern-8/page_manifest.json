@@ -7,7 +7,7 @@
       "page": 1,
       "label": "page 1",
       "status": "done",
-      "file": "page_batches\\p01_page_01.json",
+      "file": "page_batches/p01_page_01.json",
       "error": null
     }
   ]

@@ -1,7 +1,7 @@
 {
   "levels": [
     {
-      "level": "UNKNOWN",
+      "level": "ALL",
       "columns": [
         {
           "column_no": "C1",
@@ -12,8 +12,8 @@
           },
           "reinforcement": [],
           "stirrups": {
-            "dia": "",
-            "spacing": ""
+            "dia": [],
+            "spacing": []
           }
         },
         {
@@ -25,8 +25,8 @@
           },
           "reinforcement": [],
           "stirrups": {
-            "dia": "",
-            "spacing": ""
+            "dia": [],
+            "spacing": []
           }
         },
         {
@@ -38,8 +38,8 @@
           },
           "reinforcement": [],
           "stirrups": {
-            "dia": "",
-            "spacing": ""
+            "dia": [],
+            "spacing": []
           }
         }
       ]
@@ -55,8 +55,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       }
     },
     {
@@ -68,8 +68,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       }
     },
     {
@@ -81,8 +81,8 @@
       },
       "reinforcement": [],
       "stirrups": {
-        "dia": "",
-        "spacing": ""
+        "dia": [],
+        "spacing": []
       }
     }
   ]

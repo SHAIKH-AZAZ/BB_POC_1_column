@@ -12,12 +12,8 @@
         "12-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T8"
-        ],
-        "spacing": [
-          "100 C/C, 150 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": "M25",
       "steel_grade": null
@@ -35,12 +31,8 @@
         "8-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T8"
-        ],
-        "spacing": [
-          "100 C/C, 150 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": "M25",
       "steel_grade": null
@@ -57,12 +49,8 @@
         "12-20T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T8"
-        ],
-        "spacing": [
-          "100 C/C, 150 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": "M25",
       "steel_grade": null
@@ -71,20 +59,16 @@
       "column_no": "CP4",
       "column_name": "BASEMENT FLOOR COLUMN",
       "size": {
-        "width": 600,
+        "width": 900,
         "depth": null,
-        "length": 600
+        "length": 900
       },
       "reinforcement": [
         "16-25T"
       ],
       "stirrups": {
-        "dia": [
-          "10-T8"
-        ],
-        "spacing": [
-          "100 C/C, 150 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": "M25",
       "steel_grade": null
@@ -102,12 +86,8 @@
         "6-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T8"
-        ],
-        "spacing": [
-          "100 C/C, 150 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": "M25",
       "steel_grade": null
@@ -125,12 +105,8 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T8"
-        ],
-        "spacing": [
-          "100 C/C, 150 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": "M25",
       "steel_grade": null
@@ -148,12 +124,8 @@
         "8-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T8"
-        ],
-        "spacing": [
-          "100 C/C, 150 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": "M25",
       "steel_grade": null
@@ -170,12 +142,8 @@
         "12-16T"
       ],
       "stirrups": {
-        "dia": [
-          "8-T8"
-        ],
-        "spacing": [
-          "100 C/C, 150 C/C"
-        ]
+        "dia": [],
+        "spacing": []
       },
       "mix": "M25",
       "steel_grade": null

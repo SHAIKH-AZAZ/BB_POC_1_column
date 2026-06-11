@@ -5,8 +5,8 @@
     {
       "id": "p01",
       "page": 1,
-      "status": "done",
-      "file": "page_batches\\p01.json",
+      "status": "running",
+      "file": "page_batches/p01.json",
       "error": null
     }
   ]

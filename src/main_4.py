@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
 from extraction_guard import reshape_columns_to_levels
-from pattern_batching import extract_pages_with_checkpoints
+from pattern_batching import extract_levels_with_checkpoints, single_level
 from pdf_to_images import convert_pdf_to_images
 from vision_extractor import extract_from_image, extract_with_tools
 
@@ -53,11 +53,18 @@ def process_pdf(pdf_path):
 
     prompt = load_prompt()
 
-    all_columns = extract_pages_with_checkpoints(
+    # Pattern 4 is a flat COLUMN ID + size table with NO floor levels -> one
+    # synthetic level, via the shared level engine (standard level_batches layout).
+    all_columns = extract_levels_with_checkpoints(
         image_paths,
         prompt,
         pattern_number=4,
         output_folder=output_folder,
+        prompt_context=(
+            "Pattern 4 is a flat COLUMN ID + SIZE table with NO floor levels. "
+            "Treat the whole table as a single level named 'ALL'."
+        ),
+        detect_levels_fn=single_level("ALL"),
     )
 
     # ==========================
@@ -69,7 +76,7 @@ def process_pdf(pdf_path):
     for col in all_columns:
         cleaned = {
             "column_no": col.get("column_no", ""),
-            "column_name": "",
+            "column_name": col.get("column_name") or "ALL",
             "size": clean_size(col.get("size")),
             "reinforcement": [],
             "stirrups": {"dia": "", "spacing": ""},

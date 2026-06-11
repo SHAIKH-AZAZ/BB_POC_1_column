@@ -7,7 +7,7 @@
       "page": 1,
       "level": "ROOF FLOOR",
       "status": "done",
-      "file": "level_batches\\p01_l001_ROOF_FLOOR.json",
+      "file": "level_batches/p01_l001_ROOF_FLOOR.json",
       "error": null
     },
     {
@@ -15,7 +15,7 @@
       "page": 1,
       "level": "FIRST FLOOR",
       "status": "done",
-      "file": "level_batches\\p01_l002_FIRST_FLOOR.json",
+      "file": "level_batches/p01_l002_FIRST_FLOOR.json",
       "error": null
     },
     {
@@ -23,7 +23,7 @@
       "page": 1,
       "level": "GROUND FLOOR",
       "status": "done",
-      "file": "level_batches\\p01_l003_GROUND_FLOOR.json",
+      "file": "level_batches/p01_l003_GROUND_FLOOR.json",
       "error": null
     }
   ]

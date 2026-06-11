@@ -1,0 +1,25 @@
+{
+  "pattern": 4,
+  "mode": "level_batches",
+  "pages": [
+    {
+      "page": 1,
+      "levels": [
+        "ALL"
+      ]
+    }
+  ],
+  "levels": [
+    "ALL"
+  ],
+  "batches": [
+    {
+      "id": "p01_l001",
+      "page": 1,
+      "level": "ALL",
+      "status": "done",
+      "file": "level_batches/p01_l001_ALL.json",
+      "error": null
+    }
+  ]
+}

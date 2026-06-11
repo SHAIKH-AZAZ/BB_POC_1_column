@@ -5,64 +5,92 @@ from pdf_to_images import convert_pdf_to_images
 from vision_extractor import extract_from_image
 
 
-def _pattern15_from_text(pdf_path):
-    """Deterministic, STRUCTURE-based Pattern-15 detector (label/value-agnostic).
+def classify_from_text(pdf_path):
+    """Deterministic, STRUCTURE-based pattern classifier from the PDF text layer.
 
-    Pattern 15 is a "COLUMN MARKED" cross-section schedule whose column marks and
-    floor levels are real TEXT, but whose cell DATA (size / reinforcement /
-    stirrups) is drawn as GRAPHICS — it is NOT in the text layer. That is exactly
-    the condition under which the pdfplumber + crop extractor (main_15) applies.
+    These are CAD vector PDFs: the HEADERS / LABELS that identify a pattern are real
+    extractable text. We key on structural header/label signatures (not values, IDs,
+    or orientation) and return a confident pattern number, else None -> let the
+    vision classifier decide (the right call for genuinely scanned, text-less sheets).
 
-    It does NOT depend on the mark prefix (SW / LW / C / AC ...), the values, the
-    level names, or the orientation. Validated against the pattern-N.pdf samples:
-      - Pattern 3  -> rejected (has a PEDESTAL footing table)
-      - Patterns 2 / 14 -> rejected (size/steel/reinforcement DATA is in the text)
-      - Pattern 13 / scanned sheets -> rejected (no text layer) -> vision decides
-    Returns True only on a confident match; everything else falls through to the
-    vision classifier.
+    Validated against every input/pattern-N.pdf: the 8 text-bearing patterns route to
+    their N (1,2,3,7,9,10,14,15) and the 6 scanned ones (4,5,6,8,11,12,13) return None.
+
+    Disambiguations that matter:
+      - parenthesised "(TYPE-NN)" inline size code -> 10, vs Pattern 1's bare "TYPE-1"
+        group headers + "SCHEDULE OF COLUMN".
+      - the EXACT token "MARKED" (or "MKD") marks the COLUMN-MARKED family (2/14/15),
+        excluding Pattern 7's "COLUMN MARK" header and Pattern 6's stray "MARK" tokens.
+      - within that family: graphics cell data (data<3) -> 15, "ROOF FLOOR" -> 14, else 2.
     """
     try:
         import pdfplumber
         with pdfplumber.open(pdf_path) as pdf:
-            tokens = [w["text"] for w in pdf.pages[0].extract_words(x_tolerance=2, y_tolerance=2)]
+            words = [w["text"] for w in pdf.pages[0].extract_words(x_tolerance=2, y_tolerance=2)]
     except Exception:
-        return False
+        return None
 
-    if not tokens:
-        return False  # no text layer -> let the vision classifier decide
+    if len(words) < 15:
+        return None  # no / sparse text layer -> vision
 
-    upper = [t.upper() for t in tokens]
+    upper = [w.upper() for w in words]
     uset = set(upper)
+    T = " ".join(upper)
 
-    # 1) Is it a "COLUMN MARKED" / "COLUMN MKD." schedule?
-    has_column_marked = "COLUMN" in uset and any("MARK" in t or t.startswith("MKD") for t in upper)
-    if not has_column_marked:
-        return False
-
-    # 2) A PEDESTAL / footing summary table means Pattern 3 / 8, not 15.
-    if "PEDESTAL" in uset:
-        return False
-
-    # 3) In Pattern 15 the cell DATA is graphics, so size / reinforcement / stirrup
-    #    tokens are essentially absent from the text. Patterns 2 / 14 put that data
-    #    in the text, so they fail this test.
-    data_tokens = sum(
-        1 for t in upper
-        if re.search(r"@\s*\d+", t)      # stirrup spacing   e.g. T8@100C/C
-        or re.search(r"\d+\s*NOS", t)    # bar count         e.g. 4NOS-T16
-        or re.search(r"\d+-T\d+", t)     # reinforcement     e.g. 4-T25
-        or re.search(r"\d+-\d+T", t)     # reinforcement     e.g. 14-20T
-        or t == "X"                      # split size sep    e.g. 200 X 800
+    # cell-data tokens (stirrup spacing / reinforcement / bar counts) — present when
+    # the schedule writes data as TEXT, essentially absent when it is GRAPHICS.
+    data = (
+        len(re.findall(r"@\s*\d", T))
+        + len(re.findall(r"\d-T\d", T))
+        + len(re.findall(r"\bNOS\b", T))
     )
-    return data_tokens < 3
+    marked = ("MARKED" in uset) or any(t.startswith("MKD") for t in upper)
+
+    if "FOOTING MARK" in T and ("PEDESTAL SIZE" in T or "R.C.C.FOOTING" in T):
+        return 8                                    # defensive (P8 sample is scanned)
+    if "PEDESTAL" in uset:
+        return 3
+    if ("GROUP 1" in T and "GROUP 2" in T) or "LAP TO" in T:
+        return 9
+    if re.search(r"\(\s*TYPE-?\s*\d", T):
+        return 10
+    if "SCHEDULE OF COLUMN" in T or "COLUMN NOS" in T:
+        return 1
+    if "GRID REFERENCE" in T and "TOP OF COLUMN" in T:
+        return 4                                    # defensive (P4 sample is scanned)
+    if marked:
+        if data < 3:
+            return 15                               # cell data is graphics
+        if "ROOF FLOOR" in T:
+            return 14
+        return 2
+    if re.search(r"COLUMN\s+MARK\b", T) and "SIZES" in T and data == 0:
+        return 7
+    return None
+
+
+_PATTERN_SIGNATURE_LABEL = {
+    1: "SCHEDULE OF COLUMN / TYPE groups",
+    2: "COLUMN MARKED + floor-span headers (text data)",
+    3: "PEDESTAL footing table",
+    4: "COLUMN ID + GRID REFERENCE + TOP OF COLUMN",
+    7: "COLUMN MARK | SIZES (no reinforcement)",
+    8: "FOOTING MARK + PEDESTAL SIZE",
+    9: "GROUP headers / LAP levels",
+    10: "inline (TYPE-NN) size codes",
+    14: "COLUMN MARKED + ROOF FLOOR rows",
+    15: "COLUMN MARKED, graphics cell data (SW schedule)",
+}
 
 
 def detect_pattern(pdf_path, temp_folder):
 
-    # Deterministic fast path: shear-wall schedule recognisable from PDF text.
-    if _pattern15_from_text(pdf_path):
-        print("  Detected Pattern 15 from PDF text (SW marks + COLUMN MARKED, no pedestal table).")
-        return 15
+    # Deterministic fast path: classify from the PDF text layer when possible.
+    n = classify_from_text(pdf_path)
+    if n is not None:
+        sig = _PATTERN_SIGNATURE_LABEL.get(n, "structural text signature")
+        print(f"  Detected Pattern {n} from PDF text ({sig}).")
+        return n
 
     image_paths = convert_pdf_to_images(pdf_path, temp_folder)
 

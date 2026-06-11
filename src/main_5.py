@@ -7,7 +7,7 @@ from config import INPUT_DIR, OUTPUT_DIR
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
-from pattern_batching import extract_pages_with_checkpoints, parse_json_result
+from pattern_batching import extract_levels_with_checkpoints, parse_json_result, single_level
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -166,11 +166,18 @@ def process_pdf(pdf_path):
 
     prompt = load_prompt()
 
-    all_columns = extract_pages_with_checkpoints(
+    # Pattern 5 is a COLUMN ID + cross-section table with NO floor levels -> one
+    # synthetic level, via the shared level engine (standard level_batches layout).
+    all_columns = extract_levels_with_checkpoints(
         image_paths,
         prompt,
         pattern_number=5,
         output_folder=output_folder,
+        prompt_context=(
+            "Pattern 5 is a COLUMN ID + cross-section table with NO floor levels. "
+            "Treat the whole table as a single level named 'ALL'."
+        ),
+        detect_levels_fn=single_level("ALL"),
         extractor=_extract_pattern_5,
     )
 
@@ -186,7 +193,7 @@ def process_pdf(pdf_path):
             col.get("column_no")
         )
 
-        col["column_name"] = ""
+        col["column_name"] = col.get("column_name") or "ALL"
 
         col["size"] = clean_size(
             col.get("size")

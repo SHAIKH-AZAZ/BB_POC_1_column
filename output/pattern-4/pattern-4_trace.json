@@ -2,120 +2,82 @@
   "project": "column",
   "pdf_stem": "pattern-4",
   "pages": {
-    "page_1.png__p01_page": {
+    "page_1.png__p01_l001_ALL": {
       "project": "column",
-      "image_path": "C:\\Users\\AZAZ\\Desktop\\POC _ Subh\\POC-1\\Column\\output\\pattern-4\\page_1.png",
-      "generated_at": "2026-05-28T09:16:12.901038+00:00",
+      "image_path": "/home/azaz/Desktop/code/POC ZIP FILES/POC-1/BB_POC_1_column/output/pattern-4/page_1.png",
+      "generated_at": "2026-06-11T10:24:15.426692+00:00",
       "think": {
-        "image_quality": "clear",
+        "image_quality": "clear, high-contrast red grid with green text",
         "table_bounds": {
-          "x1": 30,
-          "y1": 30,
-          "x2": 950,
-          "y2": 350
+          "x1": 0.03,
+          "y1": 0.62,
+          "x2": 0.98,
+          "y2": 0.95
         },
         "column_headers": [
           "COLUMN ID",
-          "SIZE OF COLUMN a",
-          "SIZE OF COLUMN b",
+          "SIZE OF COLUMN a,b",
           "NOS.",
           "GRID REFERENCE",
           "TOP OF COLUMN"
         ],
         "storey_levels": [
-          "row1",
-          "row2",
-          "row3"
+          "ALL"
         ],
         "expected_count": 3,
         "zoom_plan": [
           {
-            "region_id": "r1",
-            "purpose": "column_header",
-            "target": "COLUMN ID",
-            "reason": "extract column IDs"
+            "region_id": "header",
+            "purpose": "header",
+            "target": "top table header row containing column titles",
+            "x1": 0.04,
+            "y1": 0.62,
+            "x2": 0.98,
+            "y2": 0.71,
+            "reason": "confirm header labels"
           },
           {
-            "region_id": "r2",
-            "purpose": "column_header",
-            "target": "SIZE OF COLUMN a",
-            "reason": "extract size width"
-          },
-          {
-            "region_id": "r3",
-            "purpose": "column_header",
-            "target": "SIZE OF COLUMN b",
-            "reason": "extract size length"
-          },
-          {
-            "region_id": "r4",
+            "region_id": "row1",
             "purpose": "row_label",
-            "target": "row1",
-            "reason": "extract column C1"
+            "target": "C1 row label and sizes",
+            "x1": 0.04,
+            "y1": 0.71,
+            "x2": 0.98,
+            "y2": 0.78,
+            "reason": "read COLUMN ID and SIZE a and b for first row"
           },
           {
-            "region_id": "r5",
+            "region_id": "row2",
             "purpose": "row_label",
-            "target": "row2",
-            "reason": "extract column C2"
+            "target": "C2 row label and sizes",
+            "x1": 0.04,
+            "y1": 0.78,
+            "x2": 0.98,
+            "y2": 0.85,
+            "reason": "read COLUMN ID and SIZE a and b for second row"
           },
           {
-            "region_id": "r6",
+            "region_id": "row3",
             "purpose": "row_label",
-            "target": "row3",
-            "reason": "extract column C3"
-          },
-          {
-            "region_id": "r7",
-            "purpose": "data_cell",
-            "target": "row1, SIZE OF COLUMN a",
-            "reason": "extract width for C1"
-          },
-          {
-            "region_id": "r8",
-            "purpose": "data_cell",
-            "target": "row1, SIZE OF COLUMN b",
-            "reason": "extract length for C1"
-          },
-          {
-            "region_id": "r9",
-            "purpose": "data_cell",
-            "target": "row2, SIZE OF COLUMN a",
-            "reason": "extract width for C2"
-          },
-          {
-            "region_id": "r10",
-            "purpose": "data_cell",
-            "target": "row2, SIZE OF COLUMN b",
-            "reason": "extract length for C2"
-          },
-          {
-            "region_id": "r11",
-            "purpose": "data_cell",
-            "target": "row3, SIZE OF COLUMN a",
-            "reason": "extract width for C3"
-          },
-          {
-            "region_id": "r12",
-            "purpose": "data_cell",
-            "target": "row3, SIZE OF COLUMN b",
-            "reason": "extract length for C3"
+            "target": "C3 row label and sizes",
+            "x1": 0.04,
+            "y1": 0.85,
+            "x2": 0.98,
+            "y2": 0.92,
+            "reason": "read COLUMN ID and SIZE a and b for third row"
           }
         ],
         "normalization_rules": [
-          "width = first value a",
-          "length = second value b",
-          "depth = null",
-          "reinforcement = []",
-          "stirrups = {dia:'', spacing:''}",
-          "column_name = ''",
-          "mix = null",
-          "steel_grade = null"
+          "Sizes are 'a × b' presented as two separate numeric cells: map first to width and second to length, set depth=null",
+          "If any size cell missing, set width and/or length to null",
+          "Reinforcement not present -> empty list",
+          "Stirrups not present -> dia and spacing empty strings",
+          "Use storey_level 'ALL' for all records"
         ],
         "extraction_order": [
-          "COLUMN ID",
-          "SIZE OF COLUMN a",
-          "SIZE OF COLUMN b"
+          "row1",
+          "row2",
+          "row3"
         ]
       },
       "zoom_regions": [],
@@ -123,7 +85,7 @@
       "records": [
         {
           "column_no": "C1",
-          "column_name": "row1",
+          "column_name": "ALL",
           "size": {
             "width": 600,
             "depth": null,
@@ -139,7 +101,7 @@
         },
         {
           "column_no": "C2",
-          "column_name": "row2",
+          "column_name": "ALL",
           "size": {
             "width": 600,
             "depth": null,
@@ -155,7 +117,7 @@
         },
         {
           "column_no": "C3",
-          "column_name": "row3",
+          "column_name": "ALL",
           "size": {
             "width": 600,
             "depth": null,
@@ -174,7 +136,7 @@
         {
           "record": {
             "column_no": "C1",
-            "column_name": "row1",
+            "column_name": "ALL",
             "size": {
               "width": 600,
               "depth": null,
@@ -188,12 +150,14 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
+          "source_region_ids": [
+            "row1"
+          ]
         },
         {
           "record": {
             "column_no": "C2",
-            "column_name": "row2",
+            "column_name": "ALL",
             "size": {
               "width": 600,
               "depth": null,
@@ -207,12 +171,14 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
+          "source_region_ids": [
+            "row2"
+          ]
         },
         {
           "record": {
             "column_no": "C3",
-            "column_name": "row3",
+            "column_name": "ALL",
             "size": {
               "width": 600,
               "depth": null,
@@ -226,7 +192,9 @@
             "mix": null,
             "steel_grade": null
           },
-          "source_region_ids": []
+          "source_region_ids": [
+            "row3"
+          ]
         }
       ],
       "expected_count": 3,

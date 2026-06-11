@@ -8,7 +8,7 @@ from config import INPUT_DIR, OUTPUT_DIR
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
-from pattern_batching import extract_pages_with_checkpoints
+from pattern_batching import extract_levels_with_checkpoints, single_level
 from vision_extractor import extract_from_image, extract_with_tools
 
 
@@ -321,11 +321,19 @@ def process_pdf(pdf_path):
 
     prompt = load_prompt()
 
-    columns = extract_pages_with_checkpoints(
+    # Pattern 8 is a footing/pedestal + basement-column schedule treated as a single
+    # level, via the shared level engine (standard level_batches layout).
+    columns = extract_levels_with_checkpoints(
         image_paths,
         prompt,
         pattern_number=8,
         output_folder=file_output_folder,
+        prompt_context=(
+            "Pattern 8 is a FOOTING + PEDESTAL + BASEMENT FLOOR COLUMN schedule with a "
+            "single storey band. Treat the whole table as one level named "
+            "'BASEMENT FLOOR COLUMN'."
+        ),
+        detect_levels_fn=single_level("BASEMENT FLOOR COLUMN"),
         extractor=lambda job, prompt_text: extract_with_fallback(
             job["img_path"],
             prompt_text,

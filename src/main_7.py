@@ -7,8 +7,9 @@ from config import INPUT_DIR, OUTPUT_DIR
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
-from pattern_batching import extract_pages_with_checkpoints
-from vision_extractor import extract_from_image, extract_with_tools
+from pattern_batching import extract_levels_with_checkpoints, single_level, upper_level_from_range
+from pattern_cleaners import standardize_records
+from vision_extractor import extract_from_image, extract_with_tools  # noqa: F401
 
 
 # ==============================
@@ -64,43 +65,39 @@ def process_pdf(pdf_path):
     output_folder = os.path.join(OUTPUT_DIR, file_name)
     os.makedirs(output_folder, exist_ok=True)
 
-    image_paths = convert_pdf_to_images(
-        pdf_path,
-        output_folder,
-        dpi=600
-    )
+    image_paths = convert_pdf_to_images(pdf_path, output_folder, dpi=600)
 
     prompt = load_prompt()
-    rows = extract_pages_with_checkpoints(
+    # Pattern 7 is a flat COLUMN MARK | SIZES table with NO floor levels, so we force
+    # ONE synthetic level and let the shared engine produce the standard level_batches
+    # layout (level_manifest.json + per-level JSON + trace).
+    raw = extract_levels_with_checkpoints(
         image_paths,
         prompt,
         pattern_number=7,
         output_folder=output_folder,
+        prompt_context=(
+            "Pattern 7 is a flat 'COLUMN MARK | SIZES' table with NO floor levels. "
+            "Treat the whole table as a single level named 'ALL'."
+        ),
+        filter_columns=False,
+        detect_levels_fn=single_level("ALL"),
     )
 
-    final_columns = []
+    for col in raw:
+        if isinstance(col, dict):
+            col["column_name"] = upper_level_from_range(col.get("column_name"))
 
-    for row in rows:
-
-        column_no = row.get("column_no", "").strip()
-        size = clean_size(row.get("size"))
-
-        if not column_no:
-            continue
-
-        final_columns.append({
-            "column_no": column_no,
-            "size": size
-        })
-
+    final_columns = standardize_records(raw, stirrups_cleaner=None, apply_column_filter=False)
     final_output = reshape_columns_to_levels(final_columns)
 
     output_file = os.path.join(output_folder, f"{file_name}.json")
-
-    with open(output_file, "w") as f:
+    with open(output_file, "w", encoding="utf-8") as f:
         json.dump(final_output, f, indent=2, ensure_ascii=False)
 
-    print(f"✅ Output saved to {output_file}")
+    total = sum(len(lvl["columns"]) for lvl in final_output.get("levels", []))
+    print(f"✅ Output saved to {output_file} "
+          f"({len(final_output.get('levels', []))} level(s), {total} column entries)")
 
 
 # ==============================
