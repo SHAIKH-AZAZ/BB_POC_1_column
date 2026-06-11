@@ -6,6 +6,8 @@ from collections import OrderedDict
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
+from pattern_cleaners import clean_size
+from pattern_batching import load_prompt
 from extraction_guard import _coerce_stirrups_to_strings
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pdf_to_images import convert_pdf_to_images
@@ -15,13 +17,6 @@ from vision_extractor import extract_from_image, extract_with_tools
 # ==============================
 # LOAD PROMPT
 # ==============================
-
-
-def load_prompt():
-    with open(
-        os.path.join(os.path.dirname(__file__), "prompt_2.txt"), "r", encoding="utf-8"
-    ) as f:
-        return f.read()
 
 
 # ==============================
@@ -119,18 +114,6 @@ def clean_stirrups(stirrups):
 # ==============================
 # CLEAN SIZE
 # ==============================
-
-
-def clean_size(size):
-
-    if not size:
-        return {"width": None, "depth": None, "length": None}
-
-    length = size.get("length")
-    if length is None:
-        length = size.get("depth")
-
-    return {"width": size.get("width"), "depth": None, "length": length}
 
 
 # ==============================
@@ -325,7 +308,7 @@ def process_pdf(pdf_path):
 
     image_paths = convert_pdf_to_images(pdf_path, output_folder, dpi=650)
 
-    prompt = load_prompt()
+    prompt = load_prompt(2)
 
     all_columns = extract_levels_with_checkpoints(
         image_paths,

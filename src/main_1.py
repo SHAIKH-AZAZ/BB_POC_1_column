@@ -7,6 +7,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
+from pattern_cleaners import clean_size
+from pattern_batching import load_prompt, atomic_write_json, safe_filename
 from extraction_guard import _coerce_stirrups_to_strings
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pattern1_cell_verifier import (
@@ -40,13 +42,6 @@ _NON_COLUMN_LABELS = {
 # ==============================
 # LOAD PROMPT
 # ==============================
-
-
-def load_prompt():
-    with open(
-        os.path.join(os.path.dirname(__file__), "prompt_1.txt"), "r", encoding="utf-8"
-    ) as f:
-        return f.read()
 
 
 def build_level_batch_prompt(base_prompt, target_level, all_levels):
@@ -87,22 +82,6 @@ Pattern 1 context:
 # ==============================
 # CLEAN SIZE
 # ==============================
-
-
-def clean_size(size):
-
-    if not size:
-        return {"width": None, "depth": None, "length": None}
-
-    length = size.get("length")
-    if length is None:
-        length = size.get("depth")
-
-    return {
-        "width": size.get("width"),
-        "depth": None,
-        "length": length,
-    }
 
 
 # ==============================
@@ -237,18 +216,6 @@ def column_entry_from_record(record):
     }
 
 
-def safe_filename(value):
-    name = re.sub(r"[^A-Za-z0-9]+", "_", str(value).strip()).strip("_")
-    return name[:80] or "UNKNOWN"
-
-
-def atomic_write_json(path, data):
-    tmp_path = f"{path}.tmp"
-    with open(tmp_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-    os.replace(tmp_path, path)
-
-
 def update_batch_status(manifest, batch_id, status, error=None):
     for batch in manifest["batches"]:
         if batch["id"] == batch_id:
@@ -372,7 +339,7 @@ def process_pdf(pdf_path):
     print(f"\n Converting {file_name}.pdf to images...")
     image_paths = convert_pdf_to_images(pdf_path, output_folder)
 
-    prompt = load_prompt()
+    prompt = load_prompt(1)
     batch_folder_name = "level_batches"
     batch_folder = os.path.join(output_folder, batch_folder_name)
     os.makedirs(batch_folder, exist_ok=True)

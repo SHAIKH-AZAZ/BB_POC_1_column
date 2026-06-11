@@ -48,6 +48,7 @@ from scipy.signal import find_peaks
 
 sys.path.insert(0, str(Path(__file__).parent))
 from config import INPUT_DIR, OUTPUT_DIR, OPENAI_API_KEY, OPENAI_MODEL, max_output_tokens_kwargs   # noqa: E402
+from pattern_batching import load_prompt
 
 
 # ═══════════════════════════════════════════════════════════════════
@@ -743,11 +744,6 @@ def process_page(img_path: str, client) -> list:
 #  §12  PDF PROCESSOR
 # ═══════════════════════════════════════════════════════════════════
 
-def load_prompt_12():
-    with open(os.path.join(os.path.dirname(__file__), "prompt_12.txt"),
-              "r", encoding="utf-8") as f:
-        return f.read()
-
 
 def process_pdf(pdf_path: str) -> None:
     stem    = os.path.splitext(os.path.basename(pdf_path))[0]
@@ -762,7 +758,7 @@ def process_pdf(pdf_path: str) -> None:
     # shared engine (emits level_batches/ + level_manifest.json + trace). NOTE: this
     # replaces main_12's bespoke whole-page green-text pipeline (process_page / _get_client
     # remain in the file but are no longer used) — spot-check extraction quality.
-    prompt = load_prompt_12()
+    prompt = load_prompt(12)
     raw_cols = extract_levels_with_checkpoints(
         image_paths,
         prompt,

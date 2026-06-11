@@ -3,20 +3,12 @@ import json
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
+from pattern_batching import load_prompt
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
 from pattern_batching import extract_levels_with_checkpoints, upper_level_from_range
 from vision_extractor import extract_from_image, extract_with_tools
-
-
-def load_prompt():
-    with open(
-        os.path.join(os.path.dirname(__file__), "prompt_6.txt"),
-        "r",
-        encoding="utf-8"
-    ) as f:
-        return f.read()
 
 
 def _flatten_to_strings(value):
@@ -83,7 +75,7 @@ def process_pdf(pdf_path):
         dpi=700
     )
 
-    prompt = load_prompt()
+    prompt = load_prompt(6)
     raw_columns = extract_levels_with_checkpoints(
         image_paths,
         prompt,

@@ -4,6 +4,8 @@ import re
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
+from pattern_cleaners import clean_size
+from pattern_batching import load_prompt
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
@@ -38,14 +40,6 @@ def _extract_pattern_5(job, prompt):
 # LOAD PROMPT
 # ==============================
 
-def load_prompt():
-    with open(
-        os.path.join(os.path.dirname(__file__), "prompt_5.txt"),
-        "r",
-        encoding="utf-8"
-    ) as f:
-        return f.read()
-
 
 # ==============================
 # CLEAN COLUMN NUMBER
@@ -67,21 +61,6 @@ def clean_column_no(col_no):
 # ==============================
 # CLEAN SIZE
 # ==============================
-
-def clean_size(size):
-
-    if not size:
-        return {
-            "width": None,
-            "depth": None,
-            "length": None
-        }
-
-    return {
-        "width": size.get("width"),
-        "depth": None,
-        "length": size.get("length")
-    }
 
 
 # ==============================
@@ -164,7 +143,7 @@ def process_pdf(pdf_path):
         dpi=650
     )
 
-    prompt = load_prompt()
+    prompt = load_prompt(5)
 
     # Pattern 5 is a COLUMN ID + cross-section table with NO floor levels -> one
     # synthetic level, via the shared level engine (standard level_batches layout).

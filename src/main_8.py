@@ -5,6 +5,7 @@ from tqdm import tqdm
 from PIL import Image
 
 from config import INPUT_DIR, OUTPUT_DIR
+from pattern_batching import load_prompt
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
@@ -15,10 +16,6 @@ from vision_extractor import extract_from_image, extract_with_tools
 # ================================
 # Load Prompt
 # ================================
-def load_prompt():
-    prompt_path = os.path.join(os.path.dirname(__file__), "prompt_8.txt")
-    with open(prompt_path, "r", encoding="utf-8") as f:
-        return f.read()
 
 
 # ================================
@@ -319,7 +316,7 @@ def process_pdf(pdf_path):
     print(f"\n📄 Converting {file_name}.pdf to images...")
     image_paths = convert_pdf_to_images(pdf_path, file_output_folder)
 
-    prompt = load_prompt()
+    prompt = load_prompt(8)
 
     # Pattern 8 is a footing/pedestal + basement-column schedule treated as a single
     # level, via the shared level engine (standard level_batches layout).

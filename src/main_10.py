@@ -28,9 +28,11 @@ import tempfile
 from collections import defaultdict
 from tqdm import tqdm
 
-import fitz  # PyMuPDF
+# pyrefly: ignore [missing-import]
+import fitz  # PyMuPDF  
 
 from config import INPUT_DIR, OUTPUT_DIR
+from pattern_batching import load_prompt
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
@@ -59,14 +61,6 @@ PATTERN10_EXTRACTION_MODE = os.getenv("PATTERN10_EXTRACTION_MODE", "precrop").st
 # ─────────────────────────────────────────────────────────────────────────────
 # Shared utilities  (identical to pattern-9)
 # ─────────────────────────────────────────────────────────────────────────────
-
-def load_prompt():
-    with open(
-        os.path.join(os.path.dirname(__file__), "prompt_10.txt"),
-        "r",
-        encoding="utf-8",
-    ) as f:
-        return f.read()
 
 
 def cluster_1d(positions: list) -> list:
@@ -816,7 +810,7 @@ def process_pdf(pdf_path: str):
     print(f"  Rows    ({len(layout['row_names'])}): {layout['row_names']}")
 
     image_paths = convert_pdf_to_images(pdf_path, output_folder, dpi=600)
-    prompt = load_prompt()
+    prompt = load_prompt(10)
 
     # Pattern-9 procedure: reuse main_10's accurate floor detection (layout row_names)
     # as the level list, then extract per level via the shared engine -> level_batches/

@@ -18,6 +18,7 @@ import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from config import INPUT_DIR, OUTPUT_DIR
+from pattern_cleaners import clean_size
 from pdf_to_images import convert_pdf_to_images
 from vision_extractor import extract_from_image
 from pattern15_pdf_grid import build_pattern15_cells, crop_cell_image
@@ -39,15 +40,6 @@ _LEVEL_ORDER = [
 # ==============================
 # CLEANERS
 # ==============================
-
-def clean_size(size):
-    if not isinstance(size, dict):
-        return {"width": None, "depth": None, "length": None}
-    return {
-        "width": size.get("width"),
-        "depth": None,
-        "length": size.get("length"),
-    }
 
 
 def clean_reinforcement(values):

@@ -4,6 +4,7 @@ import re
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
+from pattern_batching import load_prompt
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
@@ -15,14 +16,6 @@ from vision_extractor import extract_from_image, extract_with_tools  # noqa: F40
 # ==============================
 # LOAD PROMPT
 # ==============================
-
-def load_prompt():
-    with open(
-        os.path.join(os.path.dirname(__file__), "prompt_7.txt"),
-        "r",
-        encoding="utf-8"
-    ) as f:
-        return f.read()
 
 
 # ==============================
@@ -67,7 +60,7 @@ def process_pdf(pdf_path):
 
     image_paths = convert_pdf_to_images(pdf_path, output_folder, dpi=600)
 
-    prompt = load_prompt()
+    prompt = load_prompt(7)
     # Pattern 7 is a flat COLUMN MARK | SIZES table with NO floor levels, so we force
     # ONE synthetic level and let the shared engine produce the standard level_batches
     # layout (level_manifest.json + per-level JSON + trace).

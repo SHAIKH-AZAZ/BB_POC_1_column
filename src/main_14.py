@@ -5,25 +5,18 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 
 from config import INPUT_DIR, OUTPUT_DIR
+from pattern_batching import load_prompt
 from pdf_to_images import convert_pdf_to_images
 from extraction_guard import reshape_columns_to_levels
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pattern_batching import MAX_LEVEL_WORKERS, atomic_write_json, safe_filename, trace_key_for
-from pattern_cleaners import standardize_records
+from pattern_cleaners import clean_mix, standardize_records
 from vision_extractor import detect_levels_from_image, extract_from_image, extract_with_tools
 
 
 # ==============================
 # LOAD PROMPT
 # ==============================
-
-def load_prompt():
-    with open(
-        os.path.join(os.path.dirname(__file__), "prompt_14.txt"),
-        "r",
-        encoding="utf-8"
-    ) as f:
-        return f.read()
 
 
 # ==============================
@@ -110,18 +103,6 @@ def fix_alignment(column_groups, floor_data, floor_name):
 # ==============================
 # CLEAN HELPERS
 # ==============================
-
-def clean_mix(mix):
-    if not mix:
-        return None
-    text = str(mix).upper()
-    match = re.search(r"M[- ]?\d+", text)
-    if match:
-        grade = match.group().replace(" ", "")
-        if "-" not in grade:
-            grade = grade.replace("M", "M-")
-        return grade
-    return None
 
 
 def discover_floors(image_path, pattern_number=14):
@@ -230,7 +211,7 @@ def process_pdf(pdf_path):
         dpi=700
     )
 
-    prompt = load_prompt()
+    prompt = load_prompt(14)
 
     batch_folder_name = "level_batches"
     batch_folder = os.path.join(output_folder, batch_folder_name)

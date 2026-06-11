@@ -10,6 +10,16 @@ from vision_extractor import detect_levels_from_image, extract_with_tools
 
 MAX_LEVEL_WORKERS = int(os.getenv("MAX_LEVEL_WORKERS", os.getenv("PATTERN_MAX_WORKERS", "3")))
 
+
+def load_prompt(pattern_number):
+    """Read the extraction prompt for a pattern from `prompt_<n>.txt` (same dir)."""
+    with open(
+        os.path.join(os.path.dirname(__file__), f"prompt_{pattern_number}.txt"),
+        "r",
+        encoding="utf-8",
+    ) as f:
+        return f.read()
+
 # 1-6 letter prefix (C, AC, PC, GC, SW, RC, BC, CP, COL, COLUMN, ...) directly
 # followed by digits and an optional trailing letter. No whitespace between
 # the prefix and the digits — that prevents "300 X 1150" from matching as

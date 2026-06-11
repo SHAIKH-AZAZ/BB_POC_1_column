@@ -25,6 +25,7 @@ import json
 import os
 
 from config import INPUT_DIR, OUTPUT_DIR
+from pattern_batching import load_prompt
 from extraction_guard import reshape_columns_to_levels
 from image_tools import crop_upscale, crop_upscale_path, zoom_and_extract  # noqa: F401
 from pattern_batching import extract_levels_with_checkpoints, upper_level_from_range
@@ -35,14 +36,6 @@ from pdf_to_images import convert_pdf_to_images
 # ==============================
 # LOAD PROMPT
 # ==============================
-
-def load_prompt():
-    with open(
-        os.path.join(os.path.dirname(__file__), "prompt_9.txt"),
-        "r",
-        encoding="utf-8",
-    ) as f:
-        return f.read()
 
 
 # ==============================
@@ -57,7 +50,7 @@ def process_pdf(pdf_path):
     print(f"\n📄 Converting {file_name}.pdf to images...")
     image_paths = convert_pdf_to_images(pdf_path, output_folder, dpi=700)
 
-    prompt = load_prompt()
+    prompt = load_prompt(9)
 
     # Step 2 + 3 + 4: level detection + per-level column detection +
     # per-cell extraction, all driven by the vision model with the
